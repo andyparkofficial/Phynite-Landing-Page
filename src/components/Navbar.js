@@ -13,7 +13,7 @@ function Navbar(props) {
 
   return (
     <div className="fixed top-0 z-40 w-screen blur-navbar">
-      <header className="h-20 bg-mainGray bg-opacity-50 w-full flex justify-center" >
+      <header className="h-20 bg-mainGray bg-opacity-75 w-full flex justify-center" >
         <div className="w-[1370px]">
             <div className="flex p-5 pr-7">
             <Link exact to={"/"}>
