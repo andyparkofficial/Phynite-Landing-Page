@@ -6,6 +6,8 @@ export default function FAQ (props) {
     return (
         <div>
             <Navbar isClicked={"2"} />
+            <div className="h-screen"></div>
+            <Footer />
         </div>
     )
 }

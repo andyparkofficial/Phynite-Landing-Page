@@ -6,6 +6,8 @@ export default function GetStarted (props) {
     return (
         <div>
             <Navbar isClicked={"3"} />
+            <div className="h-screen"></div>
+            <Footer />
         </div>
     )
 }

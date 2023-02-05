@@ -4,11 +4,13 @@ import About from "./pages/About.js"
 import Blog from "./pages/Blog.js"
 import FAQ from "./pages/FAQ.js"
 import GetStarted from "./pages/GetStarted.js"
+import ScrollToTop from "./hooks/ScrollToTop.js";
 
 function App() {
   return (
     <div className="">
-      <Switch>
+      <ScrollToTop>
+        <Switch>
           <Route exact path="/">
             <Home
             />
@@ -30,6 +32,7 @@ function App() {
             />
           </Route>
         </Switch>
+      </ScrollToTop>
     </div>
   );
 }

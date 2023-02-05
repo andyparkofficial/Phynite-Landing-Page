@@ -6,6 +6,8 @@ export default function Blog (props) {
     return (
         <div>
             <Navbar isClicked={"1"} />
+            <div className="h-screen"></div>
+            <Footer />
         </div>
     )
 }
