@@ -5,7 +5,7 @@ import Footer from "../components/Footer.js"
 export default function GetStarted (props) {
     return (
         <div>
-            <Navbar isClicked={"3"} />
+            <Navbar isClicked={"4"} />
             <div className="h-screen"></div>
             <Footer />
         </div>

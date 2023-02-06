@@ -4,7 +4,9 @@ import About from "./pages/About.js"
 import Blog from "./pages/Blog.js"
 import FAQ from "./pages/FAQ.js"
 import GetStarted from "./pages/GetStarted.js"
+import WhitePaper from "./pages/WhitePaper.js"
 import ScrollToTop from "./hooks/ScrollToTop.js";
+
 
 function App() {
   return (
@@ -22,6 +24,9 @@ function App() {
           <Route path="/blog">
             <Blog
             />
+          </Route>
+          <Route path="/phyniteProtocol">
+            <WhitePaper />
           </Route>
           <Route path="/faq">
             <FAQ

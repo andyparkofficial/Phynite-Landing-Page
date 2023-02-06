@@ -20,11 +20,8 @@ export default function Footer() {
                         <Link to="/faq">
                             <h2 className="text-sm text-white font-semibold">FAQ</h2>
                         </Link>
-                        <Link to="/whitepaper">
-                            <h2 className="text-sm text-white font-semibold">White Paper</h2>
-                        </Link>
-                        <Link to="/developerDocs">
-                            <h2 className="text-sm text-white font-semibold">Developer Docs</h2>
+                        <Link to="/phyniteProtocol">
+                            <h2 className="text-sm text-white font-semibold">Phynite Protocol</h2>
                         </Link>
                     </div>
                     <div className="w-[25%] h-full pt-2 flex flex-col gap-y-4">
