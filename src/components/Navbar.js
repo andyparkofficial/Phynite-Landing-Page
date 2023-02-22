@@ -15,7 +15,7 @@ function Navbar(props) {
     <div className="fixed top-0 z-40 w-screen blur-navbar">
       <header className="h-20 bg-mainGray bg-opacity-75 w-full flex justify-center" >
         <div className="w-[1370px]">
-            <div className="flex p-5 pr-7">
+            <div className="flex p-5 px-7">
             <Link exact to={"/"}>
                 <img
                 src={phyniteLogo}
@@ -61,18 +61,10 @@ function Navbar(props) {
                             isClicked[3] ? "text-phyniteBlue" : "text-white"
                         }`}
                         >
-                        FAQ
+                        Get Started
                         </li>
                     </Link>
-                    <Link to={"/getStarted"}>
-                        <li
-                        className={`p-2 px-5 cursor-pointer transition ease-in-out duration-200 hover:text-phyniteBlue overflow-hidden ${
-                            isClicked[4] ? "text-phyniteBlue" : "text-white"
-                        }`}
-                        >        
-                        Get Started
-                        </li>      
-                    </Link>
+
                     </ul>
                     
                 </div>

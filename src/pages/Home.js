@@ -39,6 +39,34 @@ export default function Home(props) {
         })
     }
 
+    function toggleTradeMenu(menuIndex) {
+        setActiveMenuTrade((prevMenu) => {
+            let newMenu = [...prevMenu]
+            if (newMenu[menuIndex] === false) {
+                newMenu = [false, false, false]
+                newMenu[menuIndex] = true
+            } else {
+                newMenu[menuIndex] = false
+            }
+            
+            return newMenu
+        })
+    }
+
+    function toggleRedeemMenu(menuIndex) {
+        setActiveMenuRedeem((prevMenu) => {
+            let newMenu = [...prevMenu]
+            if (newMenu[menuIndex] === false) {
+                newMenu = [false, false, false]
+                newMenu[menuIndex] = true
+            } else {
+                newMenu[menuIndex] = false
+            }
+            
+            return newMenu
+        })
+    }
+
     return (
         <div className="">
             <Navbar />
@@ -55,7 +83,7 @@ export default function Home(props) {
             </div>
             <div className="w-full min-h-[500px] flex justify-center mb-32">
                 <div className="w-[1300px]  h-full flex flex-col">
-                    <h1 className="text-white text-3xl font-[500] font-poppins">Phynite Marketplace</h1>
+                    <h1 className="text-white text-3xl font-semibold font-poppins">Phynite Marketplace</h1>
                     <div className="flex justify-center">
                         <div className="w-[50%] h-full flex-col flex font-poppins bg-gray0">
                         </div>
@@ -84,7 +112,7 @@ export default function Home(props) {
                     
                 </div>
             </div>
-            <div className="w-full h-[800px] flex justify-center mb-12">
+            <div className="w-full flex justify-center mb-16">
                 <div className="w-[1300px] h-full flex flex-col items-center">
                     <div className="flex flex-col items-center font-poppins w-full h-full">
                         <h1 className="text-white text-4xl font-semibold mb-6">How does Phynite work?</h1>
@@ -148,10 +176,10 @@ export default function Home(props) {
                                             number={1}
                                             itemName={"Item Submission"}
                                             itemIndex={0}
-                                            menuOpened={activeMenuMint[0]}
-                                            toggleDropdownMenu={()=>toggleMintMenu(0)}
+                                            menuOpened={activeMenuTrade[0]}
+                                            toggleDropdownMenu={()=>toggleTradeMenu(0)}
                                         >
-                                            <DescriptionDropdownMenu menuOpened={activeMenuMint[0]}>
+                                            <DescriptionDropdownMenu menuOpened={activeMenuTrade[0]}>
                                                 <div className="text-white p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
                                             </DescriptionDropdownMenu>
                                         </DescriptionItem>
@@ -159,10 +187,10 @@ export default function Home(props) {
                                             number={2}
                                             itemName={"Verification and Vaulting"}
                                             itemIndex={1}
-                                            menuOpened={activeMenuMint[1]}
-                                            toggleDropdownMenu={()=>toggleMintMenu(1)}
+                                            menuOpened={activeMenuTrade[1]}
+                                            toggleDropdownMenu={()=>toggleTradeMenu(1)}
                                         >
-                                            <DescriptionDropdownMenu menuOpened={activeMenuMint[1]}>
+                                            <DescriptionDropdownMenu menuOpened={activeMenuTrade[1]}>
                                                 <div className="text-white p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
                                             </DescriptionDropdownMenu>
                                         </DescriptionItem>
@@ -170,10 +198,10 @@ export default function Home(props) {
                                             number={3}
                                             itemName={"Minting and Transfer"}
                                             itemIndex={2}
-                                            menuOpened={activeMenuMint[2]}
-                                            toggleDropdownMenu={()=>toggleMintMenu(2)}
+                                            menuOpened={activeMenuTrade[2]}
+                                            toggleDropdownMenu={()=>toggleTradeMenu(2)}
                                         >
-                                            <DescriptionDropdownMenu menuOpened={activeMenuMint[2]}>
+                                            <DescriptionDropdownMenu menuOpened={activeMenuTrade[2]}>
                                                 <div className="text-white p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
                                             </DescriptionDropdownMenu>
                                         </DescriptionItem>
@@ -193,10 +221,10 @@ export default function Home(props) {
                                             number={1}
                                             itemName={"Item Submission"}
                                             itemIndex={0}
-                                            menuOpened={activeMenuMint[0]}
-                                            toggleDropdownMenu={()=>toggleMintMenu(0)}
+                                            menuOpened={activeMenuRedeem[0]}
+                                            toggleDropdownMenu={()=>toggleRedeemMenu(0)}
                                         >
-                                            <DescriptionDropdownMenu menuOpened={activeMenuMint[0]}>
+                                            <DescriptionDropdownMenu menuOpened={activeMenuRedeem[0]}>
                                                 <div className="text-white p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
                                             </DescriptionDropdownMenu>
                                         </DescriptionItem>
@@ -204,10 +232,10 @@ export default function Home(props) {
                                             number={2}
                                             itemName={"Verification and Vaulting"}
                                             itemIndex={1}
-                                            menuOpened={activeMenuMint[1]}
-                                            toggleDropdownMenu={()=>toggleMintMenu(1)}
+                                            menuOpened={activeMenuRedeem[1]}
+                                            toggleDropdownMenu={()=>toggleRedeemMenu(1)}
                                         >
-                                            <DescriptionDropdownMenu menuOpened={activeMenuMint[1]}>
+                                            <DescriptionDropdownMenu menuOpened={activeMenuRedeem[1]}>
                                                 <div className="text-white p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
                                             </DescriptionDropdownMenu>
                                         </DescriptionItem>
@@ -215,10 +243,10 @@ export default function Home(props) {
                                             number={3}
                                             itemName={"Minting and Transfer"}
                                             itemIndex={2}
-                                            menuOpened={activeMenuMint[2]}
-                                            toggleDropdownMenu={()=>toggleMintMenu(2)}
+                                            menuOpened={activeMenuRedeem[2]}
+                                            toggleDropdownMenu={()=>toggleRedeemMenu(2)}
                                         >
-                                            <DescriptionDropdownMenu menuOpened={activeMenuMint[2]}>
+                                            <DescriptionDropdownMenu menuOpened={activeMenuRedeem[2]}>
                                                 <div className="text-white p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
                                             </DescriptionDropdownMenu>
                                         </DescriptionItem>
@@ -235,7 +263,7 @@ export default function Home(props) {
             </div>
             <div className="w-full flex justify-center mb-32">
                 <div className="w-[1300px] font-poppins flex flex-col">
-                    <h1 className="text-white text-semibold text-3xl font-[500] mb-4">Learn More</h1>
+                    <h1 className="text-white text-semibold text-3xl font-semibold mb-4">Learn More</h1>
                     <div className="flex w-fullS min-h-[400px] mb-6">
                         <div className="bg-gray3 border border-gray1 rounded-xl flex flex-grow h-full mr-6"></div>
                         <div className="w-[200px] h-full flex flex-col gap-y-6">
