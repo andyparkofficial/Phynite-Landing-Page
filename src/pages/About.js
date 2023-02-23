@@ -19,6 +19,8 @@ export default function About (props) {
         })
     }, [selectedCBNFTSection])
 
+    // <button className="h-4 w-4 rounded-full bg-gray1 hover:brightness-150 translate-x-[8px] -translate-y-[7px] bg-opacity-50"></button>
+
     return (
         <div>
             <Navbar isClicked={"0"} />
@@ -123,7 +125,41 @@ export default function About (props) {
                 </div>
                 <div className="w-[1300px] mb-28">
                     <h1 className="text-4xl font-poppins font-semibold text-white mb-10">Timeline</h1>
-                    <div className="h-[300px] w-full rounded-xl bg-gray4 border border-gray1"></div>
+                    <div className="h-[300px] w-full rounded-xl bg-gray4 border border-gray1 flex flex-col">
+                        <div className="h-[140px] w-full"></div>
+                        <div className="h-[20px] w-full px-8  ">
+                            <div className="bg-gray2 flex-col justify-center flex">
+                                <div className="h-2 w-full flex">
+                                    <div className="h-full w-1/4 border-x-2 border-l-[3px] border-gray0"></div>
+                                    <div className="h-full w-1/4 border-x-2 border-gray0"></div>
+                                    <div className="h-full w-1/4 border-x-2 border-gray0"></div>
+                                    <div className="h-full w-1/4 border-x-2 border-r-[3px] border-gray0"></div>
+                                </div>
+                                <div className="h-[2px] w-full bg-gray0 flex">
+                                    <div className="w-1/4 flex justify-end">
+                                        <button className="h-2 w-2 rounded-full bg-gray0 hover:brightness-150 translate-x-[4.5px] -translate-y-[3px] bg-opacity-50"></button>
+                                    </div>
+                                    <div className="w-1/4 flex justify-end">
+                                        <button className="h-2 w-2 rounded-full bg-gray0 hover:brightness-150 translate-x-[4.5px] -translate-y-[3px] bg-opacity-50"></button>
+                                    </div>
+                                    <div className="w-1/4 flex justify-end">
+                                        <button className="h-2 w-2 rounded-full bg-gray0 hover:brightness-150 translate-x-[3.5px] -translate-y-[3px] bg-opacity-50"></button>
+                                    </div>
+                                    <div className="w-1/4 flex justify-end">
+                                        <button className="h-2 w-2 rounded-full bg-gray0 hover:brightness-150 translate-x-[2px] -translate-y-[3px] bg-opacity-50"></button>
+                                    </div>
+                                </div>
+                                <div className="h-2 w-full flex">
+                                    <div className="h-full w-1/4 border-x-2 border-l-[3px] border-gray0"></div>
+                                    <div className="h-full w-1/4 border-x-2 border-gray0"></div>
+                                    <div className="h-full w-1/4 border-x-2 border-gray0"></div>
+                                    <div className="h-full w-1/4 border-x-2 border-r-[3px] border-gray0"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div className="h-[140px] w-full"></div>
+                    </div>
                 </div>
                 <div className="w-[1300px] mb-28">
                     <div className="w-full flex justify-center">
