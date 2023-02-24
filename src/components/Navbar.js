@@ -55,7 +55,7 @@ function Navbar(props) {
                         Protocol
                         </li>
                     </Link>
-                    <Link to={"/faq"}>
+                    <Link to={"/getStarted"}>
                         <li
                         className={`p-2 px-5 cursor-pointer transition ease-in-out duration-200 hover:text-phyniteBlue overflow-hidden ${
                             isClicked[3] ? "text-phyniteBlue" : "text-white"

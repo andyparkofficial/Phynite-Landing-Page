@@ -45,10 +45,10 @@ export default function Blog(props) {
                 </div>
                 <div className="w-[1300px] flex flex-col mb-16">
                     <div className="w-full ">
-                        <h2 className="text-4xl text-white font-poppins font-[500] mb-10">
+                        <h2 className="text-4xl text-white font-poppins font-[500] mb-8">
                             Recent
                         </h2>
-                        <div className="rounded-2xl bg-gray4 border border-gray1 h-[400px] bg-gradient-to-br from-mango to-salmon brightness-90"></div>
+                        <div className="rounded-2xl bg-gray4 border border-gray1 h-[400px] bg-gradient-to-r from-gray0 via-ice to-gray1 brightness-90"></div>
                     </div>
                 </div>
                 <div className="text-3xl text-white font-[500] w-[1300px] mb-6">Recommended</div>

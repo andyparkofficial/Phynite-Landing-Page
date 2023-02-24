@@ -6,6 +6,7 @@ import CrystalGlobe from "../assets/crystal-globe.png"
 import CrystalHand from "../assets/crystal-hand.png"
 import DescriptionDropdownMenu from "../components/DescriptionDropdownMenu.js"
 import DescriptionItem from "../components/DescriptionItem.js"
+import {Link} from "react-router-dom"
 
 
 export default function Home(props) {
@@ -76,7 +77,8 @@ export default function Home(props) {
                 <div className="w-[1300px]  h-full flex justify-center">
                     <div className="w-[60%] h-full flex flex-col justify-center">
                         <h1 className="text-5xl font-semibold text-phyniteBlue leading-tight font-poppins">The Web3 Marketplace<br/>for Physical Collectibles</h1>
-                        <h2 className="text-xl mt-8 text-white font-light font-poppins">The fastest, safest, most forward-thinking way to trade<br/> physical collectibles. Only on Phynite.</h2>
+                        <h2 className="text-xl mt-6 mb-6 text-white font-light font-poppins">The fastest, safest, most forward-thinking way to trade<br/> physical collectibles. Only on Phynite.</h2>
+                        <Link to="/getStarted" className="text-3xl font-semibold font-poppins text-gray1 bg-gradient-to-br from-phyniteBlue to-phyniteBlue hover:brightness-125 hover:from-mango hover:to-salmon duration-300 rounded-xl w-[300px] py-2 text-center">Get Started</Link>
                     </div>
                     <div className="w-[40%]  h-full flex justify-center items-center">
                         <img className="w-[500px] h-[500px]" src={CrystalPhyniteLogo}></img>
@@ -265,7 +267,7 @@ export default function Home(props) {
             </div>
             <div className="w-full flex justify-center mb-32">
                 <div className="w-[1300px] font-poppins flex flex-col">
-                    <h1 className="text-white text-semibold text-4xl font-semibold mb-4">Learn More</h1>
+                    <h1 className="text-white text-semibold text-4xl font-semibold mb-6">Learn More</h1>
                     <div className="flex w-fullS min-h-[400px] mb-6">
                         <div className="bg-gray3 border border-gray1 rounded-xl flex flex-grow h-full mr-6"></div>
                         <div className="w-[200px] h-full flex flex-col gap-y-6">

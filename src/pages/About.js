@@ -5,7 +5,12 @@ import CrystalPhyniteLogo from "../assets/crystal-phynite-logo.png"
 import RandomPlaceholder from "../assets/random-placeholder.png"
 import Arrow from "../assets/right-arrow.png"
 import GrayArrow from "../assets/gray-left-arrow.png"
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
+import AndyProfilePic from "../assets/andy-profile-picture.png"
+import BillProfilePic from "../assets/bill-profile-picture.png"
+import EsaProfilePic from "../assets/esa-profile-picture.png"
+import LinkedInIcon from "../assets/linkedin-icon.png"
+import TwitterIcon from "../assets/gray-twitter-icon.png"
 
 export default function About (props) {
     const [selectedCBNFTSection, setSelectedCBNFTSection] = useState(0)
@@ -90,7 +95,7 @@ export default function About (props) {
                         <div className="w-[35%] pr-16 flex flex-col font-poppins font-[500]">
                             <div className="pb-3 h-1/3 w-full">
                                 <button onClick={()=>setSelectedCBNFTSection(0)} className={sectionButtonStyle[0]}>
-                                    <h1 className="text-xl">CBNFTs: Overview</h1>
+                                    <h1 className="text-xl">Overview: CBNFTs</h1>
                                 </button>
                             </div>
                             
@@ -109,7 +114,7 @@ export default function About (props) {
                         <div className="w-[65%] h-full">
                             {selectedCBNFTSection === 0 && (
                             <div className="w-full h-full font-poppins pt-2 flex flex-col">
-                                <h1 className="text-white text-2xl font-[500]">CBNFTs: Overview</h1>
+                                <h1 className="text-white text-2xl font-[500]">Overview: CBNFTs</h1>
                                 <p className="text-lg text-gray-400 w-full mt-8" >All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT.</p>
                                 <div className="flex flex-grow items-end">
                                     <Link to="/phyniteProtocol"  className="flex items-center hover:border-gray0 hover:brightness-125 duration-150 bg-mainGray rounded-2xl border-gray1 border p-2 w-44 justify-center">
@@ -226,7 +231,7 @@ export default function About (props) {
                                         {selectedQuarter === 0 ? (
                                             <button onClick={()=>setSelectedQuarter(0)} className="text-white font-[500] text-3xl p-2 duration-150">Q2</button>
                                         ):(
-                                            <button onClick={()=>setSelectedQuarter(0)} className="text-white font-[500] text-2xl p-2 hover:text-3xl duration-150">Q2</button>        
+                                            <button onClick={()=>setSelectedQuarter(0)} className="text-gray-300 font-[500] text-2xl p-2 hover:text-3xl duration-150">Q2</button>        
                                         )}
                                         
                                     </div>
@@ -234,7 +239,7 @@ export default function About (props) {
                                         {selectedQuarter === 1 ? (
                                             <button onClick={() => setSelectedQuarter(1)} className="text-white font-[500] text-3xl p-2 duration-150">Q3</button>
                                         ):(
-                                            <button onClick={() => setSelectedQuarter(1)} className="text-white font-[500] text-2xl p-2 hover:text-3xl duration-150">Q3</button>
+                                            <button onClick={() => setSelectedQuarter(1)} className="text-gray-300 font-[500] text-2xl p-2 hover:text-3xl duration-150">Q3</button>
                                         )}
                                         
                                     </div>
@@ -242,7 +247,7 @@ export default function About (props) {
                                         {selectedQuarter === 2 ? (
                                             <button onClick={() => setSelectedQuarter(2)} className="text-white font-[500] text-3xl p-2 duration-150">Q4</button>
                                         ):(
-                                            <button onClick={() => setSelectedQuarter(2)} className="text-white font-[500] text-2xl p-2 hover:text-3xl duration-150">Q4</button>    
+                                            <button onClick={() => setSelectedQuarter(2)} className="text-gray-300 font-[500] text-2xl p-2 hover:text-3xl duration-150">Q4</button>    
                                         )}
                                         
                                     </div>
@@ -254,7 +259,7 @@ export default function About (props) {
                                         {selectedQuarter === 3 ? (
                                             <button onClick={()=>setSelectedQuarter(3)} className="text-white font-[500] text-3xl p-2 duration-150">Q1</button>
                                         ):(
-                                            <button onClick={()=>setSelectedQuarter(3)} className="text-white font-[500] text-2xl p-2 hover:text-3xl duration-150">Q1</button>
+                                            <button onClick={()=>setSelectedQuarter(3)} className="text-gray-300 font-[500] text-2xl p-2 hover:text-3xl duration-150">Q1</button>
                                         )}
                                         
                                     </div>
@@ -311,17 +316,60 @@ export default function About (props) {
                 </div>
                 <div className="w-[1300px] mb-28">
                     <div className="w-full flex justify-center">
-                        <h1 className="text-4xl font-poppins font-semibold text-white mb-10">The Team</h1>
+                        <h1 className="text-4xl font-poppins font-semibold text-white mb-10">The Founders</h1>
                     </div>
-                    <div className="w-full h-[500px] flex">
+                    <div className="w-full h-[520px] flex">
                         <div className="w-1/3 pr-6 h-full">
-                            <div className="w-full rounded-2xl bg-gray4 border border-gray1 h-full"></div>
+                            <div className="w-full rounded-3xl border border-gray1 h-full flex flex-col items-center p-10 bg-gradient-to-b from-gray2 to-gray4">
+                                <img src={AndyProfilePic} className="h-[300px] w-[300px] rounded-full"></img>
+                                <div className="w-full h-1/4 pt-4 flex-col flex items-center">
+                                    <h1 className="text-white font-poppins text-2xl font-semibold mb-2 border-t border-gray1 w-[300px] text-center pt-4">Andy Park</h1>
+                                    <h2 className="text-gray-400 font-poppins text-xl mb-2">CEO</h2>
+                                    <div className="flex gap-x-2">
+                                        <a href="https://www.linkedin.com/in/andy-park-b5a76a236/" className="" target="_blank">
+                                            <img src={LinkedInIcon} className="h-8 w-8"></img>
+                                        </a>
+                                        <a>
+                                            <img src={TwitterIcon} className="h-8 w-8"></img>
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
                         </div>
                         <div className="w-1/3 px-2 h-full">
-                            <div className="w-full rounded-2xl bg-gray4 border border-gray1 h-full"></div>
+                            <div className="w-full rounded-3xl border border-gray1 h-full flex flex-col items-center p-10 bg-gradient-to-b from-gray2 to-gray4">
+                                <img src={EsaProfilePic} className="h-[300px] w-[300px]  rounded-full"></img>
+                                <div className="w-full h-1/4 pt-4 flex-col flex items-center">
+                                    <h1 className="text-white font-poppins text-2xl font-semibold border-t border-gray1 w-[300px] text-center pt-4 mb-2">Esa Sait</h1>
+                                    <h2 className="text-gray-400 font-poppins text-xl text-center mb-2">COO</h2>
+                                    <div className="flex gap-x-2">
+                                        <a className="" target="_blank">
+                                            <img src={LinkedInIcon} className="h-8 w-8"></img>
+                                        </a>
+                                        <a>
+                                            <img src={TwitterIcon} className="h-8 w-8"></img>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div className="w-1/3 pl-6 h-full">
-                            <div className="w-full rounded-2xl bg-gray4 border border-gray1 h-full"></div>
+                            <div className="w-full rounded-3xl border border-gray1 h-full flex flex-col items-center p-10 bg-gradient-to-b from-gray2 to-gray4">
+                                <img src={BillProfilePic} className="h-[300px] w-[300px] rounded-full"></img>
+                                <div className="w-full h-1/4 pt-4 flex-col flex items-center">
+                                    <h1 className="text-white font-poppins text-2xl font-semibold border-t border-gray1 w-[300px] text-center pt-4 mb-2">Bill Yeo</h1>
+                                    <h2 className="text-gray-400 font-poppins text-xl text-center mb-2">CFO</h2>
+                                    <div className="flex gap-x-2">
+                                        <a className="" target="_blank">
+                                            <img src={LinkedInIcon} className="h-8 w-8"></img>
+                                        </a>
+                                        <a>
+                                            <img src={TwitterIcon} className="h-8 w-8"></img>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
