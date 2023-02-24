@@ -15,6 +15,7 @@ export default function Home(props) {
     const [activeMenuMint, setActiveMenuMint] = useState([true, false, false])
     const [activeMenuTrade, setActiveMenuTrade] = useState([true, false, false])
     const [activeMenuRedeem, setActiveMenuRedeem] = useState([true, false, false])
+    
 
     useEffect(() => {
         setSectionButtonStyle(() => {
@@ -66,6 +67,7 @@ export default function Home(props) {
             return newMenu
         })
     }
+
 
     return (
         <div className="">
@@ -263,7 +265,7 @@ export default function Home(props) {
             </div>
             <div className="w-full flex justify-center mb-32">
                 <div className="w-[1300px] font-poppins flex flex-col">
-                    <h1 className="text-white text-semibold text-3xl font-semibold mb-4">Learn More</h1>
+                    <h1 className="text-white text-semibold text-4xl font-semibold mb-4">Learn More</h1>
                     <div className="flex w-fullS min-h-[400px] mb-6">
                         <div className="bg-gray3 border border-gray1 rounded-xl flex flex-grow h-full mr-6"></div>
                         <div className="w-[200px] h-full flex flex-col gap-y-6">
@@ -275,11 +277,7 @@ export default function Home(props) {
                             </div>
                         </div>
                     </div>
-                    <div className="flex w-full min-h-[200px] gap-x-6">
-                        <div className="h-full w-[200px] bg-gray3 p-5 border border-gray1 rounded-xl"></div>
-                        <div className="h-full w-[200px] bg-gray3 p-5 border border-gray1 rounded-xl"></div>
-                        <div className="h-full flex flex-grow rounded-xl bg-gray3 p-5 border border-gray1"></div>
-                    </div>
+                    
                 </div>
             </div>
             <Footer />

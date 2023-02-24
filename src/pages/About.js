@@ -4,11 +4,36 @@ import Footer from "../components/Footer.js"
 import CrystalPhyniteLogo from "../assets/crystal-phynite-logo.png"
 import RandomPlaceholder from "../assets/random-placeholder.png"
 import Arrow from "../assets/right-arrow.png"
+import GrayArrow from "../assets/gray-left-arrow.png"
 import {Link} from "react-router-dom"
 
 export default function About (props) {
     const [selectedCBNFTSection, setSelectedCBNFTSection] = useState(0)
     const [sectionButtonStyle, setSectionButtonStyle] = useState(["border border-gray0 bg-gray3 rounded-3xl w-full h-full flex justify-start items-center pl-8 hover:border-gray-400 text-white hover:brightness-125 duration-150", "border border-gray1 bg-mainGray rounded-3xl w-full h-full flex justify-start items-center pl-8 hover:border-gray0 text-gray0 hover:text-gray-400 hover:brightness-125 duration-150", "border border-gray1 bg-mainGray rounded-3xl w-full h-full flex justify-start items-center pl-8 hover:border-gray0 text-gray0 hover:text-gray-400 hover:brightness-125 duration-150"])
+    const [selectedQuarter, setSelectedQuarter] = useState(0)
+    const [timelineStyle, setTimelineStyle] = useState([{backgroundColor: "#E1FFFF"}, {backgroundColor: "#2D3038"}, {backgroundColor: "#2D3038"},{backgroundColor: "#2D3038"}])
+    const [timelineHLStyle, setTimelineHLStyle] = useState([{backgroundColor: "#E1FFFF"}, {backgroundColor: "#6B7280"}, {backgroundColor: "#6B7280"},{backgroundColor: "#6B7280"}])
+
+    useEffect(() => {
+        setTimelineStyle((prevStyle) => {
+            let newStyle = { ...prevStyle }
+            newStyle = [{ backgroundColor: "#2D3038" }, { backgroundColor: "#2D3038" }, { backgroundColor: "#2D3038" }, { backgroundColor: "#2D3038" }]
+            
+            for (let i = 0; i < selectedQuarter + 1; i++){
+                newStyle[i] = {backgroundColor: "#E1FFFF"}
+            }
+            return newStyle;
+        })
+        setTimelineHLStyle((prevStyle) => {
+            let newStyle = { ...prevStyle }
+            newStyle = [{ backgroundColor: "#6B7280" }, { backgroundColor: "#6B7280" }, { backgroundColor: "#6B7280" }, { backgroundColor: "#6B7280" }]
+            
+            for (let i = 0; i < selectedQuarter + 1; i++){
+                newStyle[i] = {backgroundColor: "#E1FFFF"}
+            }
+            return newStyle;
+        })
+    },[selectedQuarter])
 
     useEffect(() => {
         setSectionButtonStyle(() => {
@@ -19,7 +44,7 @@ export default function About (props) {
         })
     }, [selectedCBNFTSection])
 
-    // <button className="h-4 w-4 rounded-full bg-gray1 hover:brightness-150 translate-x-[8px] -translate-y-[7px] bg-opacity-50"></button>
+    
 
     return (
         <div>
@@ -124,42 +149,165 @@ export default function About (props) {
                     </div>
                 </div>
                 <div className="w-[1300px] mb-28">
-                    <h1 className="text-4xl font-poppins font-semibold text-white mb-10">Timeline</h1>
-                    <div className="h-[300px] w-full rounded-xl bg-gray4 border border-gray1 flex flex-col">
-                        <div className="h-[140px] w-full"></div>
-                        <div className="h-[20px] w-full px-8  ">
-                            <div className="bg-gray2 flex-col justify-center flex">
-                                <div className="h-2 w-full flex">
-                                    <div className="h-full w-1/4 border-x-2 border-l-[3px] border-gray0"></div>
-                                    <div className="h-full w-1/4 border-x-2 border-gray0"></div>
-                                    <div className="h-full w-1/4 border-x-2 border-gray0"></div>
-                                    <div className="h-full w-1/4 border-x-2 border-r-[3px] border-gray0"></div>
+                    <h1 className="text-4xl font-poppins font-semibold text-white mb-8">Timeline</h1>
+                    <div className="flex h-full rounded-xl border border-gray1 bg-gradient-to-r from-gray4 via-gray3 to-gray1 ">
+                        <div className="w-[300px] pr-6 pt-8  pl-8">
+                            
+                            {selectedQuarter === 0 && (
+                                <div className="">
+                                    <h1 className="text-white font-poppins text-3xl font-semibold mb-4">Q2 2023</h1>
+                                    <div className="pl-4">
+                                        <li className="text-gray-400 font-poppins font-light mb-3">
+                                            Alpha Marketplace Launch (Few Selected Users)
+                                            
+                                        </li>
+                                        <li className="text-gray-400 font-poppins font-light">
+                                            Beta Marketplace Launch (Open to All Users)
+                                        </li>
+                                    </div>
+                                    
                                 </div>
-                                <div className="h-[2px] w-full bg-gray0 flex">
-                                    <div className="w-1/4 flex justify-end">
-                                        <button className="h-2 w-2 rounded-full bg-gray0 hover:brightness-150 translate-x-[4.5px] -translate-y-[3px] bg-opacity-50"></button>
+                            )}
+                            {selectedQuarter === 1 && (
+                                <div className="">
+                                    <h1 className="text-white font-poppins text-3xl font-semibold mb-4">Q3 2023</h1>
+                                    <div className="pl-4">
+                                        <li className="text-gray-400 font-poppins font-light mb-3">
+                                            Official Marketplace Upgrade
+                                            
+                                        </li>
+                                        <li className="text-gray-400 font-poppins font-light">
+                                            Phynite Instagram Launch
+                                        </li>
                                     </div>
-                                    <div className="w-1/4 flex justify-end">
-                                        <button className="h-2 w-2 rounded-full bg-gray0 hover:brightness-150 translate-x-[4.5px] -translate-y-[3px] bg-opacity-50"></button>
+                                    
+                                </div>
+                            )}
+                            {selectedQuarter === 2 && (
+                                <div className="">
+                                    <h1 className="text-white font-poppins text-3xl font-semibold mb-4">Q4 2023</h1>
+                                    <div className="pl-4">
+                                        <li className="text-gray-400 font-poppins font-light mb-3">
+                                            New Collectible Categories Added
+                                            
+                                        </li>
+                                        <li className="text-gray-400 font-poppins font-light">
+                                            Phynite Rewards System Launch
+                                        </li>
                                     </div>
-                                    <div className="w-1/4 flex justify-end">
-                                        <button className="h-2 w-2 rounded-full bg-gray0 hover:brightness-150 translate-x-[3.5px] -translate-y-[3px] bg-opacity-50"></button>
+                                    
+                                </div>
+                            )}
+                            {selectedQuarter === 3 && (
+                                <div className="">
+                                    <h1 className="text-white font-poppins text-3xl font-semibold mb-4">Q1 2024</h1>
+                                    <div className="pl-4">
+                                        <li className="text-gray-400 font-poppins font-light mb-3">
+                                            On-Chain Storage of Legal Signatures Enabled
+                                            
+                                        </li>
+                                        <li className="text-gray-400 font-poppins font-light">
+                                            More Coming Soon...
+                                        </li>
                                     </div>
-                                    <div className="w-1/4 flex justify-end">
-                                        <button className="h-2 w-2 rounded-full bg-gray0 hover:brightness-150 translate-x-[2px] -translate-y-[3px] bg-opacity-50"></button>
+                                    
+                                </div>
+                            )}
+
+                            
+                        </div>
+                        <div className="w-[1000px]">
+                            <div className="h-[300px] w-full flex flex-col">
+                                <div className="h-[140px] w-full font-poppins pt-8 flex px-8">
+                                    <div className="w-[10%] h-full">
+                                        <h1 className="text-white font-semibold text-3xl">2023</h1>
+                                    </div>
+                                    <div className="w-1/5 h-full justify-center items-end flex">
+                                        {selectedQuarter === 0 ? (
+                                            <button onClick={()=>setSelectedQuarter(0)} className="text-white font-[500] text-3xl p-2 duration-150">Q2</button>
+                                        ):(
+                                            <button onClick={()=>setSelectedQuarter(0)} className="text-white font-[500] text-2xl p-2 hover:text-3xl duration-150">Q2</button>        
+                                        )}
+                                        
+                                    </div>
+                                    <div className="w-1/5 h-full justify-center items-end flex">
+                                        {selectedQuarter === 1 ? (
+                                            <button onClick={() => setSelectedQuarter(1)} className="text-white font-[500] text-3xl p-2 duration-150">Q3</button>
+                                        ):(
+                                            <button onClick={() => setSelectedQuarter(1)} className="text-white font-[500] text-2xl p-2 hover:text-3xl duration-150">Q3</button>
+                                        )}
+                                        
+                                    </div>
+                                    <div className="w-1/5 h-full justify-center items-end flex">
+                                        {selectedQuarter === 2 ? (
+                                            <button onClick={() => setSelectedQuarter(2)} className="text-white font-[500] text-3xl p-2 duration-150">Q4</button>
+                                        ):(
+                                            <button onClick={() => setSelectedQuarter(2)} className="text-white font-[500] text-2xl p-2 hover:text-3xl duration-150">Q4</button>    
+                                        )}
+                                        
+                                    </div>
+                                    <div className="w-1/5 h-full justify-end items-center flex flex-col">
+                                        <div className="flex flex-grow">
+                                            <h1 className="text-white font-semibold text-3xl">2024</h1>
+                                        </div>
+                                        
+                                        {selectedQuarter === 3 ? (
+                                            <button onClick={()=>setSelectedQuarter(3)} className="text-white font-[500] text-3xl p-2 duration-150">Q1</button>
+                                        ):(
+                                            <button onClick={()=>setSelectedQuarter(3)} className="text-white font-[500] text-2xl p-2 hover:text-3xl duration-150">Q1</button>
+                                        )}
+                                        
+                                    </div>
+                                    <div className="w-[10%] h-full">
+                                        
                                     </div>
                                 </div>
-                                <div className="h-2 w-full flex">
-                                    <div className="h-full w-1/4 border-x-2 border-l-[3px] border-gray0"></div>
-                                    <div className="h-full w-1/4 border-x-2 border-gray0"></div>
-                                    <div className="h-full w-1/4 border-x-2 border-gray0"></div>
-                                    <div className="h-full w-1/4 border-x-2 border-r-[3px] border-gray0"></div>
+                                <div className="h-[20px] w-full px-8  ">
+                                    <div className="bg-gray1 flex-col justify-center flex  rounded-r-full">
+                                        <div className="h-2 w-full flex">
+                                            <button onClick={()=>setSelectedQuarter(0)} className="h-full w-1/5 border-x-2 border-l-[3px] border-gray0" style={timelineStyle[0]}></button>
+                                            <button onClick={()=>setSelectedQuarter(1)} className="h-full w-1/5 border-x-2 border-gray0" style={timelineStyle[1]}></button>
+                                            <button onClick={()=>setSelectedQuarter(2)} className="h-full w-1/5 border-x-2 border-gray0" style={timelineStyle[2]}></button>
+                                            <button onClick={()=>setSelectedQuarter(3)} className="h-full w-1/5 border-x-2 border-gray0" style={timelineStyle[3]}></button>
+                                            <div className="h-full w-1/5 border-l-2 border-gray0"></div>
+                                        </div>
+                                        <div className="h-[2px] w-full bg-gray0 flex">
+                                            <button onClick={()=>setSelectedQuarter(0)} className="w-1/5 h-full border-x-2 border-l-[3px] border-gray0" style={timelineHLStyle[0]}></button>
+                                            <button onClick={()=>setSelectedQuarter(1)} className="w-1/5 h-full border-x-2 border-gray0" style={timelineHLStyle[1]}></button>
+                                            <button onClick={()=>setSelectedQuarter(2)} className="w-1/5 h-full border-x-2 border-gray0" style={timelineHLStyle[2]}></button>
+                                            <button onClick={()=>setSelectedQuarter(3)} className="w-1/5 h-full border-x-2 border-gray0" style={timelineHLStyle[3]}></button>
+                                            <div className="w-1/5 h-full flex justify-end border-l-2 border-gray0">
+                                                <img className="w-8 h-8 rotate-180 translate-x-3 -translate-y-[15px]" src={GrayArrow}></img>
+                                            </div>
+                                            
+                                        </div>
+                                        <div className="h-2 w-full flex">
+                                            <button onClick={()=>setSelectedQuarter(0)} className="h-full w-1/5 border-x-2 border-l-[3px] border-gray0" style={timelineStyle[0]}></button>
+                                            <button onClick={()=>setSelectedQuarter(1)} className="h-full w-1/5 border-x-2 border-gray0" style={timelineStyle[1]}></button>
+                                            <button onClick={()=>setSelectedQuarter(2)} className="h-full w-1/5 border-x-2 border-gray0" style={timelineStyle[2]}></button>
+                                            <button onClick={()=>setSelectedQuarter(3)} className="h-full w-1/5 border-x-2 border-gray0" style={timelineStyle[3]}></button>
+                                            <div className="h-full w-1/5 border-l-2 border-gray0"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div className="h-[140px] w-full font-poppins px-8 flex-col flex py-8">
+                                    <div className="h-1/2 w-full flex items-end">
+                                        <div className="w-[60%] border-b border-x border-gray0 rounded-b-xl flex justify-center pb-[2px]">
+                                            <h1 className="font-light text-gray-400 font-poppins italic text-md tracking-wide">Minting Fees Waived</h1>
+                                        </div>
+                                    </div>
+                                    <div className="h-1/2 w-full flex items-end">
+                                        <div className="w-[80%]  border-b border-x border-gray0 rounded-b-xl flex justify-center pb-[2px]">
+                                            <h1 className="font-light text-gray-400 font-poppins italic text-md tracking-wide">Vaulting Fees Waived</h1>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
-                        <div className="h-[140px] w-full"></div>
+
                     </div>
+
                 </div>
                 <div className="w-[1300px] mb-28">
                     <div className="w-full flex justify-center">
