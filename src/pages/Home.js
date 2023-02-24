@@ -76,12 +76,12 @@ export default function Home(props) {
             <div className="w-full bg-mainGray max-h-[900px] h-screen min-h-[700px] flex justify-center">
                 <div className="w-[1300px]  h-full flex justify-center">
                     <div className="w-[60%] h-full flex flex-col justify-center">
-                        <h1 className="text-5xl font-semibold text-phyniteBlue leading-tight font-poppins">The Web3 Marketplace<br/>for Physical Collectibles</h1>
-                        <h2 className="text-xl mt-6 mb-6 text-white font-light font-poppins">The fastest, safest, most forward-thinking way to trade<br/> physical collectibles. Only on Phynite.</h2>
+                        <h1 className="text-[54px] font-semibold text-phyniteBlue leading-tight font-poppins">The Web3 Marketplace<br/>for Physical Collectibles</h1>
+                        <h2 className="text-xl mt-6 mb-8 text-white font-light font-poppins">The fastest, safest, most forward-thinking way to trade physical<br/>collectibles. Only on Phynite.</h2>
                         <Link to="/getStarted" className="text-3xl font-semibold font-poppins text-gray1 bg-gradient-to-br from-phyniteBlue to-phyniteBlue hover:brightness-125 hover:from-mango hover:to-salmon duration-300 rounded-xl w-[300px] py-2 text-center">Get Started</Link>
                     </div>
                     <div className="w-[40%]  h-full flex justify-center items-center">
-                        <img className="w-[500px] h-[500px]" src={CrystalPhyniteLogo}></img>
+                        <img className="w-[550px] h-[550px]" src={CrystalPhyniteLogo}></img>
                     </div>
                 </div>
             </div>

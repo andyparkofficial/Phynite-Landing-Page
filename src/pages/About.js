@@ -54,15 +54,15 @@ export default function About (props) {
     return (
         <div>
             <Navbar isClicked={"0"} />
-            <div className="w-full bg-mainGray flex flex-col items-center">
-                <div className="w-[1300px] min-h-[650px] h-screen max-h-[750px] flex justify-center mt-16">
+            <div className="w-full bg-mainGray flex flex-col items-center pt-12">
+                <div className="w-[1300px] min-h-[650px] h-screen max-h-[750px] flex justify-center">
 
                     <div className="w-[40%]  h-full flex justify-center items-center">
                         <img className="w-[500px] h-[500px]" src={CrystalPhyniteLogo}></img>
                     </div>
                     <div className="w-[60%] h-full flex flex-col justify-center items-end pr-10">
                         <div className="w-[600px]">
-                            <h1 className="text-5xl font-semibold text-phyniteBlue leading-tight font-poppins">Who We Are, Our Vision, and More.</h1>
+                            <h1 className="text-[54px]  font-semibold text-phyniteBlue leading-tight font-poppins">Who We Are, Our Vision, and More.</h1>
                             <h2 className="text-xl mt-8 text-white font-light font-poppins">Learn more about our proprietary technology, timeline, and meet the team!</h2>
                         </div>
                         
