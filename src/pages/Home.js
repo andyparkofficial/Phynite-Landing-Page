@@ -81,7 +81,7 @@ export default function Home(props) {
                         <Link to="/getStarted" className="text-3xl font-semibold font-poppins text-gray1 bg-gradient-to-br from-phyniteBlue to-phyniteBlue hover:brightness-125 hover:from-mango hover:to-salmon duration-300 rounded-xl w-[300px] py-2 text-center">Get Started</Link>
                     </div>
                     <div className="w-[40%]  h-full flex justify-center items-center">
-                        <img className="w-[550px] h-[550px]" src={CrystalPhyniteLogo}></img>
+                        <img className="w-[550px] h-[550px] translate-x-4" src={CrystalPhyniteLogo}></img>
                     </div>
                 </div>
             </div>
