@@ -57,7 +57,7 @@ function Navbar(props) {
                     </Link>
                     <Link to={"/getStarted"}>
                         <li
-                        className={`p-2 px-5 cursor-pointer transition ease-in-out duration-200 hover:text-phyniteBlue overflow-hidden ${
+                        className={`pt-2 pb-[6px] mx-1 px-4 border bg-gradient-to-br from-[rgb(10,10,13,0.6)] to-[rgb(107,114,128,0.4)] border-gray1 rounded-xl cursor-pointer transition ease-in-out duration-400 hover:brightness-125 hover:text-phyniteBlue overflow-hidden ${
                             isClicked[3] ? "text-phyniteBlue" : "text-white"
                         }`}
                         >
