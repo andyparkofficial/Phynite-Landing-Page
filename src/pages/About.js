@@ -21,7 +21,7 @@ import CrystalContract from "../assets/crystal-contract.png"
 export default function About (props) {
     const [selectedCBNFTSection, setSelectedCBNFTSection] = useState(0)
     const [cbnftSectionButtonStyle, setCBNFTSectionButtonStyle] = useState(["border border-gray0 bg-gray3 rounded-3xl w-full h-full flex justify-start items-center pl-8 hover:border-gray-400 text-white hover:brightness-125 duration-150", "border border-gray1 bg-mainGray rounded-3xl w-full h-full flex justify-start items-center pl-8 hover:border-gray0 text-gray0 hover:text-gray-400 hover:brightness-125 duration-150", "border border-gray1 bg-mainGray rounded-3xl w-full h-full flex justify-start items-center pl-8 hover:border-gray0 text-gray0 hover:text-gray-400 hover:brightness-125 duration-150"])
-    const [mobileCBNFTSectionButtonStyle, setMobileCBNFTSectionButtonStyle] = useState(["border border-gray0 bg-gray3 rounded-2xl w-full h-full flex justify-start items-center text-white", "border border-gray1 bg-mainGray rounded-2xl w-full h-full flex justify-start items-center text-gray0", "border border-gray1 bg-mainGray rounded-2xl w-full h-full flex justify-start items-center text-gray0"])
+    const [mobileCBNFTSectionButtonStyle, setMobileCBNFTSectionButtonStyle] = useState(["border border-gray0 bg-gray3 rounded-2xl w-full flex justify-start items-center text-white", "border border-gray1 bg-mainGray rounded-2xl w-full flex justify-start items-center text-gray0", "border border-gray1 bg-mainGray rounded-2xl w-full flex justify-start items-center text-gray0"])
     const [selectedQuarter, setSelectedQuarter] = useState(0)
     const [timelineStyle, setTimelineStyle] = useState([{backgroundColor: "#E1FFFF"}, {backgroundColor: "#2D3038"}, {backgroundColor: "#2D3038"},{backgroundColor: "#2D3038"}])
     const [timelineHLStyle, setTimelineHLStyle] = useState([{backgroundColor: "#E1FFFF"}, {backgroundColor: "#6B7280"}, {backgroundColor: "#6B7280"},{backgroundColor: "#6B7280"}])
@@ -55,8 +55,8 @@ export default function About (props) {
             
         })
         setMobileCBNFTSectionButtonStyle(() => {
-            let newStyle = ["border border-gray1 bg-mainGray rounded-2xl w-full h-full flex justify-start items-center text-gray0","border border-gray1 bg-mainGray rounded-2xl w-full h-full flex justify-start items-center text-gray0","border border-gray1 bg-mainGray rounded-2xl w-full h-full flex justify-start items-center text-gray0"]
-            newStyle[selectedCBNFTSection] = "border border-gray0 bg-gray3 rounded-2xl w-full h-full flex justify-start items-center text-white"
+            let newStyle = ["border border-gray1 bg-mainGray rounded-2xl w-full flex justify-start items-center text-gray0","border border-gray1 bg-mainGray rounded-2xl w-full flex justify-start items-center text-gray0","border border-gray1 bg-mainGray rounded-2xl w-full flex justify-start items-center text-gray0"]
+            newStyle[selectedCBNFTSection] = "border border-gray0 bg-gray3 rounded-2xl w-full flex justify-start items-center text-white"
             return newStyle
         })
     }, [selectedCBNFTSection])
@@ -274,21 +274,61 @@ export default function About (props) {
                         )}
                     </div>
                     <div className="w-full mb-20">
-                        <h1 className="text-white font-semibold text-2xl pb-2 pl-1 mb-6 border-b border-gray0">Contractually Bound NFTs</h1>
-                        <div className="flex">
-                            <div className="flex flex-col items-center gap-y-2 px-1 w-[94px]">
+                        <h1 className="text-white font-semibold text-2xl pb-2 pl-1 border-b border-gray0">Contractually Bound NFTs</h1>
+                        <div className="flex gap-x-4">
+                            <div className="flex flex-col items-center gap-y-2 pl-1 w-[96px] pt-3">
                                 <button onClick={()=>setSelectedCBNFTSection(0)} className={mobileCBNFTSectionButtonStyle[0]}>
-                                    <h1 className="text-sm py-3 text-center w-full">Overview</h1>
+                                    <h1 className="text-sm py-3 text-center px-2 w-full">Overview</h1>
                                 </button>
                                 <button onClick={()=>setSelectedCBNFTSection(1)} className={mobileCBNFTSectionButtonStyle[1]}>
-                                    <h1 className="text-sm py-3 text-center w-full">Phase 1</h1>
+                                    <h1 className="text-sm py-3 text-center px-2 w-full">Phase 1</h1>
                                 </button>
                                 <button onClick={()=>setSelectedCBNFTSection(2)} className={mobileCBNFTSectionButtonStyle[2]}>
-                                    <h1 className="text-sm py-3 text-center w-full">Phase 2</h1>
+                                    <h1 className="text-sm py-3 text-center px-2 w-full">Phase 2</h1>
                                 </button>
+                                
                             </div>
-                            <div className="flex flex-grow bg-gray1">
-
+                            <div className="flex flex-grow">
+                                {selectedCBNFTSection === 0 && (
+                                    <div className="w-full h-full font-poppins flex flex-col pt-3 items-center">
+                                        <h1 className="text-white text-xl font-[500] mt-1 w-full text-left">Overview: CBNFTs</h1>
+                                        <img src={CrystalContract} className="w-full"></img>
+                                        <div className="flex flex-col">
+                                            <p className="text-sm text-gray-400 w-full mt-2 mb-2" >Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. </p>
+                                            <Link to="/phyniteProtocol"  className="flex items-center">
+                                                <div className="text-white text-sm">Read More</div>
+                                                <img src={Arrow} className="w-6 h-6 ml-2"></img>
+                                            </Link>
+                                        </div>
+                                        
+                                    </div>
+                                )}
+                                {selectedCBNFTSection === 1 && (
+                                    <div className="w-full h-full font-poppins flex flex-col pt-3 items-center">
+                                        <h1 className="text-white text-xl font-[500] mt-1 w-full text-left mb-2">Phase 1: Off-Chain Storage</h1>
+                                        <div className="flex flex-col">
+                                            <p className="text-sm text-gray-400 w-full mt-2 mb-2" >All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). </p>
+                                            <Link to="/phyniteProtocol"  className="flex items-center">
+                                                <div className="text-white text-sm">Read More</div>
+                                                <img src={Arrow} className="w-6 h-6 ml-2"></img>
+                                            </Link>
+                                        </div>
+                                        
+                                    </div>
+                                )}
+                                {selectedCBNFTSection === 2 && (
+                                    <div className="w-full h-full font-poppins flex flex-col pt-3 items-center">
+                                        <h1 className="text-white text-xl font-[500] mt-1 w-full text-left mb-2">Phase 2: On-Chain Storage</h1>
+                                        <div className="flex flex-col">
+                                            <p className="text-sm text-gray-400 w-full mt-2 mb-2" >All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). </p>
+                                            <Link to="/phyniteProtocol"  className="flex items-center">
+                                                <div className="text-white text-sm">Read More</div>
+                                                <img src={Arrow} className="w-6 h-6 ml-2"></img>
+                                            </Link>
+                                        </div>
+                                        
+                                    </div>
+                                )}
                             </div>
                         </div>
                         
