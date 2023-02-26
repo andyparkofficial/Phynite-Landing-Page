@@ -47,7 +47,7 @@ export default function GetStarted(props) {
     
     return (
         <div>
-            <Navbar isClicked={"3"} />
+            <Navbar isClicked={"4"} />
             <div className="h-screen min-h-[600px] justify-center items-center flex">
                 <div className="w-[1300px] flex flex-col items-center font-poppins h-[300px]">
                     <h1 className="gradient-text-blue font-semibold text-5xl text-center leading-tight mb-6">The Phynite Marketplace<br/>is Coming Soon</h1>

@@ -38,7 +38,7 @@ export default function Blog(props) {
 
     return (
         <div>
-            <Navbar isClicked={"1"} />
+            <Navbar isClicked={"2"} />
             <div className="flex flex-col items-center w-full">
                 <div className="h-[350px] w-[1300px] flex justify-center">
                     <h1 className="font-semibold text-7xl font-poppins pt-48 text-white"><span className="text-phyniteBlue">Phynite</span> Blog</h1>

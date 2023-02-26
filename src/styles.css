@@ -1,0 +1,21 @@
+.mobile-menu-pop-up-enter {
+    opacity: 0;
+    transform: translate(150px, 0);
+}
+
+.mobile-menu-pop-up-enter-active {
+    opacity: 1;
+    transform: translate(0, 0);
+    transition: opacity 500ms, transform 500ms;
+}
+
+.mobile-menu-pop-up-exit {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.mobile-menu-pop-up-exit-active {
+    opacity: 0;
+    transform: translate(150px, 0);
+    transition: opacity 500ms, transform 500ms;
+}

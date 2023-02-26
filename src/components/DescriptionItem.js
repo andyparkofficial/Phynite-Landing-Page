@@ -37,7 +37,7 @@ export default function DescriptionItem(props) {
           <div></div>
         )}
       </div>
-      <div className="text-sm font-normal">{props.children}</div>
+      <div className="font-normal">{props.children}</div>
     </div>
   );
 }
