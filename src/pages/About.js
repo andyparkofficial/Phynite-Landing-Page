@@ -358,7 +358,7 @@ export default function About (props) {
                     <div className="w-full flex justify-center mb-32">
                         <div className="w-[1300px] h-full flex flex-col items-center">
                             <div className="flex flex-col items-center font-poppins w-full h-full">
-                                <h1 className="text-white text-[44px] font-semibold mb-8">The Phynite Protocol</h1>
+                                <h1 className="text-white text-[40px] font-semibold mb-8">The Phynite Protocol</h1>
                                 <div className="w-full flex h-10 border-b border-gray0 text-xl text-gray-400 font-[500] mb-8">
                                     <button onClick={()=>setSelectedSection(0)} className={sectionButtonStyle[0]}>Mint</button>
                                     <button onClick={()=>setSelectedSection(1)} className={sectionButtonStyle[1]}>Trade</button>
