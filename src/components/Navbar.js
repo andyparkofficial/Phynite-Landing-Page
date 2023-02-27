@@ -77,7 +77,7 @@ function Navbar(props) {
                         <img
                         src={phyniteLogo}
                         alt="phynite logo"
-                        className="w-36 cursor-pointer"
+                        className="w-40 cursor-pointer"
                         />
                     </Link>
                     <div className="flex flex-grow justify-end items-center pr-3">
@@ -95,14 +95,7 @@ function Navbar(props) {
                 </div>
             )}
             {displayType === "smallComputer" && (
-                <div>
-                    
-                </div>
-            )}
-
-            {displayType === "computer" && (
-                <div className="w-[1370px]">
-                    <div className="flex p-5 pl-5 pr-7">
+                <div className="flex h-full items-center pl-4 w-full">
                     <Link exact to={"/"}>
                         <img
                         src={phyniteLogo}
@@ -110,9 +103,63 @@ function Navbar(props) {
                         className="w-40 cursor-pointer"
                         />
                     </Link>
+                    <div className="flex flex-grow justify-end pr-5">
+                        <ul className="font-poppins flex justify-center">
+                        <Link to={"/about"}>
+                            <li
+                            className={`p-2 pl-10 px-5 cursor-pointer transition ease-in-out duration-200 hover:text-phyniteBlue overflow-hidden ${
+                                isClicked[1] ? "text-phyniteBlue" : "text-white"
+                            }`}
+                            >
+                            About
+                            </li>
+                        </Link>
+                        <Link to={"/blog"}>
+                            <li
+                            className={`p-2 px-5 cursor-pointer transition ease-in-out duration-200 hover:text-phyniteBlue overflow-hidden ${
+                                isClicked[2] ? "text-phyniteBlue" : "text-white"
+                            }`}
+                            >
+                            Blog
+                            </li>
+                        </Link>
+                        <Link to={"/phyniteProtocol"}>
+                            <li
+                            className={`p-2 px-5 cursor-pointer transition ease-in-out duration-200 hover:text-phyniteBlue overflow-hidden ${
+                                isClicked[3] ? "text-phyniteBlue" : "text-white"
+                            }`}
+                            >
+                            Protocol
+                            </li>
+                        </Link>
+                        <Link to={"/getStarted"}>
+                            <li
+                            className={`pt-2 pb-[6px] mx-1 px-4 border bg-gradient-to-br from-[rgb(10,10,13,0.6)] to-[rgb(107,114,128,0.4)] hover:to-[rgb(10,10,13,0.6)] hover:from-[rgb(107,114,128,0.4)] border-gray1 rounded-xl cursor-pointer transition ease-in-out duration-400 hover:brightness-125 hover:text-phyniteBlue overflow-hidden ${
+                                isClicked[4] ? "text-phyniteBlue" : "text-white"
+                            }`}
+                            >
+                            Get Started
+                            </li>
+                        </Link>
+    
+                        </ul>
+                        
+                    </div>    
+                </div>
+            )}
+
+            {displayType === "computer" && (
+                <div className="w-[1370px]">
+                    <div className="flex p-5 pl-5 pr-7">
+                        <Link exact to={"/"}>
+                            <img
+                            src={phyniteLogo}
+                            alt="phynite logo"
+                            className="w-40 cursor-pointer"
+                            />
+                        </Link>
                     
-                    {windowSize.width > 1070 && (
-                        <nav className="flex flex-grow">
+                    
                         <div className="flex flex-grow justify-end">
                             <ul className="font-poppins flex justify-center">
                             <Link to={"/about"}>
@@ -156,8 +203,6 @@ function Navbar(props) {
                             
                         </div>
                             
-                        </nav>
-                    )}          
                     </div>
                 </div>
             
