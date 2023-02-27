@@ -16,10 +16,16 @@ function App() {
 
   const windowSize = useWindowSize();
 
+  
   useEffect(() => {
     if (windowSize.width <= 600) {
       setDisplayType('mobile')
-    } else {
+    } else if (windowSize.width <= 900) {
+      setDisplayType('tablet')
+    } else if (windowSize.width <= 1350) {
+      setDisplayType("smallComputer")
+    }
+    else {
       setDisplayType('computer')
     }
   }, [windowSize])

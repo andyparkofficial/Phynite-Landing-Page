@@ -15,13 +15,19 @@ export default function Footer() {
   
     const windowSize = useWindowSize();
   
+  
     useEffect(() => {
-      if (windowSize.width <= 600) {
-        setDisplayType('mobile')
-      } else {
-        setDisplayType('computer')
-      }
-    }, [windowSize])
+        if (windowSize.width <= 600) {
+          setDisplayType('mobile')
+        } else if (windowSize.width <= 900) {
+          setDisplayType('tablet')
+        } else if (windowSize.width <= 1350) {
+          setDisplayType("smallComputer")
+        }
+        else {
+          setDisplayType('computer')
+        }
+      }, [windowSize])
     
     return (
         <div className="bg-gray2 flex justify-center">
