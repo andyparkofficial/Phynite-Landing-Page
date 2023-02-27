@@ -54,7 +54,7 @@ export default function GetStarted(props) {
                         <h1 className="gradient-text-blue font-semibold text-[28px] text-center leading-tight mb-6">The Phynite Marketplace<br/>is Coming Soon</h1>
                         <h2 className="font-[500] text-white text-[15px] text-center mb-6">Sign up to be the first to know when we launch.</h2>
                         <form onSubmit={onSubmit} className="flex border-2 border-gray1 duration-100 rounded-lg w-full">
-                            <input required value={userInfo.email} onChange={handleChange} name="email" type="email" className="h-12 w-3/4 rounded-l-lg text-lg bg-gray2 pl-4 focus:ring-1 text-white focus:ring-gray0 focus:outline-none placeholder:text-gray-400" placeholder="Email address"></input>
+                            <input required value={userInfo.email} onChange={handleChange} name="email" type="email" className="h-12 w-full rounded-l-lg text-lg bg-gray2 pl-4 focus:ring-1 text-white focus:ring-gray0 focus:outline-none placeholder:text-gray-400" placeholder="Email address"></input>
                             <button type="submit" className="w-[120px] h-12 bg-gradient-to-br from-phyniteBlue to-phyniteBlue duration-300 rounded-r-lg font-poppins text-gray1 text-lg font-semibold">Sign Up</button>
                         </form>
                         {error !== null &&(
