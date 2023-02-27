@@ -16,7 +16,7 @@ export default function Footer() {
     const windowSize = useWindowSize();
   
     useEffect(() => {
-      if (windowSize.width <= 450) {
+      if (windowSize.width <= 600) {
         setDisplayType('mobile')
       } else {
         setDisplayType('computer')
@@ -30,9 +30,9 @@ export default function Footer() {
                     <img className="w-48 mb-2 " src={phyniteLogo}></img>
                     <h1 className="text-sm text-gray-400 font-[500] mb-6">Trade Physical Finite Items.</h1>
                     <hr className="h-[1px] bg-gray0 border-0 dark:bg-gray0 w-full mb-4" />
-                    <div>
-                        <div className="w-full flex justify-center mb-4">
-                            <div className="pt-2 flex flex-col gap-y-4 mr-14">
+                    <div className=" w-[80%]">
+                        <div className=" flex justify-center gap-x-12 mb-6">
+                            <div className="pt-2 flex flex-col gap-y-4 w-1/2">
                                 <h1 className="text-xs text-gray-400 font-[500] tracking-[.2em] ">PRODUCT</h1>
                                 <Link to="/getStarted">
                                     <h2 className="text-sm text-white font-semibold">Get Started</h2>
@@ -41,7 +41,7 @@ export default function Footer() {
                                     <h2 className="text-sm text-white font-semibold">Phynite Protocol</h2>
                                 </Link>
                             </div>
-                            <div className="pt-2 flex flex-col gap-y-4">
+                            <div className="pt-2 flex flex-col gap-y-4 w-1/2">
                                 <h1 className="text-xs text-gray-400 font-[500] tracking-[.2em]">COMPANY </h1>
                                 <Link to="/about">
                                     <h2 className="text-sm text-white font-semibold">About</h2>
@@ -59,7 +59,7 @@ export default function Footer() {
                             
                         </div>
 
-                        <div className="w-ful flex flex-col mb-6">
+                        <div className="w-full flex flex-col mb-10 items-start">
                             <h1 className="text-xs text-gray-400 font-[500] tracking-[.2em] mb-4">SOCIAL </h1>
                             <div className="flex gap-x-6 mb-8">
                                 <img className="w-7 h-7 translate-y-1" src={twitterIcon}></img>

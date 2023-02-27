@@ -273,7 +273,7 @@ export default function About (props) {
                             </div>
                         )}
                     </div>
-                    <div className="w-full mb-20">
+                    <div className="w-full mb-20 min-h-[250px]">
                         <h1 className="text-white font-semibold text-2xl pb-2 pl-1 border-b border-gray0">Contractually Bound NFTs</h1>
                         <div className="flex gap-x-4">
                             <div className="flex flex-col items-center gap-y-2 pl-1 w-[96px] pt-3">
@@ -291,26 +291,31 @@ export default function About (props) {
                             <div className="flex flex-grow">
                                 {selectedCBNFTSection === 0 && (
                                     <div className="w-full h-full font-poppins flex flex-col pt-3 items-center">
-                                        <h1 className="text-white text-xl font-[500] mt-1 w-full text-left">Overview: CBNFTs</h1>
-                                        <img src={CrystalContract} className="w-full"></img>
-                                        <div className="flex flex-col">
-                                            <p className="text-sm text-gray-400 w-full mt-2 mb-2" >Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. </p>
-                                            <Link to="/phyniteProtocol"  className="flex items-center">
-                                                <div className="text-white text-sm">Read More</div>
-                                                <img src={Arrow} className="w-6 h-6 ml-2"></img>
-                                            </Link>
-                                        </div>
+                                        <h1 className="text-white text-lg font-[500] mt-1 w-full text-left mb-2">Overview: CBNFTs</h1>
                                         
+                                        
+                                        <div className="flex">
+                                            <div className="flex flex-col">
+                                                <p className="text-xs text-gray-400 w-full mt-2 mb-3" >Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. </p>
+                                                <Link to="/phyniteProtocol"  className="flex items-center">
+                                                    <div className="text-gray-300 text-xs">Read More</div>
+                                                    <img src={Arrow} className="w-4 h-4 ml-2 brightness-90"></img>
+                                                </Link>
+                                            </div>
+                                            <img src={CrystalContract} className="w-28"></img>
+                                        </div>
                                     </div>
+                                        
+                                    
                                 )}
                                 {selectedCBNFTSection === 1 && (
                                     <div className="w-full h-full font-poppins flex flex-col pt-3 items-center">
-                                        <h1 className="text-white text-xl font-[500] mt-1 w-full text-left mb-2">Phase 1: Off-Chain Storage</h1>
+                                        <h1 className="text-white text-lg font-[500] mt-1 w-full text-left mb-2">Phase 1: Off-Chain Storage</h1>
                                         <div className="flex flex-col">
-                                            <p className="text-sm text-gray-400 w-full mt-2 mb-2" >All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). </p>
+                                            <p className="text-xs text-gray-400 w-full mt-2 mb-3" >All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). </p>
                                             <Link to="/phyniteProtocol"  className="flex items-center">
-                                                <div className="text-white text-sm">Read More</div>
-                                                <img src={Arrow} className="w-6 h-6 ml-2"></img>
+                                                <div className="text-gray-300 text-xs">Read More</div>
+                                                <img src={Arrow} className="w-4 h-4 ml-2 brightness-90"></img>
                                             </Link>
                                         </div>
                                         
@@ -318,12 +323,12 @@ export default function About (props) {
                                 )}
                                 {selectedCBNFTSection === 2 && (
                                     <div className="w-full h-full font-poppins flex flex-col pt-3 items-center">
-                                        <h1 className="text-white text-xl font-[500] mt-1 w-full text-left mb-2">Phase 2: On-Chain Storage</h1>
+                                        <h1 className="text-white text-lg font-[500] mt-1 w-full text-left mb-2">Phase 2: On-Chain Storage</h1>
                                         <div className="flex flex-col">
-                                            <p className="text-sm text-gray-400 w-full mt-2 mb-2" >All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). </p>
+                                            <p className="text-xs text-gray-400 w-full mt-2 mb-3" >All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). </p>
                                             <Link to="/phyniteProtocol"  className="flex items-center">
-                                                <div className="text-white text-sm">Read More</div>
-                                                <img src={Arrow} className="w-6 h-6 ml-2"></img>
+                                                <div className="text-gray-300 text-xs">Read More</div>
+                                                <img src={Arrow} className="w-4 h-4 ml-2 brightness-90"></img>
                                             </Link>
                                         </div>
                                         
@@ -332,6 +337,224 @@ export default function About (props) {
                             </div>
                         </div>
                         
+                    </div>
+                    <div className="w-full mb-20">
+                        <h1 className="text-white text-[26px] font-semibold mb-5">
+                            Timeline
+                        </h1>
+                        <div className="flex flex-col h-full rounded-xl border border-gray1 bg-gradient-to-r from-gray4 via-gray3 to-gray1 ">
+                            <div className="h-[260px] w-full flex flex-col">
+                                <div className="h-[120px] w-full font-poppins pt-8 flex px-8">
+                                    <div className="w-[10%] h-full">
+                                        <h1 className="text-white font-semibold text-xl">2023</h1>
+                                    </div>
+                                    <div className="w-1/5 h-full justify-center items-end flex">
+                                        {selectedQuarter === 0 ? (
+                                            <button onClick={()=>setSelectedQuarter(0)} className="text-white font-semibold text-2xl p-2">Q2</button>
+                                        ):(
+                                            <button onClick={()=>setSelectedQuarter(0)} className="text-gray-300 font-[500] text-xl p-2">Q2</button>        
+                                        )}
+                                        
+                                    </div>
+                                    <div className="w-1/5 h-full justify-center items-end flex">
+                                        {selectedQuarter === 1 ? (
+                                            <button onClick={() => setSelectedQuarter(1)} className="text-white font-semibold text-2xl p-2">Q3</button>
+                                        ):(
+                                            <button onClick={() => setSelectedQuarter(1)} className="text-gray-300 font-[500] text-xl p-2">Q3</button>
+                                        )}
+                                        
+                                    </div>
+                                    <div className="w-1/5 h-full justify-center items-end flex">
+                                        {selectedQuarter === 2 ? (
+                                            <button onClick={() => setSelectedQuarter(2)} className="text-white font-semibold text-2xl p-2">Q4</button>
+                                        ):(
+                                            <button onClick={() => setSelectedQuarter(2)} className="text-gray-300 font-[500] text-xl p-2">Q4</button>    
+                                        )}
+                                        
+                                    </div>
+                                    <div className="w-1/5 h-full justify-end items-center flex flex-col">
+                                        <div className="flex flex-grow">
+                                            <h1 className="text-white font-semibold text-xl">2024</h1>
+                                        </div>
+                                        
+                                        {selectedQuarter === 3 ? (
+                                            <button onClick={()=>setSelectedQuarter(3)} className="text-white font-semibold text-2xl p-2">Q1</button>
+                                        ):(
+                                            <button onClick={()=>setSelectedQuarter(3)} className="text-gray-300 font-[500] text-xl p-2">Q1</button>
+                                        )}
+                                        
+                                    </div>
+                                    <div className="w-[10%] h-full">
+                                        
+                                    </div>
+                                </div>
+                                <div className="h-[20px] w-full px-8  ">
+                                    <div className="bg-gray1 flex-col justify-center flex  rounded-r-full">
+                                        <div className="h-2 w-full flex">
+                                            <button onClick={()=>setSelectedQuarter(0)} className="h-full w-1/5 border-x-2 border-l-[3px] border-gray0" style={timelineStyle[0]}></button>
+                                            <button onClick={()=>setSelectedQuarter(1)} className="h-full w-1/5 border-x-2 border-gray0" style={timelineStyle[1]}></button>
+                                            <button onClick={()=>setSelectedQuarter(2)} className="h-full w-1/5 border-x-2 border-gray0" style={timelineStyle[2]}></button>
+                                            <button onClick={()=>setSelectedQuarter(3)} className="h-full w-1/5 border-x-2 border-gray0" style={timelineStyle[3]}></button>
+                                            <div className="h-full w-1/5 border-l-2 border-gray0"></div>
+                                        </div>
+                                        <div className="h-[2px] w-full bg-gray0 flex">
+                                            <button onClick={()=>setSelectedQuarter(0)} className="w-1/5 h-full border-x-2 border-l-[3px] border-gray0" style={timelineHLStyle[0]}></button>
+                                            <button onClick={()=>setSelectedQuarter(1)} className="w-1/5 h-full border-x-2 border-gray0" style={timelineHLStyle[1]}></button>
+                                            <button onClick={()=>setSelectedQuarter(2)} className="w-1/5 h-full border-x-2 border-gray0" style={timelineHLStyle[2]}></button>
+                                            <button onClick={()=>setSelectedQuarter(3)} className="w-1/5 h-full border-x-2 border-gray0" style={timelineHLStyle[3]}></button>
+                                            <div className="w-1/5 h-full flex justify-end border-l-2 border-gray0">
+                                                <img className="w-8 h-8 rotate-180 translate-x-3 -translate-y-[15px]" src={GrayArrow}></img>
+                                            </div>
+                                            
+                                        </div>
+                                        <div className="h-2 w-full flex">
+                                            <button onClick={()=>setSelectedQuarter(0)} className="h-full w-1/5 border-x-2 border-l-[3px] border-gray0" style={timelineStyle[0]}></button>
+                                            <button onClick={()=>setSelectedQuarter(1)} className="h-full w-1/5 border-x-2 border-gray0" style={timelineStyle[1]}></button>
+                                            <button onClick={()=>setSelectedQuarter(2)} className="h-full w-1/5 border-x-2 border-gray0" style={timelineStyle[2]}></button>
+                                            <button onClick={()=>setSelectedQuarter(3)} className="h-full w-1/5 border-x-2 border-gray0" style={timelineStyle[3]}></button>
+                                            <div className="h-full w-1/5 border-l-2 border-gray0"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div className="h-[120px] w-full font-poppins px-8 flex-col flex pb-8 pt-6">
+                                    <div className="h-1/2 w-full flex items-start">
+                                        <div className="w-[60%] border-b border-x border-gray0 rounded-b-xl flex justify-center pb-[2px]">
+                                            <h1 className="font-light text-gray-400 font-poppins italic text-sm tracking-wide">Minting Fees Waived</h1>
+                                        </div>
+                                    </div>
+                                    <div className="h-1/2 w-full flex items-end">
+                                        <div className="w-[80%]  border-b border-x border-gray0 rounded-b-xl flex justify-center pb-[2px]">
+                                            <h1 className="font-light text-gray-400 font-poppins italic text-sm tracking-wide">Vaulting Fees Waived</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div className="w-full pt-4 pl-1 h-[170px]">
+                                
+                            {selectedQuarter === 0 && (
+                                <div className="">
+                                    <h1 className="text-white font-poppins text-xl font-semibold mb-4">Q2 2023</h1>
+                                    <div className="pl-4">
+                                        <li className="text-gray-400 font-poppins font-light mb-3">
+                                            Alpha Marketplace Launch (Few Selected Users)
+                                            
+                                        </li>
+                                        <li className="text-gray-400 font-poppins font-light">
+                                            Beta Marketplace Launch (Open to All Users)
+                                        </li>
+                                    </div>
+                                    
+                                </div>
+                            )}
+                            {selectedQuarter === 1 && (
+                                <div className="">
+                                    <h1 className="text-white font-poppins text-xl font-semibold mb-4">Q3 2023</h1>
+                                    <div className="pl-4">
+                                        <li className="text-gray-400 font-poppins font-light mb-3">
+                                            Official Marketplace Upgrade
+                                            
+                                        </li>
+                                        <li className="text-gray-400 font-poppins font-light">
+                                            Phynite Instagram Launch
+                                        </li>
+                                    </div>
+                                    
+                                </div>
+                            )}
+                            {selectedQuarter === 2 && (
+                                <div className="">
+                                    <h1 className="text-white font-poppins text-xl font-semibold mb-4">Q4 2023</h1>
+                                    <div className="pl-4">
+                                        <li className="text-gray-400 font-poppins font-light mb-3">
+                                            New Collectible Categories Added
+                                            
+                                        </li>
+                                        <li className="text-gray-400 font-poppins font-light">
+                                            Phynite Rewards System Launch
+                                        </li>
+                                    </div>
+                                    
+                                </div>
+                            )}
+                            {selectedQuarter === 3 && (
+                                <div className="">
+                                    <h1 className="text-white font-poppins text-xl font-semibold mb-4">Q1 2024</h1>
+                                    <div className="pl-4">
+                                        <li className="text-gray-400 font-poppins font-light mb-3">
+                                            On-Chain Storage of Legal Signatures Enabled
+                                            
+                                        </li>
+                                        <li className="text-gray-400 font-poppins font-light">
+                                            More Coming Soon...
+                                        </li>
+                                    </div>
+                                    
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                    <div className="w-full mb-20">
+                        <h1 className="text-white font-semibold text-2xl mb-6">The Founders</h1>
+                        <div className="w-full bg-gradient-to-l from-gray4 to-gray2 rounded-xl flex border-gray1 border p-4 gap-x-2 mb-4">
+                            <div className="w-1/2 flex flex-col">
+                                <h1 className="text-white text-xl font-[500]">Andy Park</h1>
+                                <h2 className="text-gray-400 text-sm">CEO/CTO</h2>
+                                <div className="flex flex-grow items-end">
+                                    <div className="flex gap-x-2">
+                                        <a href="https://www.linkedin.com/in/andy-park-b5a76a236/" className="" target="_blank">
+                                            <img src={LinkedInIcon} className="h-8 w-8"></img>
+                                        </a>
+                                        <a>
+                                            <img src={TwitterIcon} className="h-8 w-8"></img>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="w-1/2">
+                                <img src={AndyProfilePic} className="w-full rounded-full"></img>
+                            </div>
+                        </div>
+                        <div className="w-full bg-gradient-to-l from-gray4 to-gray2 rounded-xl flex border-gray1 border p-4 gap-x-2 mb-4">
+                            <div className="w-1/2 flex flex-col">
+                                <h1 className="text-white text-xl font-[500]">Esa Sait</h1>
+                                <h2 className="text-gray-400 text-sm">COO</h2>
+                                <div className="flex flex-grow items-end">
+                                    <div className="flex gap-x-2">
+                                        <a>
+                                            <img src={LinkedInIcon} className="h-8 w-8"></img>
+                                        </a>
+                                        <a>
+                                            <img src={TwitterIcon} className="h-8 w-8"></img>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="w-1/2">
+                                <img src={EsaProfilePic} className="w-full rounded-full"></img>
+                            </div>
+                        </div>
+                        <div className="w-full bg-gradient-to-l from-gray4 to-gray2 rounded-xl flex border-gray1 border p-4 gap-x-2">
+                            <div className="w-1/2 flex flex-col">
+                                <h1 className="text-white text-xl font-[500]">William Yeo</h1>
+                                <h2 className="text-gray-400 text-sm">CFO</h2>
+                                <div className="flex flex-grow items-end">
+                                    <div className="flex gap-x-2">
+                                        <a>
+                                            <img src={LinkedInIcon} className="h-8 w-8"></img>
+                                        </a>
+                                        <a>
+                                            <img src={TwitterIcon} className="h-8 w-8"></img>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="w-1/2">
+                                <img src={BillProfilePic} className="w-full rounded-full"></img>
+                            </div>
+                        </div>
                     </div>
                 </div>
             )}
@@ -645,25 +868,25 @@ export default function About (props) {
                                         </div>
                                         <div className="w-1/5 h-full justify-center items-end flex">
                                             {selectedQuarter === 0 ? (
-                                                <button onClick={()=>setSelectedQuarter(0)} className="text-white font-[500] text-3xl p-2 duration-150">Q2</button>
+                                                <button onClick={()=>setSelectedQuarter(0)} className="text-white font-semibold text-3xl p-2 duration-150">Q2</button>
                                             ):(
-                                                <button onClick={()=>setSelectedQuarter(0)} className="text-gray-300 font-[500] text-2xl p-2 hover:text-3xl duration-150">Q2</button>        
+                                                <button onClick={()=>setSelectedQuarter(0)} className="text-gray-300 font-[500] text-2xl p-2 hover:text-3xl hover:font-semibold duration-150">Q2</button>        
                                             )}
                                             
                                         </div>
                                         <div className="w-1/5 h-full justify-center items-end flex">
                                             {selectedQuarter === 1 ? (
-                                                <button onClick={() => setSelectedQuarter(1)} className="text-white font-[500] text-3xl p-2 duration-150">Q3</button>
+                                                <button onClick={() => setSelectedQuarter(1)} className="text-white font-semibold text-3xl p-2 duration-150">Q3</button>
                                             ):(
-                                                <button onClick={() => setSelectedQuarter(1)} className="text-gray-300 font-[500] text-2xl p-2 hover:text-3xl duration-150">Q3</button>
+                                                <button onClick={() => setSelectedQuarter(1)} className="text-gray-300 font-[500] text-2xl p-2 hover:text-3xl hover:font-semibold duration-150">Q3</button>
                                             )}
                                             
                                         </div>
                                         <div className="w-1/5 h-full justify-center items-end flex">
                                             {selectedQuarter === 2 ? (
-                                                <button onClick={() => setSelectedQuarter(2)} className="text-white font-[500] text-3xl p-2 duration-150">Q4</button>
+                                                <button onClick={() => setSelectedQuarter(2)} className="text-white font-semibold text-3xl p-2 duration-150">Q4</button>
                                             ):(
-                                                <button onClick={() => setSelectedQuarter(2)} className="text-gray-300 font-[500] text-2xl p-2 hover:text-3xl duration-150">Q4</button>    
+                                                <button onClick={() => setSelectedQuarter(2)} className="text-gray-300 font-[500] text-2xl p-2 hover:text-3xl hover:font-semibold duration-150">Q4</button>    
                                             )}
                                             
                                         </div>
@@ -673,9 +896,9 @@ export default function About (props) {
                                             </div>
                                             
                                             {selectedQuarter === 3 ? (
-                                                <button onClick={()=>setSelectedQuarter(3)} className="text-white font-[500] text-3xl p-2 duration-150">Q1</button>
+                                                <button onClick={()=>setSelectedQuarter(3)} className="text-white font-semibold text-3xl p-2 duration-150">Q1</button>
                                             ):(
-                                                <button onClick={()=>setSelectedQuarter(3)} className="text-gray-300 font-[500] text-2xl p-2 hover:text-3xl duration-150">Q1</button>
+                                                <button onClick={()=>setSelectedQuarter(3)} className="text-gray-300 font-[500] text-2xl p-2 hover:text-3xl hover:font-semibold duration-150">Q1</button>
                                             )}
                                             
                                         </div>

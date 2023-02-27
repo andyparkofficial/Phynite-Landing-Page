@@ -17,7 +17,7 @@ function App() {
   const windowSize = useWindowSize();
 
   useEffect(() => {
-    if (windowSize.width <= 450) {
+    if (windowSize.width <= 600) {
       setDisplayType('mobile')
     } else {
       setDisplayType('computer')

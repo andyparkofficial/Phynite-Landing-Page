@@ -87,10 +87,13 @@ export default function MobileMenu({toggleScrollLock, exitMenuPopUp, isClicked})
                             {isClicked[3] ? (<h1 className=" text-phyniteBlue">Protocol</h1>):(<h1 className="">Protocol</h1>)}
                                 
                         </button>
+                        <button onClick={()=>redirectToPage('getStarted')} className="w-full flex justify-center items-center h-16  border-y-[1px] border-gray1">
+                            {isClicked[4] ? (<h1 className=" text-phyniteBlue">Get Started</h1>):(<h1 className="">Get Started</h1>)}
+                        </button>
                     </div>
                     <div className="w-full flex flex-col flex-grow items-center justify-end">
                         <div className="w-full px-8">
-                            <button className="w-full rounded-xl h-12 bg-phyniteBlue text-3xl font-poppins font-semibold text-gray1 mb-6">Connect Wallet</button> 
+                            <button onClick={()=>redirectToPage('getStarted')} className="w-full rounded-xl h-12 bg-phyniteBlue text-3xl font-poppins font-semibold text-gray1 mb-6">Get Started</button> 
                         </div>
                         <div className="w-full border-t-[1px] border-gray1 h-20 flex justify-center items-center gap-x-6">
                             <img className="w-7 h-7" src={twitterIcon}></img>

@@ -48,20 +48,39 @@ export default function GetStarted(props) {
     return (
         <div>
             <Navbar isClicked={"4"} />
-            <div className="h-screen min-h-[600px] justify-center items-center flex">
-                <div className="w-[1300px] flex flex-col items-center font-poppins h-[300px]">
-                    <h1 className="gradient-text-blue font-semibold text-5xl text-center leading-tight mb-6">The Phynite Marketplace<br/>is Coming Soon</h1>
-                    <h2 className="font-[500] text-xl text-white text-center mb-6">Sign up to be the first to know when we launch.</h2>
-                    <form onSubmit={onSubmit} className="flex border-2 border-gray1 hover:border-gray0 duration-100 rounded-lg">
-                        <input required value={userInfo.email} onChange={handleChange} name="email" type="email" className="w-[400px] h-12 rounded-l-lg text-lg bg-gray2 pl-4 focus:ring-1 text-white focus:ring-gray0 focus:outline-none placeholder:text-gray-400" placeholder="Email address"></input>
-                        <button type="submit" className="w-[120px] h-12 bg-gradient-to-br from-phyniteBlue to-phyniteBlue hover:brightness-125  duration-300 rounded-r-lg font-poppins text-gray1 text-lg font-[500] hover:from-salmon hover:to-mango">Sign Up</button>
-                    </form>
-                    {error !== null &&(
-                        <h1 className="text-md pt-3 font-poppins text-salmon">*{error}</h1>
-                    )}
+            {props.displayType === "mobile" && (
+                <div className="h-screen min-h-[600px] justify-center items-center flex px-[14px]">
+                    <div className="w-full flex flex-col items-center font-poppins h-[300px]">
+                        <h1 className="gradient-text-blue font-semibold text-[28px] text-center leading-tight mb-6">The Phynite Marketplace<br/>is Coming Soon</h1>
+                        <h2 className="font-[500] text-white text-[15px] text-center mb-6">Sign up to be the first to know when we launch.</h2>
+                        <form onSubmit={onSubmit} className="flex border-2 border-gray1 duration-100 rounded-lg w-full">
+                            <input required value={userInfo.email} onChange={handleChange} name="email" type="email" className="h-12 w-3/4 rounded-l-lg text-lg bg-gray2 pl-4 focus:ring-1 text-white focus:ring-gray0 focus:outline-none placeholder:text-gray-400" placeholder="Email address"></input>
+                            <button type="submit" className="w-[120px] h-12 bg-gradient-to-br from-phyniteBlue to-phyniteBlue duration-300 rounded-r-lg font-poppins text-gray1 text-lg font-semibold">Sign Up</button>
+                        </form>
+                        {error !== null &&(
+                            <h1 className="text-md pt-3 font-poppins text-salmon">*{error}</h1>
+                        )}
+                    </div>
+                    
                 </div>
-                
-            </div>
+            )}
+            {props.displayType === "computer" && (
+                <div className="h-screen min-h-[600px] justify-center items-center flex">
+                    <div className="w-[1300px] flex flex-col items-center font-poppins h-[300px]">
+                        <h1 className="gradient-text-blue font-semibold text-5xl text-center leading-tight mb-6">The Phynite Marketplace<br/>is Coming Soon</h1>
+                        <h2 className="font-[500] text-xl text-white text-center mb-6">Sign up to be the first to know when we launch.</h2>
+                        <form onSubmit={onSubmit} className="flex border-2 border-gray1 hover:border-gray0 duration-100 rounded-lg">
+                            <input required value={userInfo.email} onChange={handleChange} name="email" type="email" className="w-[400px] h-12 rounded-l-lg text-lg bg-gray2 pl-4 focus:ring-1 text-white focus:ring-gray0 focus:outline-none placeholder:text-gray-400" placeholder="Email address"></input>
+                            <button type="submit" className="w-[120px] h-12 bg-gradient-to-br from-phyniteBlue to-phyniteBlue hover:brightness-125  duration-300 rounded-r-lg font-poppins text-gray1 text-lg font-semibold hover:from-salmon hover:to-mango">Sign Up</button>
+                        </form>
+                        {error !== null &&(
+                            <h1 className="text-md pt-3 font-poppins text-salmon">*{error}</h1>
+                        )}
+                    </div>
+                    
+                </div>
+            )}
+
             <Footer />
         </div>
     )
