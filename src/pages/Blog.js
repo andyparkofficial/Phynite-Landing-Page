@@ -77,6 +77,49 @@ export default function Blog(props) {
                     </div>
                 </div>
             )}
+            {props.displayType === "tablet" && (
+                <div className="w-full font-poppins">
+                    <div className="px-[18px] w-full mb-12 pt-18">
+                        <h1 className="text-white text-5xl font-semibold text-center mb-16">
+                            <span className="text-phyniteBlue">Phynite </span>Blog
+                        </h1>
+                        <h2 className="text-white text-3xl font-[500] mb-4 pl-1">Recent</h2>
+                        <div className="rounded-2xl h-[400px] border border-gray0 bg-gradient-to-r from-gray-600 via-gray-300 to-ice flex flex-col justify-end p-4">
+                            <h1 className="text-gray1 text-2xl font-bold leading-[1.2] mb-2 w-3/4">
+                                The Pros and Cons of Physically Backed NFTs
+                            </h1>
+                            <h2 className="text-gray3 font-semibold justify-end text-lg">
+                                January 18th, 2023
+                            </h2>
+                        </div>
+                    </div>
+                    <div className="w-full mb-24 px-[10px]">
+                        <h1 className="text-3xl font-[500] text-white pl-3 mb-1">Recommended</h1>
+                        <div className="w-full flex flex-wrap">
+                            {blogs.map((blog, id) => {
+                                return (
+                                    <div className="py-3 w-1/2 px-2">
+                                        <div className="rounded-2xl h-[500px] bg-gray4 border border-gray1 flex flex-col overflow-clip">
+                                            <div className="w-full h-[250px] bg-gradient-to-br border-b border-gray1 from-phyniteBlue via-ice to-gray1"></div>
+                                            <div className="h-[250px] font-poppins p-5">
+                                                
+                                                <h1 className="text-white text-xl font-[500]">{blog.title}</h1>
+                                                <h2 className="text-gray0 text-sm mb-2">{blog.dateWritten}</h2>
+                                                <p className="border-t border-gray1 text-sm text-gray-400 pt-3">{blog.summary}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>
+                </div>
+            )}
+            {props.displayType === "smallComputer" && (
+                <div>
+                     
+                </div>
+            )}
             {props.displayType === "computer" && (
                 <div className="flex flex-col items-center w-full">
                     <div className="h-[350px] w-[1300px] flex justify-center">

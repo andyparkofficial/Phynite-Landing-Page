@@ -71,6 +71,35 @@ function Navbar(props) {
                     </div>
                 </div>
             )}
+            {displayType === "tablet" && (
+                <div className="flex h-full items-center pl-[10px] w-full">
+                    <Link exact to={"/"}>
+                        <img
+                        src={phyniteLogo}
+                        alt="phynite logo"
+                        className="w-36 cursor-pointer"
+                        />
+                    </Link>
+                    <div className="flex flex-grow justify-end items-center pr-3">
+        
+                        {mobileMenuOn ? (
+                        <button className="mr-[7px] ml-[18px]">
+                            <img src={closeIcon} className="w-6 h-6"></img>
+                        </button>    
+                        ):(
+                        <button onClick={() => toggleMobileMenu()} className="mr-2 ml-5">
+                            <img src={menuIcon} className="w-[22px] h-[22px]"></img>
+                        </button>    
+                        )}
+                    </div>    
+                </div>
+            )}
+            {displayType === "smallComputer" && (
+                <div>
+                    
+                </div>
+            )}
+
             {displayType === "computer" && (
                 <div className="w-[1370px]">
                     <div className="flex p-5 pl-5 pr-7">

@@ -5,11 +5,18 @@ import CrystalPhyniteLogo from "../assets/crystal-phynite-logo.png"
 import CrystalGlobe from "../assets/crystal-globe.png"
 import CrystalHand from "../assets/crystal-hand.png"
 import CrystalVault from "../assets/crystal-vault.png"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import Arrow from "../assets/right-arrow.png"
 
 
 export default function Home(props) {
+
+
+    const history = useHistory()
+
+    function redirectToPage(pageURL){
+        history.push(`/${pageURL}`);
+      }
 
     return (
         <div className="">
@@ -22,10 +29,10 @@ export default function Home(props) {
                         </h1>
                         <h2 className="text-white font-light text-sm pl-1">The fastest, safest, most forward-thinking way to trade physical collectibles. Only on Phynite.</h2>
                         <div className="w-full flex justify-center pt-10 mb-6">
-                            <img className="w-[90%] -translate-x-3" src={CrystalPhyniteLogo}></img>
+                            <img alt="" className="w-[90%] -translate-x-3" src={CrystalPhyniteLogo}></img>
                         </div>
                         <div className="w-full px-3">
-                            <button className="w-full py-2 rounded-2xl text-3xl text-gray1 font-semibold bg-phyniteBlue">Get Started</button>
+                            <button onClick={()=>redirectToPage("getStarted")} className="w-full py-2 rounded-2xl text-3xl text-gray1 font-semibold bg-phyniteBlue">Get Started</button>
                         </div>
                     </div>
                     <div className="w-full mb-16 px-1">
@@ -58,7 +65,7 @@ export default function Home(props) {
                         <div className="rounded-2xl bg-gradient-to-l from-gray3 to-gray1 p-5 border border-gray1 flex gap-x-2 mb-5">
                             <div className="w-[45%]">
                                 <h1 className="text-white font-[500] text-2xl">Mint</h1>
-                                <img className="w-full" src={CrystalVault}></img>
+                                <img alt="" className="w-full" src={CrystalVault}></img>
                             </div>
                             <div className="w-[65%]">
                                 <h2 className="text-white font-[500] mb-3 text-sm pt-11">Earn Royalties on Your NFTs Every Transaction</h2>
@@ -66,7 +73,7 @@ export default function Home(props) {
                                 <div className="flex w-full items-end justify-end pt-3 flex-grow">
                                     <Link to="phyniteProtocol" className="text-gray-300 py-[2px] px-2 flex items-center">
                                         <h1 className="text-gray-300 text-xs mr-1">Read More</h1>
-                                        <img className="w-3 h-3 brightness-90" src={Arrow}></img>
+                                        <img alt="" className="w-3 h-3 brightness-90" src={Arrow}></img>
                                     </Link>
                                 </div>
                             </div>
@@ -74,7 +81,7 @@ export default function Home(props) {
                         <div className="rounded-2xl bg-gradient-to-r from-gray3 to-gray1 p-5 border border-gray1 flex gap-x-2 mb-5">
                             <div className="w-[45%]">
                                 <h1 className="text-white font-[500] text-2xl">Trade</h1>
-                                <img className="w-[90%] translate-y-2 translate-x-2" src={CrystalGlobe}></img>
+                                <img alt="" className="w-[90%] translate-y-2 translate-x-2" src={CrystalGlobe}></img>
                             </div>
                             <div className="w-[65%]">
                                 <h2 className="text-white font-[500] mb-3 text-sm pt-11">Buy or Sell Collectibles from Anywhere, Anytime</h2>
@@ -82,7 +89,7 @@ export default function Home(props) {
                                 <div className="flex w-full items-end justify-end pt-3 flex-grow">
                                     <Link to="phyniteProtocol" className="text-gray-300 py-[2px] px-2 flex items-center">
                                         <h1 className="text-gray-300 text-xs mr-1">Read More</h1>
-                                        <img className="w-3 h-3 brightness-90" src={Arrow}></img>
+                                        <img alt="" className="w-3 h-3 brightness-90" src={Arrow}></img>
                                     </Link>
                                 </div>
                             </div>
@@ -90,7 +97,7 @@ export default function Home(props) {
                         <div className="rounded-2xl bg-gradient-to-l from-gray3 to-gray1 p-5 border border-gray1 flex gap-x-2 mb-5">
                             <div className="w-[45%]">
                                 <h1 className="text-white font-[500] text-2xl">Redeem</h1>
-                                <img className="w-[90%] translate-y-2 translate-x-2" src={CrystalHand}></img>
+                                <img alt="" className="w-[90%] translate-y-2 translate-x-2" src={CrystalHand}></img>
                             </div>
                             <div className="w-[65%]">
                                 <h2 className="text-white font-[500] mb-3 text-sm pt-11">Claim your Collectible at the Ease of a Touch</h2>
@@ -98,7 +105,7 @@ export default function Home(props) {
                                 <div className="flex w-full items-end justify-end pt-3 flex-grow">
                                     <Link to="phyniteProtocol" className="text-gray-300  py-[2px] px-2 flex items-center">
                                         <h1 className="text-gray-300 text-xs mr-1">Read More</h1>
-                                        <img className="w-3 h-3 brightness-90" src={Arrow}></img>
+                                        <img alt="" className="w-3 h-3 brightness-90" src={Arrow}></img>
                                     </Link>
                                 </div>
                             </div>
@@ -118,6 +125,116 @@ export default function Home(props) {
                     </div>
                 </div>
             )}
+            {props.displayType === "tablet" && (
+                <div className="w-full pt-20 px-[18px] font-poppins">
+                    <div className="w-full flex justify-center pt-20 items-center mb-24">
+                        <div className="w-[60%] h-full flex flex-col justify-center pl-1">
+                            <h1 className="text-4xl font-semibold text-phyniteBlue leading-tight font-poppins">The Web3 Marketplace for Physical Collectibles</h1>
+                            <h2 className="text-lg mt-6 mb-8 text-white font-light font-poppins">The fastest, safest, most forward-thinking way to trade physical collectibles. Only on Phynite.</h2>
+                            <Link to="/getStarted" className="text-3xl font-semibold font-poppins text-gray1 bg-gradient-to-br from-phyniteBlue to-phyniteBlue rounded-xl w-[300px] py-2 text-center">Get Started</Link>
+                        </div>
+                        <div className="w-[40%]  h-full flex justify-center items-center overflow-hidden">
+                            <img alt="" className="w-full translate-x-4 scale-110" src={CrystalPhyniteLogo}></img>
+                        </div>
+                    </div>
+
+                    <div className="w-full mb-24">
+                        <h1 className="text-white text-[27px] font-semibold font-poppins pl-1 mb-4">Phynite Marketplace</h1>
+                       
+                        <div className="h-[400px] flex-col flex font-poppins bg-gray1 rounded-2xl mb-6">
+                        </div>
+                        <div className="font-poppins px-1">
+                            <div className="w-full">
+                                <h2 className="text-lg font-semibold mb-2 text-white">Invest in the Physical, Digitally</h2>
+                                <h3 className="text-[13px] text-gray-400">
+                                All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.
+                                </h3>
+                            </div>
+                            <div className="w-full my-8">
+                                <h2 className="text-lg font-semibold mb-2 text-white">Trade Legal Ownership, not just IOUs</h2>
+                                <h3 className="text-[13px] text-gray-400">
+                                The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT.
+                                </h3>
+                            </div>
+                            <div className="w-full">
+                                <h2 className="text-lg font-semibold mb-2 text-white">Supporting Collectors, New and Old</h2>
+                                <h3 className="text-[13px] text-gray-400">
+                                All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="w-full mb-24">
+                        <h1 className="text-white font-semibold text-3xl text-center mb-2">Our Services</h1>
+                        <h2 className="w-full text-gray-400 font-light text-sm text-center mb-6">Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.</h2>
+                        <div className="rounded-2xl bg-gradient-to-l from-gray3 to-gray1 p-7 border border-gray1 flex gap-x-2 mb-5">
+                            <div className="w-[45%]">
+                                <h1 className="text-white font-[500] text-[26px]">Mint</h1>
+                                <img alt="" className="w-full" src={CrystalVault}></img>
+                            </div>
+                            <div className="w-[65%] flex flex-col justify-center pt-8">
+                                <h2 className="text-white font-[500] mb-3 text-xl pt-11">Earn Royalties on Your NFTs Every Transaction</h2>
+                                <h3 className="text-gray-400 text-sm">Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.</h3>
+                                <div className="flex w-full items-end justify-end pt-3 flex-grow">
+                                    <Link to="phyniteProtocol" className="text-gray-300 py-[2px] px-2 flex items-center">
+                                        <h1 className="text-gray-300 text-sm mr-1">Read More</h1>
+                                        <img alt="" className="w-4 h-4 brightness-90" src={Arrow}></img>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="rounded-2xl bg-gradient-to-r from-gray3 to-gray1 p-7 border border-gray1 flex gap-x-2 mb-5">
+                            <div className="w-[45%]">
+                                <h1 className="text-white font-[500] text-[26px]">Trade</h1>
+                                <img alt="" className="w-[90%] translate-y-2 translate-x-2" src={CrystalGlobe}></img>
+                            </div>
+                            <div className="w-[65%] flex flex-col justify-center pt-8">
+                                <h2 className="text-white font-[500] mb-3 text-xl pt-11">Buy or Sell Collectibles from Anywhere, Anytime</h2>
+                                <h3 className="text-gray-400 text-sm">Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.</h3>
+                                <div className="flex w-full items-end justify-end pt-3 flex-grow">
+                                    <Link to="phyniteProtocol" className="text-gray-300 py-[2px] px-2 flex items-center">
+                                        <h1 className="text-gray-300 text-sm mr-1">Read More</h1>
+                                        <img alt="" className="w-4 h-4 brightness-90" src={Arrow}></img>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="rounded-2xl bg-gradient-to-l from-gray3 to-gray1 p-7 border border-gray1 flex gap-x-2 mb-5">
+                            <div className="w-[45%]">
+                                <h1 className="text-white font-[500] text-[26px]">Redeem</h1>
+                                <img alt="" className="w-[90%] translate-y-2 translate-x-2" src={CrystalHand}></img>
+                            </div>
+                            <div className="w-[65%] flex flex-col justify-center pt-8">
+                                <h2 className="text-white font-[500] mb-3 text-xl pt-11">Claim your Collectible at the Ease of a Touch</h2>
+                                <h3 className="text-gray-400 text-sm">Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.</h3>
+                                <div className="flex w-full items-end justify-end pt-3 flex-grow">
+                                    <Link to="phyniteProtocol" className="text-gray-300  py-[2px] px-2 flex items-center">
+                                        <h1 className="text-gray-300 text-sm mr-1">Read More</h1>
+                                        <img alt="" className="w-4 h-4 brightness-90" src={Arrow}></img>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="w-full mb-24">
+                        <h1 className="text-white font-semibold text-3xl mb-5 pl-1">Learn More</h1>
+                        <div className="w-full h-80 rounded-xl bg-gray3 border-gray1 border mb-5"></div>
+                        <div className="flex w-full gap-x-4 mb-5">
+                            <div className="rounded-xl h-56 bg-gray3 border border-gray1 w-1/2"></div>
+                            <div className="rounded-xl h-56 bg-gray3 border border-gray1 w-1/2"></div>
+                        </div>
+                        <div className="flex w-full gap-x-4">
+                            <div className="rounded-xl h-56 bg-gray3 border border-gray1 w-1/2"></div>
+                            <div className="rounded-xl h-56 bg-gray3 border border-gray1 w-1/2"></div>
+                        </div>
+                    </div>
+                </div>
+            )}
+            {props.displayType === "smallComputer" && (
+                <div>
+                    
+                </div>
+            )}
             {props.displayType === "computer" && (
                 <div className="w-full">
                     <div className="w-full bg-mainGray max-h-[900px] h-screen min-h-[700px] flex justify-center">
@@ -128,7 +245,7 @@ export default function Home(props) {
                                 <Link to="/getStarted" className="text-3xl font-semibold font-poppins text-gray1 bg-gradient-to-br from-phyniteBlue to-phyniteBlue hover:brightness-125 hover:from-mango hover:to-salmon duration-300 rounded-xl w-[300px] py-2 text-center">Get Started</Link>
                             </div>
                             <div className="w-[40%]  h-full flex justify-center items-center">
-                                <img className="w-[550px] h-[550px] translate-x-4" src={CrystalPhyniteLogo}></img>
+                                <img alt="" className="w-[550px] h-[550px] translate-x-4" src={CrystalPhyniteLogo}></img>
                             </div>
                         </div>
                     </div>
@@ -172,7 +289,7 @@ export default function Home(props) {
                                     Mint
                                 </h1>
                                 <div className="flex justify-center items-center w-full h-[240px] mb-5">
-                                    <img src={CrystalVault} className="w-[240px] h-[240px]"></img>
+                                    <img alt="" src={CrystalVault} className="w-[240px] h-[240px]"></img>
                                 </div>
                                 <h1 className="text-white text-2xl font-[500] text-left w-full mb-3">
                                     Earn Royalties on Your NFTs Every Transaction
@@ -181,7 +298,7 @@ export default function Home(props) {
                                 <div className="flex flex-grow items-end justify-end w-full ">
                                     <Link to="/phyniteProtocol"  className="flex items-center hover:brightness-125 px-3 border border-gray0 rounded-lg h-7">
                                         <div className="text-gray-300 text-[13px]">Read More</div>
-                                        <img src={Arrow} className="w-4 h-4 ml-1 brightness-90"></img>
+                                        <img alt="" src={Arrow} className="w-4 h-4 ml-1 brightness-90"></img>
                                     </Link>
                                 </div>
                             </div>
@@ -190,7 +307,7 @@ export default function Home(props) {
                                     Trade
                                 </h1>
                                 <div className="flex justify-center items-center w-full h-[240px] mb-5">
-                                    <img src={CrystalGlobe} className="w-[220px] h-[220px]"></img>
+                                    <img alt="" src={CrystalGlobe} className="w-[220px] h-[220px]"></img>
                                 </div>
                                 <h1 className="text-white text-2xl font-[500] text-left w-full mb-3">
                                     Buy or Sell Collectibles from Anywhere, Anytime
@@ -199,7 +316,7 @@ export default function Home(props) {
                                 <div className="flex flex-grow items-end justify-end w-full ">
                                     <Link to="/phyniteProtocol"  className="flex items-center hover:brightness-125 px-3 border border-gray0 rounded-lg h-7">
                                         <div className="text-gray-300 text-[13px]">Read More</div>
-                                        <img src={Arrow} className="w-4 h-4 ml-1 brightness-90"></img>
+                                        <img alt="" src={Arrow} className="w-4 h-4 ml-1 brightness-90"></img>
                                     </Link>
                                 </div>
                             </div>
@@ -208,7 +325,7 @@ export default function Home(props) {
                                     Redeem
                                 </h1>
                                 <div className="flex justify-center items-center w-full h-[240px] mb-5">
-                                    <img src={CrystalHand} className="w-[230px] h-[230px]"></img>
+                                    <img alt="" src={CrystalHand} className="w-[230px] h-[230px]"></img>
                                 </div>
                                 <h1 className="text-white text-2xl font-[500] text-left w-full mb-3">
                                     Claim your Collectible at the Ease of a Touch
@@ -217,7 +334,7 @@ export default function Home(props) {
                                 <div className="flex flex-grow items-end justify-end w-full ">
                                     <Link to="/phyniteProtocol"  className="flex items-center hover:brightness-125 px-3 border border-gray0 rounded-lg h-7">
                                         <div className="text-gray-300 text-[13px]">Read More</div>
-                                        <img src={Arrow} className="w-4 h-4 ml-1 brightness-90"></img>
+                                        <img alt="" src={Arrow} className="w-4 h-4 ml-1 brightness-90"></img>
                                     </Link>
                                 </div>
                             </div>

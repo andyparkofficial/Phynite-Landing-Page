@@ -558,6 +558,449 @@ export default function About (props) {
                     </div>
                 </div>
             )}
+            {props.displayType === "tablet" && (
+                <div className="w-full px-[18px] pt-20 font-poppins">
+                    <div className="w-full flex pt-20 items-center gap-x-4 mb-32">
+    
+                        <div className="w-[40%]  h-full flex justify-start items-center overflow-hidden">
+                            <img className="w-full scale-110" src={CrystalPhyniteLogo}></img>
+                        </div>
+                        <div className="w-[60%] h-full flex flex-col justify-center items-end">
+                            <div className="w-full">
+                                <h1 className="text-4xl font-semibold text-phyniteBlue leading-tight font-poppins">Who We Are, Our Vision, and More.</h1>
+                                <h2 className="text-lg mt-8 text-white font-light font-poppins">Learn more about our proprietary technology, timeline, and meet the team!</h2>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    <div className="w-full mb-28">
+                        <h1 className="text-3xl text-white font-semibold w-full text-center">What is Phynite?</h1>
+                        <p className="text-md text-gray-400 mt-6 text-center font-light w-full px-1" >Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT. All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT.</p>
+                    </div>
+                    <div className="w-full mb-24">
+                        <h1 className="text-white text-3xl font-semibold text-center mb-5">The Phynite Protocol</h1>
+                        <div className="flex border-b border-gray1 text-gray-400">
+                            <button onClick={()=>setSelectedSection(0)} className={sectionButtonStyle[0]}>Mint</button>
+                            <button onClick={()=>setSelectedSection(1)} className={sectionButtonStyle[1]}>Trade</button>
+                            <button onClick={()=>setSelectedSection(2)} className={sectionButtonStyle[2]}>Redeem</button>
+                        </div>
+                        {selectedSection === 0 && (
+                            <div className="w-full flex flex-col items-center">
+                                <h1 className="text-white text-2xl font-semibold mt-10 w-full pl-1 mb-2">Minting Process</h1>
+                                <img className="w-[70%] mb-2" src={CrystalVault}></img>
+                                <div className="w-full rounded-xl overflow-clip border border-gray1 mt-2">
+                                    <DescriptionItem
+                                        number={1}
+                                        itemName={"Item Submission"}
+                                        itemIndex={0}
+                                        menuOpened={activeMenuMint[0]}
+                                        toggleDropdownMenu={()=>toggleMintMenu(0)}
+                                    >
+                                        <DescriptionDropdownMenu menuOpened={activeMenuMint[0]}>
+                                            <div className="text-gray-300 text-sm p-6 ">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                        </DescriptionDropdownMenu>
+                                    </DescriptionItem>
+                                    <DescriptionItem
+                                        number={2}
+                                        itemName={"Verification and Vaulting"}
+                                        itemIndex={1}
+                                        menuOpened={activeMenuMint[1]}
+                                        toggleDropdownMenu={()=>toggleMintMenu(1)}
+                                    >
+                                        <DescriptionDropdownMenu menuOpened={activeMenuMint[1]}>
+                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                        </DescriptionDropdownMenu>
+                                    </DescriptionItem>
+                                    <DescriptionItem
+                                        number={3}
+                                        itemName={"Minting and Transfer"}
+                                        itemIndex={2}
+                                        menuOpened={activeMenuMint[2]}
+                                        toggleDropdownMenu={()=>toggleMintMenu(2)}
+                                    >
+                                        <DescriptionDropdownMenu menuOpened={activeMenuMint[2]}>
+                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                        </DescriptionDropdownMenu>
+                                    </DescriptionItem>
+                                </div>
+                            </div>
+                        )}
+                        {selectedSection === 1 && (
+                            <div className="w-full flex flex-col items-center">
+                                <h1 className="text-white text-2xl font-semibold mt-10 w-full pl-1 mb-2">Trading Process</h1>
+                                <img className="w-[70%] mb-2" src={CrystalGlobe}></img>
+                                <div className="w-full rounded-xl overflow-clip border border-gray1 mt-2">
+                                    <DescriptionItem
+                                        number={1}
+                                        itemName={"Item Submission"}
+                                        itemIndex={0}
+                                        menuOpened={activeMenuTrade[0]}
+                                        toggleDropdownMenu={()=>toggleTradeMenu(0)}
+                                    >
+                                        <DescriptionDropdownMenu menuOpened={activeMenuTrade[0]}>
+                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                        </DescriptionDropdownMenu>
+                                    </DescriptionItem>
+                                    <DescriptionItem
+                                        number={2}
+                                        itemName={"Verification and Vaulting"}
+                                        itemIndex={1}
+                                        menuOpened={activeMenuTrade[1]}
+                                        toggleDropdownMenu={()=>toggleTradeMenu(1)}
+                                    >
+                                        <DescriptionDropdownMenu menuOpened={activeMenuTrade[1]}>
+                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                        </DescriptionDropdownMenu>
+                                    </DescriptionItem>
+                                    <DescriptionItem
+                                        number={3}
+                                        itemName={"Minting and Transfer"}
+                                        itemIndex={2}
+                                        menuOpened={activeMenuTrade[2]}
+                                        toggleDropdownMenu={()=>toggleTradeMenu(2)}
+                                    >
+                                        <DescriptionDropdownMenu menuOpened={activeMenuTrade[2]}>
+                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                        </DescriptionDropdownMenu>
+                                    </DescriptionItem>
+                                </div>
+                            </div>
+                        )}
+                        {selectedSection === 2 && (
+                            <div className="w-full flex flex-col items-center">
+                                <h1 className="text-white text-2xl font-semibold mt-10 w-full pl-1 mb-2">Redeeming Process</h1>
+                                <img className="w-[70%] mb-2" src={CrystalHand}></img>
+                                <div className="w-full rounded-xl overflow-clip border border-gray1 mt-2">
+                                    <DescriptionItem
+                                        number={1}
+                                        itemName={"Item Submission"}
+                                        itemIndex={0}
+                                        menuOpened={activeMenuRedeem[0]}
+                                        toggleDropdownMenu={()=>toggleRedeemMenu(0)}
+                                    >
+                                        <DescriptionDropdownMenu menuOpened={activeMenuRedeem[0]}>
+                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                        </DescriptionDropdownMenu>
+                                    </DescriptionItem>
+                                    <DescriptionItem
+                                        number={2}
+                                        itemName={"Verification and Vaulting"}
+                                        itemIndex={1}
+                                        menuOpened={activeMenuRedeem[1]}
+                                        toggleDropdownMenu={()=>toggleRedeemMenu(1)}
+                                    >
+                                        <DescriptionDropdownMenu menuOpened={activeMenuRedeem[1]}>
+                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                        </DescriptionDropdownMenu>
+                                    </DescriptionItem>
+                                    <DescriptionItem
+                                        number={3}
+                                        itemName={"Minting and Transfer"}
+                                        itemIndex={2}
+                                        menuOpened={activeMenuRedeem[2]}
+                                        toggleDropdownMenu={()=>toggleRedeemMenu(2)}
+                                    >
+                                        <DescriptionDropdownMenu menuOpened={activeMenuRedeem[2]}>
+                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                        </DescriptionDropdownMenu>
+                                    </DescriptionItem>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                    <div className="w-full mb-24">
+                        <h1 className="text-white font-semibold text-3xl pb-3 pl-1 border-b border-gray0">Contractually Bound NFTs</h1>
+                        <div className="flex gap-x-6">
+                            <div className="flex flex-col items-center gap-y-3 pl-1 min-w-[175px] pt-4">
+                                <button onClick={()=>setSelectedCBNFTSection(0)} className={mobileCBNFTSectionButtonStyle[0]}>
+                                    <h1 className="py-4 text-center w-full">Overview</h1>
+                                </button>
+                                <button onClick={()=>setSelectedCBNFTSection(1)} className={mobileCBNFTSectionButtonStyle[1]}>
+                                    <h1 className="py-4 text-center w-full">Phase 1</h1>
+                                </button>
+                                <button onClick={()=>setSelectedCBNFTSection(2)} className={mobileCBNFTSectionButtonStyle[2]}>
+                                    <h1 className="py-4 text-center w-full">Phase 2</h1>
+                                </button>
+                                
+                            </div>
+                            <div className="min-h-[250px]">
+                                {selectedCBNFTSection === 0 && (
+                                    <div className="w-full h-full font-poppins flex flex-col pt-4 items-center">
+                                        <h1 className="text-white text-xl font-[500] mt-1 w-full text-left mb-2">Overview: CBNFTs</h1>
+                                        
+                                        
+                                        <div className="flex">
+                                            <div className="flex flex-col">
+                                                <p className=" text-gray-400 w-full mt-3 mb-5" >Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. </p>
+                                                <Link to="/phyniteProtocol"  className="flex items-center">
+                                                    <div className="text-gray-300 text-sm">Read More</div>
+                                                    <img src={Arrow} className="w-5 h-5 ml-2 brightness-90"></img>
+                                                </Link>
+                                            </div>
+                                            <img src={CrystalContract} className="w-48 -translate-y-8"></img>
+                                        </div>
+                                    </div>
+                                        
+                                    
+                                )}
+                                {selectedCBNFTSection === 1 && (
+                                    <div className="w-full h-full font-poppins flex flex-col pt-4 items-center">
+                                        <h1 className="text-white text-xl font-[500] mt-1 w-full text-left mb-2">Phase 1: Off-Chain Storage</h1>
+                                        <div className="flex flex-col">
+                                            <p className=" text-gray-400 w-full mt-3 mb-5" >All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). </p>
+                                            <Link to="/phyniteProtocol"  className="flex items-center">
+                                                <div className="text-gray-300 text-sm">Read More</div>
+                                                <img src={Arrow} className="w-5 h-5 ml-2 brightness-90"></img>
+                                            </Link>
+                                        </div>
+                                        
+                                    </div>
+                                )}
+                                {selectedCBNFTSection === 2 && (
+                                    <div className="w-full h-full font-poppins flex flex-col pt-4 items-center">
+                                        <h1 className="text-white text-xl font-[500] mt-1 w-full text-left mb-2">Phase 2: On-Chain Storage</h1>
+                                        <div className="flex flex-col">
+                                            <p className=" text-gray-400 w-full mt-3 mb-5" >All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). </p>
+                                            <Link to="/phyniteProtocol"  className="flex items-center">
+                                                <div className="text-gray-300 text-sm">Read More</div>
+                                                <img src={Arrow} className="w-5 h-5 ml-2 brightness-90"></img>
+                                            </Link>
+                                        </div>
+                                        
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="w-full mb-24">
+                        <h1 className="text-4xl font-poppins font-semibold text-white mb-8">Timeline</h1>
+                        <div className="flex h-full rounded-xl border border-gray1 bg-gradient-to-r from-gray4 via-gray3 to-gray1 ">
+                            <div className=" pr-6 pt-8  pl-8 w-[40%] min-w-[200px]">
+                                
+                                {selectedQuarter === 0 && (
+                                    <div className="w-full">
+                                        <h1 className="text-white font-poppins text-3xl font-semibold mb-4">Q2 2023</h1>
+                                        <div className="pl-4">
+                                            <li className="text-gray-400 font-poppins font-light mb-3">
+                                                Alpha Marketplace Launch (Few Selected Users)
+                                                
+                                            </li>
+                                            <li className="text-gray-400 font-poppins font-light">
+                                                Beta Marketplace Launch (Open to All Users)
+                                            </li>
+                                        </div>
+                                        
+                                    </div>
+                                )}
+                                {selectedQuarter === 1 && (
+                                    <div className="w-full">
+                                        <h1 className="text-white font-poppins text-3xl font-semibold mb-4">Q3 2023</h1>
+                                        <div className="pl-4">
+                                            <li className="text-gray-400 font-poppins font-light mb-3">
+                                                Official Marketplace Upgrade
+                                                
+                                            </li>
+                                            <li className="text-gray-400 font-poppins font-light">
+                                                Phynite Instagram Launch
+                                            </li>
+                                        </div>
+                                        
+                                    </div>
+                                )}
+                                {selectedQuarter === 2 && (
+                                    <div className="w-full">
+                                        <h1 className="text-white font-poppins text-3xl font-semibold mb-4">Q4 2023</h1>
+                                        <div className="pl-4">
+                                            <li className="text-gray-400 font-poppins font-light mb-3">
+                                                New Collectible Categories Added
+                                                
+                                            </li>
+                                            <li className="text-gray-400 font-poppins font-light">
+                                                Phynite Rewards System Launch
+                                            </li>
+                                        </div>
+                                        
+                                    </div>
+                                )}
+                                {selectedQuarter === 3 && (
+                                    <div className="w-full">
+                                        <h1 className="text-white font-poppins text-3xl font-semibold mb-4">Q1 2024</h1>
+                                        <div className="pl-4">
+                                            <li className="text-gray-400 font-poppins font-light mb-3">
+                                                On-Chain Storage of Legal Signatures Enabled
+                                                
+                                            </li>
+                                            <li className="text-gray-400 font-poppins font-light">
+                                                More Coming Soon...
+                                            </li>
+                                        </div>
+                                        
+                                    </div>
+                                )}
+    
+                                
+                            </div>
+                            <div className="w-[60%]">
+                                <div className="h-[300px] w-full flex flex-col">
+                                    <div className="h-[140px] w-full font-poppins pt-8 flex px-8">
+                                        <div className="w-[10%] h-full">
+                                            <h1 className="text-white font-semibold text-3xl">2023</h1>
+                                        </div>
+                                        <div className="w-1/5 h-full justify-center items-end flex">
+                                            {selectedQuarter === 0 ? (
+                                                <button onClick={()=>setSelectedQuarter(0)} className="text-white font-semibold text-3xl p-2 duration-150">Q2</button>
+                                            ):(
+                                                <button onClick={()=>setSelectedQuarter(0)} className="text-gray-300 font-[500] text-2xl p-2 hover:text-3xl hover:font-semibold duration-150">Q2</button>        
+                                            )}
+                                            
+                                        </div>
+                                        <div className="w-1/5 h-full justify-center items-end flex">
+                                            {selectedQuarter === 1 ? (
+                                                <button onClick={() => setSelectedQuarter(1)} className="text-white font-semibold text-3xl p-2 duration-150">Q3</button>
+                                            ):(
+                                                <button onClick={() => setSelectedQuarter(1)} className="text-gray-300 font-[500] text-2xl p-2 hover:text-3xl hover:font-semibold duration-150">Q3</button>
+                                            )}
+                                            
+                                        </div>
+                                        <div className="w-1/5 h-full justify-center items-end flex">
+                                            {selectedQuarter === 2 ? (
+                                                <button onClick={() => setSelectedQuarter(2)} className="text-white font-semibold text-3xl p-2 duration-150">Q4</button>
+                                            ):(
+                                                <button onClick={() => setSelectedQuarter(2)} className="text-gray-300 font-[500] text-2xl p-2 hover:text-3xl hover:font-semibold duration-150">Q4</button>    
+                                            )}
+                                            
+                                        </div>
+                                        <div className="w-1/5 h-full justify-end items-center flex flex-col">
+                                            <div className="flex flex-grow">
+                                                <h1 className="text-white font-semibold text-3xl">2024</h1>
+                                            </div>
+                                            
+                                            {selectedQuarter === 3 ? (
+                                                <button onClick={()=>setSelectedQuarter(3)} className="text-white font-semibold text-3xl p-2 duration-150">Q1</button>
+                                            ):(
+                                                <button onClick={()=>setSelectedQuarter(3)} className="text-gray-300 font-[500] text-2xl p-2 hover:text-3xl hover:font-semibold duration-150">Q1</button>
+                                            )}
+                                            
+                                        </div>
+                                        <div className="w-[10%] h-full">
+                                            
+                                        </div>
+                                    </div>
+                                    <div className="h-[20px] w-full px-8  ">
+                                        <div className="bg-gray1 flex-col justify-center flex  rounded-r-full">
+                                            <div className="h-2 w-full flex">
+                                                <button onClick={()=>setSelectedQuarter(0)} className="h-full w-1/5 border-x-2 border-l-[3px] border-gray0" style={timelineStyle[0]}></button>
+                                                <button onClick={()=>setSelectedQuarter(1)} className="h-full w-1/5 border-x-2 border-gray0" style={timelineStyle[1]}></button>
+                                                <button onClick={()=>setSelectedQuarter(2)} className="h-full w-1/5 border-x-2 border-gray0" style={timelineStyle[2]}></button>
+                                                <button onClick={()=>setSelectedQuarter(3)} className="h-full w-1/5 border-x-2 border-gray0" style={timelineStyle[3]}></button>
+                                                <div className="h-full w-1/5 border-l-2 border-gray0"></div>
+                                            </div>
+                                            <div className="h-[2px] w-full bg-gray0 flex">
+                                                <button onClick={()=>setSelectedQuarter(0)} className="w-1/5 h-full border-x-2 border-l-[3px] border-gray0" style={timelineHLStyle[0]}></button>
+                                                <button onClick={()=>setSelectedQuarter(1)} className="w-1/5 h-full border-x-2 border-gray0" style={timelineHLStyle[1]}></button>
+                                                <button onClick={()=>setSelectedQuarter(2)} className="w-1/5 h-full border-x-2 border-gray0" style={timelineHLStyle[2]}></button>
+                                                <button onClick={()=>setSelectedQuarter(3)} className="w-1/5 h-full border-x-2 border-gray0" style={timelineHLStyle[3]}></button>
+                                                <div className="w-1/5 h-full flex justify-end border-l-2 border-gray0">
+                                                    <img className="w-8 h-8 rotate-180 translate-x-3 -translate-y-[15px]" src={GrayArrow}></img>
+                                                </div>
+                                                
+                                            </div>
+                                            <div className="h-2 w-full flex">
+                                                <button onClick={()=>setSelectedQuarter(0)} className="h-full w-1/5 border-x-2 border-l-[3px] border-gray0" style={timelineStyle[0]}></button>
+                                                <button onClick={()=>setSelectedQuarter(1)} className="h-full w-1/5 border-x-2 border-gray0" style={timelineStyle[1]}></button>
+                                                <button onClick={()=>setSelectedQuarter(2)} className="h-full w-1/5 border-x-2 border-gray0" style={timelineStyle[2]}></button>
+                                                <button onClick={()=>setSelectedQuarter(3)} className="h-full w-1/5 border-x-2 border-gray0" style={timelineStyle[3]}></button>
+                                                <div className="h-full w-1/5 border-l-2 border-gray0"></div>
+                                            </div>
+                                        </div>
+    
+                                    </div>
+                                    <div className="h-[140px] w-full font-poppins px-8 flex-col flex py-8">
+                                        <div className="h-1/2 w-full flex items-end">
+                                            <div className="w-[60%] border-b border-x border-gray0 rounded-b-xl flex justify-center pb-[2px]">
+                                                <h1 className="font-light text-gray-400 font-poppins italic text-md tracking-wide">Minting Fees Waived</h1>
+                                            </div>
+                                        </div>
+                                        <div className="h-1/2 w-full flex items-end">
+                                            <div className="w-[80%]  border-b border-x border-gray0 rounded-b-xl flex justify-center pb-[2px]">
+                                                <h1 className="font-light text-gray-400 font-poppins italic text-md tracking-wide">Vaulting Fees Waived</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div className="w-full mb-24">
+                        <h1 className="text-white font-semibold text-3xl mb-6">The Founders</h1>
+                        <div className="w-full bg-gradient-to-l from-gray4 to-gray2 rounded-xl flex border-gray1 border p-4 gap-x-2 mb-6">
+                            <div className="flex flex-col">
+                                <h1 className="text-white text-2xl font-[500]">Andy Park</h1>
+                                <h2 className="text-gray-400">CEO/CTO</h2>
+                                <div className="flex flex-grow items-end">
+                                    <div className="flex gap-x-2">
+                                        <a href="https://www.linkedin.com/in/andy-park-b5a76a236/" className="" target="_blank">
+                                            <img src={LinkedInIcon} className="h-10 w-10"></img>
+                                        </a>
+                                        <a>
+                                            <img src={TwitterIcon} className="h-10 w-10"></img>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex flex-grow justify-end">
+                                <img src={AndyProfilePic} className="rounded-full w-[350px] "></img>
+                            </div>
+                        </div>
+                        <div className="w-full bg-gradient-to-l from-gray4 to-gray2 rounded-xl flex border-gray1 border p-4 gap-x-2 mb-6">
+                            <div className=" flex flex-col">
+                                <h1 className="text-white text-2xl font-[500]">Esa Sait</h1>
+                                <h2 className="text-gray-400">COO</h2>
+                                <div className="flex flex-grow items-end">
+                                    <div className="flex gap-x-2">
+                                        <a>
+                                            <img src={LinkedInIcon} className="h-10 w-10"></img>
+                                        </a>
+                                        <a>
+                                            <img src={TwitterIcon} className="h-10 w-10"></img>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex flex-grow justify-end">
+                                <img src={EsaProfilePic} className="rounded-full w-[350px] "></img>
+                            </div>
+                        </div>
+                        <div className="w-full bg-gradient-to-l from-gray4 to-gray2 rounded-xl flex border-gray1 border p-4 gap-x-2">
+                            <div className="flex flex-col">
+                                <h1 className="text-white text-2xl font-[500]">William Yeo</h1>
+                                <h2 className="text-gray-400">CFO</h2>
+                                <div className="flex flex-grow items-end">
+                                    <div className="flex gap-x-2">
+                                        <a>
+                                            <img src={LinkedInIcon} className="h-10 w-10"></img>
+                                        </a>
+                                        <a>
+                                            <img src={TwitterIcon} className="h-10 w-10"></img>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex flex-grow justify-end">
+                                <img src={BillProfilePic} className="rounded-full w-[350px] "></img>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+            {props.displayType === "smallComputer" && (
+                <div>
+                    
+                </div>
+            )}
+
             {props.displayType === "computer" && (
                 <div className="w-full bg-mainGray flex flex-col items-center pt-12">
                     <div className="w-[1300px] max-h-[900px] h-screen min-h-[700px] flex justify-center">
