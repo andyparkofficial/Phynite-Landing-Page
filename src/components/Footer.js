@@ -156,7 +156,7 @@ export default function Footer() {
                 </div>
             )}
             {displayType === "smallComputer" && (
-                <div className=" h-[300px] pt-12 pb-5 font-poppins flex flex-col w-full px-6">
+                <div className=" h-[300px] pt-12 pb-5 font-poppins flex flex-col w-full px-8">
                     <div className="w-full flex">
                         <div className="w-[30%] h-full">
                             <img className="w-48 mb-2 -translate-x-2" src={phyniteLogo}></img>

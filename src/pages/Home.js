@@ -231,7 +231,7 @@ export default function Home(props) {
                 </div>
             )}
             {props.displayType === "smallComputer" && (
-                <div className="w-full px-6 font-poppins pt-20">
+                <div className="w-full px-8 font-poppins pt-20">
                     <div className="w-full flex justify-center pt-20 items-center mb-24">
                         <div className="w-[60%] h-full flex flex-col justify-center pl-1">
                             <h1 className="text-5xl font-semibold text-phyniteBlue leading-tight font-poppins w-[600px]">The Web3 Marketplace for Physical Collectibles</h1>

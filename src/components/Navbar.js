@@ -95,7 +95,7 @@ function Navbar(props) {
                 </div>
             )}
             {displayType === "smallComputer" && (
-                <div className="flex h-full items-center pl-4 w-full">
+                <div className="flex h-full items-center pl-7 w-full">
                     <Link exact to={"/"}>
                         <img
                         src={phyniteLogo}
@@ -103,7 +103,7 @@ function Navbar(props) {
                         className="w-40 cursor-pointer"
                         />
                     </Link>
-                    <div className="flex flex-grow justify-end pr-5">
+                    <div className="flex flex-grow justify-end pr-7">
                         <ul className="font-poppins flex justify-center">
                         <Link to={"/about"}>
                             <li
