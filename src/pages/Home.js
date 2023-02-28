@@ -232,14 +232,124 @@ export default function Home(props) {
             )}
             {props.displayType === "smallComputer" && (
                 <div className="w-full px-8 font-poppins pt-20">
-                    <div className="w-full flex justify-center pt-20 items-center mb-24">
+                    <div className="w-full flex justify-center pt-20 items-center mb-20 h-screen min-h-[500px] max-h-[600px] gap-x-6">
                         <div className="w-[60%] h-full flex flex-col justify-center pl-1">
                             <h1 className="text-5xl font-semibold text-phyniteBlue leading-tight font-poppins w-[600px]">The Web3 Marketplace for Physical Collectibles</h1>
                             <h2 className="text-lg mt-6 mb-8 text-white font-light font-poppins w-[600px]">The fastest, safest, most forward-thinking way to trade physical collectibles. Only on Phynite.</h2>
-                            <Link to="/getStarted" className="text-3xl font-semibold font-poppins text-gray1 bg-gradient-to-br from-phyniteBlue to-phyniteBlue rounded-xl w-[300px] py-2 text-center">Get Started</Link>
+                            <Link to="/getStarted" className="text-3xl font-semibold font-poppins text-gray1 bg-gradient-to-br from-phyniteBlue to-phyniteBlue rounded-xl w-[300px] py-2 text-center hover:brightness-125 hover:from-mango hover:to-salmon duration-300">Get Started</Link>
                         </div>
                         <div className="w-[40%]  h-full flex justify-center items-center overflow-hidden">
                             <img alt="" className="w-full translate-x-4" src={CrystalPhyniteLogo}></img>
+                        </div>
+                    </div>
+                    <div className="w-full mb-24">
+                        <h1 className="text-white text-3xl font-semibold font-poppins">Phynite Marketplace</h1>
+                        <div className="flex justify-center">
+                            <div className="w-[50%] h-full flex-col flex font-poppins bg-gray0">
+                            </div>
+                            <div className="w-[50%]  h-full font-poppins">
+                                <div className="w-full  p-5 ">
+                                    <h2 className="text-xl font-semibold mb-2 text-white">Invest in the Physical, Digitally</h2>
+                                    <h3 className="text-[13px] text-gray-400">
+                                    All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.
+                                    </h3>
+                                </div>
+                                <div className="w-full my-5 p-5">
+                                    <h2 className="text-xl font-semibold mb-2 text-white">Trade Legal Ownership, not just IOUs</h2>
+                                    <h3 className="text-[13px] text-gray-400">
+                                    The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT.
+                                    </h3>
+                                </div>
+                                <div className="w-full p-5">
+                                    <h2 className="text-xl font-semibold mb-2 text-white">Supporting Collectors, New and Old</h2>
+                                    <h3 className="text-[13px] text-gray-400">
+                                    All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="w-full mb-24">
+                        <h1 className="text-white font-poppins text-4xl font-semibold mb-2 w-full text-center">Our Services</h1>
+                        <h2 className="w-full text-gray-400 font-light text-center mb-10">Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.</h2>
+                        <div className="w-full font-poppins flex gap-x-6 h-full">
+                            <div className="w-1/3 h-full flex flex-col items-center bg-gradient-to-b from-gray3 to-gray1 rounded-2xl p-8 border border-gray1 hover:border-gray0 duration-200">
+                                <h1 className="text-white text-3xl font-[500] w-full text-left mb-3">
+                                    Mint
+                                </h1>
+                                <div className="flex justify-center items-center w-full mb-5">
+                                    <img alt="" src={CrystalVault} className="w-[70%]"></img>
+                                </div>
+                                <h1 className="text-white text-xl font-[500] text-left w-full mb-3">
+                                    Earn Royalties on Your NFTs Every Transaction
+                                </h1>
+                                <h2 className="w-full text-gray-300 font-light text-left text-[13px] mb-5">Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.</h2>
+                                <div className="flex flex-grow items-end justify-end w-full ">
+                                    <Link to="/phyniteProtocol"  className="flex items-center hover:brightness-125 px-3 border border-gray0 rounded-lg h-7">
+                                        <div className="text-gray-300 text-[13px]">Read More</div>
+                                        <img alt="" src={Arrow} className="w-4 h-4 ml-1 brightness-90"></img>
+                                    </Link>
+                                </div>
+                            </div>
+                            <div className="w-1/3 h-full flex flex-col items-center bg-gradient-to-b from-gray3 to-gray1 rounded-2xl p-8 border border-gray1 hover:border-gray0 duration-200">
+                                <h1 className="text-white text-3xl font-[500] w-full text-left mb-3">
+                                    Trade
+                                </h1>
+                                <div className="flex justify-center items-center w-full mb-5">
+                                    <img alt="" src={CrystalGlobe} className="w-[70%]"></img>
+                                </div>
+                                <h1 className="text-white text-xl font-[500] text-left w-full mb-3">
+                                    Buy or Sell Collectibles from Anywhere, Anytime
+                                </h1>
+                                <h2 className="w-full text-gray-300 font-light text-left text-[13px] mb-5">Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.</h2>
+                                <div className="flex flex-grow items-end justify-end w-full ">
+                                    <Link to="/phyniteProtocol"  className="flex items-center hover:brightness-125 px-3 border border-gray0 rounded-lg h-7">
+                                        <div className="text-gray-300 text-[13px]">Read More</div>
+                                        <img alt="" src={Arrow} className="w-4 h-4 ml-1 brightness-90"></img>
+                                    </Link>
+                                </div>
+                            </div>
+                            <div className="w-1/3 h-full flex flex-col items-center bg-gradient-to-b from-gray3 to-gray1 rounded-2xl p-8 border border-gray1 hover:border-gray0 duration-200">
+                                <h1 className="text-white text-3xl font-[500] w-full text-left mb-3">
+                                    Redeem
+                                </h1>
+                                <div className="flex justify-center items-center w-full mb-5">
+                                    <img alt="" src={CrystalHand} className="w-[70%]"></img>
+                                </div>
+                                <h1 className="text-white text-xl font-[500] text-left w-full mb-3">
+                                    Claim your Collectible at the Ease of a Touch
+                                </h1>
+                                <h2 className="w-full text-gray-300 font-light text-left text-[13px] mb-5">Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.</h2>
+                                <div className="flex flex-grow items-end justify-end w-full ">
+                                    <Link to="/phyniteProtocol"  className="flex items-center hover:brightness-125 px-3 border border-gray0 rounded-lg h-7">
+                                        <div className="text-gray-300 text-[13px]">Read More</div>
+                                        <img alt="" src={Arrow} className="w-4 h-4 ml-1 brightness-90"></img>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="w-full mb-24">
+                        <div className="w-full flex flex-col">
+                            <h1 className="text-white text-semibold text-3xl font-semibold mb-5">Learn More</h1>
+                            <div className="flex w-full h-[500px] mb-7">
+                                <div className="bg-gray3 border border-gray1 rounded-xl h-full w-full"></div>
+                                
+                            </div>
+                            <div className="h-[200px] w-full flex gap-x-5">
+                                <div className="w-[25%] bg-gray3 p-5 border border-gray1 rounded-xl">
+
+                                </div>
+                                <div className="w-[25%] bg-gray3 p-5 border border-gray1 rounded-xl">
+
+                                </div>
+                                <div className="w-[25%] bg-gray3 p-5 border border-gray1 rounded-xl">
+
+                                </div>
+                                <div className="w-[25%] bg-gray3 p-5 border border-gray1 rounded-xl">
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -292,7 +402,7 @@ export default function Home(props) {
                     <div className="w-full flex-col flex items-center mb-32">
                         <h1 className="text-white font-poppins text-[42px] font-semibold mb-2">Our Services</h1>
                         <h2 className="w-full text-gray-400 font-light text-center mb-10">Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.</h2>
-                        <div className="w-[1300px] font-poppins flex items-center h-[550px]">
+                        <div className="w-[1300px] font-poppins flex items-center h-[575px]">
                             <div className="w-1/3 h-full mr-[9px] flex flex-col items-center bg-gradient-to-b from-gray3 to-gray1 rounded-2xl p-10 border border-gray1 hover:border-gray0 duration-200">
                                 <h1 className="text-white text-3xl font-[500] w-full text-left mb-3">
                                     Mint

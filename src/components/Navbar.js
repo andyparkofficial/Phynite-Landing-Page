@@ -95,7 +95,7 @@ function Navbar(props) {
                 </div>
             )}
             {displayType === "smallComputer" && (
-                <div className="flex h-full items-center pl-7 w-full">
+                <div className="flex h-full items-center pl-6 w-full">
                     <Link exact to={"/"}>
                         <img
                         src={phyniteLogo}
