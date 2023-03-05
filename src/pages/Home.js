@@ -8,6 +8,7 @@ import CrystalVault from "../assets/crystal-vault.png"
 import PhyniteCar from "../assets/phynite-car.png"
 import { Link, useHistory } from "react-router-dom"
 import Arrow from "../assets/right-arrow.png"
+import FloatingCitiesBanner from "../assets/floating-cities.png"
 
 
 export default function Home(props) {
@@ -114,7 +115,9 @@ export default function Home(props) {
                     </div>
                     <div className="w-full mb-16">
                         <h1 className="text-white font-semibold text-3xl mb-3 pl-1">Learn More</h1>
-                        <div className="w-full h-48 rounded-xl bg-gray3 border-gray1 border mb-[18px]"></div>
+                            <div className="flex w-full mb-[18px]">
+                                <img src={FloatingCitiesBanner} className=" border border-gray1 rounded-xl h-full w-full"></img>
+                            </div>
                         <div className="flex w-full gap-x-3 mb-[18px]">
                             <div className="rounded-xl h-56 bg-gray3 border border-gray1 w-1/2"></div>
                             <div className="rounded-xl h-56 bg-gray3 border border-gray1 w-1/2"></div>
@@ -219,7 +222,10 @@ export default function Home(props) {
                     </div>
                     <div className="w-full mb-24">
                         <h1 className="text-white font-semibold text-3xl mb-5 pl-1">Learn More</h1>
-                        <div className="w-full h-80 rounded-xl bg-gray3 border-gray1 border mb-5"></div>
+                        <div className="flex w-full mb-6">
+                                <img src={FloatingCitiesBanner} className=" border border-gray1 rounded-xl h-full w-full"></img>
+                                
+                            </div>
                         <div className="flex w-full gap-x-4 mb-5">
                             <div className="rounded-xl h-56 bg-gray3 border border-gray1 w-1/2"></div>
                             <div className="rounded-xl h-56 bg-gray3 border border-gray1 w-1/2"></div>
@@ -333,8 +339,8 @@ export default function Home(props) {
                     <div className="w-full mb-24">
                         <div className="w-full flex flex-col">
                             <h1 className="text-white text-semibold text-3xl font-semibold mb-5">Learn More</h1>
-                            <div className="flex w-full h-[500px] mb-7">
-                                <div className="bg-gray3 border border-gray1 rounded-xl h-full w-full"></div>
+                            <div className="flex w-full mb-7">
+                                <img src={FloatingCitiesBanner} className=" border border-gray1 rounded-xl h-full w-full"></img>
                                 
                             </div>
                             <div className="h-[200px] w-full flex gap-x-5">
@@ -463,8 +469,8 @@ export default function Home(props) {
                     <div className="w-full flex justify-center mb-32">
                         <div className="w-[1300px] font-poppins flex flex-col">
                             <h1 className="text-white text-semibold text-4xl font-semibold mb-6">Learn More</h1>
-                            <div className="flex w-full h-[500px] mb-8">
-                                <div className="bg-gray3 border border-gray1 rounded-xl h-full w-full"></div>
+                            <div className="flex w-full mb-8">
+                                <img src={FloatingCitiesBanner} className=" border border-gray1 rounded-xl h-full w-full"></img>
                                 
                             </div>
                             <div className="h-[200px] w-full flex gap-x-6">
