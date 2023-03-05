@@ -43,9 +43,9 @@ export default function Footer() {
                                 <Link to="/getStarted">
                                     <h2 className="text-sm text-white font-semibold">Get Started</h2>
                                 </Link>
-                                <Link to="/phyniteProtocol">
+                                <a href={"https://docs.phynite.io/"} target="_blank">
                                     <h2 className="text-sm text-white font-semibold">Phynite Protocol</h2>
-                                </Link>
+                                </a>
                             </div>
                             <div className="pt-2 flex flex-col gap-y-4 w-1/2">
                                 <h1 className="text-xs text-gray-400 font-[500] tracking-[.2em]">COMPANY </h1>
@@ -105,9 +105,9 @@ export default function Footer() {
                                 <Link to="/getStarted">
                                     <h2 className=" text-white font-semibold">Get Started</h2>
                                 </Link>
-                                <Link to="/phyniteProtocol">
+                                <a href={"https://docs.phynite.io/"} target="_blank">
                                     <h2 className=" text-white font-semibold">Phynite Protocol</h2>
-                                </Link>
+                                </a>
                             </div>
                             <div className="pt-2 flex flex-col gap-y-4 w-1/2">
                                 <h1 className="text-sm text-gray-400 font-[500] tracking-[.2em]">COMPANY </h1>
@@ -167,9 +167,9 @@ export default function Footer() {
                             <Link to="/getStarted">
                                 <h2 className="text-sm text-white font-semibold">Get Started</h2>
                             </Link>
-                            <Link to="/phyniteProtocol">
+                            <a href={"https://docs.phynite.io/"} target="_blank">
                                 <h2 className="text-sm text-white font-semibold">Phynite Protocol</h2>
-                            </Link>
+                            </a>
                         </div>
                         <div className="w-[25%] h-full pt-2 flex flex-col gap-y-4">
                             <h1 className="text-xs text-gray-400 font-[500] tracking-[.2em]">COMPANY </h1>
@@ -218,9 +218,9 @@ export default function Footer() {
                             <Link to="/getStarted">
                                 <h2 className="text-sm text-white font-semibold">Get Started</h2>
                             </Link>
-                            <Link to="/phyniteProtocol">
+                            <a href={"https://docs.phynite.io/"} target="_blank">
                                 <h2 className="text-sm text-white font-semibold">Phynite Protocol</h2>
-                            </Link>
+                            </a>
                         </div>
                         <div className="w-[25%] h-full pt-2 flex flex-col gap-y-4">
                             <h1 className="text-xs text-gray-400 font-[500] tracking-[.2em]">COMPANY </h1>

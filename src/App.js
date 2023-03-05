@@ -4,7 +4,6 @@ import About from "./pages/About.js"
 import Blog from "./pages/Blog.js"
 import FAQ from "./pages/FAQ.js"
 import GetStarted from "./pages/GetStarted.js"
-import WhitePaper from "./pages/WhitePaper.js"
 import ScrollToTop from "./hooks/ScrollToTop.js";
 import useWindowSize from "./hooks/useWindowSize.js";
 import { useEffect, useState } from "react"
@@ -49,10 +48,6 @@ function App() {
             <Blog
               displayType={displayType}
             />
-          </Route>
-          <Route path="/phyniteProtocol">
-            <WhitePaper
-            displayType={displayType}/>
           </Route>
           <Route path="/faq">
             <FAQ

@@ -87,9 +87,9 @@ export default function MobileMenu({toggleScrollLock, exitMenuPopUp, isClicked})
                             {isClicked[3] ? (<h1 className=" text-phyniteBlue">Protocol</h1>):(<h1 className="">Protocol</h1>)}
                                 
                         </button>
-                        <button onClick={()=>redirectToPage('getStarted')} className="w-full flex justify-center items-center h-16  border-y-[1px] border-gray1">
+                        <a href={"https://docs.phynite.io/"} target="_blank" className="w-full flex justify-center items-center h-16  border-y-[1px] border-gray1">
                             {isClicked[4] ? (<h1 className=" text-phyniteBlue">Get Started</h1>):(<h1 className="">Get Started</h1>)}
-                        </button>
+                        </a>
                     </div>
                     <div className="w-full flex flex-col flex-grow items-center justify-end">
                         <div className="w-full px-8">

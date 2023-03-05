@@ -5,6 +5,7 @@ import CrystalPhyniteLogo from "../assets/crystal-phynite-logo.png"
 import CrystalGlobe from "../assets/crystal-globe.png"
 import CrystalHand from "../assets/crystal-hand.png"
 import CrystalVault from "../assets/crystal-vault.png"
+import PhyniteCar from "../assets/phynite-car.png"
 import { Link, useHistory } from "react-router-dom"
 import Arrow from "../assets/right-arrow.png"
 
@@ -29,7 +30,7 @@ export default function Home(props) {
                         </h1>
                         <h2 className="text-white font-light text-sm pl-1">The fastest, safest, most forward-thinking way to trade physical collectibles. Only on Phynite.</h2>
                         <div className="w-full flex justify-center pt-10 mb-6">
-                            <img alt="" className="w-[90%] -translate-x-3" src={CrystalPhyniteLogo}></img>
+                            <img alt="" className="w-[90%] -translate-x-3" src={PhyniteCar}></img>
                         </div>
                         <div className="w-full px-3">
                             <button onClick={()=>redirectToPage("getStarted")} className="w-full py-2 rounded-2xl text-3xl text-gray1 font-semibold bg-phyniteBlue">Get Started</button>
@@ -134,7 +135,7 @@ export default function Home(props) {
                             <Link to="/getStarted" className="text-3xl font-semibold font-poppins text-gray1 bg-gradient-to-br from-phyniteBlue to-phyniteBlue rounded-xl w-[300px] py-2 text-center">Get Started</Link>
                         </div>
                         <div className="w-[40%]  h-full flex justify-center items-center overflow-hidden">
-                            <img alt="" className="w-full translate-x-4 scale-110" src={CrystalPhyniteLogo}></img>
+                            <img alt="" className="w-full translate-x-4 scale-110" src={PhyniteCar}></img>
                         </div>
                     </div>
 
@@ -239,7 +240,7 @@ export default function Home(props) {
                             <Link to="/getStarted" className="text-3xl font-semibold font-poppins text-gray1 bg-gradient-to-br from-phyniteBlue to-phyniteBlue rounded-xl w-[300px] py-2 text-center hover:brightness-125 hover:from-mango hover:to-salmon duration-300">Get Started</Link>
                         </div>
                         <div className="w-[40%]  h-full flex justify-center items-center overflow-hidden">
-                            <img alt="" className="w-full translate-x-4" src={CrystalPhyniteLogo}></img>
+                            <img alt="" className="w-full translate-x-4" src={PhyniteCar}></img>
                         </div>
                     </div>
                     <div className="w-full mb-24">
@@ -364,7 +365,7 @@ export default function Home(props) {
                                 <Link to="/getStarted" className="text-3xl font-semibold font-poppins text-gray1 bg-gradient-to-br from-phyniteBlue to-phyniteBlue hover:brightness-125 hover:from-mango hover:to-salmon duration-300 rounded-xl w-[300px] py-2 text-center">Get Started</Link>
                             </div>
                             <div className="w-[40%]  h-full flex justify-center items-center">
-                                <img alt="" className="w-[550px] h-[550px] translate-x-4" src={CrystalPhyniteLogo}></img>
+                                <img alt="" className="w-[550px] h-[550px] translate-x-4" src={PhyniteCar}></img>
                             </div>
                         </div>
                     </div>
