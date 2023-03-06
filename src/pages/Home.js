@@ -38,17 +38,18 @@ export default function Home(props) {
                         </div>
                     </div>
                     <div className="w-full mb-16 px-1">
-                        <h1 className="font-[500] text-2xl text-white mb-4">Phynite Marketplace</h1>
+                        <h1 className="font-[500] text-2xl text-white mb-4">Why use Phynite?</h1>
                         <div className="w-full h-56 rounded-xl bg-gray2 mb-6"></div>
                         <div className="w-full">
                             <h1 className="font-[500] text-white mb-2">
-                                Invest in the Physical, Digitally
+                                Invest in the physical, digitally
+
                             </h1>
                             <h2 className="text-[11px] text-gray-400 font-light mb-5">
                             All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.
                             </h2>
                             <h1 className="font-[500] text-white mb-2">
-                            Trade Legal Ownership, not just IOUs
+                            Trade Ownership, not just IOUs
                             </h1>
                             <h2 className="text-[11px] text-gray-400 font-light mb-5">
                             The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT.
@@ -143,7 +144,7 @@ export default function Home(props) {
                     </div>
 
                     <div className="w-full mb-24">
-                        <h1 className="text-white text-[27px] font-semibold font-poppins pl-1 mb-4">Phynite Marketplace</h1>
+                        <h1 className="text-white text-[27px] font-semibold font-poppins pl-1 mb-4">Why use Phynite?</h1>
                        
                         <div className="h-[400px] flex-col flex font-poppins bg-gray1 rounded-2xl mb-6">
                         </div>
@@ -155,7 +156,7 @@ export default function Home(props) {
                                 </h3>
                             </div>
                             <div className="w-full my-8">
-                                <h2 className="text-lg font-semibold mb-2 text-white">Trade Legal Ownership, not just IOUs</h2>
+                                <h2 className="text-lg font-semibold mb-2 text-white">Trade Ownership, not just IOUs</h2>
                                 <h3 className="text-[13px] text-gray-400">
                                 The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT.
                                 </h3>
@@ -250,7 +251,7 @@ export default function Home(props) {
                         </div>
                     </div>
                     <div className="w-full mb-24">
-                        <h1 className="text-white text-3xl font-semibold font-poppins">Phynite Marketplace</h1>
+                        <h1 className="text-white text-3xl font-semibold font-poppins">Why use Phynite?</h1>
                         <div className="flex justify-center">
                             <div className="w-[50%] h-full flex-col flex font-poppins bg-gray0">
                             </div>
@@ -262,7 +263,7 @@ export default function Home(props) {
                                     </h3>
                                 </div>
                                 <div className="w-full my-5 p-5">
-                                    <h2 className="text-xl font-semibold mb-2 text-white">Trade Legal Ownership, not just IOUs</h2>
+                                    <h2 className="text-xl font-semibold mb-2 text-white">Trade Ownership, not just IOUs</h2>
                                     <h3 className="text-[13px] text-gray-400">
                                     The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT.
                                     </h3>
@@ -389,13 +390,13 @@ export default function Home(props) {
                                         </h3>
                                     </div>
                                     <div className="w-full my-5 p-5">
-                                        <h2 className="text-xl font-semibold mb-2 text-white">Trade Legal Ownership, not just IOUs</h2>
+                                        <h2 className="text-xl font-semibold mb-2 text-white">Legal Ownership, Dependent on the Blockchain</h2>
                                         <h3 className="text-sm text-gray-400">
                                         The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT.
                                         </h3>
                                     </div>
                                     <div className="w-full p-5">
-                                        <h2 className="text-xl font-semibold mb-2 text-white">Supporting Collectors, New and Old</h2>
+                                        <h2 className="text-xl font-semibold mb-2 text-white">High Royalties, Low Fees</h2>
                                         <h3 className="text-sm text-gray-400">
                                         All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.
                                         </h3>
