@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import Navbar from "../components/Navbar.js"
 import Footer from "../components/Footer.js"
 import CrystalPhyniteLogo from "../assets/crystal-phynite-logo.png"
+import CrystalContract from "../assets/crystal-contract.png"
 import CrystalGlobe from "../assets/crystal-globe.png"
 import CrystalHand from "../assets/crystal-hand.png"
 import CrystalVault from "../assets/crystal-vault.png"
@@ -9,6 +10,9 @@ import PhyniteCar from "../assets/phynite-car.png"
 import { Link, useHistory } from "react-router-dom"
 import Arrow from "../assets/right-arrow.png"
 import FloatingCitiesBanner from "../assets/floating-cities.png"
+import { HashLink } from 'react-router-hash-link';
+import PhyniteCarFront from "../assets/phynite-car-front.png"
+import InteractiveCar from "../components/InteractiveCar"
 
 
 export default function Home(props) {
@@ -366,13 +370,15 @@ export default function Home(props) {
                 <div className="w-full">
                     <div className="w-full bg-mainGray max-h-[900px] h-screen min-h-[700px] flex justify-center">
                         <div className="w-[1300px]  h-full flex justify-center">
-                            <div className="w-[60%] h-full flex flex-col justify-center">
+                            <div className="w-[55%] h-full flex flex-col justify-center">
                                 <h1 className="text-[54px] font-semibold text-phyniteBlue leading-tight font-poppins">The Web3 Marketplace<br/>for Physical Collectibles</h1>
                                 <h2 className="text-xl mt-6 mb-8 text-white font-light font-poppins">The fastest, safest, most forward-thinking way to trade physical<br/>collectibles. Only on Phynite.</h2>
                                 <Link to="/getStarted" className="text-3xl font-semibold font-poppins text-gray1 bg-gradient-to-br from-phyniteBlue to-phyniteBlue hover:brightness-125 hover:from-mango hover:to-salmon duration-300 rounded-xl w-[300px] py-2 text-center">Get Started</Link>
                             </div>
-                            <div className="w-[40%]  h-full flex justify-center items-center">
-                                <img alt="" className="w-[550px] h-[550px] translate-x-4" src={PhyniteCar}></img>
+                            <div className="w-[45%]  h-full flex justify-center items-center">
+                                <div className="w-[600px] h-[600px] translate-x-0">
+                                    <InteractiveCar/>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -470,23 +476,61 @@ export default function Home(props) {
                     <div className="w-full flex justify-center mb-32">
                         <div className="w-[1300px] font-poppins flex flex-col">
                             <h1 className="text-white text-semibold text-4xl font-semibold mb-6">Learn More</h1>
-                            <div className="flex w-full mb-8">
-                                <img src={FloatingCitiesBanner} className=" border border-gray1 rounded-xl h-full w-full"></img>
+                            <div className="w-full mb-8">
+                                <a href="https://docs.phynite.io/" target="_blank" className="w-[1300px] absolute h-[610px] flex justify-end items-end flex-col pb-6 pr-6 hover:border-gray0 duration-200 border border-gray1 rounded-xl hover:shadow-xl">
+                                    <h1 className="text-white font-semibold text-5xl text-justify leading-tight mb-2 mr-[14px]">Powered by the<br/> Phynite Protocol</h1>
+                                    <div className="flex items-center mr-1">
+                                        <h2 className="text-gray-300 font-light text-xl">Read the Phynite Protocol White Paper</h2>
+                                        <img className="w-5 h-5 ml-2 brightness-75" src={Arrow}></img>
+                                    </div>
+                                    
+                                </a>
+                                <img src={FloatingCitiesBanner} className=" rounded-xl h-full w-full"></img>
                                 
                             </div>
                             <div className="h-[200px] w-full flex gap-x-6">
-                                <div className="w-[25%] bg-gray3 p-5 border border-gray1 rounded-xl">
-
-                                </div>
-                                <div className="w-[25%] bg-gray3 p-5 border border-gray1 rounded-xl">
-
-                                </div>
-                                <div className="w-[25%] bg-gray3 p-5 border border-gray1 rounded-xl">
-
-                                </div>
-                                <div className="w-[25%] bg-gray3 p-5 border border-gray1 rounded-xl">
-
-                                </div>
+                                <Link to="/about" className="w-[25%] flex items-center bg-gray3 p-6 border border-gray1 rounded-xl hover:border-gray0 duration-300 hover:bg-gradient-to-b hover:from-gray3 hover:to-gray2 hover:brightness-125">
+                                    
+                                    <div className="w-[60%] flex flex-col">
+                                        <h1 className="text-white text-xl font-semibold mb-3 leading-6">Learn More about Phynite</h1>
+                                        <h2 className="text-gray-300 text-xs font-light">Who we are, our vision, and more.</h2>
+                                    </div>
+                                    <div className="w-[40%] overflow-clip flex justify-center items-center">
+                                        <img src={CrystalPhyniteLogo} className="min-w-[140px]"></img>
+                                    </div>
+                                    
+                                </Link>
+                                <HashLink smooth to="/about#cbnfts" className="w-[25%] flex items-center bg-gray3 p-6 border border-gray1 rounded-xl hover:border-gray0 duration-300 hover:bg-gradient-to-b hover:from-gray3 hover:to-gray2 hover:brightness-125">
+                                    
+                                    <div className="w-[60%] flex flex-col">
+                                        <h1 className="text-white text-lg font-semibold mb-3 leading-6">Contractually Bound NFTs are the Future.</h1>
+                                        <h2 className="text-gray-300 text-xs font-light">Learn how they can be used to protect your legal ownership of property.</h2>
+                                    </div>
+                                    <div className="w-[40%] overflow-clip flex justify-center items-center">
+                                        <img src={CrystalContract} className="min-w-[160px] translate-x-2"></img>
+                                    </div>
+                                    
+                                </HashLink>
+                                <HashLink smooth to="/about#timeline" className="w-[25%] flex items-center bg-gray3 p-6 border border-gray1 rounded-xl hover:border-gray0 duration-300 hover:bg-gradient-to-b hover:from-gray3 hover:to-gray2 hover:brightness-125">
+                                    
+                                    <div className="w-[60%] flex flex-col">
+                                        <h1 className="text-white text-xl font-semibold mb-3 leading-6">We Plan to Take Off Soon.</h1>
+                                        <h2 className="text-gray-300 text-xs font-light">View our timeline to see Phynite's exciting upcoming launches.</h2>
+                                    </div>
+                                    <div className="w-[40%] overflow-clip flex justify-center items-center">
+                                        <img src={PhyniteCarFront} className="min-w-[140px] translate-x-2"></img>
+                                    </div>
+                                    
+                                </HashLink>
+                                <Link to="/blog" className="w-[25%] flex items-center bg-gray3 p-6 border border-gray1 rounded-xl hover:border-gray0 duration-300 hover:bg-gradient-to-b hover:from-gray3 hover:to-gray2 hover:brightness-125">
+                                    
+                                    <div className="w-full flex flex-col">
+                                        <h1 className="text-white text-[32px] font-semibold mb-4 leading-6 text-center"><span className="text-phyniteBlue">Phynite </span>Blog</h1>
+                                        <h2 className="text-gray-300 text-xs font-light text-center">Ideas, Updates, Guides, and more.</h2>
+                                    </div>
+                                    
+                                    
+                                </Link>
                             </div>
                         </div>
                     </div>

@@ -11,8 +11,21 @@
   }
 
   .gradient-text-blue {
-    background: -webkit-linear-gradient(0deg, #FCFCD4, #E1FFFF,  #5BEAF3);
+    background: -webkit-linear-gradient(0deg, #FCFCD4, #E1FFFF, #5BEAF3);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  .trapezoid {
+    clip-path: polygon(0% 100%, 17.5% 0%, 80% 0%, 100% 100%);
+  }
+
+  .blur-background-medium {
+    backdrop-filter: blur(8px);
+  }
+
+  .blur-background-light {
+    backdrop-filter: blur(2px);
+  }
+
 }

@@ -1471,7 +1471,7 @@ export default function About (props) {
                         <h1 className="text-4xl text-white font-semibold w-full text-center">Our Founding Mission</h1>
                         <p className="text-md text-gray-400 mt-8 w-[80%] text-center font-light" >Phynite was founded with collectors at the forefront of our efforts. Our founding team is comprised of collectors with years of experience within collectibles communities, so we knew firsthand the problems irritating digital and physical collectors worldwide. We focused on bringing efficiency, security, and ease-of-access to physical and digital collectors by making it easier than ever to start collecting and trading physical collectibles as NFTs. By bringing users instant transactions for physical items, baked-in legal protections (even against us!), and a concrete link between blockchain technology and existing real-world markets, we’re pushing the world of Web3 forward while making it faster, safer, and easier than ever for collectors worldwide to pursue their passion for collecting!</p>
                     </div>
-                    <div className="w-full flex justify-center mb-32">
+                    <div className="w-full flex justify-center ">
                         <div className="w-[1300px] h-full flex flex-col items-center">
                             <div className="flex flex-col items-center font-poppins w-full h-full">
                                 <h1 className="text-white text-[40px] font-semibold mb-8">The Phynite Protocol</h1>
@@ -1620,7 +1620,7 @@ export default function About (props) {
                         </div>
     
                     </div>
-                    <div className="w-[1300px] mb-36">
+                    <div className="w-[1300px] pt-36" id="cbnfts">
                         <h1 className="font-poppins text-white text-3xl mb-16 w-full border-b border-gray0 pb-10 font-semibold">Contractually Bound Non-Fungible Tokens</h1>
                         <div className="flex h-[300px] w-full">
                             <div className="w-[35%] pr-16 flex flex-col font-poppins font-[500]">
@@ -1685,7 +1685,7 @@ export default function About (props) {
                             </div>
                         </div>
                     </div>
-                    <div className="w-[1300px] mb-36">
+                    <div className="w-[1300px] pt-36 mb-36" id="timeline">
                         <h1 className="text-4xl font-poppins font-semibold text-white mb-8">Timeline</h1>
                         <div className="flex h-full rounded-xl border border-gray1 bg-gradient-to-r from-gray4 via-gray3 to-gray1 ">
                             <div className="w-[300px] pr-6 pt-8  pl-8">

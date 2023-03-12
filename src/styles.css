@@ -19,3 +19,31 @@
     transform: translate(150px, 0);
     transition: opacity 500ms, transform 500ms;
 }
+
+
+.pop-up-enter {
+    opacity: 0;
+    transform: translate(0, 20px);
+    z-index: 10;
+}
+
+.pop-up-enter-active {
+    opacity: 1;
+    transform: translate(0, 0);
+    transition: opacity 50ms, transform 50ms;
+    z-index: 10;
+
+}
+
+.pop-up-exit {
+    opacity: 1;
+    transform: translate(0, );
+    z-index: 10;
+}
+
+.pop-up-exit-active {
+    opacity: 0;
+    transform: translate(0, 20px);
+    transition: opacity 50ms, transform 50ms;
+    z-index: 10;
+}

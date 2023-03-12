@@ -73,7 +73,7 @@ export default function Footer() {
                                 <img className="w-[26px] h-[26px] translate-y-1" src={instagramIcon}></img>
                             </div>
                             <h1 className="text-xs text-gray-400 font-[500] tracking-[.2em] mb-4">CONTACT US </h1>
-                            <h2 className="text-sm text-white font-semibold">Email: support@phynite.io</h2>
+                            <h2 className="text-sm text-white font-semibold">Email: hello@phynite.io</h2>
                         </div>
                     </div>
 
@@ -135,7 +135,7 @@ export default function Footer() {
                                 <img className="w-[26px] h-[26px] translate-y-1" src={instagramIcon}></img>
                             </div>
                             <h1 className="text-sm text-gray-400 font-[500] tracking-[.2em] mb-4">CONTACT US </h1>
-                            <h2 className="text-white font-semibold">Email: support@phynite.io</h2>
+                            <h2 className="text-white font-semibold">Email: hello@phynite.io</h2>
                         </div>
                     </div>
 
@@ -194,7 +194,7 @@ export default function Footer() {
                                 <img className="w-[26px] h-[26px] translate-y-1" src={instagramIcon}></img>
                             </div>
                             <h1 className="text-xs text-gray-400 font-[500] tracking-[.2em] mb-4">CONTACT US </h1>
-                            <h2 className="text-sm text-white font-semibold">Email: support@phynite.io</h2>
+                            <h2 className="text-sm text-white font-semibold">Email: hello@phynite.io</h2>
                         </div>
                     </div>
                     <div className="w-full flex flex-grow items-end">
@@ -245,7 +245,7 @@ export default function Footer() {
                                 <img className="w-[26px] h-[26px] translate-y-1" src={instagramIcon}></img>
                             </div>
                             <h1 className="text-xs text-gray-400 font-[500] tracking-[.2em] mb-4">CONTACT US </h1>
-                            <h2 className="text-sm text-white font-semibold">Email: support@phynite.io</h2>
+                            <h2 className="text-sm text-white font-semibold">Email: hello@phynite.io</h2>
                         </div>
                     </div>
                     <div className="w-full flex flex-grow items-end">
