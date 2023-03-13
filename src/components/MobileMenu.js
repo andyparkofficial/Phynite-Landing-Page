@@ -13,7 +13,6 @@ export default function MobileMenu({toggleScrollLock, exitMenuPopUp, isClicked})
     const [menuPopUpOn, setMenuPopUpOn] = useState(false)
     const [cbnftsInBag, setCBNFTsInBag] = useState(null)
     const [totalPrice, setTotalPrice] = useState(null)
-    const [displayDemoWarning, setDisplayDemoWarning] = useState(false);
 
     const history = useHistory();
 
@@ -71,8 +70,8 @@ export default function MobileMenu({toggleScrollLock, exitMenuPopUp, isClicked})
                 <OutsideAlerter handleClick={exitPopUp} widthFull={true}>
                 <div className="h-full flex w-full flex-col relative z-[70] text-black text-5xl blur-popup-strong bg-gray4 bg-opacity-95">
                     <div className="w-full flex flex-col font-poppins text-white text-xl font-[500]">
-                            <button onClick={()=>redirectToPage('')} className="w-full flex justify-center items-center h-16  border-t-[1px] border-gray1">
-                            {isClicked[0] ? (<h1 className=" text-phyniteBlue">Home</h1>):(<h1 className="">Home</h1>)}
+                        <button onClick={()=>redirectToPage('')} className="w-full flex justify-center items-center h-16  border-t-[1px] border-gray1">
+                        {isClicked[0] ? (<h1 className=" text-phyniteBlue">Home</h1>):(<h1 className="">Home</h1>)}
                                 
                         </button>
                         <button onClick={()=>redirectToPage('about')} className="w-full flex justify-center items-center h-16  border-t-[1px] border-gray1">
@@ -92,14 +91,21 @@ export default function MobileMenu({toggleScrollLock, exitMenuPopUp, isClicked})
                         </button>
                     </div>
                     <div className="w-full flex flex-col flex-grow items-center justify-end">
-                        <div className="w-full px-8">
-                            <button onClick={()=>redirectToPage('getStarted')} className="w-full rounded-xl h-12 bg-phyniteBlue text-3xl font-poppins font-semibold text-gray1 mb-6">Get Started</button> 
+                      {(windowSize && windowSize.width >= 600) && (
+                        <div className="w-full px-20 flex justify-center">
+                          <button onClick={()=>redirectToPage('getStarted')} className="max-w-[500px] w-full rounded-2xl h-16 bg-phyniteBlue text-4xl font-poppins font-semibold text-gray1 mb-6">Get Started</button> 
                         </div>
-                        <div className="w-full border-t-[1px] border-gray1 h-20 flex justify-center items-center gap-x-6">
-                            <img className="w-7 h-7" src={twitterIcon}></img>
-                            <img className="w-9 h-9" src={discordIcon}></img>
-                            <img className="w-[26px] h-[26px]" src={instagramIcon}></img>
-                        </div>    
+                      )}
+                      {(windowSize && windowSize.width < 600) && (
+                        <div className="w-full px-8">
+                          <button onClick={()=>redirectToPage('getStarted')} className="w-full rounded-xl h-12 bg-phyniteBlue text-3xl font-poppins font-semibold text-gray1 mb-6">Get Started</button> 
+                        </div>
+                      )}
+                      <div className="w-full border-t-[1px] border-gray1 h-20 flex justify-center items-center gap-x-6">
+                          <img className="w-7 h-7" src={twitterIcon}></img>
+                          <img className="w-9 h-9" src={discordIcon}></img>
+                          <img className="w-[26px] h-[26px]" src={instagramIcon}></img>
+                      </div>    
                     </div>   
                         
                 </div>

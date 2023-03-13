@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useMemo } from "react"
 import Navbar from "../components/Navbar.js"
 import Footer from "../components/Footer.js"
 import CrystalPhyniteLogo from "../assets/crystal-phynite-logo.png"
@@ -10,13 +10,14 @@ import DescriptionItem from "../components/DescriptionItem.js"
 import RandomPlaceholder from "../assets/random-placeholder.png"
 import Arrow from "../assets/right-arrow.png"
 import GrayArrow from "../assets/gray-left-arrow.png"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import AndyProfilePic from "../assets/andy-profile-picture.png"
 import BillProfilePic from "../assets/bill-profile-picture.png"
 import EsaProfilePic from "../assets/esa-profile-picture.png"
 import LinkedInIcon from "../assets/linkedin-icon.png"
 import TwitterIcon from "../assets/gray-twitter-icon.png"
 import CrystalContract from "../assets/crystal-contract.png"
+
 
 export default function About (props) {
     const [selectedCBNFTSection, setSelectedCBNFTSection] = useState(0)
@@ -25,7 +26,28 @@ export default function About (props) {
     const [selectedQuarter, setSelectedQuarter] = useState(0)
     const [timelineStyle, setTimelineStyle] = useState([{backgroundColor: "#E1FFFF"}, {backgroundColor: "#2D3038"}, {backgroundColor: "#2D3038"},{backgroundColor: "#2D3038"}])
     const [timelineHLStyle, setTimelineHLStyle] = useState([{backgroundColor: "#E1FFFF"}, {backgroundColor: "#6B7280"}, {backgroundColor: "#6B7280"},{backgroundColor: "#6B7280"}])
+    const [queryChecked, setQueryChecked] = useState(false)
 
+    function useQuery() {
+        const { search } = useLocation();
+      
+        return useMemo(() => new URLSearchParams(search), [search]);
+    }
+
+    let query = useQuery()
+
+      // read the query in URL
+    useEffect(() => {
+
+        let sectionIndex = 0
+        if (query.has("sectionIndex")){
+        sectionIndex = parseInt(query.get("sectionIndex"))
+        
+    }
+    setSelectedSection(sectionIndex)
+    
+    setQueryChecked(true)
+  }, [query])
     useEffect(() => {
         setTimelineStyle((prevStyle) => {
             let newStyle = { ...prevStyle }
@@ -137,12 +159,12 @@ export default function About (props) {
                         </div>
                         
                     </div>
-                    <div className="w-full mb-16">
+                    <div className="w-full">
                         <h1 className="w-full text-center text-[26px] text-white font-semibold mb-4">What is Phynite?</h1>
                         <h2 className="w-full text-justify text-sm text-gray-400 font-light px-1">Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT. All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT.</h2>
 
                     </div>
-                    <div className="w-full mb-20">
+                    <div className="w-full pt-20" id="phyniteProtocol">
                         <h1 className="text-white text-[26px] font-semibold text-center mb-3">The Phynite Protocol</h1>
                         <div className="flex border-b border-gray1 text-gray-400">
                             <button onClick={()=>setSelectedSection(0)} className={sectionButtonStyle[0]}>Mint</button>
@@ -273,7 +295,7 @@ export default function About (props) {
                             </div>
                         )}
                     </div>
-                    <div className="w-full mb-20 min-h-[250px]">
+                    <div className="w-full pt-24 min-h-[250px]" id="cbnfts">
                         <h1 className="text-white font-semibold text-2xl pb-2 pl-1 border-b border-gray0">Contractually Bound NFTs</h1>
                         <div className="flex gap-x-4">
                             <div className="flex flex-col items-center gap-y-2 pl-1 w-[96px] pt-3">
@@ -297,10 +319,10 @@ export default function About (props) {
                                         <div className="flex">
                                             <div className="flex flex-col">
                                                 <p className="text-xs text-gray-400 w-full mt-2 mb-3" >Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. </p>
-                                                <Link to="/phyniteProtocol"  className="flex items-center">
+                                                <a href="https://docs.phynite.io/contractually-bound-non-fungible-tokens" target="_blank" className="flex items-center">
                                                     <div className="text-gray-300 text-xs">Read More</div>
                                                     <img src={Arrow} className="w-4 h-4 ml-2 brightness-90"></img>
-                                                </Link>
+                                                </a>
                                             </div>
                                             <img src={CrystalContract} className="w-28"></img>
                                         </div>
@@ -313,10 +335,10 @@ export default function About (props) {
                                         <h1 className="text-white text-lg font-[500] mt-1 w-full text-left mb-2">Phase 1: Off-Chain Storage</h1>
                                         <div className="flex flex-col">
                                             <p className="text-xs text-gray-400 w-full mt-2 mb-3" >All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). </p>
-                                            <Link to="/phyniteProtocol"  className="flex items-center">
+                                            <a href="https://docs.phynite.io/off-chain-and-on-chain-storage-of-digital-signatures" target="_blank" className="flex items-center">
                                                 <div className="text-gray-300 text-xs">Read More</div>
                                                 <img src={Arrow} className="w-4 h-4 ml-2 brightness-90"></img>
-                                            </Link>
+                                            </a>
                                         </div>
                                         
                                     </div>
@@ -326,10 +348,10 @@ export default function About (props) {
                                         <h1 className="text-white text-lg font-[500] mt-1 w-full text-left mb-2">Phase 2: On-Chain Storage</h1>
                                         <div className="flex flex-col">
                                             <p className="text-xs text-gray-400 w-full mt-2 mb-3" >All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). </p>
-                                            <Link to="/phyniteProtocol"  className="flex items-center">
+                                            <a href="https://docs.phynite.io/off-chain-and-on-chain-storage-of-digital-signatures#storing-digital-signatures-on-chain" target="_blank" className="flex items-center">
                                                 <div className="text-gray-300 text-xs">Read More</div>
                                                 <img src={Arrow} className="w-4 h-4 ml-2 brightness-90"></img>
-                                            </Link>
+                                            </a>
                                         </div>
                                         
                                     </div>
@@ -338,7 +360,7 @@ export default function About (props) {
                         </div>
                         
                     </div>
-                    <div className="w-full mb-20">
+                    <div className="w-full pt-24 mb-20" id="timeline">
                         <h1 className="text-white text-[26px] font-semibold mb-5">
                             Timeline
                         </h1>
@@ -574,11 +596,11 @@ export default function About (props) {
                         </div>
                         
                     </div>
-                    <div className="w-full mb-28">
+                    <div className="w-full">
                         <h1 className="text-3xl text-white font-semibold w-full text-center">What is Phynite?</h1>
                         <p className="text-md text-gray-400 mt-6 text-center font-light w-full px-1" >Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT. All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT.</p>
                     </div>
-                    <div className="w-full mb-24">
+                    <div className="w-full pt-28"  id="phyniteProtocol">
                         <h1 className="text-white text-3xl font-semibold text-center mb-5">The Phynite Protocol</h1>
                         <div className="flex border-b border-gray1 text-gray-400">
                             <button onClick={()=>setSelectedSection(0)} className={sectionButtonStyle[0]}>Mint</button>
@@ -709,7 +731,7 @@ export default function About (props) {
                             </div>
                         )}
                     </div>
-                    <div className="w-full mb-24">
+                    <div className="w-full pt-24" id="cbnfts">
                         <h1 className="text-white font-semibold text-3xl pb-3 pl-1 border-b border-gray0">Contractually Bound NFTs</h1>
                         <div className="flex gap-x-6">
                             <div className="flex flex-col items-center gap-y-3 pl-1 min-w-[175px] pt-4">
@@ -733,10 +755,10 @@ export default function About (props) {
                                         <div className="flex">
                                             <div className="flex flex-col">
                                                 <p className=" text-gray-400 w-full mt-3 mb-5" >Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. </p>
-                                                <Link to="/phyniteProtocol"  className="flex items-center">
+                                                <a href="https://docs.phynite.io/contractually-bound-non-fungible-tokens" target="_blank" className="flex items-center">
                                                     <div className="text-gray-300 text-sm">Read More</div>
                                                     <img src={Arrow} className="w-5 h-5 ml-2 brightness-90"></img>
-                                                </Link>
+                                                </a>
                                             </div>
                                             <img src={CrystalContract} className="w-48 -translate-y-8"></img>
                                         </div>
@@ -749,10 +771,10 @@ export default function About (props) {
                                         <h1 className="text-white text-xl font-[500] mt-1 w-full text-left mb-2">Phase 1: Off-Chain Storage</h1>
                                         <div className="flex flex-col">
                                             <p className=" text-gray-400 w-full mt-3 mb-5" >All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). </p>
-                                            <Link to="/phyniteProtocol"  className="flex items-center">
+                                            <a href="https://docs.phynite.io/off-chain-and-on-chain-storage-of-digital-signatures" target="_blank" className="flex items-center">
                                                 <div className="text-gray-300 text-sm">Read More</div>
                                                 <img src={Arrow} className="w-5 h-5 ml-2 brightness-90"></img>
-                                            </Link>
+                                            </a>
                                         </div>
                                         
                                     </div>
@@ -762,10 +784,10 @@ export default function About (props) {
                                         <h1 className="text-white text-xl font-[500] mt-1 w-full text-left mb-2">Phase 2: On-Chain Storage</h1>
                                         <div className="flex flex-col">
                                             <p className=" text-gray-400 w-full mt-3 mb-5" >All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). </p>
-                                            <Link to="/phyniteProtocol"  className="flex items-center">
+                                            <a href="https://docs.phynite.io/off-chain-and-on-chain-storage-of-digital-signatures#storing-digital-signatures-on-chain" target="_blank" className="flex items-center">
                                                 <div className="text-gray-300 text-sm">Read More</div>
                                                 <img src={Arrow} className="w-5 h-5 ml-2 brightness-90"></img>
-                                            </Link>
+                                            </a>
                                         </div>
                                         
                                     </div>
@@ -773,7 +795,7 @@ export default function About (props) {
                             </div>
                         </div>
                     </div>
-                    <div className="w-full mb-24">
+                    <div className="w-full pt-24 mb-24" id="timeline">
                         <h1 className="text-4xl font-poppins font-semibold text-white mb-8">Timeline</h1>
                         <div className="flex h-full rounded-xl border border-gray1 bg-gradient-to-r from-gray4 via-gray3 to-gray1 ">
                             <div className=" pr-6 pt-8  pl-8 w-[40%] min-w-[200px]">
@@ -1010,13 +1032,13 @@ export default function About (props) {
                         </div>
                         
                     </div>
-                    <div className="w-full mb-28 flex flex-col items-center">
+                    <div className="w-full flex flex-col items-center">
                         <h1 className="text-3xl text-white font-semibold w-full text-center">What is Phynite?</h1>
                         <p className="text-md text-gray-400 mt-6 text-center font-light w-[90%]" >Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT. All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT.</p>
                     </div>
-                    <div className="w-full flex justify-center mb-24">
+                    <div className="w-full flex justify-center pt-28" id="phyniteProtocol">
                         <div className="w-[1300px] h-full flex flex-col items-center">
-                            <div className="flex flex-col items-center font-poppins w-full h-full">
+                            <div className="flex flex-col items-center font-poppins w-full h-full" >
                                 <h1 className="text-white text-4xl font-semibold mb-8">The Phynite Protocol</h1>
                                 <div className="w-full flex h-10 border-b border-gray0 text-xl text-gray-400 font-[500] mb-8">
                                     <button onClick={()=>setSelectedSection(0)} className={sectionButtonStyle[0]}>Mint</button>
@@ -1163,7 +1185,7 @@ export default function About (props) {
                         </div>
     
                     </div>
-                    <div className="w-full mb-28">
+                    <div className="w-full pt-28" id="cbnfts">
                         <h1 className="font-poppins text-white text-3xl mb-10 w-full border-b border-gray0 pb-6 font-semibold">Contractually Bound Non-Fungible Tokens</h1>
                         <div className="flex h-[300px] w-full">
                             <div className="min-w-[370px] pr-10 flex flex-col font-poppins font-[500]">
@@ -1192,10 +1214,10 @@ export default function About (props) {
                                     <div className="flex">
                                         <div className="flex flex-col flex-grow">
                                             <p className=" text-gray-400 w-full mt-8 mb-[43px]" >Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). </p>
-                                            <Link to="/phyniteProtocol"  className="flex items-center hover:border-gray0 hover:brightness-125 duration-150 bg-mainGray rounded-2xl border-gray1 border p-2 w-40 justify-center">
+                                            <a href="https://docs.phynite.io/contractually-bound-non-fungible-tokens" target="_blank" className="flex items-center hover:border-gray0 hover:brightness-125 duration-150 bg-mainGray rounded-2xl border-gray1 border p-2 w-40 justify-center">
                                                 <div className="text-white">Read More</div>
                                                 <img src={Arrow} className="w-5 h-5 ml-2"></img>
-                                            </Link>
+                                            </a>
                                         </div>
                                         <img src={CrystalContract} className="w-[300px] h-[300px] -translate-y-4"></img>
                                     </div>    
@@ -1206,10 +1228,10 @@ export default function About (props) {
                                     <h1 className="text-white text-2xl font-[500]">Phase 1: Off-Chain Storage</h1>
                                     <p className=" text-gray-400 w-full mt-8" >All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT.</p>
                                     <div className="flex flex-grow items-end">
-                                        <Link to="/phyniteProtocol"  className="flex items-center hover:border-gray0 hover:brightness-125 duration-150 bg-mainGray rounded-2xl border-gray1 border p-2 w-40 justify-center">
+                                        <a href="https://docs.phynite.io/off-chain-and-on-chain-storage-of-digital-signatures" target="_blank" className="flex items-center hover:border-gray0 hover:brightness-125 duration-150 bg-mainGray rounded-2xl border-gray1 border p-2 w-40 justify-center">
                                             <div className="text-white">Read More</div>
                                             <img src={Arrow} className="w-5 h-5 ml-2"></img>
-                                        </Link>
+                                        </a>
                                     </div>
                                 </div>
                                 )}
@@ -1218,17 +1240,17 @@ export default function About (props) {
                                     <h1 className="text-white text-2xl font-[500]">Phase 2: On-Chain Storage</h1>
                                     <p className=" text-gray-400 w-full mt-8" >All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT.</p>
                                     <div className="flex flex-grow items-end">
-                                        <Link to="/phyniteProtocol"  className="flex items-center hover:border-gray0 hover:brightness-125 duration-150 bg-mainGray rounded-2xl border-gray1 border p-2 w-40 justify-center">
+                                        <a href="https://docs.phynite.io/off-chain-and-on-chain-storage-of-digital-signatures#storing-digital-signatures-on-chain" target="_blank" className="flex items-center hover:border-gray0 hover:brightness-125 duration-150 bg-mainGray rounded-2xl border-gray1 border p-2 w-40 justify-center">
                                             <div className="text-white">Read More</div>
                                             <img src={Arrow} className="w-5 h-5 ml-2"></img>
-                                        </Link>
+                                        </a>
                                     </div>
                                 </div>
                                 )}
                             </div>
                         </div>
                     </div>
-                    <div className="w-full mb-24">
+                    <div className="w-full pt-28 mb-24" id="timeline">
                         <h1 className="text-4xl font-poppins font-semibold text-white mb-8">Timeline</h1>
                         <div className="flex h-full rounded-xl border border-gray1 bg-gradient-to-r from-gray4 via-gray3 to-gray1 ">
                             <div className=" pr-6 pt-8  pl-8 w-[30%] min-w-[200px]">
@@ -1452,8 +1474,8 @@ export default function About (props) {
             )}
 
             {props.displayType === "computer" && (
-                <div className="w-full bg-mainGray flex flex-col items-center pt-12">
-                    <div className="w-[1300px] max-h-[900px] h-screen min-h-[700px] flex justify-center">
+                <div className="w-full bg-mainGray flex flex-col items-center pt-12 px-[28px] overflow-clip">
+                    <div className="max-w-[1300px] max-h-[900px] h-screen min-h-[700px] flex justify-center">
     
                         <div className="w-[40%]  h-full flex justify-start items-center">
                             <img className="w-[500px] h-[500px]" src={CrystalPhyniteLogo}></img>
@@ -1467,11 +1489,11 @@ export default function About (props) {
                         </div>
                         
                     </div>
-                    <div className="w-[1300px] font-poppins mb-36 flex flex-col items-center">
+                    <div className="w-[1300px] font-poppins flex flex-col items-center">
                         <h1 className="text-4xl text-white font-semibold w-full text-center">Our Founding Mission</h1>
                         <p className="text-md text-gray-400 mt-8 w-[80%] text-center font-light" >Phynite was founded with collectors at the forefront of our efforts. Our founding team is comprised of collectors with years of experience within collectibles communities, so we knew firsthand the problems irritating digital and physical collectors worldwide. We focused on bringing efficiency, security, and ease-of-access to physical and digital collectors by making it easier than ever to start collecting and trading physical collectibles as NFTs. By bringing users instant transactions for physical items, baked-in legal protections (even against us!), and a concrete link between blockchain technology and existing real-world markets, we’re pushing the world of Web3 forward while making it faster, safer, and easier than ever for collectors worldwide to pursue their passion for collecting!</p>
                     </div>
-                    <div className="w-full flex justify-center ">
+                    <div className="w-full flex justify-center pt-36" id="phyniteProtocol">
                         <div className="w-[1300px] h-full flex flex-col items-center">
                             <div className="flex flex-col items-center font-poppins w-full h-full">
                                 <h1 className="text-white text-[40px] font-semibold mb-8">The Phynite Protocol</h1>
@@ -1620,7 +1642,7 @@ export default function About (props) {
                         </div>
     
                     </div>
-                    <div className="w-[1300px] pt-36" id="cbnfts">
+                    <div className="max-w-[1300px] pt-36" id="cbnfts">
                         <h1 className="font-poppins text-white text-3xl mb-16 w-full border-b border-gray0 pb-10 font-semibold">Contractually Bound Non-Fungible Tokens</h1>
                         <div className="flex h-[300px] w-full">
                             <div className="w-[35%] pr-16 flex flex-col font-poppins font-[500]">
@@ -1649,10 +1671,10 @@ export default function About (props) {
                                     <div className="flex">
                                         <div className="">
                                             <p className="text-lg text-gray-400 w-full mt-8 mb-[43px]" >Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). </p>
-                                            <Link to="/phyniteProtocol"  className="flex items-center hover:border-gray0 hover:brightness-125 duration-150 bg-mainGray rounded-2xl border-gray1 border p-2 w-44 justify-center">
+                                            <a href="https://docs.phynite.io/contractually-bound-non-fungible-tokens" target="_blank" className="flex items-center hover:border-gray0 hover:brightness-125 duration-150 bg-mainGray rounded-2xl border-gray1 border p-2 w-44 justify-center">
                                                 <div className="text-white text-lg">Read More</div>
                                                 <img src={Arrow} className="w-6 h-6 ml-2"></img>
-                                            </Link>
+                                            </a>
                                         </div>
                                         <img src={CrystalContract} className="w-[300px] -translate-y-4"></img>
                                     </div>    
@@ -1663,10 +1685,10 @@ export default function About (props) {
                                     <h1 className="text-white text-2xl font-[500]">Phase 1: Off-Chain Storage</h1>
                                     <p className="text-lg text-gray-400 w-full mt-8" >All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT.</p>
                                     <div className="flex flex-grow items-end">
-                                        <Link to="/phyniteProtocol"  className="flex items-center hover:border-gray0 hover:brightness-125 duration-150 bg-mainGray rounded-2xl border-gray1 border p-2 w-44 justify-center">
+                                        <a href="https://docs.phynite.io/off-chain-and-on-chain-storage-of-digital-signatures" target="_blank" className="flex items-center hover:border-gray0 hover:brightness-125 duration-150 bg-mainGray rounded-2xl border-gray1 border p-2 w-44 justify-center">
                                             <div className="text-white text-lg">Read More</div>
                                             <img src={Arrow} className="w-6 h-6 ml-2"></img>
-                                        </Link>
+                                        </a>
                                     </div>
                                 </div>
                                 )}
@@ -1675,19 +1697,19 @@ export default function About (props) {
                                     <h1 className="text-white text-2xl font-[500]">Phase 2: On-Chain Storage</h1>
                                     <p className="text-lg text-gray-400 w-full mt-8" >All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT.</p>
                                     <div className="flex flex-grow items-end">
-                                        <Link to="/phyniteProtocol"  className="flex items-center hover:border-gray0 hover:brightness-125 duration-150 bg-mainGray rounded-2xl border-gray1 border p-2 w-44 justify-center">
+                                        <a href="https://docs.phynite.io/off-chain-and-on-chain-storage-of-digital-signatures#storing-digital-signatures-on-chain" target="_blank" className="flex items-center hover:border-gray0 hover:brightness-125 duration-150 bg-mainGray rounded-2xl border-gray1 border p-2 w-44 justify-center">
                                             <div className="text-white text-lg">Read More</div>
                                             <img src={Arrow} className="w-6 h-6 ml-2"></img>
-                                        </Link>
+                                        </a>
                                     </div>
                                 </div>
                                 )}
                             </div>
                         </div>
                     </div>
-                    <div className="w-[1300px] pt-36 mb-36" id="timeline">
-                        <h1 className="text-4xl font-poppins font-semibold text-white mb-8">Timeline</h1>
-                        <div className="flex h-full rounded-xl border border-gray1 bg-gradient-to-r from-gray4 via-gray3 to-gray1 ">
+                    <div className=" w-[1350px] pt-36 mb-36 flex flex-col items-center px-[28px]" id="timeline">
+                        <h1 className="max-w-[1300px] min-w-[1300px] text-left text-4xl font-poppins font-semibold text-white mb-8">Timeline</h1>
+                        <div className="max-w-[1300px] flex h-full rounded-xl border border-gray1 bg-gradient-to-r from-gray4 via-gray3 to-gray1 ">
                             <div className="w-[300px] pr-6 pt-8  pl-8">
                                 
                                 {selectedQuarter === 0 && (

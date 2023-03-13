@@ -23,7 +23,11 @@ export default function InteractiveCar(props) {
     const [clickableButtonStyle, setClickableButtonStyle] = useState({width: "0px", height: "0px"})
     const [transitionState, setTransitionState] = useState(0) // the transition state is cleverly used to reduce flickering
     const [clickMeOn, setClickMeOn] = useState(false)
-    const [twoSecondsPassed, setTwoSecondsPassed] = useState(false) // to handle setTimeout side effect
+    const [secondPassed, setSecondPassed] = useState(false) // to handle setTimeout side effect
+    const [componentHeight, setComponentHeight] = useState({ height: "0px" })
+    const [clickMeStyle, setClickMeStyle] = useState({ height: "0px", width: "0px" })
+    const [clickMeComponentStyle, setClickMeComponentStyle] = useState({ padding: "0px" })
+    const [mobileOrTabletSize, setMobileOrTabletSize] = useState(false)
     const windowSize = useWindowSize()
     const componentRef = useRef(null)
         
@@ -41,28 +45,44 @@ export default function InteractiveCar(props) {
 
     useEffect(() => {
         if (enteringVideoEnded === true && interactiveState !== 2) {
-            setTimeout(()=>turnOnClickMe(),2000)
+            setTimeout(()=>turnOnClickMe(),1000)
         }
     }, [enteringVideoEnded])
     
     function turnOnClickMe() {
         if (interactiveState !== 2) { // if STILL not state 2
-            setTwoSecondsPassed(true)
+            setSecondPassed(true)
         }
     }
 
     useEffect(() => {
-        if (twoSecondsPassed === true && interactiveState!== 2) {
+        if (secondPassed === true && interactiveState!== 2) {
             setClickMeOn(true)
         }
-    },[twoSecondsPassed])
+    },[secondPassed])
     
     useEffect(() => {
+        if (windowSize && windowSize.width < 900) {
+            setMobileOrTabletSize(true)
+        } else {
+            setMobileOrTabletSize(false)
+        }
+
         if (componentRef.current) {
             const buttonHeight = Math.round(.65*(componentRef.current.offsetHeight))
-            const buttonWidth = Math.round(.7*buttonHeight)
+            const buttonWidth = Math.round(.7 * buttonHeight)
+            const componentHeight = Math.round(componentRef.current.offsetWidth)
+            const clickMeWidth = Math.round(0.3 * componentRef.current.offsetHeight)
+            const clickMeHeight = Math.round(0.4 * clickMeWidth)
+            const clickMeContainerPadding = Math.round(0.17 * componentRef.current.offsetWidth)
+
             setClickableButtonStyle({ width: `${buttonWidth}px`, height: `${buttonHeight}px` })
+            setComponentHeight({ height: `${componentHeight}px` })
+            setClickMeStyle({ height: `${clickMeHeight}px`, width: `${clickMeWidth}px` })
+            setClickMeComponentStyle({ padding: `${clickMeContainerPadding}px`})
         }
+        
+
     }, [windowSize])
     
     function handleClick() {
@@ -82,47 +102,96 @@ export default function InteractiveCar(props) {
         setTransitionState(null)
     }
 
+    function handleMobileOrTabletClick() {
+        setTransitionState(1)
+    }
+
+
+    function handleLightTurningOnEnded() {
+        setInteractiveState(2)
+        setTimeout(()=>disableTransitionState(),200)
+    }
+
     
     
     return (
-        <div className="w-full h-full font-poppins" ref={componentRef}>
-            <div className="w-full h-full absolute flex justify-end items-center pr-16 pb-6">
-                <PopUpWrapper popUpOn={clickMeOn}>
-                    <button onMouseEnter={()=>setHoverOn(true)} onMouseLeave={()=>setHoverOn(false)} onClick={()=>handleClick()} className=" flex flex-col items-center w-[200px] h-[70px]">
-                        <div className="w-full h-[50px] blur-background-light z-20 bg-gray1 bg-opacity-50 flex justify-center items-center rounded-xl border border-gray0">
-                            <h1 className="text-2xl font-semibold text-white">Click Me!</h1>
+        <div className="w-full h-full font-poppins" ref={componentRef} style={componentHeight}>
+            {mobileOrTabletSize === true && (
+                <div>
+                    <div className="w-full h-full absolute flex justify-end items-center" style={clickMeComponentStyle}>
+                        <PopUpWrapper popUpOn={clickMeOn}>
+                            <button style={clickMeStyle} onClick={()=>handleMobileOrTabletClick()} className=" flex flex-col items-center">
+                                <div className="w-full h-[80%] blur-background-light z-20 bg-gray1 bg-opacity-50 flex justify-center items-center rounded-lg border border-gray0">
+                                    {parseInt(clickMeStyle.width.slice(0,-2)) < 120 && (<h1 className="text-xs font-[500] text-white">Click Me!</h1>)}
+                                    {parseInt(clickMeStyle.width.slice(0,-2)) >= 120 && (<h1 className="text-[16px] font-[500] text-white">Click Me!</h1>)}
+                                </div>
+                                <div className="overflow-clip h-[25%] z-20 w-10 flex justify-center">
+                                    <div className="w-6 h-6 rotate-45 bg-gray1 bg-opacity-50 blur-background-light z-20 -translate-y-[80%] border border-gray0"></div>
+                                </div>
+                                
+                            </button>
+                        </PopUpWrapper>
+                    </div>
+                    {(interactiveState === 0 || transitionState === 0) && (
+                        <div className="w-full h-full absolute">
+                            <button onClick={()=>handleClick()} className="trapezoid absolute bg-transparent -rotate-[25deg] translate-y-[45%] skew-x-[15deg] skew-y-[10deg] rounded-3xl translate-x-[92%]" style={clickableButtonStyle}></button>
+                            <ReactPlayer url={carEntersFrame} muted={true} width="100%" height="100%" playing={true} onEnded={() => setEnteringVideoEnded(true)} />
                         </div>
-                        <div className="overflow-clip z-20 w-10 flex justify-center">
-                            <div className="w-6 h-6 rotate-45 bg-gray1 bg-opacity-50 blur-background-light z-20 -translate-y-3 border border-gray0"></div>
+                    )}
+                    {(interactiveState === 1 || transitionState === 1) && (
+                        <div className="w-full h-full absolute" onEnded={()=>handleLightTurningOnEnded()}>
+                            <ReactPlayer url={carLightsTurnOn} muted={true} width="100%" height="100%" playing={true}/>   
                         </div>
-                        
-                    </button>
-                </PopUpWrapper>
-            </div>
-
-            {(interactiveState === 0 || transitionState === 0) && (
-                <div className="w-full h-full absolute">
-                    <div onMouseEnter={()=>setHoverOn(true)} onMouseLeave={()=>setHoverOn(false)} className="trapezoid absolute bg-transparent -rotate-[25deg] translate-y-[45%] skew-x-[15deg] skew-y-[10deg] rounded-3xl translate-x-[92%]" style={clickableButtonStyle}></div>
-                    <ReactPlayer url={carEntersFrame} muted={true} width="100%" height="100%" playing={true} onEnded={() => setEnteringVideoEnded(true)}/>
-                </div>
-                
-            )}
-            {(interactiveState === 1 || transitionState === 1) && (
-                <div className="w-full h-full absolute">
-                    <button onMouseEnter={()=>setHoverOn(true)} onMouseLeave={()=>setHoverOn(false)} onClick={()=>handleClick()} className="trapezoid absolute bg-transparent -rotate-[25deg] translate-y-[45%] skew-x-[15deg] skew-y-[10deg] rounded-3xl translate-x-[92%]" style={clickableButtonStyle}></button>
-                    {hoverOn === false ? (
-                        <ReactPlayer url={carLightsTurnOff} muted={true} width="100%" height="100%" playing={true}/>
-                    ):(
-                        <ReactPlayer url={carLightsTurnOn} muted={true} width="100%" height="100%" playing={true}/>    
+                    )}
+                    {interactiveState === 2 && (
+                        <div className="w-full h-full">
+                            <ReactPlayer url={carDoorsOpen} muted={true} width="100%" height="100%" playing={true}/>
+                        </div>
                     )}
                 </div>
             )}
-            {interactiveState === 2 && (
-                <div className="w-full h-full">
-                    <ReactPlayer url={carDoorsOpen} muted={true} width="100%" height="100%" playing={true}/>
-                </div>
+            {mobileOrTabletSize === false && (
+                <div>
+                    <div className="w-full h-full absolute flex justify-end items-center" style={clickMeComponentStyle}>
+                        <PopUpWrapper popUpOn={clickMeOn}>
+                            <button style={clickMeStyle} onMouseEnter={()=>setHoverOn(true)} onMouseLeave={()=>setHoverOn(false)} onClick={()=>handleClick()} className=" flex flex-col items-center">
+                                <div className="w-full h-[80%] blur-background-light z-20 bg-gray1 bg-opacity-50 flex justify-center items-center rounded-xl border border-gray0">
+                                    {parseInt(clickMeStyle.width.slice(0,-2)) < 140 && (<h1 className="text-[16px] font-[500] text-white">Click Me!</h1>)}
+                                    {parseInt(clickMeStyle.width.slice(0,-2)) >= 140 && (<h1 className="text-2xl font-[500] text-white">Click Me!</h1>)}
+                                </div>
+                                <div className="overflow-clip h-[25%] z-20 w-10 flex justify-center">
+                                    <div className="w-6 h-6 rotate-45 bg-gray1 bg-opacity-50 blur-background-light z-20 -translate-y-[80%] border border-gray0"></div>
+                                </div>
+                                
+                            </button>
+                        </PopUpWrapper>
+                    </div>
+                    {(interactiveState === 0 || transitionState === 0) && (
+                        <div className="w-full h-full absolute">
+                            <div onMouseEnter={()=>setHoverOn(true)} onMouseLeave={()=>setHoverOn(false)} className="trapezoid absolute bg-transparent -rotate-[25deg] translate-y-[45%] skew-x-[15deg] skew-y-[10deg] rounded-3xl translate-x-[92%]" style={clickableButtonStyle}></div>
+                            <ReactPlayer url={carEntersFrame} muted={true} width="100%" height="100%" playing={true} onEnded={() => setEnteringVideoEnded(true)}/>
+                        </div>
+                        
+                    )}
+                    {(interactiveState === 1 || transitionState === 1) && (
+                        <div className="w-full h-full absolute">
+                            <button onMouseEnter={()=>setHoverOn(true)} onMouseLeave={()=>setHoverOn(false)} onClick={()=>handleClick()} className="trapezoid absolute bg-transparent -rotate-[25deg] translate-y-[45%] skew-x-[15deg] skew-y-[10deg] rounded-3xl translate-x-[92%]" style={clickableButtonStyle}></button>
+                            {hoverOn === false ? (
+                                <ReactPlayer url={carLightsTurnOff} muted={true} width="100%" height="100%" playing={true}/>
+                            ):(
+                                <ReactPlayer url={carLightsTurnOn} muted={true} width="100%" height="100%" playing={true}/>    
+                            )}
+                        </div>
+                    )}
+                    {interactiveState === 2 && (
+                        <div className="w-full h-full">
+                            <ReactPlayer url={carDoorsOpen} muted={true} width="100%" height="100%" playing={true}/>
+                        </div>
 
+                    )}
+                </div>
             )}
+
         </div>
         
     )

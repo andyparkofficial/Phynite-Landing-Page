@@ -42,6 +42,12 @@ function Navbar(props) {
         setMobileMenuOn((prev) => (!prev))
 
     }
+
+    useEffect(() => {
+        if (mobileMenuOn === true && displayType !== "mobile" && displayType !== "tablet") {
+            toggleMobileMenu()
+        }
+    },[displayType])
     return (
         <div className="fixed top-0 z-40 w-screen blur-navbar">
             <nav className="h-20 bg-mainGray bg-opacity-75 w-full flex justify-center" >
