@@ -93,11 +93,17 @@ export default function InteractiveCar(props) {
     }
 
     function handleMobileOrTabletClick() {
-        setTransitionState(1)
+        if (enteringVideoEnded === true){
+            setTransitionState(0)
+            setInteractiveState(1)
+            setTimeout(()=>disableTransitionState(),200)
+        }
+        
     }
 
 
     function handleLightTurningOnEnded() {
+        setTransitionState(1)
         setInteractiveState(2)
         setTimeout(()=>disableTransitionState(),200)
     }
@@ -124,7 +130,7 @@ export default function InteractiveCar(props) {
                     </div>
                     {(interactiveState === 0 || transitionState === 0) && (
                         <div className="w-full h-full absolute">
-                            <button onClick={()=>handleClick()} className="trapezoid absolute bg-transparent -rotate-[25deg] translate-y-[45%] skew-x-[15deg] skew-y-[10deg] rounded-3xl translate-x-[92%]" style={clickableButtonStyle}></button>
+                            <button onClick={()=>handleMobileOrTabletClick()} className="trapezoid absolute bg-transparent -rotate-[25deg] translate-y-[45%] skew-x-[15deg] skew-y-[10deg] rounded-3xl translate-x-[92%]" style={clickableButtonStyle}></button>
                             <ReactPlayer playsinline={true} url={carEntersFrame} muted={true} width="100%" height="100%" playing={true} onEnded={() => setEnteringVideoEnded(true)} />
                         </div>
                     )}
