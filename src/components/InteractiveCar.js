@@ -23,7 +23,6 @@ export default function InteractiveCar(props) {
     const [clickableButtonStyle, setClickableButtonStyle] = useState({width: "0px", height: "0px"})
     const [transitionState, setTransitionState] = useState(0) // the transition state is cleverly used to reduce flickering
     const [clickMeOn, setClickMeOn] = useState(false)
-    const [secondPassed, setSecondPassed] = useState(false) // to handle setTimeout side effect
     const [componentStyle, setComponentStyle] = useState({ height: "0px" })
     const [clickMeStyle, setClickMeStyle] = useState({ height: "0px", width: "0px" })
     const [clickMeComponentStyle, setClickMeComponentStyle] = useState({ padding: "0px" })
@@ -45,21 +44,12 @@ export default function InteractiveCar(props) {
 
     useEffect(() => {
         if (enteringVideoEnded === true && interactiveState !== 2) {
-            setTimeout(()=>turnOnClickMe(),1000)
+            setClickMeOn(true)
         }
     }, [enteringVideoEnded])
     
-    function turnOnClickMe() {
-        if (interactiveState !== 2) { // if STILL not state 2
-            setSecondPassed(true)
-        }
-    }
 
-    useEffect(() => {
-        if (secondPassed === true && interactiveState!== 2) {
-            setClickMeOn(true)
-        }
-    },[secondPassed])
+
     
     useEffect(() => {
         if (windowSize && windowSize.width < 900) {
@@ -155,7 +145,7 @@ export default function InteractiveCar(props) {
                     <div className="w-full h-full absolute flex justify-end items-center" style={clickMeComponentStyle}>
                         <PopUpWrapper popUpOn={clickMeOn}>
                             <button style={clickMeStyle} onMouseEnter={()=>setHoverOn(true)} onMouseLeave={()=>setHoverOn(false)} onClick={()=>handleClick()} className=" flex flex-col items-center">
-                                <div className="w-full h-[80%] blur-background-light z-20 bg-gray1 bg-opacity-50 flex justify-center items-center rounded-xl border border-gray0">
+                                <div className="w-full h-[80%] blur-background-light z-20 bg-gray1 bg-opacity-50 flex justify-center items-center rounded-xl border border-gray0 hover:border-gray-300 duration-300 hover:brightness-110">
                                     {parseInt(clickMeStyle.width.slice(0,-2)) < 140 && (<h1 className="text-[16px] font-[500] text-white">Click Me!</h1>)}
                                     {parseInt(clickMeStyle.width.slice(0,-2)) >= 140 && (<h1 className="text-2xl font-[500] text-white">Click Me!</h1>)}
                                 </div>
