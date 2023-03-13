@@ -49,17 +49,14 @@ export default function Footer() {
                             </div>
                             <div className="pt-2 flex flex-col gap-y-4 w-1/2">
                                 <h1 className="text-xs text-gray-400 font-[500] tracking-[.2em]">COMPANY </h1>
+                                <Link to="/">
+                                    <h2 className="text-sm text-white font-semibold">Home</h2>
+                                </Link>
                                 <Link to="/about">
                                     <h2 className="text-sm text-white font-semibold">About</h2>
                                 </Link>
                                 <Link to="/blog">
                                     <h2 className="text-sm text-white font-semibold">Blog</h2>
-                                </Link>
-                                <Link to="/team">
-                                    <h2 className="text-sm text-white font-semibold">Team</h2>
-                                </Link>
-                                <Link to="/faq">
-                                    <h2 className="text-sm text-white font-semibold">FAQ</h2>
                                 </Link>
                             </div>
                             
@@ -73,7 +70,7 @@ export default function Footer() {
                                 <img className="w-[26px] h-[26px] translate-y-1" src={instagramIcon}></img>
                             </div>
                             <h1 className="text-xs text-gray-400 font-[500] tracking-[.2em] mb-4">CONTACT US </h1>
-                            <h2 className="text-sm text-white font-semibold">Email: support@phynite.io</h2>
+                            <h2 className="text-sm text-white font-semibold">Email: hello@phynite.io</h2>
                         </div>
                     </div>
 
@@ -111,17 +108,14 @@ export default function Footer() {
                             </div>
                             <div className="pt-2 flex flex-col gap-y-4 w-1/2">
                                 <h1 className="text-sm text-gray-400 font-[500] tracking-[.2em]">COMPANY </h1>
+                                <Link to="/">
+                                    <h2 className=" text-white font-semibold">Home</h2>
+                                </Link>
                                 <Link to="/about">
                                     <h2 className=" text-white font-semibold">About</h2>
                                 </Link>
                                 <Link to="/blog">
                                     <h2 className=" text-white font-semibold">Blog</h2>
-                                </Link>
-                                <Link to="/team">
-                                    <h2 className=" text-white font-semibold">Team</h2>
-                                </Link>
-                                <Link to="/faq">
-                                    <h2 className=" text-white font-semibold">FAQ</h2>
                                 </Link>
                             </div>
                             
@@ -135,7 +129,7 @@ export default function Footer() {
                                 <img className="w-[26px] h-[26px] translate-y-1" src={instagramIcon}></img>
                             </div>
                             <h1 className="text-sm text-gray-400 font-[500] tracking-[.2em] mb-4">CONTACT US </h1>
-                            <h2 className="text-white font-semibold">Email: support@phynite.io</h2>
+                            <h2 className="text-white font-semibold">Email: hello@phynite.io</h2>
                         </div>
                     </div>
 
@@ -173,17 +167,14 @@ export default function Footer() {
                         </div>
                         <div className="w-[25%] h-full pt-2 flex flex-col gap-y-4">
                             <h1 className="text-xs text-gray-400 font-[500] tracking-[.2em]">COMPANY </h1>
+                            <Link to="/">
+                                <h2 className="text-sm text-white font-semibold">Home</h2>
+                            </Link>
                             <Link to="/about">
                                 <h2 className="text-sm text-white font-semibold">About</h2>
                             </Link>
                             <Link to="/blog">
                                 <h2 className="text-sm text-white font-semibold">Blog</h2>
-                            </Link>
-                            <Link to="/team">
-                                <h2 className="text-sm text-white font-semibold">Team</h2>
-                            </Link>
-                            <Link to="/faq">
-                                <h2 className="text-sm text-white font-semibold">FAQ</h2>
                             </Link>
                         </div>
                         <div className="w-[20%] h-full pt-2 flex flex-col">
@@ -194,7 +185,7 @@ export default function Footer() {
                                 <img className="w-[26px] h-[26px] translate-y-1" src={instagramIcon}></img>
                             </div>
                             <h1 className="text-xs text-gray-400 font-[500] tracking-[.2em] mb-4">CONTACT US </h1>
-                            <h2 className="text-sm text-white font-semibold">Email: support@phynite.io</h2>
+                            <h2 className="text-sm text-white font-semibold">Email: hello@phynite.io</h2>
                         </div>
                     </div>
                     <div className="w-full flex flex-grow items-end">
@@ -224,17 +215,14 @@ export default function Footer() {
                         </div>
                         <div className="w-[25%] h-full pt-2 flex flex-col gap-y-4">
                             <h1 className="text-xs text-gray-400 font-[500] tracking-[.2em]">COMPANY </h1>
+                            <Link to="/">
+                                <h2 className="text-sm text-white font-semibold">Home</h2>
+                            </Link>
                             <Link to="/about">
                                 <h2 className="text-sm text-white font-semibold">About</h2>
                             </Link>
                             <Link to="/blog">
                                 <h2 className="text-sm text-white font-semibold">Blog</h2>
-                            </Link>
-                            <Link to="/team">
-                                <h2 className="text-sm text-white font-semibold">Team</h2>
-                            </Link>
-                            <Link to="/faq">
-                                <h2 className="text-sm text-white font-semibold">FAQ</h2>
                             </Link>
                         </div>
                         <div className="w-[20%] h-full pt-2 flex flex-col">
@@ -245,7 +233,7 @@ export default function Footer() {
                                 <img className="w-[26px] h-[26px] translate-y-1" src={instagramIcon}></img>
                             </div>
                             <h1 className="text-xs text-gray-400 font-[500] tracking-[.2em] mb-4">CONTACT US </h1>
-                            <h2 className="text-sm text-white font-semibold">Email: support@phynite.io</h2>
+                            <h2 className="text-sm text-white font-semibold">Email: hello@phynite.io</h2>
                         </div>
                     </div>
                     <div className="w-full flex flex-grow items-end">

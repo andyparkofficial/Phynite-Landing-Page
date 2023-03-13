@@ -9,30 +9,9 @@ export default function Blog(props) {
             {
                 title: "The Pros and Cons of Physically Backed NFTs",
                 bgImage: "",
-                dateWritten: "January 18, 2023",
-                summary: "All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities."
+                dateWritten: "Coming Soon",
+                summary: "Physically Backed NFTs bring clear economic values, and create opportunities for higher demand in such assets, making them ideal investments."
 
-            },
-            
-            {
-                title: "How to Use a Metamask Wallet",
-                bgImage: "",
-                dateWritten: "January 18, 2023",
-                summary: "The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short)."
-            },
-
-            {
-                title: "Off-Chain v.s. On-chain Storage of Legal Signatures",
-                bgImage: "",
-                dateWritten: "January 18, 2023",
-                summary: "All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities."
-            },
-            
-            {
-                title: "The Benefits of Physically Backed NFTs",
-                bgImage: "",
-                dateWritten: "January 18, 2023",
-                summary: "All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities."
             }
         ]
 
@@ -51,7 +30,7 @@ export default function Blog(props) {
                                 The Pros and Cons of Physically Backed NFTs
                             </h1>
                             <h2 className="text-gray3 font-semibold justify-end">
-                                January 18th, 2023
+                                Coming Soon
                             </h2>
                         </div>
                     </div>
@@ -79,18 +58,25 @@ export default function Blog(props) {
             )}
             {props.displayType === "tablet" && (
                 <div className="w-full font-poppins">
-                    <div className="px-[18px] w-full mb-12 pt-18">
-                        <h1 className="text-white text-5xl font-semibold text-center mb-16">
-                            <span className="text-phyniteBlue">Phynite </span>Blog
-                        </h1>
-                        <h2 className="text-white text-3xl font-[500] mb-4 pl-1">Recent</h2>
-                        <div className="rounded-2xl h-[400px] border border-gray0 bg-gradient-to-r from-gray-600 via-gray-300 to-ice flex flex-col justify-end p-4">
-                            <h1 className="text-gray1 text-2xl font-bold leading-[1.2] mb-2 w-3/4">
-                                The Pros and Cons of Physically Backed NFTs
-                            </h1>
-                            <h2 className="text-gray3 font-semibold justify-end text-lg">
-                                January 18th, 2023
+                    <div className="h-[350px] w-full flex justify-center">
+                        <h1 className="font-semibold text-[66px] font-poppins pt-48 text-white"><span className="text-phyniteBlue">Phynite</span> Blog</h1>
+                    </div>
+                    <div className="w-full flex flex-col mb-16 px-[18px]">
+                        <div className="w-full ">
+                            <h2 className="text-3xl text-white font-poppins font-[500] mb-8">
+                                Recent
                             </h2>
+                            <div className="rounded-3xl border border-gray0 h-[500px] bg-gradient-to-r from-gray-600 via-gray-300 to-ice flex justify-start items-end pb-16 p-12">
+                                <div className=" w-1/2">
+                                    <h1 className="text-gray1 text-4xl font-bold leading-[1.2] mb-4">
+                                        The Pros and Cons of Physically Backed NFTs
+                                    </h1>
+                                    <h2 className="text-gray3 font-semibold text-2xl justify-end">
+                                        Coming Soon
+                                    </h2>
+                                </div>
+                                
+                            </div>
                         </div>
                     </div>
                     <div className="w-full mb-24 px-[10px]">
@@ -131,7 +117,7 @@ export default function Blog(props) {
                                         The Pros and Cons of Physically Backed NFTs
                                     </h1>
                                     <h2 className="text-gray3 font-semibold text-2xl justify-end">
-                                        January 18th, 2023
+                                        Coming Soon
                                     </h2>
                                 </div>
                                 
@@ -175,7 +161,7 @@ export default function Blog(props) {
                                         The Pros and Cons of Physically Backed NFTs
                                     </h1>
                                     <h2 className="text-gray3 font-semibold text-3xl justify-end">
-                                        January 18th, 2023
+                                    Coming Soon
                                     </h2>
                                 </div>
                                 
