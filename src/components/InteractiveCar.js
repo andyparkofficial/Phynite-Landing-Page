@@ -135,17 +135,17 @@ export default function InteractiveCar(props) {
                     {(interactiveState === 0 || transitionState === 0) && (
                         <div className="w-full h-full absolute">
                             <button onClick={()=>handleClick()} className="trapezoid absolute bg-transparent -rotate-[25deg] translate-y-[45%] skew-x-[15deg] skew-y-[10deg] rounded-3xl translate-x-[92%]" style={clickableButtonStyle}></button>
-                            <ReactPlayer url={carEntersFrame} muted={true} width="100%" height="100%" playing={true} onEnded={() => setEnteringVideoEnded(true)} />
+                            <ReactPlayer playsinline={true} url={carEntersFrame} muted={true} width="100%" height="100%" playing={true} onEnded={() => setEnteringVideoEnded(true)} />
                         </div>
                     )}
                     {(interactiveState === 1 || transitionState === 1) && (
                         <div className="w-full h-full absolute" onEnded={()=>handleLightTurningOnEnded()}>
-                            <ReactPlayer url={carLightsTurnOn} muted={true} width="100%" height="100%" playing={true}/>   
+                            <ReactPlayer playsinline={true} url={carLightsTurnOn} muted={true} width="100%" height="100%" playing={true}/>   
                         </div>
                     )}
                     {interactiveState === 2 && (
-                        <div className="w-full h-full">
-                            <ReactPlayer url={carDoorsOpen} muted={true} width="100%" height="100%" playing={true}/>
+                        <div className="w-full h-full absolute">
+                            <ReactPlayer playsinline={true} url={carDoorsOpen} muted={true} width="100%" height="100%" playing={true}/>
                         </div>
                     )}
                 </div>
@@ -169,7 +169,7 @@ export default function InteractiveCar(props) {
                     {(interactiveState === 0 || transitionState === 0) && (
                         <div className="w-full h-full absolute">
                             <div onMouseEnter={()=>setHoverOn(true)} onMouseLeave={()=>setHoverOn(false)} className="trapezoid absolute bg-transparent -rotate-[25deg] translate-y-[45%] skew-x-[15deg] skew-y-[10deg] rounded-3xl translate-x-[92%]" style={clickableButtonStyle}></div>
-                            <ReactPlayer url={carEntersFrame} muted={true} width="100%" height="100%" playing={true} onEnded={() => setEnteringVideoEnded(true)}/>
+                            <ReactPlayer playsinline={true} url={carEntersFrame} muted={true} width="100%" height="100%" playing={true} onEnded={() => setEnteringVideoEnded(true)}/>
                         </div>
                         
                     )}
@@ -177,15 +177,15 @@ export default function InteractiveCar(props) {
                         <div className="w-full h-full absolute">
                             <button onMouseEnter={()=>setHoverOn(true)} onMouseLeave={()=>setHoverOn(false)} onClick={()=>handleClick()} className="trapezoid absolute bg-transparent -rotate-[25deg] translate-y-[45%] skew-x-[15deg] skew-y-[10deg] rounded-3xl translate-x-[92%]" style={clickableButtonStyle}></button>
                             {hoverOn === false ? (
-                                <ReactPlayer url={carLightsTurnOff} muted={true} width="100%" height="100%" playing={true}/>
+                                <ReactPlayer playsinline={true} url={carLightsTurnOff} muted={true} width="100%" height="100%" playing={true}/>
                             ):(
-                                <ReactPlayer url={carLightsTurnOn} muted={true} width="100%" height="100%" playing={true}/>    
+                                <ReactPlayer playsinline={true} url={carLightsTurnOn} muted={true} width="100%" height="100%" playing={true}/>    
                             )}
                         </div>
                     )}
                     {interactiveState === 2 && (
-                        <div className="w-full h-full">
-                            <ReactPlayer url={carDoorsOpen} muted={true} width="100%" height="100%" playing={true}/>
+                        <div className="w-full h-full absolute">
+                            <ReactPlayer playsinline={true} url={carDoorsOpen} muted={true} width="100%" height="100%" playing={true}/>
                         </div>
 
                     )}
