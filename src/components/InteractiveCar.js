@@ -121,11 +121,11 @@ export default function InteractiveCar(props) {
                     <div className="w-full h-full absolute flex justify-end items-center" style={clickMeComponentStyle}>
                         <PopUpWrapper popUpOn={clickMeOn}>
                             <button style={clickMeStyle} onClick={()=>handleMobileOrTabletClick()} className=" flex flex-col items-center">
-                                <div className="w-full h-[80%] blur-background-light z-20 bg-gray1 bg-opacity-50 flex justify-center items-center rounded-lg border border-gray0">
+                                <div className="w-full h-[80%] blur-background-light z-30 bg-gray1 bg-opacity-50 flex justify-center items-center rounded-lg border border-gray0">
                                     {parseInt(clickMeStyle.width.slice(0,-2)) < 120 && (<h1 className="text-xs font-[500] text-white">Click Me!</h1>)}
                                     {parseInt(clickMeStyle.width.slice(0,-2)) >= 120 && (<h1 className="text-[16px] font-[500] text-white">Click Me!</h1>)}
                                 </div>
-                                <div className="overflow-clip h-[25%] z-20 w-10 flex justify-center">
+                                <div className="overflow-clip h-[25%] z-30 w-10 flex justify-center">
                                     <div className="w-6 h-6 rotate-45 bg-gray1 bg-opacity-50 blur-background-light z-20 -translate-y-[80%] border border-gray0"></div>
                                 </div>
                                 
@@ -133,18 +133,18 @@ export default function InteractiveCar(props) {
                         </PopUpWrapper>
                     </div>
                     {(interactiveState === 0 || transitionState === 0) && (
-                        <div className="w-full h-full absolute">
+                        <div className="w-full h-full absolute z-0">
                             <button onClick={()=>handleClick()} className="trapezoid absolute bg-transparent -rotate-[25deg] translate-y-[45%] skew-x-[15deg] skew-y-[10deg] rounded-3xl translate-x-[92%]" style={clickableButtonStyle}></button>
                             <ReactPlayer playsinline={true} url={carEntersFrame} muted={true} width="100%" height="100%" playing={true} onEnded={() => setEnteringVideoEnded(true)} />
                         </div>
                     )}
                     {(interactiveState === 1 || transitionState === 1) && (
-                        <div className="w-full h-full absolute" onEnded={()=>handleLightTurningOnEnded()}>
+                        <div className="w-full h-full absolute z-10" onEnded={()=>handleLightTurningOnEnded()}>
                             <ReactPlayer playsinline={true} url={carLightsTurnOn} muted={true} width="100%" height="100%" playing={true}/>   
                         </div>
                     )}
                     {interactiveState === 2 && (
-                        <div className="w-full h-full absolute">
+                        <div className="w-full h-full absolute z-20">
                             <ReactPlayer playsinline={true} url={carDoorsOpen} muted={true} width="100%" height="100%" playing={true}/>
                         </div>
                     )}
