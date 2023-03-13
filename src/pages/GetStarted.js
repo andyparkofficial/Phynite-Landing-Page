@@ -51,13 +51,14 @@ export default function GetStarted(props) {
             const currentTime = currentDate.getTime()
             localStorage.setItem('numberOfEmailsSubmitted', JSON.stringify({emailCount: numberOfEmailsSubmitted.emailCount + 1, emailSubmissionTime: currentTime}))
             setNumberOfEmailsSubmitted({ emailCount: 1, emailSubmissionTime: currentTime })
+        } else {
+            localStorage.setItem('numberOfEmailsSubmitted', JSON.stringify({emailCount: numberOfEmailsSubmitted.emailCount + 1, emailSubmissionTime: numberOfEmailsSubmitted.emailSubmissionTime}))
+            setNumberOfEmailsSubmitted((prevObject) => {
+                let newObject = { ...prevObject, emailCount: prevObject.emailCount + 1 }
+                return newObject
+            })
         }
-        console.log(numberOfEmailsSubmitted)
-        localStorage.setItem('numberOfEmailsSubmitted', JSON.stringify({emailCount: numberOfEmailsSubmitted.emailCount + 1, emailSubmissionTime: numberOfEmailsSubmitted.emailSubmissionTime}))
-        setNumberOfEmailsSubmitted((prevObject) => {
-            let newObject = { ...prevObject, emailCount: prevObject.emailCount + 1 }
-            return newObject
-        })
+        
     }
 
 
