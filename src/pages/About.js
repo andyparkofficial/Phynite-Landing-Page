@@ -14,9 +14,10 @@ import { Link, useLocation } from "react-router-dom"
 import AndyProfilePic from "../assets/andy-profile-picture.png"
 import BillProfilePic from "../assets/bill-profile-picture.png"
 import EsaProfilePic from "../assets/esa-profile-picture.png"
-import LinkedInIcon from "../assets/linkedin-icon.png"
+import LinkedInIcon from "../assets/gray-linkedin-icon.png"
 import TwitterIcon from "../assets/gray-twitter-icon.png"
 import CrystalContract from "../assets/crystal-contract.png"
+import InstagramIcon from "../assets/gray-instagram-icon.png"
 
 
 export default function About (props) {
@@ -525,7 +526,7 @@ export default function About (props) {
                                 <h1 className="text-white text-xl font-[500]">Andy Park</h1>
                                 <h2 className="text-gray-400 text-sm">CEO/CTO</h2>
                                 <div className="flex flex-grow items-end">
-                                    <div className="flex gap-x-2">
+                                    <div className="flex gap-x-2 items-center">
                                         <a href="https://www.linkedin.com/in/andy-park-b5a76a236/" className="" target="_blank">
                                             <img src={LinkedInIcon} className="h-8 w-8"></img>
                                         </a>
@@ -544,7 +545,7 @@ export default function About (props) {
                                 <h1 className="text-white text-xl font-[500]">Esa Sait</h1>
                                 <h2 className="text-gray-400 text-sm">COO</h2>
                                 <div className="flex flex-grow items-end">
-                                    <div className="flex gap-x-2">
+                                    <div className="flex gap-x-2 items-center">
                                         <a>
                                             <img src={LinkedInIcon} className="h-8 w-8"></img>
                                         </a>
@@ -563,12 +564,12 @@ export default function About (props) {
                                 <h1 className="text-white text-xl font-[500]">William Yeo</h1>
                                 <h2 className="text-gray-400 text-sm">CFO</h2>
                                 <div className="flex flex-grow items-end">
-                                    <div className="flex gap-x-2">
+                                    <div className="flex gap-x-2 items-center">
                                         <a>
                                             <img src={LinkedInIcon} className="h-8 w-8"></img>
                                         </a>
                                         <a>
-                                            <img src={TwitterIcon} className="h-8 w-8"></img>
+                                            <img src={InstagramIcon} className="h-6 w-6"></img>
                                         </a>
                                     </div>
                                 </div>
@@ -962,7 +963,7 @@ export default function About (props) {
                                 <h1 className="text-white text-2xl font-[500]">Andy Park</h1>
                                 <h2 className="text-gray-400">CEO/CTO</h2>
                                 <div className="flex flex-grow items-end">
-                                    <div className="flex gap-x-2">
+                                    <div className="flex gap-x-2 items-center">
                                         <a href="https://www.linkedin.com/in/andy-park-b5a76a236/" className="" target="_blank">
                                             <img src={LinkedInIcon} className="h-10 w-10"></img>
                                         </a>
@@ -981,7 +982,7 @@ export default function About (props) {
                                 <h1 className="text-white text-2xl font-[500]">Esa Sait</h1>
                                 <h2 className="text-gray-400">COO</h2>
                                 <div className="flex flex-grow items-end">
-                                    <div className="flex gap-x-2">
+                                    <div className="flex gap-x-2 items-center">
                                         <a>
                                             <img src={LinkedInIcon} className="h-10 w-10"></img>
                                         </a>
@@ -1000,12 +1001,12 @@ export default function About (props) {
                                 <h1 className="text-white text-2xl font-[500]">William Yeo</h1>
                                 <h2 className="text-gray-400">CFO</h2>
                                 <div className="flex flex-grow items-end">
-                                    <div className="flex gap-x-2">
+                                    <div className="flex gap-x-2 items-center">
                                         <a>
                                             <img src={LinkedInIcon} className="h-10 w-10"></img>
                                         </a>
                                         <a>
-                                            <img src={TwitterIcon} className="h-10 w-10"></img>
+                                            <img src={InstagramIcon} className="h-8 w-8"></img>
                                         </a>
                                     </div>
                                 </div>
@@ -1421,7 +1422,7 @@ export default function About (props) {
                                     <div className="w-full h-1/4 pt-4 flex-col flex items-center">
                                         <h1 className="text-white font-poppins text-2xl font-semibold mb-2 border-t border-gray1 w-full text-center pt-4">Andy Park</h1>
                                         <h2 className="text-gray-400 font-poppins text-lg mb-2">CEO/CTO</h2>
-                                        <div className="flex gap-x-2">
+                                        <div className="flex gap-x-2 items-center">
                                             <a href="https://www.linkedin.com/in/andy-park-b5a76a236/" className="" target="_blank">
                                                 <img src={LinkedInIcon} className="h-8 w-8"></img>
                                             </a>
@@ -1439,7 +1440,7 @@ export default function About (props) {
                                     <div className="w-full h-1/4 pt-4 flex-col flex items-center">
                                         <h1 className="text-white font-poppins text-2xl font-semibold border-t border-gray1 w-full text-center pt-4 mb-2">Esa Sait</h1>
                                         <h2 className="text-gray-400 font-poppins text-lg text-center mb-2">COO</h2>
-                                        <div className="flex gap-x-2">
+                                        <div className="flex gap-x-2 items-center">
                                             <a className="" target="_blank">
                                                 <img src={LinkedInIcon} className="h-8 w-8"></img>
                                             </a>
@@ -1454,14 +1455,14 @@ export default function About (props) {
                                 <div className="w-full rounded-3xl border border-gray1 h-full flex flex-col items-center p-10 bg-gradient-to-b from-gray2 to-gray4">
                                     <img src={BillProfilePic} className="w-full rounded-full"></img>
                                     <div className="w-full h-1/4 pt-4 flex-col flex items-center">
-                                        <h1 className="text-white font-poppins text-2xl font-semibold border-t border-gray1 w-full text-center pt-4 mb-2">Bill Yeo</h1>
+                                        <h1 className="text-white font-poppins text-2xl font-semibold border-t border-gray1 w-full text-center pt-4 mb-2">William Yeo</h1>
                                         <h2 className="text-gray-400 font-poppins text-lg text-center mb-2">CFO</h2>
-                                        <div className="flex gap-x-2">
+                                        <div className="flex gap-x-2 items-center">
                                             <a className="" target="_blank">
                                                 <img src={LinkedInIcon} className="h-8 w-8"></img>
                                             </a>
                                             <a>
-                                                <img src={TwitterIcon} className="h-8 w-8"></img>
+                                                <img src={InstagramIcon} className="h-6 w-6"></img>
                                             </a>
                                         </div>
                                     </div>
@@ -1879,7 +1880,7 @@ export default function About (props) {
                                     <div className="w-full h-1/4 pt-4 flex-col flex items-center">
                                         <h1 className="text-white font-poppins text-2xl font-semibold mb-2 border-t border-gray1 w-[300px] text-center pt-4">Andy Park</h1>
                                         <h2 className="text-gray-400 font-poppins text-xl mb-2">CEO/CTO</h2>
-                                        <div className="flex gap-x-2">
+                                        <div className="flex items-center gap-x-2">
                                             <a href="https://www.linkedin.com/in/andy-park-b5a76a236/" className="" target="_blank">
                                                 <img src={LinkedInIcon} className="h-8 w-8"></img>
                                             </a>
@@ -1897,7 +1898,7 @@ export default function About (props) {
                                     <div className="w-full h-1/4 pt-4 flex-col flex items-center">
                                         <h1 className="text-white font-poppins text-2xl font-semibold border-t border-gray1 w-[300px] text-center pt-4 mb-2">Esa Sait</h1>
                                         <h2 className="text-gray-400 font-poppins text-xl text-center mb-2">COO</h2>
-                                        <div className="flex gap-x-2">
+                                        <div className="flex items-center gap-x-2">
                                             <a className="" target="_blank">
                                                 <img src={LinkedInIcon} className="h-8 w-8"></img>
                                             </a>
@@ -1912,14 +1913,14 @@ export default function About (props) {
                                 <div className="w-full rounded-3xl border border-gray1 h-full flex flex-col items-center p-10 bg-gradient-to-b from-gray2 to-gray4">
                                     <img src={BillProfilePic} className="h-[300px] w-[300px] rounded-full"></img>
                                     <div className="w-full h-1/4 pt-4 flex-col flex items-center">
-                                        <h1 className="text-white font-poppins text-2xl font-semibold border-t border-gray1 w-[300px] text-center pt-4 mb-2">Bill Yeo</h1>
+                                        <h1 className="text-white font-poppins text-2xl font-semibold border-t border-gray1 w-[300px] text-center pt-4 mb-2">William Yeo</h1>
                                         <h2 className="text-gray-400 font-poppins text-xl text-center mb-2">CFO</h2>
-                                        <div className="flex gap-x-2">
+                                        <div className="flex items-center gap-x-2">
                                             <a className="" target="_blank">
                                                 <img src={LinkedInIcon} className="h-8 w-8"></img>
                                             </a>
                                             <a>
-                                                <img src={TwitterIcon} className="h-8 w-8"></img>
+                                                <img src={InstagramIcon} className="h-6 w-6"></img>
                                             </a>
                                         </div>
                                     </div>
