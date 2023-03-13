@@ -26,14 +26,17 @@ export default function GetStarted(props) {
     }
 
     function checkNumberOfEmailsSubmitted() {
+        const currentDate = new Date()
+        const currentTime = currentDate.getTime()
         if (localStorage.getItem('numberOfEmailsSubmitted') !== null) {
             const emailNumberCheckerObject = JSON.parse(localStorage.getItem('numberOfEmailsSubmitted'))
-            const currentDate = new Date()
-            const currentTime = currentDate.getTime()
+            
             if (currentTime - emailNumberCheckerObject.emailSubmissionTime >= 86400000) { // if more than 24 hours have passed
-                setNumberOfEmailsSubmitted({emailCount: 0, emailSubmissionTime: currentTime})
+                setNumberOfEmailsSubmitted({ emailCount: 0, emailSubmissionTime: currentTime })
+                localStorage.setItem('numberOfEmailsSubmitted', JSON.stringify({ emailCount: 0, emailSubmissionTime: currentTime }))
             } else { // if less than 24 hours have passed
                 setNumberOfEmailsSubmitted(emailNumberCheckerObject)
+                
             }
         }
     }
@@ -43,6 +46,12 @@ export default function GetStarted(props) {
     }, [])
     
     function increaseNumberOfEmailsSubmitted() {
+        if (numberOfEmailsSubmitted.emailSubmissionTime === null) {
+            const currentDate = new Date()
+            const currentTime = currentDate.getTime()
+            localStorage.setItem('numberOfEmailsSubmitted', JSON.stringify({emailCount: numberOfEmailsSubmitted.emailCount + 1, emailSubmissionTime: currentTime}))
+            setNumberOfEmailsSubmitted({ emailCount: 1, emailSubmissionTime: currentTime })
+        }
         console.log(numberOfEmailsSubmitted)
         localStorage.setItem('numberOfEmailsSubmitted', JSON.stringify({emailCount: numberOfEmailsSubmitted.emailCount + 1, emailSubmissionTime: numberOfEmailsSubmitted.emailSubmissionTime}))
         setNumberOfEmailsSubmitted((prevObject) => {
