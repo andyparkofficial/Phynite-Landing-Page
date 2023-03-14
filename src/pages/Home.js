@@ -16,6 +16,7 @@ import InteractiveCar from "../components/InteractiveCar"
 import useWindowSize from "../hooks/useWindowSize.js"
 import ImageBoxWithLink from "../components/ImageBoxWithLink.js"
 import ImageBox from "../components/ImageBox.js"
+import PhyniteUi from "../assets/phynite-ui.png"
 
 
 export default function Home(props) {
@@ -52,8 +53,10 @@ export default function Home(props) {
                         </div>
                     </div>
                     <div className="w-full mb-16 px-1">
-                        <h1 className="font-[500] text-2xl text-white mb-4">Why use Phynite?</h1>
-                        <div className="w-full h-56 rounded-xl bg-gray2 mb-6"></div>
+                        <h1 className="font-[500] text-2xl text-white mb-6">The Phynite Marketplace</h1>
+                        <div className="w-full rounded-xl mb-6">
+                            <img className="w-full scale-[106%] -translate-x-[0.7%]" src={PhyniteUi}></img>
+                        </div>
                         <div className="w-full">
                             <h1 className="font-[500] text-white mb-2">
                                 Invest in the physical, digitally
@@ -214,26 +217,27 @@ export default function Home(props) {
                     </div>
 
                     <div className="w-full mb-24">
-                        <h1 className="text-white text-[27px] font-semibold font-poppins pl-1 mb-4">Why use Phynite?</h1>
+                        <h1 className="text-white text-[27px] font-semibold font-poppins pl-1 mb-6">The Phynite Marketplace</h1>
                        
-                        <div className="h-[400px] flex-col flex font-poppins bg-gray1 rounded-2xl mb-6">
+                        <div className="w-full flex-col flex font-poppins rounded-2xl mb-6 justify-center">
+                            <img className="w-full scale-[104%] -translate-x-[0.7%]" src={PhyniteUi}></img>
                         </div>
                         <div className="font-poppins px-1">
                             <div className="w-full">
                                 <h2 className="text-lg font-semibold mb-2 text-white">Invest in the Physical, Digitally</h2>
-                                <h3 className="text-[13px] text-gray-400">
+                                <h3 className="text-[13px] text-gray-400 font-light">
                                 All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.
                                 </h3>
                             </div>
                             <div className="w-full my-8">
                                 <h2 className="text-lg font-semibold mb-2 text-white">Legal, Physical, and Blockchain Security</h2>
-                                <h3 className="text-[13px] text-gray-400">
+                                <h3 className="text-[13px] text-gray-400 font-light">
                                 The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT.
                                 </h3>
                             </div>
                             <div className="w-full">
                                 <h2 className="text-lg font-semibold mb-2 text-white">High Royalties, Low Fees</h2>
-                                <h3 className="text-[13px] text-gray-400">
+                                <h3 className="text-[13px] text-gray-400 font-light">
                                 All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.
                                 </h3>
                             </div>
@@ -371,30 +375,55 @@ export default function Home(props) {
                         </div>
                     </div>
                     <div className="w-full mb-24">
-                        <h1 className="text-white text-3xl font-semibold font-poppins">Why use Phynite?</h1>
+                        <h1 className="text-white text-3xl font-semibold font-poppins mb-6">The Phynite Marketplace</h1>
                         <div className="flex justify-center">
-                            <div className="w-[50%] h-full flex-col flex font-poppins bg-gray0">
+                            <div className="w-[55%] h-full flex-col flex font-poppins">
+                                <img className="w-full -translate-x-[3%]" src={PhyniteUi}></img>
                             </div>
-                            <div className="w-[50%]  h-full font-poppins">
-                                <div className="w-full  p-5 ">
-                                    <h2 className="text-xl font-semibold mb-2 text-white">Invest in the Physical, Digitally</h2>
-                                    <h3 className="text-[13px] text-gray-400">
-                                    All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.
-                                    </h3>
+                            {windowSize && windowSize.width > 1080 ? (
+                                <div className="w-[45%]  h-full font-poppins pl-5">
+                                    <div className="w-full  pt-5">
+                                        <h2 className="text-2xl font-semibold mb-2 text-white">Invest in the Physical, Digitally</h2>
+                                        <h3 className="text-sm text-gray-400 font-light">
+                                        All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.
+                                        </h3>
+                                    </div>
+                                    <div className="w-full my-8">
+                                        <h2 className="text-2xl font-semibold mb-2 text-white">Legal, Physical, and Blockchain Security</h2>
+                                        <h3 className="text-sm text-gray-400 font-light">
+                                        The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT.
+                                        </h3>
+                                    </div>
+                                    <div className="w-full">
+                                        <h2 className="text-2xl font-semibold mb-2 text-white">High Royalties, Low Fees</h2>
+                                        <h3 className="text-sm text-gray-400 font-light">
+                                        All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.
+                                        </h3>
+                                    </div>
                                 </div>
-                                <div className="w-full my-5 p-5">
-                                    <h2 className="text-xl font-semibold mb-2 text-white">Legal, Physical, and Blockchain Security</h2>
-                                    <h3 className="text-[13px] text-gray-400">
-                                    The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT.
-                                    </h3>
+                            ) : (
+                                <div className="w-[45%]  h-full font-poppins pl-5">
+                                    <div className="w-full py-3 ">
+                                        <h2 className="text-[19px] font-semibold mb-2 text-white">Invest in the Physical, Digitally</h2>
+                                        <h3 className="text-[11px] text-gray-400 font-light">
+                                        All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.
+                                        </h3>
+                                    </div>
+                                    <div className="w-full my-2 py-3">
+                                        <h2 className="text-[19px] font-semibold mb-2 text-white">Legal, Physical, and Blockchain Security</h2>
+                                        <h3 className="text-[11px] text-gray-400 font-light">
+                                        The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT.
+                                        </h3>
+                                    </div>
+                                    <div className="w-full py-3">
+                                        <h2 className="text-[19px] font-semibold mb-2 text-white">High Royalties, Low Fees</h2>
+                                        <h3 className="text-[11px] text-gray-400 font-light">
+                                        All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.
+                                        </h3>
+                                    </div>
                                 </div>
-                                <div className="w-full p-5">
-                                    <h2 className="text-xl font-semibold mb-2 text-white">High Royalties, Low Fees</h2>
-                                    <h3 className="text-[13px] text-gray-400">
-                                    All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.
-                                    </h3>
-                                </div>
-                            </div>
+                            )}
+                            
                         </div>
                     </div>
                     <div className="w-full mb-24">
@@ -529,27 +558,28 @@ export default function Home(props) {
                         </div>
                     </div>
                     <div className="w-full min-h-[500px] flex justify-center mb-32">
-                        <div className="w-[1350px]  h-full flex flex-col px-[28px]">
-                            <h1 className="text-white text-3xl font-semibold font-poppins">Phynite Marketplace</h1>
-                            <div className="flex justify-center">
-                                <div className="w-[50%] h-full flex-col flex font-poppins bg-gray0">
+                        <div className="w-[1350px]  h-full flex flex-col px-[25px]">
+                            <h1 className="text-white text-4xl font-semibold font-poppins mb-4">The Phynite Marketplace</h1>
+                            <div className="flex">
+                                <div className="w-[55%] h-full flex-col flex font-poppins pt-3 items-start">
+                                    <img className="w-full -translate-x-5" src={PhyniteUi}></img>
                                 </div>
-                                <div className="w-[50%]  h-full font-poppins p-4">
+                                <div className="w-[45%]  h-full font-poppins p-4">
                                     <div className="w-full  p-5 ">
-                                        <h2 className="text-xl font-semibold mb-2 text-white">Invest in the Physical, Digitally</h2>
-                                        <h3 className="text-sm text-gray-400">
+                                        <h2 className="text-2xl font-semibold mb-3 text-white">Invest in the Physical, Digitally</h2>
+                                        <h3 className="text-sm text-gray-400 font-light">
                                         All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.
                                         </h3>
                                     </div>
                                     <div className="w-full my-5 p-5">
-                                        <h2 className="text-xl font-semibold mb-2 text-white">Legal, Physical, and Blockchain Security</h2>
-                                        <h3 className="text-sm text-gray-400">
+                                        <h2 className="text-2xl font-semibold mb-3 text-white">Legal, Physical, and Blockchain Security</h2>
+                                        <h3 className="text-sm text-gray-400 font-light">
                                         The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT.
                                         </h3>
                                     </div>
                                     <div className="w-full p-5">
-                                        <h2 className="text-xl font-semibold mb-2 text-white">High Royalties, Low Fees</h2>
-                                        <h3 className="text-sm text-gray-400">
+                                        <h2 className="text-2xl font-semibold mb-3 text-white">High Royalties, Low Fees</h2>
+                                        <h3 className="text-sm text-gray-400 font-light">
                                         All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.
                                         </h3>
                                     </div>
