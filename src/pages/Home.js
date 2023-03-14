@@ -623,7 +623,7 @@ export default function Home(props) {
                                 <div className="w-[55%] h-full flex-col flex font-poppins pt-3 items-start">
                                     <img className="w-full -translate-x-5" src={PhyniteUi}></img>
                                 </div>
-                                <div className="w-[45%]  h-full font-poppins pl-5">
+                                <div className="w-[45%]  h-full font-poppins pl-5 pt-5">
                                     <div className="w-full py-5 ">
                                         <h2 className="text-2xl font-semibold mb-3 text-white">Invest in the Physical, Digitally</h2>
                                         <h3 className="text-sm text-gray-400 font-light">
