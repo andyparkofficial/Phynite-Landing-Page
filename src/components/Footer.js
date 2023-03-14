@@ -6,6 +6,7 @@ import discordIcon from "../assets/discord-icon.png"
 import instagramIcon from "../assets/instagram-icon.png"
 import copyrightIcon from "../assets/copyright-icon-gray.png"
 import useWindowSize from "../hooks/useWindowSize"
+import linkedInIcon from "../assets/linkedin-icon.png"
 
 
 export default function Footer() {
@@ -65,9 +66,17 @@ export default function Footer() {
                         <div className="w-full flex flex-col mb-10 items-start">
                             <h1 className="text-xs text-gray-400 font-[500] tracking-[.2em] mb-4">SOCIAL </h1>
                             <div className="flex gap-x-6 mb-8">
-                                <img className="w-7 h-7 translate-y-1" src={twitterIcon}></img>
-                                <img className="w-9 h-9" src={discordIcon}></img>
-                                <img className="w-[26px] h-[26px] translate-y-1" src={instagramIcon}></img>
+                                <a target="_blank" href="https://twitter.com/Phynite_io">
+                                    <img className="w-7 h-7 translate-y-1" src={twitterIcon}></img>
+                                </a>
+                                
+                                <a target="_blank" href="https://www.linkedin.com/company/phynite">
+                                    <img className="w-9 h-9" src={linkedInIcon}></img>
+                                </a>
+
+                                <a target="_blank" href="https://www.instagram.com/phynite.io/">
+                                    <img className="w-[26px] h-[26px] translate-y-1" src={instagramIcon}></img>
+                                </a>
                             </div>
                             <h1 className="text-xs text-gray-400 font-[500] tracking-[.2em] mb-4">CONTACT US </h1>
                             <h2 className="text-sm text-white font-semibold">Email: hello@phynite.io</h2>
@@ -124,9 +133,15 @@ export default function Footer() {
                         <div className="w-full flex flex-col mb-10 items-start">
                             <h1 className="text-sm text-gray-400 font-[500] tracking-[.2em] mb-4">SOCIAL </h1>
                             <div className="flex gap-x-6 mb-8">
-                                <img className="w-7 h-7 translate-y-1" src={twitterIcon}></img>
-                                <img className="w-9 h-9" src={discordIcon}></img>
-                                <img className="w-[26px] h-[26px] translate-y-1" src={instagramIcon}></img>
+                                <a target="_blank" href="https://twitter.com/Phynite_io">
+                                    <img className="w-7 h-7 translate-y-1" src={twitterIcon}></img>
+                                </a>
+                                <a target="_blank" href="https://www.linkedin.com/company/phynite">
+                                    <img className="w-9 h-9" src={linkedInIcon}></img>
+                                </a>
+                                <a target="_blank" href="https://www.instagram.com/phynite.io/">
+                                    <img className="w-[26px] h-[26px] translate-y-1" src={instagramIcon}></img>
+                                </a>
                             </div>
                             <h1 className="text-sm text-gray-400 font-[500] tracking-[.2em] mb-4">CONTACT US </h1>
                             <h2 className="text-white font-semibold">Email: hello@phynite.io</h2>
@@ -180,9 +195,16 @@ export default function Footer() {
                         <div className="w-[20%] h-full pt-2 flex flex-col">
                             <h1 className="text-xs text-gray-400 font-[500] tracking-[.2em] mb-4">SOCIAL </h1>
                             <div className="flex gap-x-6 mb-8">
-                                <img className="w-7 h-7 translate-y-1" src={twitterIcon}></img>
-                                <img className="w-9 h-9" src={discordIcon}></img>
-                                <img className="w-[26px] h-[26px] translate-y-1" src={instagramIcon}></img>
+                                <a target="_blank" href="https://twitter.com/Phynite_io">
+                                    <img className="w-7 h-7 translate-y-1" src={twitterIcon}></img>
+                                </a>    
+                                <a target="_blank" href="https://www.linkedin.com/company/phynite">
+                                    <img className="w-9 h-9" src={linkedInIcon}></img>
+                                </a>
+                                <a target="_blank" href="https://www.instagram.com/phynite.io/">
+                                    <img className="w-[26px] h-[26px] translate-y-1" src={instagramIcon}></img>
+                                </a>
+                                
                             </div>
                             <h1 className="text-xs text-gray-400 font-[500] tracking-[.2em] mb-4">CONTACT US </h1>
                             <h2 className="text-sm text-white font-semibold">Email: hello@phynite.io</h2>
@@ -228,9 +250,16 @@ export default function Footer() {
                         <div className="w-[20%] h-full pt-2 flex flex-col">
                             <h1 className="text-xs text-gray-400 font-[500] tracking-[.2em] mb-4">SOCIAL </h1>
                             <div className="flex gap-x-6 mb-8">
-                                <img className="w-7 h-7 translate-y-1" src={twitterIcon}></img>
-                                <img className="w-9 h-9" src={discordIcon}></img>
-                                <img className="w-[26px] h-[26px] translate-y-1" src={instagramIcon}></img>
+                                <a target="_blank" href="https://twitter.com/Phynite_io">
+                                    <img className="w-7 h-7 translate-y-1" src={twitterIcon}></img>
+                                </a>
+                                <a target="_blank" href="https://www.linkedin.com/company/phynite">
+                                    <img className="w-9 h-9" src={linkedInIcon}></img>
+                                </a>
+                                <a target="_blank" href="https://www.instagram.com/phynite.io/">
+                                    <img className="w-[26px] h-[26px] translate-y-1" src={instagramIcon}></img>
+                                </a>
+                                
                             </div>
                             <h1 className="text-xs text-gray-400 font-[500] tracking-[.2em] mb-4">CONTACT US </h1>
                             <h2 className="text-sm text-white font-semibold">Email: hello@phynite.io</h2>

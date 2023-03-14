@@ -14,9 +14,10 @@ import { Link, useLocation } from "react-router-dom"
 import AndyProfilePic from "../assets/andy-profile-picture.png"
 import BillProfilePic from "../assets/bill-profile-picture.png"
 import EsaProfilePic from "../assets/esa-profile-picture.png"
-import LinkedInIcon from "../assets/linkedin-icon.png"
+import LinkedInIcon from "../assets/gray-linkedin-icon.png"
 import TwitterIcon from "../assets/gray-twitter-icon.png"
 import CrystalContract from "../assets/crystal-contract.png"
+import InstagramIcon from "../assets/gray-instagram-icon.png"
 
 
 export default function About (props) {
@@ -160,8 +161,8 @@ export default function About (props) {
                         
                     </div>
                     <div className="w-full">
-                        <h1 className="w-full text-center text-[26px] text-white font-semibold mb-4">What is Phynite?</h1>
-                        <h2 className="w-full text-justify text-sm text-gray-400 font-light px-1">Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT. All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT.</h2>
+                        <h1 className="w-full text-center text-[26px] text-white font-semibold mb-4">Our Founding Mission</h1>
+                        <h2 className="w-full text-justify text-sm text-gray-400 font-light px-1">Phynite was founded with collectors at the forefront of our efforts. Our founders are collectors with years of experience within collectibles communities, so we knew firsthand the problems irritating digital and physical collectors worldwide. We focused on bringing efficiency, security, and ease-of-access to physical and digital collectors by making it easier than ever to start collecting and trading physical collectibles as NFTs. By bringing users instant transactions for physical items, baked-in legal protections (even against us!), and a concrete link between blockchain technology and existing real-world markets, we’re pushing the world of Web3 forward while making it faster, safer, and easier than ever for collectors worldwide to pursue their passion for collecting!</h2>
 
                     </div>
                     <div className="w-full pt-20" id="phyniteProtocol">
@@ -184,29 +185,29 @@ export default function About (props) {
                                         toggleDropdownMenu={()=>toggleMintMenu(0)}
                                     >
                                         <DescriptionDropdownMenu menuOpened={activeMenuMint[0]}>
-                                            <div className="text-gray-300 text-sm p-6 ">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                            <div className="text-gray-300 text-sm p-6 ">Users fill out the Physical Item Verification Form to provide their item’s description, photos, and proof of validity.</div>
                                         </DescriptionDropdownMenu>
                                     </DescriptionItem>
                                     <DescriptionItem
                                         number={2}
-                                        itemName={"Verification and Vaulting"}
+                                        itemName={"Shipping to Phynite's Vaults"}
                                         itemIndex={1}
                                         menuOpened={activeMenuMint[1]}
                                         toggleDropdownMenu={()=>toggleMintMenu(1)}
                                     >
                                         <DescriptionDropdownMenu menuOpened={activeMenuMint[1]}>
-                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                            <div className="text-gray-300 text-sm p-6">Once an item has been approved, we send a secure and insured box to the user so they can ship their item to the Phynite Vault.</div>
                                         </DescriptionDropdownMenu>
                                     </DescriptionItem>
                                     <DescriptionItem
                                         number={3}
-                                        itemName={"Minting and Transfer"}
+                                        itemName={"Verification, Vaulting, and Minting"}
                                         itemIndex={2}
                                         menuOpened={activeMenuMint[2]}
                                         toggleDropdownMenu={()=>toggleMintMenu(2)}
                                     >
                                         <DescriptionDropdownMenu menuOpened={activeMenuMint[2]}>
-                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                            <div className="text-gray-300 text-sm p-6">At the Phynite Vault, received collectibles are re-verified, scanned in high-resolution, and securely stored. We then mint users’ CBNFTs using their collectible’s scanned images and deposit it into their Ethereum wallet.</div>
                                         </DescriptionDropdownMenu>
                                     </DescriptionItem>
                                 </div>
@@ -219,35 +220,35 @@ export default function About (props) {
                                 <div className="w-full rounded-xl overflow-clip border border-gray1 mt-2">
                                     <DescriptionItem
                                         number={1}
-                                        itemName={"Item Submission"}
+                                        itemName={"Buy"}
                                         itemIndex={0}
                                         menuOpened={activeMenuTrade[0]}
                                         toggleDropdownMenu={()=>toggleTradeMenu(0)}
                                     >
                                         <DescriptionDropdownMenu menuOpened={activeMenuTrade[0]}>
-                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                            <div className="text-gray-300 text-sm p-6">To buy a CBNFT on Phynite, either click “buy now” or “add to bag.” When checking out, your purchase is finalized after signing a legally-binding contract to transfer ownership rights from the seller to the buyer. After signing, your purchased CBNFT is sent to your wallet.</div>
                                         </DescriptionDropdownMenu>
                                     </DescriptionItem>
                                     <DescriptionItem
                                         number={2}
-                                        itemName={"Verification and Vaulting"}
+                                        itemName={"Sell"}
                                         itemIndex={1}
                                         menuOpened={activeMenuTrade[1]}
                                         toggleDropdownMenu={()=>toggleTradeMenu(1)}
                                     >
                                         <DescriptionDropdownMenu menuOpened={activeMenuTrade[1]}>
-                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                            <div className="text-gray-300 text-sm p-6">Listing your CBNFT for sale places it on the explore page and allows instant purchases by potential buyers. After your CBNFT’s first sale, you earn 1% of each subsequent trade’s value.</div>
                                         </DescriptionDropdownMenu>
                                     </DescriptionItem>
                                     <DescriptionItem
                                         number={3}
-                                        itemName={"Minting and Transfer"}
+                                        itemName={"Auction"}
                                         itemIndex={2}
                                         menuOpened={activeMenuTrade[2]}
                                         toggleDropdownMenu={()=>toggleTradeMenu(2)}
                                     >
                                         <DescriptionDropdownMenu menuOpened={activeMenuTrade[2]}>
-                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                            <div className="text-gray-300 text-sm p-6">Auctions allow multiple bids over a set timeframe for an item before the item is sold to the highest bidder. Listers can also cancel an auction before the timeframe expires.</div>
                                         </DescriptionDropdownMenu>
                                     </DescriptionItem>
                                 </div>
@@ -260,35 +261,35 @@ export default function About (props) {
                                 <div className="w-full rounded-xl overflow-clip border border-gray1 mt-2">
                                     <DescriptionItem
                                         number={1}
-                                        itemName={"Item Submission"}
+                                        itemName={"Begin the Burning Process"}
                                         itemIndex={0}
                                         menuOpened={activeMenuRedeem[0]}
                                         toggleDropdownMenu={()=>toggleRedeemMenu(0)}
                                     >
                                         <DescriptionDropdownMenu menuOpened={activeMenuRedeem[0]}>
-                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                            <div className="text-gray-300 text-sm p-6">To receive a CBNFTs linked physical item, users activate the “burn” function. This function deletes the physical collectible’s CBNFT so that it can’t be digitally traded after being removed from the Phynite Vault. </div>
                                         </DescriptionDropdownMenu>
                                     </DescriptionItem>
                                     <DescriptionItem
                                         number={2}
-                                        itemName={"Verification and Vaulting"}
+                                        itemName={"Confirm Personal Information"}
                                         itemIndex={1}
                                         menuOpened={activeMenuRedeem[1]}
                                         toggleDropdownMenu={()=>toggleRedeemMenu(1)}
                                     >
                                         <DescriptionDropdownMenu menuOpened={activeMenuRedeem[1]}>
-                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                            <div className="text-gray-300 text-sm p-6">Before we burn CBNFTs, we require users' preferred shipping address for where they’d like to receive their item. After confirming their information, users pay a shipping and service fee.</div>
                                         </DescriptionDropdownMenu>
                                     </DescriptionItem>
                                     <DescriptionItem
                                         number={3}
-                                        itemName={"Minting and Transfer"}
+                                        itemName={"Receive Your Item!"}
                                         itemIndex={2}
                                         menuOpened={activeMenuRedeem[2]}
                                         toggleDropdownMenu={()=>toggleRedeemMenu(2)}
                                     >
                                         <DescriptionDropdownMenu menuOpened={activeMenuRedeem[2]}>
-                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                            <div className="text-gray-300 text-sm p-6">After we validate users’ info and receive the shipping/service fee, we unvault the item, securely package it, and ship it to the desired destination.</div>
                                         </DescriptionDropdownMenu>
                                     </DescriptionItem>
                                 </div>
@@ -525,7 +526,7 @@ export default function About (props) {
                                 <h1 className="text-white text-xl font-[500]">Andy Park</h1>
                                 <h2 className="text-gray-400 text-sm">CEO/CTO</h2>
                                 <div className="flex flex-grow items-end">
-                                    <div className="flex gap-x-2">
+                                    <div className="flex gap-x-2 items-center">
                                         <a href="https://www.linkedin.com/in/andy-park-b5a76a236/" className="" target="_blank">
                                             <img src={LinkedInIcon} className="h-8 w-8"></img>
                                         </a>
@@ -544,7 +545,7 @@ export default function About (props) {
                                 <h1 className="text-white text-xl font-[500]">Esa Sait</h1>
                                 <h2 className="text-gray-400 text-sm">COO</h2>
                                 <div className="flex flex-grow items-end">
-                                    <div className="flex gap-x-2">
+                                    <div className="flex gap-x-2 items-center">
                                         <a>
                                             <img src={LinkedInIcon} className="h-8 w-8"></img>
                                         </a>
@@ -563,12 +564,12 @@ export default function About (props) {
                                 <h1 className="text-white text-xl font-[500]">William Yeo</h1>
                                 <h2 className="text-gray-400 text-sm">CFO</h2>
                                 <div className="flex flex-grow items-end">
-                                    <div className="flex gap-x-2">
+                                    <div className="flex gap-x-2 items-center">
                                         <a>
                                             <img src={LinkedInIcon} className="h-8 w-8"></img>
                                         </a>
                                         <a>
-                                            <img src={TwitterIcon} className="h-8 w-8"></img>
+                                            <img src={InstagramIcon} className="h-6 w-6"></img>
                                         </a>
                                     </div>
                                 </div>
@@ -597,8 +598,8 @@ export default function About (props) {
                         
                     </div>
                     <div className="w-full">
-                        <h1 className="text-3xl text-white font-semibold w-full text-center">What is Phynite?</h1>
-                        <p className="text-md text-gray-400 mt-6 text-center font-light w-full px-1" >Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT. All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT.</p>
+                        <h1 className="text-3xl text-white font-semibold w-full text-center">Our Founding Mission</h1>
+                        <p className="text-md text-gray-400 mt-6 text-center font-light w-full px-1" >Phynite was founded with collectors at the forefront of our efforts. Our founders are collectors with years of experience within collectibles communities, so we knew firsthand the problems irritating digital and physical collectors worldwide. We focused on bringing efficiency, security, and ease-of-access to physical and digital collectors by making it easier than ever to start collecting and trading physical collectibles as NFTs. By bringing users instant transactions for physical items, baked-in legal protections (even against us!), and a concrete link between blockchain technology and existing real-world markets, we’re pushing the world of Web3 forward while making it faster, safer, and easier than ever for collectors worldwide to pursue their passion for collecting!</p>
                     </div>
                     <div className="w-full pt-28"  id="phyniteProtocol">
                         <h1 className="text-white text-3xl font-semibold text-center mb-5">The Phynite Protocol</h1>
@@ -620,29 +621,29 @@ export default function About (props) {
                                         toggleDropdownMenu={()=>toggleMintMenu(0)}
                                     >
                                         <DescriptionDropdownMenu menuOpened={activeMenuMint[0]}>
-                                            <div className="text-gray-300 text-sm p-6 ">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                            <div className="text-gray-300 text-sm p-6 ">Users fill out the Physical Item Verification Form to provide their item’s description, photos, and proof of validity.</div>
                                         </DescriptionDropdownMenu>
                                     </DescriptionItem>
                                     <DescriptionItem
                                         number={2}
-                                        itemName={"Verification and Vaulting"}
+                                        itemName={"Shipping to Phynite's Vaults"}
                                         itemIndex={1}
                                         menuOpened={activeMenuMint[1]}
                                         toggleDropdownMenu={()=>toggleMintMenu(1)}
                                     >
                                         <DescriptionDropdownMenu menuOpened={activeMenuMint[1]}>
-                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                            <div className="text-gray-300 text-sm p-6">Once an item has been approved, we send a secure and insured box to the user so they can ship their item to the Phynite Vault.</div>
                                         </DescriptionDropdownMenu>
                                     </DescriptionItem>
                                     <DescriptionItem
                                         number={3}
-                                        itemName={"Minting and Transfer"}
+                                        itemName={"Verification, Vaulting, and Minting"}
                                         itemIndex={2}
                                         menuOpened={activeMenuMint[2]}
                                         toggleDropdownMenu={()=>toggleMintMenu(2)}
                                     >
                                         <DescriptionDropdownMenu menuOpened={activeMenuMint[2]}>
-                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                            <div className="text-gray-300 text-sm p-6">At the Phynite Vault, received collectibles are re-verified, scanned in high-resolution, and securely stored. We then mint users’ CBNFTs using their collectible’s scanned images and deposit it into their Ethereum wallet.</div>
                                         </DescriptionDropdownMenu>
                                     </DescriptionItem>
                                 </div>
@@ -655,35 +656,35 @@ export default function About (props) {
                                 <div className="w-full rounded-xl overflow-clip border border-gray1 mt-2">
                                     <DescriptionItem
                                         number={1}
-                                        itemName={"Item Submission"}
+                                        itemName={"Buy"}
                                         itemIndex={0}
                                         menuOpened={activeMenuTrade[0]}
                                         toggleDropdownMenu={()=>toggleTradeMenu(0)}
                                     >
                                         <DescriptionDropdownMenu menuOpened={activeMenuTrade[0]}>
-                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                            <div className="text-gray-300 text-sm p-6">To buy a CBNFT on Phynite, either click “buy now” or “add to bag.” When checking out, your purchase is finalized after signing a legally-binding contract to transfer ownership rights from the seller to the buyer. After signing, your purchased CBNFT is sent to your wallet.</div>
                                         </DescriptionDropdownMenu>
                                     </DescriptionItem>
                                     <DescriptionItem
                                         number={2}
-                                        itemName={"Verification and Vaulting"}
+                                        itemName={"Sell"}
                                         itemIndex={1}
                                         menuOpened={activeMenuTrade[1]}
                                         toggleDropdownMenu={()=>toggleTradeMenu(1)}
                                     >
                                         <DescriptionDropdownMenu menuOpened={activeMenuTrade[1]}>
-                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                            <div className="text-gray-300 text-sm p-6">Listing your CBNFT for sale places it on the explore page and allows instant purchases by potential buyers. After your CBNFT’s first sale, you earn 1% of each subsequent trade’s value.</div>
                                         </DescriptionDropdownMenu>
                                     </DescriptionItem>
                                     <DescriptionItem
                                         number={3}
-                                        itemName={"Minting and Transfer"}
+                                        itemName={"Auction"}
                                         itemIndex={2}
                                         menuOpened={activeMenuTrade[2]}
                                         toggleDropdownMenu={()=>toggleTradeMenu(2)}
                                     >
                                         <DescriptionDropdownMenu menuOpened={activeMenuTrade[2]}>
-                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                            <div className="text-gray-300 text-sm p-6">Auctions allow multiple bids over a set timeframe for an item before the item is sold to the highest bidder. Listers can also cancel an auction before the timeframe expires.</div>
                                         </DescriptionDropdownMenu>
                                     </DescriptionItem>
                                 </div>
@@ -696,35 +697,35 @@ export default function About (props) {
                                 <div className="w-full rounded-xl overflow-clip border border-gray1 mt-2">
                                     <DescriptionItem
                                         number={1}
-                                        itemName={"Item Submission"}
+                                        itemName={"Begin the Burning Process"}
                                         itemIndex={0}
                                         menuOpened={activeMenuRedeem[0]}
                                         toggleDropdownMenu={()=>toggleRedeemMenu(0)}
                                     >
                                         <DescriptionDropdownMenu menuOpened={activeMenuRedeem[0]}>
-                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                            <div className="text-gray-300 text-sm p-6">To receive a CBNFTs linked physical item, users activate the “burn” function. This function deletes the physical collectible’s CBNFT so that it can’t be digitally traded after being removed from the Phynite Vault. </div>
                                         </DescriptionDropdownMenu>
                                     </DescriptionItem>
                                     <DescriptionItem
                                         number={2}
-                                        itemName={"Verification and Vaulting"}
+                                        itemName={"Confirm Personal Information"}
                                         itemIndex={1}
                                         menuOpened={activeMenuRedeem[1]}
                                         toggleDropdownMenu={()=>toggleRedeemMenu(1)}
                                     >
                                         <DescriptionDropdownMenu menuOpened={activeMenuRedeem[1]}>
-                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                            <div className="text-gray-300 text-sm p-6">Before we burn CBNFTs, we require users' preferred shipping address for where they’d like to receive their item. After confirming their information, users pay a shipping and service fee.</div>
                                         </DescriptionDropdownMenu>
                                     </DescriptionItem>
                                     <DescriptionItem
                                         number={3}
-                                        itemName={"Minting and Transfer"}
+                                        itemName={"Receive Your Item!"}
                                         itemIndex={2}
                                         menuOpened={activeMenuRedeem[2]}
                                         toggleDropdownMenu={()=>toggleRedeemMenu(2)}
                                     >
                                         <DescriptionDropdownMenu menuOpened={activeMenuRedeem[2]}>
-                                            <div className="text-gray-300 text-sm p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                            <div className="text-gray-300 text-sm p-6">After we validate users’ info and receive the shipping/service fee, we unvault the item, securely package it, and ship it to the desired destination.</div>
                                         </DescriptionDropdownMenu>
                                     </DescriptionItem>
                                 </div>
@@ -962,7 +963,7 @@ export default function About (props) {
                                 <h1 className="text-white text-2xl font-[500]">Andy Park</h1>
                                 <h2 className="text-gray-400">CEO/CTO</h2>
                                 <div className="flex flex-grow items-end">
-                                    <div className="flex gap-x-2">
+                                    <div className="flex gap-x-2 items-center">
                                         <a href="https://www.linkedin.com/in/andy-park-b5a76a236/" className="" target="_blank">
                                             <img src={LinkedInIcon} className="h-10 w-10"></img>
                                         </a>
@@ -981,7 +982,7 @@ export default function About (props) {
                                 <h1 className="text-white text-2xl font-[500]">Esa Sait</h1>
                                 <h2 className="text-gray-400">COO</h2>
                                 <div className="flex flex-grow items-end">
-                                    <div className="flex gap-x-2">
+                                    <div className="flex gap-x-2 items-center">
                                         <a>
                                             <img src={LinkedInIcon} className="h-10 w-10"></img>
                                         </a>
@@ -1000,12 +1001,12 @@ export default function About (props) {
                                 <h1 className="text-white text-2xl font-[500]">William Yeo</h1>
                                 <h2 className="text-gray-400">CFO</h2>
                                 <div className="flex flex-grow items-end">
-                                    <div className="flex gap-x-2">
+                                    <div className="flex gap-x-2 items-center">
                                         <a>
                                             <img src={LinkedInIcon} className="h-10 w-10"></img>
                                         </a>
                                         <a>
-                                            <img src={TwitterIcon} className="h-10 w-10"></img>
+                                            <img src={InstagramIcon} className="h-8 w-8"></img>
                                         </a>
                                     </div>
                                 </div>
@@ -1033,8 +1034,8 @@ export default function About (props) {
                         
                     </div>
                     <div className="w-full flex flex-col items-center">
-                        <h1 className="text-3xl text-white font-semibold w-full text-center">What is Phynite?</h1>
-                        <p className="text-md text-gray-400 mt-6 text-center font-light w-[90%]" >Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT. All NFTs on Phynite are physically-backed by real collectibles. Trade NFTs instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT. The Phynite Protocol is built around contractually-binding NFTs (or CBNFTs for short). Each CBNFT traded includes a legally-binding contract guaranteeing the holder protections and rights over the physical collectible linked to each CBNFT.</p>
+                        <h1 className="text-3xl text-white font-semibold w-full text-center">Our Founding Mission</h1>
+                        <p className="text-md text-gray-400 mt-6 text-center font-light w-[90%]" >Phynite was founded with collectors at the forefront of our efforts. Our founders are collectors with years of experience within collectibles communities, so we knew firsthand the problems irritating digital and physical collectors worldwide. We focused on bringing efficiency, security, and ease-of-access to physical and digital collectors by making it easier than ever to start collecting and trading physical collectibles as NFTs. By bringing users instant transactions for physical items, baked-in legal protections (even against us!), and a concrete link between blockchain technology and existing real-world markets, we’re pushing the world of Web3 forward while making it faster, safer, and easier than ever for collectors worldwide to pursue their passion for collecting!</p>
                     </div>
                     <div className="w-full flex justify-center pt-28" id="phyniteProtocol">
                         <div className="w-[1300px] h-full flex flex-col items-center">
@@ -1058,29 +1059,29 @@ export default function About (props) {
                                                     toggleDropdownMenu={()=>toggleMintMenu(0)}
                                                 >
                                                     <DescriptionDropdownMenu menuOpened={activeMenuMint[0]}>
-                                                        <div className="text-gray-300 p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                                        <div className="text-gray-300 p-6">Users fill out the Physical Item Verification Form to provide their item’s description, photos, and proof of validity.</div>
                                                     </DescriptionDropdownMenu>
                                                 </DescriptionItem>
                                                 <DescriptionItem
                                                     number={2}
-                                                    itemName={"Verification and Vaulting"}
+                                                    itemName={"Shipping to Phynite's Vaults"}
                                                     itemIndex={1}
                                                     menuOpened={activeMenuMint[1]}
                                                     toggleDropdownMenu={()=>toggleMintMenu(1)}
                                                 >
                                                     <DescriptionDropdownMenu menuOpened={activeMenuMint[1]}>
-                                                        <div className="text-gray-300 p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                                        <div className="text-gray-300 p-6">Once an item has been approved, we send a secure and insured box to the user so they can ship their item to the Phynite Vault.</div>
                                                     </DescriptionDropdownMenu>
                                                 </DescriptionItem>
                                                 <DescriptionItem
                                                     number={3}
-                                                    itemName={"Minting and Transfer"}
+                                                    itemName={"Verification, Vaulting, and Minting"}
                                                     itemIndex={2}
                                                     menuOpened={activeMenuMint[2]}
                                                     toggleDropdownMenu={()=>toggleMintMenu(2)}
                                                 >
                                                     <DescriptionDropdownMenu menuOpened={activeMenuMint[2]}>
-                                                        <div className="text-gray-300 p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                                        <div className="text-gray-300 p-6">At the Phynite Vault, received collectibles are re-verified, scanned in high-resolution, and securely stored. We then mint users’ CBNFTs using their collectible’s scanned images and deposit it into their Ethereum wallet.</div>
                                                     </DescriptionDropdownMenu>
                                                 </DescriptionItem>
                                             </div>
@@ -1098,35 +1099,35 @@ export default function About (props) {
                                             <div className="w-full rounded-xl overflow-clip border border-gray1 mt-8">
                                                 <DescriptionItem
                                                     number={1}
-                                                    itemName={"Item Submission"}
+                                                    itemName={"Buy"}
                                                     itemIndex={0}
                                                     menuOpened={activeMenuTrade[0]}
                                                     toggleDropdownMenu={()=>toggleTradeMenu(0)}
                                                 >
                                                     <DescriptionDropdownMenu menuOpened={activeMenuTrade[0]}>
-                                                        <div className="text-gray-300 p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                                        <div className="text-gray-300 p-6">To buy a CBNFT on Phynite, either click “buy now” or “add to bag.” When checking out, your purchase is finalized after signing a legally-binding contract to transfer ownership rights from the seller to the buyer. After signing, your purchased CBNFT is sent to your wallet.</div>
                                                     </DescriptionDropdownMenu>
                                                 </DescriptionItem>
                                                 <DescriptionItem
                                                     number={2}
-                                                    itemName={"Verification and Vaulting"}
+                                                    itemName={"Sell"}
                                                     itemIndex={1}
                                                     menuOpened={activeMenuTrade[1]}
                                                     toggleDropdownMenu={()=>toggleTradeMenu(1)}
                                                 >
                                                     <DescriptionDropdownMenu menuOpened={activeMenuTrade[1]}>
-                                                        <div className="text-gray-300 p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                                        <div className="text-gray-300 p-6">Listing your CBNFT for sale places it on the explore page and allows instant purchases by potential buyers. After your CBNFT’s first sale, you earn 1% of each subsequent trade’s value.</div>
                                                     </DescriptionDropdownMenu>
                                                 </DescriptionItem>
                                                 <DescriptionItem
                                                     number={3}
-                                                    itemName={"Minting and Transfer"}
+                                                    itemName={"Auction"}
                                                     itemIndex={2}
                                                     menuOpened={activeMenuTrade[2]}
                                                     toggleDropdownMenu={()=>toggleTradeMenu(2)}
                                                 >
                                                     <DescriptionDropdownMenu menuOpened={activeMenuTrade[2]}>
-                                                        <div className="text-gray-300 p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                                        <div className="text-gray-300 p-6">Auctions allow multiple bids over a set timeframe for an item before the item is sold to the highest bidder. Listers can also cancel an auction before the timeframe expires.</div>
                                                     </DescriptionDropdownMenu>
                                                 </DescriptionItem>
                                             </div>
@@ -1143,35 +1144,35 @@ export default function About (props) {
                                             <div className="w-full rounded-xl overflow-clip border border-gray1 mt-8">
                                                 <DescriptionItem
                                                     number={1}
-                                                    itemName={"Item Submission"}
+                                                    itemName={"Begin the Burning Process"}
                                                     itemIndex={0}
                                                     menuOpened={activeMenuRedeem[0]}
                                                     toggleDropdownMenu={()=>toggleRedeemMenu(0)}
                                                 >
                                                     <DescriptionDropdownMenu menuOpened={activeMenuRedeem[0]}>
-                                                        <div className="text-gray-300 p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                                        <div className="text-gray-300 p-6">To receive a CBNFTs linked physical item, users activate the “burn” function. This function deletes the physical collectible’s CBNFT so that it can’t be digitally traded after being removed from the Phynite Vault. </div>
                                                     </DescriptionDropdownMenu>
                                                 </DescriptionItem>
                                                 <DescriptionItem
                                                     number={2}
-                                                    itemName={"Verification and Vaulting"}
+                                                    itemName={"Confirm Personal Information"}
                                                     itemIndex={1}
                                                     menuOpened={activeMenuRedeem[1]}
                                                     toggleDropdownMenu={()=>toggleRedeemMenu(1)}
                                                 >
                                                     <DescriptionDropdownMenu menuOpened={activeMenuRedeem[1]}>
-                                                        <div className="text-gray-300 p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                                        <div className="text-gray-300 p-6">Before we burn CBNFTs, we require users' preferred shipping address for where they’d like to receive their item. After confirming their information, users pay a shipping and service fee.</div>
                                                     </DescriptionDropdownMenu>
                                                 </DescriptionItem>
                                                 <DescriptionItem
                                                     number={3}
-                                                    itemName={"Minting and Transfer"}
+                                                    itemName={"Receive Your Item!"}
                                                     itemIndex={2}
                                                     menuOpened={activeMenuRedeem[2]}
                                                     toggleDropdownMenu={()=>toggleRedeemMenu(2)}
                                                 >
                                                     <DescriptionDropdownMenu menuOpened={activeMenuRedeem[2]}>
-                                                        <div className="text-gray-300 p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                                        <div className="text-gray-300 p-6">After we validate users’ info and receive the shipping/service fee, we unvault the item, securely package it, and ship it to the desired destination.</div>
                                                     </DescriptionDropdownMenu>
                                                 </DescriptionItem>
                                             </div>
@@ -1421,7 +1422,7 @@ export default function About (props) {
                                     <div className="w-full h-1/4 pt-4 flex-col flex items-center">
                                         <h1 className="text-white font-poppins text-2xl font-semibold mb-2 border-t border-gray1 w-full text-center pt-4">Andy Park</h1>
                                         <h2 className="text-gray-400 font-poppins text-lg mb-2">CEO/CTO</h2>
-                                        <div className="flex gap-x-2">
+                                        <div className="flex gap-x-2 items-center">
                                             <a href="https://www.linkedin.com/in/andy-park-b5a76a236/" className="" target="_blank">
                                                 <img src={LinkedInIcon} className="h-8 w-8"></img>
                                             </a>
@@ -1439,7 +1440,7 @@ export default function About (props) {
                                     <div className="w-full h-1/4 pt-4 flex-col flex items-center">
                                         <h1 className="text-white font-poppins text-2xl font-semibold border-t border-gray1 w-full text-center pt-4 mb-2">Esa Sait</h1>
                                         <h2 className="text-gray-400 font-poppins text-lg text-center mb-2">COO</h2>
-                                        <div className="flex gap-x-2">
+                                        <div className="flex gap-x-2 items-center">
                                             <a className="" target="_blank">
                                                 <img src={LinkedInIcon} className="h-8 w-8"></img>
                                             </a>
@@ -1454,14 +1455,14 @@ export default function About (props) {
                                 <div className="w-full rounded-3xl border border-gray1 h-full flex flex-col items-center p-10 bg-gradient-to-b from-gray2 to-gray4">
                                     <img src={BillProfilePic} className="w-full rounded-full"></img>
                                     <div className="w-full h-1/4 pt-4 flex-col flex items-center">
-                                        <h1 className="text-white font-poppins text-2xl font-semibold border-t border-gray1 w-full text-center pt-4 mb-2">Bill Yeo</h1>
+                                        <h1 className="text-white font-poppins text-2xl font-semibold border-t border-gray1 w-full text-center pt-4 mb-2">William Yeo</h1>
                                         <h2 className="text-gray-400 font-poppins text-lg text-center mb-2">CFO</h2>
-                                        <div className="flex gap-x-2">
+                                        <div className="flex gap-x-2 items-center">
                                             <a className="" target="_blank">
                                                 <img src={LinkedInIcon} className="h-8 w-8"></img>
                                             </a>
                                             <a>
-                                                <img src={TwitterIcon} className="h-8 w-8"></img>
+                                                <img src={InstagramIcon} className="h-6 w-6"></img>
                                             </a>
                                         </div>
                                     </div>
@@ -1491,7 +1492,7 @@ export default function About (props) {
                     </div>
                     <div className="w-[1300px] font-poppins flex flex-col items-center">
                         <h1 className="text-4xl text-white font-semibold w-full text-center">Our Founding Mission</h1>
-                        <p className="text-md text-gray-400 mt-8 w-[80%] text-center font-light" >Phynite was founded with collectors at the forefront of our efforts. Our founding team is comprised of collectors with years of experience within collectibles communities, so we knew firsthand the problems irritating digital and physical collectors worldwide. We focused on bringing efficiency, security, and ease-of-access to physical and digital collectors by making it easier than ever to start collecting and trading physical collectibles as NFTs. By bringing users instant transactions for physical items, baked-in legal protections (even against us!), and a concrete link between blockchain technology and existing real-world markets, we’re pushing the world of Web3 forward while making it faster, safer, and easier than ever for collectors worldwide to pursue their passion for collecting!</p>
+                        <p className="text-md text-gray-400 mt-8 w-[80%] text-center font-light" >Phynite was founded with collectors at the forefront of our efforts. Our founders are collectors with years of experience within collectibles communities, so we knew firsthand the problems irritating digital and physical collectors worldwide. We focused on bringing efficiency, security, and ease-of-access to physical and digital collectors by making it easier than ever to start collecting and trading physical collectibles as NFTs. By bringing users instant transactions for physical items, baked-in legal protections (even against us!), and a concrete link between blockchain technology and existing real-world markets, we’re pushing the world of Web3 forward while making it faster, safer, and easier than ever for collectors worldwide to pursue their passion for collecting!</p>
                     </div>
                     <div className="w-full flex justify-center pt-36" id="phyniteProtocol">
                         <div className="w-[1300px] h-full flex flex-col items-center">
@@ -1515,29 +1516,29 @@ export default function About (props) {
                                                     toggleDropdownMenu={()=>toggleMintMenu(0)}
                                                 >
                                                     <DescriptionDropdownMenu menuOpened={activeMenuMint[0]}>
-                                                        <div className="text-gray-300 p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                                        <div className="text-gray-300 p-6">Users fill out the Physical Item Verification Form to provide their item’s description, photos, and proof of validity.</div>
                                                     </DescriptionDropdownMenu>
                                                 </DescriptionItem>
                                                 <DescriptionItem
                                                     number={2}
-                                                    itemName={"Verification and Vaulting"}
+                                                    itemName={"Shipping to Phynite's Vaults"}
                                                     itemIndex={1}
                                                     menuOpened={activeMenuMint[1]}
                                                     toggleDropdownMenu={()=>toggleMintMenu(1)}
                                                 >
                                                     <DescriptionDropdownMenu menuOpened={activeMenuMint[1]}>
-                                                        <div className="text-gray-300 p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                                        <div className="text-gray-300 p-6">Once an item has been approved, we send a secure and insured box to the user so they can ship their item to the Phynite Vault.</div>
                                                     </DescriptionDropdownMenu>
                                                 </DescriptionItem>
                                                 <DescriptionItem
                                                     number={3}
-                                                    itemName={"Minting and Transfer"}
+                                                    itemName={"Verification, Vaulting, and Minting"}
                                                     itemIndex={2}
                                                     menuOpened={activeMenuMint[2]}
                                                     toggleDropdownMenu={()=>toggleMintMenu(2)}
                                                 >
                                                     <DescriptionDropdownMenu menuOpened={activeMenuMint[2]}>
-                                                        <div className="text-gray-300 p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                                        <div className="text-gray-300 p-6">At the Phynite Vault, received collectibles are re-verified, scanned in high-resolution, and securely stored. We then mint users’ CBNFTs using their collectible’s scanned images and deposit it into their Ethereum wallet.</div>
                                                     </DescriptionDropdownMenu>
                                                 </DescriptionItem>
                                             </div>
@@ -1555,35 +1556,35 @@ export default function About (props) {
                                             <div className="w-full rounded-xl overflow-clip border border-gray1 mt-8">
                                                 <DescriptionItem
                                                     number={1}
-                                                    itemName={"Item Submission"}
+                                                    itemName={"Buy"}
                                                     itemIndex={0}
                                                     menuOpened={activeMenuTrade[0]}
                                                     toggleDropdownMenu={()=>toggleTradeMenu(0)}
                                                 >
                                                     <DescriptionDropdownMenu menuOpened={activeMenuTrade[0]}>
-                                                        <div className="text-gray-300 p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                                        <div className="text-gray-300 p-6">To buy a CBNFT on Phynite, either click “buy now” or “add to bag.” When checking out, your purchase is finalized after signing a legally-binding contract to transfer ownership rights from the seller to the buyer. After signing, your purchased CBNFT is sent to your wallet.</div>
                                                     </DescriptionDropdownMenu>
                                                 </DescriptionItem>
                                                 <DescriptionItem
                                                     number={2}
-                                                    itemName={"Verification and Vaulting"}
+                                                    itemName={"Sell"}
                                                     itemIndex={1}
                                                     menuOpened={activeMenuTrade[1]}
                                                     toggleDropdownMenu={()=>toggleTradeMenu(1)}
                                                 >
                                                     <DescriptionDropdownMenu menuOpened={activeMenuTrade[1]}>
-                                                        <div className="text-gray-300 p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                                        <div className="text-gray-300 p-6">Listing your CBNFT for sale places it on the explore page and allows instant purchases by potential buyers. After your CBNFT’s first sale, you earn 1% of each subsequent trade’s value.</div>
                                                     </DescriptionDropdownMenu>
                                                 </DescriptionItem>
                                                 <DescriptionItem
                                                     number={3}
-                                                    itemName={"Minting and Transfer"}
+                                                    itemName={"Auction"}
                                                     itemIndex={2}
                                                     menuOpened={activeMenuTrade[2]}
                                                     toggleDropdownMenu={()=>toggleTradeMenu(2)}
                                                 >
                                                     <DescriptionDropdownMenu menuOpened={activeMenuTrade[2]}>
-                                                        <div className="text-gray-300 p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                                        <div className="text-gray-300 p-6">Auctions allow multiple bids over a set timeframe for an item before the item is sold to the highest bidder. Listers can also cancel an auction before the timeframe expires.</div>
                                                     </DescriptionDropdownMenu>
                                                 </DescriptionItem>
                                             </div>
@@ -1600,35 +1601,35 @@ export default function About (props) {
                                             <div className="w-full rounded-xl overflow-clip border border-gray1 mt-8">
                                                 <DescriptionItem
                                                     number={1}
-                                                    itemName={"Item Submission"}
+                                                    itemName={"Begin the Burning Process"}
                                                     itemIndex={0}
                                                     menuOpened={activeMenuRedeem[0]}
                                                     toggleDropdownMenu={()=>toggleRedeemMenu(0)}
                                                 >
                                                     <DescriptionDropdownMenu menuOpened={activeMenuRedeem[0]}>
-                                                        <div className="text-gray-300 p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                                        <div className="text-gray-300 p-6">To receive a CBNFTs linked physical item, users activate the “burn” function. This function deletes the physical collectible’s CBNFT so that it can’t be digitally traded after being removed from the Phynite Vault. </div>
                                                     </DescriptionDropdownMenu>
                                                 </DescriptionItem>
                                                 <DescriptionItem
                                                     number={2}
-                                                    itemName={"Verification and Vaulting"}
+                                                    itemName={"Confirm Personal Information"}
                                                     itemIndex={1}
                                                     menuOpened={activeMenuRedeem[1]}
                                                     toggleDropdownMenu={()=>toggleRedeemMenu(1)}
                                                 >
                                                     <DescriptionDropdownMenu menuOpened={activeMenuRedeem[1]}>
-                                                        <div className="text-gray-300 p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                                        <div className="text-gray-300 p-6">Before we burn CBNFTs, we require users' preferred shipping address for where they’d like to receive their item. After confirming their information, users pay a shipping and service fee.</div>
                                                     </DescriptionDropdownMenu>
                                                 </DescriptionItem>
                                                 <DescriptionItem
                                                     number={3}
-                                                    itemName={"Minting and Transfer"}
+                                                    itemName={"Receive Your Item!"}
                                                     itemIndex={2}
                                                     menuOpened={activeMenuRedeem[2]}
                                                     toggleDropdownMenu={()=>toggleRedeemMenu(2)}
                                                 >
                                                     <DescriptionDropdownMenu menuOpened={activeMenuRedeem[2]}>
-                                                        <div className="text-gray-300 p-6">All CBNFTs traded on Phynite are linked to collectibles with years of trading activity backed by passionate communities. Our goal is to support these communities and encourage new supporters by trailblazing the most efficient platform for collectors to trade.</div>
+                                                        <div className="text-gray-300 p-6">After we validate users’ info and receive the shipping/service fee, we unvault the item, securely package it, and ship it to the desired destination.</div>
                                                     </DescriptionDropdownMenu>
                                                 </DescriptionItem>
                                             </div>
@@ -1879,7 +1880,7 @@ export default function About (props) {
                                     <div className="w-full h-1/4 pt-4 flex-col flex items-center">
                                         <h1 className="text-white font-poppins text-2xl font-semibold mb-2 border-t border-gray1 w-[300px] text-center pt-4">Andy Park</h1>
                                         <h2 className="text-gray-400 font-poppins text-xl mb-2">CEO/CTO</h2>
-                                        <div className="flex gap-x-2">
+                                        <div className="flex items-center gap-x-2">
                                             <a href="https://www.linkedin.com/in/andy-park-b5a76a236/" className="" target="_blank">
                                                 <img src={LinkedInIcon} className="h-8 w-8"></img>
                                             </a>
@@ -1897,7 +1898,7 @@ export default function About (props) {
                                     <div className="w-full h-1/4 pt-4 flex-col flex items-center">
                                         <h1 className="text-white font-poppins text-2xl font-semibold border-t border-gray1 w-[300px] text-center pt-4 mb-2">Esa Sait</h1>
                                         <h2 className="text-gray-400 font-poppins text-xl text-center mb-2">COO</h2>
-                                        <div className="flex gap-x-2">
+                                        <div className="flex items-center gap-x-2">
                                             <a className="" target="_blank">
                                                 <img src={LinkedInIcon} className="h-8 w-8"></img>
                                             </a>
@@ -1912,14 +1913,14 @@ export default function About (props) {
                                 <div className="w-full rounded-3xl border border-gray1 h-full flex flex-col items-center p-10 bg-gradient-to-b from-gray2 to-gray4">
                                     <img src={BillProfilePic} className="h-[300px] w-[300px] rounded-full"></img>
                                     <div className="w-full h-1/4 pt-4 flex-col flex items-center">
-                                        <h1 className="text-white font-poppins text-2xl font-semibold border-t border-gray1 w-[300px] text-center pt-4 mb-2">Bill Yeo</h1>
+                                        <h1 className="text-white font-poppins text-2xl font-semibold border-t border-gray1 w-[300px] text-center pt-4 mb-2">William Yeo</h1>
                                         <h2 className="text-gray-400 font-poppins text-xl text-center mb-2">CFO</h2>
-                                        <div className="flex gap-x-2">
+                                        <div className="flex items-center gap-x-2">
                                             <a className="" target="_blank">
                                                 <img src={LinkedInIcon} className="h-8 w-8"></img>
                                             </a>
                                             <a>
-                                                <img src={TwitterIcon} className="h-8 w-8"></img>
+                                                <img src={InstagramIcon} className="h-6 w-6"></img>
                                             </a>
                                         </div>
                                     </div>

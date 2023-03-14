@@ -10,6 +10,7 @@ export default function GetStarted(props) {
     const [error, setError] = useState(null);
     const [submitted, setSubmitted] = useState(false)
     const [loading, setLoading] = useState(false)
+    const [numberOfEmailsSubmitted, setNumberOfEmailsSubmitted] = useState({emailCount: 0, emailSubmissionTime: null})
 
 
       // The following function sets the "userInfo" state with the data received from the forms
@@ -24,6 +25,44 @@ export default function GetStarted(props) {
 
     }
 
+    function checkNumberOfEmailsSubmitted() {
+        const currentDate = new Date()
+        const currentTime = currentDate.getTime()
+        if (localStorage.getItem('numberOfEmailsSubmitted') !== null) {
+            const emailNumberCheckerObject = JSON.parse(localStorage.getItem('numberOfEmailsSubmitted'))
+            
+            if (currentTime - emailNumberCheckerObject.emailSubmissionTime >= 86400000) { // if more than 24 hours have passed
+                setNumberOfEmailsSubmitted({ emailCount: 0, emailSubmissionTime: currentTime })
+                localStorage.setItem('numberOfEmailsSubmitted', JSON.stringify({ emailCount: 0, emailSubmissionTime: currentTime }))
+            } else { // if less than 24 hours have passed
+                setNumberOfEmailsSubmitted(emailNumberCheckerObject)
+                
+            }
+        }
+    }
+
+    useEffect(() => {
+        checkNumberOfEmailsSubmitted() 
+    }, [])
+    
+    function increaseNumberOfEmailsSubmitted() {
+        if (numberOfEmailsSubmitted.emailSubmissionTime === null) {
+            const currentDate = new Date()
+            const currentTime = currentDate.getTime()
+            localStorage.setItem('numberOfEmailsSubmitted', JSON.stringify({emailCount: numberOfEmailsSubmitted.emailCount + 1, emailSubmissionTime: currentTime}))
+            setNumberOfEmailsSubmitted({ emailCount: 1, emailSubmissionTime: currentTime })
+        } else {
+            localStorage.setItem('numberOfEmailsSubmitted', JSON.stringify({emailCount: numberOfEmailsSubmitted.emailCount + 1, emailSubmissionTime: numberOfEmailsSubmitted.emailSubmissionTime}))
+            setNumberOfEmailsSubmitted((prevObject) => {
+                let newObject = { ...prevObject, emailCount: prevObject.emailCount + 1 }
+                return newObject
+            })
+        }
+        
+    }
+
+
+
     const validateEmail = (email) => {
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return regex.test(email);
@@ -35,6 +74,7 @@ export default function GetStarted(props) {
         if (response.status === 201) {
             setSubmitted(true)
             setUserInfo({})
+            increaseNumberOfEmailsSubmitted()
         } else if (response.status === 202) {
            setError("You already have an account you silly goose!") 
         }
@@ -46,12 +86,14 @@ export default function GetStarted(props) {
     try {
     //   setButtonClicked(true);
         if (!validateEmail(userInfo.email)) {
-            setError(`You entered an invalid email, but don't give up!`);
+            setError(`You entered an invalid email, give it another shot!`);
             
+        } else if (numberOfEmailsSubmitted.emailCount >= 3) {
+            setError("You have already submitted 3 emails, come back tomorrow!")
         } else {
             setError(null);
             setLoading(true)
-            setTimeout(()=>saveUserInfo(),2000)
+            setTimeout(()=>saveUserInfo(),300)
         }  
     } catch (e) {
       alert(`Registration failed! ${e.message}`);
