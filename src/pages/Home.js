@@ -189,7 +189,7 @@ export default function Home(props) {
                                     
                                 <div className="w-full flex flex-col">
                                     <h1 className="text-white text-[40px] font-semibold mb-7 leading-6 text-center"><span className="text-phyniteBlue">Phynite </span>Blog</h1>
-                                    <h2 className="text-gray-300 text-[18px] font-light text-center">Ideas, Updates, Guides, and more.</h2>
+                                    <h2 className="text-gray-300 text-[15px] font-light text-center">Ideas, Updates, Guides, and more.</h2>
                                 </div>
                                 
                                 
