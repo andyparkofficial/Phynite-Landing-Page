@@ -665,6 +665,7 @@ export default function Home(props) {
                                 <div className="w-[55%] h-full flex-col flex font-poppins pt-3 items-start">
                                     <img className="w-full -translate-x-5" src={PhyniteUi}></img>
                                 </div>
+<<<<<<< HEAD
                                 <div className="w-[45%]  h-full font-poppins pl-8">
                                     <div className="w-full py-5 flex items-center">
                                         <img src={PhoneIcon} className="rounded-lg w-20 mr-10"></img>
@@ -675,6 +676,14 @@ export default function Home(props) {
                                             </h3>
                                         </div>
                                         
+=======
+                                <div className="w-[45%]  h-full font-poppins pl-5 pt-5">
+                                    <div className="w-full py-5 ">
+                                        <h2 className="text-2xl font-semibold mb-3 text-white">Invest in the Physical, Digitally</h2>
+                                        <h3 className="text-sm text-gray-400 font-light">
+                                        All NFTs on Phynite are physically-backed by real collectibles, owned legally by the Users. Trade Contractually Bound NFTs (CBNFTs) instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.
+                                        </h3>
+>>>>>>> 1ceac3e5189075c37c9360523eaee28c795087d2
                                     </div>
                                     <div className="w-full my-5 py-5 flex items-center">
                                         <img src={SecurityIcon} className="rounded-lg w-20 mr-10"></img>
