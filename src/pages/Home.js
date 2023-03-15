@@ -188,7 +188,7 @@ export default function Home(props) {
                             <Link to="/blog" className="rounded-xl flex justify-center items-center p-6 h-56 border border-gray-600 w-full bg-gradient-to-b from-gray3 to-gray2">
                                     
                                 <div className="w-full flex flex-col">
-                                    <h1 className="text-white text-[49px] font-semibold mb-7 leading-6 text-center"><span className="text-phyniteBlue">Phynite </span>Blog</h1>
+                                    <h1 className="text-white text-[40px] font-semibold mb-7 leading-6 text-center"><span className="text-phyniteBlue">Phynite </span>Blog</h1>
                                     <h2 className="text-gray-300 text-[18px] font-light text-center">Ideas, Updates, Guides, and more.</h2>
                                 </div>
                                 
