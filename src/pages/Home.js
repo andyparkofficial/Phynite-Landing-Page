@@ -17,7 +17,9 @@ import useWindowSize from "../hooks/useWindowSize.js"
 import ImageBoxWithLink from "../components/ImageBoxWithLink.js"
 import ImageBox from "../components/ImageBox.js"
 import PhyniteUi from "../assets/phynite-ui.png"
-
+import LowFeesIcon from "../assets/low-fees-icon.png"
+import PhoneIcon from "../assets/phone-icon.png"
+import SecurityIcon from "../assets/security-icon.png"
 
 export default function Home(props) {
 
@@ -39,7 +41,7 @@ export default function Home(props) {
             {props.displayType === "mobile" && (
                 <div className="w-full pt-20 px-[14px] font-poppins overflow-clip">
                     <div className="w-full mb-16">
-                        <h1 className="font-semibold text-3xl text-phyniteBlue leading-tight pt-8 px-1 mb-2">
+                        <h1 className="font-semibold text-[26px] text-phyniteBlue leading-tight pt-8 px-1 mb-2">
                             The Web3 Marketplace for Physical Collectibles
                         </h1>
                         <h2 className="text-white font-light text-sm pl-1">The fastest, safest, most forward-thinking way to trade physical collectibles. Only on Phynite.</h2>
@@ -54,29 +56,38 @@ export default function Home(props) {
                     </div>
                     <div className="w-full mb-16 px-1">
                         <h1 className="font-[500] text-2xl text-white mb-6">The Phynite Marketplace</h1>
-                        <div className="w-full rounded-xl mb-6">
+                        <div className="w-full rounded-xl mb-12">
                             <img className="w-full scale-[106%] -translate-x-[0.7%]" src={PhyniteUi}></img>
                         </div>
                         <div className="w-full">
-                            <h1 className="font-[500] text-white mb-2">
-                                Invest in the physical, digitally
-
-                            </h1>
-                            <h2 className="text-[11px] text-gray-400 font-light mb-5">
-                            All NFTs on Phynite are physically-backed by real collectibles, owned legally by the Users. Trade Contractually Bound NFTs (CBNFTs) instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.
-                            </h2>
-                            <h1 className="font-[500] text-white mb-2">
-                            Legal, Digital, and Physical Security
-                            </h1>
-                            <h2 className="text-[11px] text-gray-400 font-light mb-5">
-                            We store physical collectibles in Phynite's private vaults where they are safe from all external threats. Each linked CBNFT also blends Blockchain and legal security through integrated legally-binding contracts to provide the highest level of user protection.
-                            </h2>
-                            <h1 className="font-[500] text-white mb-2">
-                            High Royalties, Low Fees
-                            </h1>
-                            <h2 className="text-[11px] text-gray-400 font-light mb-5">
-                            Mint your physical collectibles into NFTs to earn a 1% royalty everytime it's traded. By eliminating the need for physical transfers, you can invest in verified physical collectibles at fractions of the extra cost.
-                            </h2>
+                            <div className="w-full flex items-center">
+                                <img src={PhoneIcon} className="rounded-lg w-20 mr-4"></img>
+                                <div className="flex flex-grow flex-col">
+                                    <h2 className="text-[15px] font-semibold mb-2 text-white">Invest in the Physical, Digitally</h2>
+                                    <h3 className="text-[10px] text-gray-400 font-light">
+                                    All NFTs on Phynite are physically-backed by real collectibles, owned legally by the Users. Trade Contractually Bound NFTs (CBNFTs) instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.
+                                    </h3>
+                                </div>
+                                
+                            </div>
+                            <div className="w-full my-8 flex items-center">
+                                <img src={SecurityIcon} className="rounded-lg w-20 mr-4"></img>
+                                <div className="flex flex-grow flex-col">
+                                    <h2 className="text-[15px] font-semibold mb-2 text-white">Legal, Digital, and Physical Security</h2>
+                                    <h3 className="text-[10px] text-gray-400 font-light">
+                                    We store physical collectibles in Phynite's private vaults where they are safe from all external threats. Each linked CBNFT also blends Blockchain and legal security through integrated legally-binding contracts to provide the highest level of user protection.
+                                    </h3>
+                                </div>
+                            </div>
+                            <div className="w-full flex items-center">
+                                <img src={LowFeesIcon} className="rounded-lg w-20 mr-4"></img>
+                                <div className="flex flex-grow flex-col">
+                                    <h2 className="text-[15px] font-semibold mb-2 text-white">High Royalties, Low Fees</h2>
+                                    <h3 className="text-[10px] text-gray-400 font-light">
+                                    Mint your physical collectibles into NFTs to earn a 1% royalty everytime it's traded. By eliminating the need for physical transfers, you can invest in verified physical collectibles at fractions of the extra cost.
+                                    </h3>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className="w-full mb-16">
@@ -136,7 +147,7 @@ export default function Home(props) {
                         <div className="w-full mb-4 overflow-clip rounded-xl border border-gray-600">
                             <ImageBoxWithLink imageSource={FloatingCitiesBanner} link={"https://docs.phynite.io/"}>
                                 <div className="flex flex-col items-end justify-end mr-1 w-full h-full p-4">
-                                    <h1 className="text-white font-semibold text-xl leading-tight mb-1 text-right">Powered by the Phynite Protocol</h1>
+                                    <h1 className="text-white font-semibold text-lg leading-tight mb-1 text-right">Powered by the Phynite Protocol</h1>
                                     <div className="flex items-center">
                                         <h2 className="text-gray-300 font-light text-sm text-right">Read the Phynite Protocol White Paper</h2>
                                         <img className="w-4 h-4 ml-1 brightness-75" src={Arrow}></img>
@@ -177,8 +188,8 @@ export default function Home(props) {
                             <Link to="/blog" className="rounded-xl flex justify-center items-center p-6 h-56 border border-gray-600 w-full bg-gradient-to-b from-gray3 to-gray2">
                                     
                                 <div className="w-full flex flex-col">
-                                    <h1 className="text-white text-[49px] font-semibold mb-7 leading-6 text-center"><span className="text-phyniteBlue">Phynite </span>Blog</h1>
-                                    <h2 className="text-gray-300 text-[18px] font-light text-center">Ideas, Updates, Guides, and more.</h2>
+                                    <h1 className="text-white text-[40px] font-semibold mb-7 leading-6 text-center"><span className="text-phyniteBlue">Phynite </span>Blog</h1>
+                                    <h2 className="text-gray-300 text-[15px] font-light text-center">Ideas, Updates, Guides, and more.</h2>
                                 </div>
                                 
                                 
@@ -223,23 +234,33 @@ export default function Home(props) {
                             <img className="w-full scale-[104%] -translate-x-[0.7%]" src={PhyniteUi}></img>
                         </div>
                         <div className="font-poppins px-1">
-                            <div className="w-full">
-                                <h2 className="text-lg font-semibold mb-2 text-white">Invest in the Physical, Digitally</h2>
-                                <h3 className="text-[13px] text-gray-400 font-light">
-                                All NFTs on Phynite are physically-backed by real collectibles, owned legally by the Users. Trade Contractually Bound NFTs (CBNFTs) instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.
-                                </h3>
+                            <div className="w-full flex items-center">
+                                <img src={PhoneIcon} className="rounded-lg w-20 mr-6"></img>
+                                <div className="flex flex-grow flex-col">
+                                    <h2 className="text-lg font-semibold mb-2 text-white">Invest in the Physical, Digitally</h2>
+                                    <h3 className="text-[13px] text-gray-400 font-light">
+                                    All NFTs on Phynite are physically-backed by real collectibles, owned legally by the Users. Trade Contractually Bound NFTs (CBNFTs) instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.
+                                    </h3>
+                                </div>
+                                
                             </div>
-                            <div className="w-full my-8">
-                                <h2 className="text-lg font-semibold mb-2 text-white">Legal, Digital, and Physical Security</h2>
-                                <h3 className="text-[13px] text-gray-400 font-light">
-                                TWe store physical collectibles in Phynite's private vaults where they are safe from all external threats. Each linked CBNFT also blends Blockchain and legal security through integrated legally-binding contracts to provide the highest level of user protection.
-                                </h3>
+                            <div className="w-full my-8 flex items-center">
+                                <img src={SecurityIcon} className="rounded-lg w-20 mr-6"></img>
+                                <div className="flex flex-grow flex-col">
+                                    <h2 className="text-lg font-semibold mb-2 text-white">Legal, Digital, and Physical Security</h2>
+                                    <h3 className="text-[13px] text-gray-400 font-light">
+                                    We store physical collectibles in Phynite's private vaults where they are safe from all external threats. Each linked CBNFT also blends Blockchain and legal security through integrated legally-binding contracts to provide the highest level of user protection.
+                                    </h3>
+                                </div>
                             </div>
-                            <div className="w-full">
-                                <h2 className="text-lg font-semibold mb-2 text-white">High Royalties, Low Fees</h2>
-                                <h3 className="text-[13px] text-gray-400 font-light">
-                                Mint your physical collectibles into NFTs to earn a 1% royalty everytime it's traded. By eliminating the need for physical transfers, you can invest in verified physical collectibles at fractions of the extra cost.
-                                </h3>
+                            <div className="w-full flex items-center">
+                                <img src={LowFeesIcon} className="rounded-lg w-20 mr-6"></img>
+                                <div className="flex flex-grow flex-col">
+                                    <h2 className="text-lg font-semibold mb-2 text-white">High Royalties, Low Fees</h2>
+                                    <h3 className="text-[13px] text-gray-400 font-light">
+                                    Mint your physical collectibles into NFTs to earn a 1% royalty everytime it's traded. By eliminating the need for physical transfers, you can invest in verified physical collectibles at fractions of the extra cost.
+                                    </h3>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -382,44 +403,65 @@ export default function Home(props) {
                             </div>
                             {windowSize && windowSize.width > 1080 ? (
                                 <div className="w-[45%]  h-full font-poppins pl-5">
-                                    <div className="w-full  pt-5">
-                                        <h2 className="text-2xl font-semibold mb-2 text-white">Invest in the Physical, Digitally</h2>
-                                        <h3 className="text-sm text-gray-400 font-light">
-                                        All NFTs on Phynite are physically-backed by real collectibles, owned legally by the Users. Trade Contractually Bound NFTs (CBNFTs) instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.
-                                        </h3>
+                                    <div className="w-full  pt-5 flex items-center">
+                                        <img src={PhoneIcon} className="rounded-lg w-20 mr-7"></img>
+                                        <div className="flex flex-grow flex-col">
+                                            <h2 className="text-xl font-semibold mb-2 text-white">Invest in the Physical, Digitally</h2>
+                                            <h3 className="text-[13px] text-gray-400 font-light">
+                                            All NFTs on Phynite are physically-backed by real collectibles, owned legally by the Users. Trade Contractually Bound NFTs (CBNFTs) instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.
+                                            </h3>
+                                        </div>
+                                        
                                     </div>
-                                    <div className="w-full my-8">
-                                        <h2 className="text-2xl font-semibold mb-2 text-white">Legal, Digital, and Physical Security</h2>
-                                        <h3 className="text-sm text-gray-400 font-light">
-                                        We store physical collectibles in Phynite's private vaults where they are safe from all external threats. Each linked CBNFT also blends Blockchain and legal security through integrated legally-binding contracts to provide the highest level of user protection.
-                                        </h3>
+                                    <div className="w-full my-8 flex items-center">
+                                        <img src={SecurityIcon} className="rounded-lg w-20 mr-7"></img>
+                                        <div className="flex flex-grow flex-col">
+                                            <h2 className="text-xl font-semibold mb-2 text-white">Legal, Digital, and Physical Security</h2>
+                                            <h3 className="text-[13px] text-gray-400 font-light">
+                                            We store physical collectibles in Phynite's private vaults where they are safe from all external threats. Each linked CBNFT also blends Blockchain and legal security through integrated legally-binding contracts to provide the highest level of user protection.
+                                            </h3>
+                                        </div>
+                                        
                                     </div>
-                                    <div className="w-full">
-                                        <h2 className="text-2xl font-semibold mb-2 text-white">High Royalties, Low Fees</h2>
-                                        <h3 className="text-sm text-gray-400 font-light">
-                                        Mint your physical collectibles into NFTs to earn a 1% royalty everytime it's traded. By eliminating the need for physical transfers, you can invest in verified physical collectibles at fractions of the extra cost.
-                                        </h3>
+                                    <div className="w-full flex items-center">
+                                        <img src={LowFeesIcon} className="rounded-lg w-20 mr-7"></img>
+                                        <div className="flex flex-grow flex-col">
+                                            <h2 className="text-xl font-semibold mb-2 text-white">High Royalties, Low Fees</h2>
+                                            <h3 className="text-[13px] text-gray-400 font-light">
+                                            Mint your physical collectibles into NFTs to earn a 1% royalty everytime it's traded. By eliminating the need for physical transfers, you can invest in verified physical collectibles at fractions of the extra cost.
+                                            </h3>
+                                        </div>
+                                        
                                     </div>
                                 </div>
                             ) : (
                                 <div className="w-[45%]  h-full font-poppins pl-5">
-                                    <div className="w-full py-3 ">
-                                        <h2 className="text-[19px] font-semibold mb-2 text-white">Invest in the Physical, Digitally</h2>
-                                        <h3 className="text-[11px] text-gray-400 font-light">
-                                        All NFTs on Phynite are physically-backed by real collectibles, owned legally by the Users. Trade Contractually Bound NFTs (CBNFTs) instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.
-                                        </h3>
+                                    <div className="w-full py-2 flex items-center">
+                                        <img src={PhoneIcon} className="rounded-lg w-[72px] mr-5"></img>
+                                        <div className="flex flex-grow flex-col">
+                                            <h2 className="text-[17px] font-semibold mb-2 text-white">Invest in the Physical, Digitally</h2>
+                                            <h3 className="text-[11px] text-gray-400 font-light">
+                                                All NFTs on Phynite are physically-backed by real collectibles, owned legally by the Users. Trade Contractually Bound NFTs (CBNFTs) instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.
+                                            </h3>
+                                        </div>
                                     </div>
-                                    <div className="w-full my-2 py-3">
-                                        <h2 className="text-[19px] font-semibold mb-2 text-white">Legal, Digital, and Physical Security</h2>
-                                        <h3 className="text-[11px] text-gray-400 font-light">
-                                        We store physical collectibles in Phynite's private vaults where they are safe from all external threats. Each linked CBNFT also blends Blockchain and legal security through integrated legally-binding contracts to provide the highest level of user protection.
-                                        </h3>
+                                    <div className="w-full my-2 py-2 flex items-center">
+                                        <img src={SecurityIcon} className="rounded-lg w-[72px] mr-5"></img>
+                                        <div className="flex flex-grow flex-col">
+                                            <h2 className="text-[17px] font-semibold mb-2 text-white">Legal, Digital, and Physical Security</h2>
+                                            <h3 className="text-[11px] text-gray-400 font-light">
+                                            We store physical collectibles in Phynite's private vaults where they are safe from all external threats. Each linked CBNFT also blends Blockchain and legal security through integrated legally-binding contracts to provide the highest level of user protection.
+                                            </h3>
+                                        </div>
                                     </div>
-                                    <div className="w-full py-3">
-                                        <h2 className="text-[19px] font-semibold mb-2 text-white">High Royalties, Low Fees</h2>
-                                        <h3 className="text-[11px] text-gray-400 font-light">
-                                        Mint your physical collectibles into NFTs to earn a 1% royalty everytime it's traded. By eliminating the need for physical transfers, you can invest in verified physical collectibles at fractions of the extra cost.
-                                        </h3>
+                                    <div className="w-full py-2 flex items-center">
+                                        <img src={LowFeesIcon} className="rounded-lg w-[72px] mr-5"></img>
+                                        <div className="flex flex-grow flex-col">
+                                            <h2 className="text-[17px] font-semibold mb-2 text-white">High Royalties, Low Fees</h2>
+                                            <h3 className="text-[11px] text-gray-400 font-light">
+                                            Mint your physical collectibles into NFTs to earn a 1% royalty everytime it's traded. By eliminating the need for physical transfers, you can invest in verified physical collectibles at fractions of the extra cost.
+                                            </h3>
+                                        </div>
                                     </div>
                                 </div>
                             )}
@@ -623,24 +665,36 @@ export default function Home(props) {
                                 <div className="w-[55%] h-full flex-col flex font-poppins pt-3 items-start">
                                     <img className="w-full -translate-x-5" src={PhyniteUi}></img>
                                 </div>
-                                <div className="w-[45%]  h-full font-poppins pl-5 pt-5">
-                                    <div className="w-full py-5 ">
-                                        <h2 className="text-2xl font-semibold mb-3 text-white">Invest in the Physical, Digitally</h2>
-                                        <h3 className="text-sm text-gray-400 font-light">
-                                        All NFTs on Phynite are physically-backed by real collectibles, owned legally by the Users. Trade Contractually Bound NFTs (CBNFTs) instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.
-                                        </h3>
+                                <div className="w-[45%]  h-full font-poppins pl-8">
+                                    <div className="w-full py-5 flex items-center">
+                                        <img src={PhoneIcon} className="rounded-lg w-20 mr-10"></img>
+                                        <div className="flex flex-grow flex-col">
+                                            <h2 className="text-2xl font-semibold mb-3 text-white">Invest in the Physical, Digitally</h2>
+                                            <h3 className="text-sm text-gray-400 font-light">
+                                            All NFTs on Phynite are physically-backed by real collectibles, owned legally by the Users. Trade Contractually Bound NFTs (CBNFTs) instantly on Phynite, and redeem your physical collectible at any time by burning your CBNFT.
+                                            </h3>
+                                        </div>
+                                        
                                     </div>
-                                    <div className="w-full my-5 py-5">
-                                        <h2 className="text-2xl font-semibold mb-3 text-white">Legal, Digital, and Physical Security</h2>
-                                        <h3 className="text-sm text-gray-400 font-light">
-                                        We store physical collectibles in Phynite's private vaults where they are safe from all external threats. Each linked CBNFT also blends Blockchain and legal security through integrated legally-binding contracts to provide the highest level of user protection.
-                                        </h3>
+                                    <div className="w-full my-5 py-5 flex items-center">
+                                        <img src={SecurityIcon} className="rounded-lg w-20 mr-10"></img>
+                                        <div className="flex flex-grow flex-col">
+                                            <h2 className="text-2xl font-semibold mb-3 text-white">Legal, Digital, and Physical Security</h2>
+                                            <h3 className="text-sm text-gray-400 font-light">
+                                            We store physical collectibles in Phynite's private vaults where they are safe from all external threats. Each linked CBNFT also blends Blockchain and legal security through integrated legally-binding contracts to provide the highest level of user protection.
+                                            </h3>
+                                        </div>
+                                        
                                     </div>
-                                    <div className="w-full py-5">
-                                        <h2 className="text-2xl font-semibold mb-3 text-white">High Royalties, Low Fees</h2>
-                                        <h3 className="text-sm text-gray-400 font-light">
-                                        Mint your physical collectibles into NFTs to earn a 1% royalty everytime it's traded. By eliminating the need for physical transfers, you can invest in verified physical collectibles at fractions of the extra cost.
-                                        </h3>
+                                    <div className="w-full py-5 flex items-center">
+                                        <img src={LowFeesIcon} className="rounded-lg w-20 mr-10"></img>
+                                        <div className="flex flex-grow flex-col">
+                                            <h2 className="text-2xl font-semibold mb-3 text-white">High Royalties, Low Fees</h2>
+                                            <h3 className="text-sm text-gray-400 font-light">
+                                            Mint your physical collectibles into NFTs to earn a 1% royalty everytime it's traded. By eliminating the need for physical transfers, you can invest in verified physical collectibles at fractions of the extra cost.
+                                            </h3>
+                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
