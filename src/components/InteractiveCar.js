@@ -3,12 +3,10 @@ import carEntersFrame from "../assets/car-enters-frame.mp4"
 import carDoorsOpen from "../assets/car-doors-open.mp4"
 import carLightsTurnOn from "../assets/car-lights-turn-on.mp4"
 import carLightsTurnOff from "../assets/car-lights-turn-off.mp4"
-import carLightsOff from "../assets/car-lights-off.png"
-import carLightsOn from "../assets/car-lights-on.png"
-import carFinalFrame from "../assets/car-final-frame.png"
 import ReactPlayer from "react-player"
 import useWindowSize from "../hooks/useWindowSize"
 import PopUpWrapper from "../components/PopUpWrapper"
+import carLightsOnDoorsOpen from "../assets/car-lights-on-doors-open.mp4"
 import "../styles.css"
 
 export default function InteractiveCar(props) { 
@@ -94,19 +92,12 @@ export default function InteractiveCar(props) {
 
     function handleMobileOrTabletClick() {
         if (enteringVideoEnded === true){
-            setTransitionState(0)
-            setInteractiveState(1)
+            setInteractiveState(2)
             setTimeout(()=>disableTransitionState(),200)
         }
         
     }
 
-
-    function handleLightTurningOnEnded() {
-        setTransitionState(1)
-        setInteractiveState(2)
-        setTimeout(()=>disableTransitionState(),200)
-    }
 
     
     
@@ -128,20 +119,15 @@ export default function InteractiveCar(props) {
                             </button>
                         </PopUpWrapper>
                     </div>
-                    {(interactiveState === 0 || transitionState === 0) && (
+                    {(interactiveState === 0 ) && (
                         <div className="w-full h-full absolute">
                             <button onClick={()=>handleMobileOrTabletClick()} className="trapezoid absolute bg-transparent -rotate-[25deg] translate-y-[45%] skew-x-[15deg] skew-y-[10deg] rounded-3xl translate-x-[92%]" style={clickableButtonStyle}></button>
                             <ReactPlayer playsinline={true} url={carEntersFrame} muted={true} width="100%" height="100%" playing={true} onEnded={() => setEnteringVideoEnded(true)} />
                         </div>
                     )}
-                    {(interactiveState === 1 || transitionState === 1) && (
-                        <div className="w-full h-full absolute" onEnded={()=>handleLightTurningOnEnded()}>
-                            <ReactPlayer playsinline={true} url={carLightsTurnOn} muted={true} width="100%" height="100%" playing={true}/>   
-                        </div>
-                    )}
                     {interactiveState === 2 && (
                         <div className="w-full h-full absolute">
-                            <ReactPlayer playsinline={true} url={carDoorsOpen} muted={true} width="100%" height="100%" playing={true}/>
+                            <ReactPlayer playsinline={true} url={carLightsOnDoorsOpen} muted={true} width="100%" height="100%" playing={true}/>
                         </div>
                     )}
                 </div>
