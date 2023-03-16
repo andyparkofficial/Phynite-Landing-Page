@@ -1187,8 +1187,8 @@ export default function About (props) {
                     </div>
                     <div className="w-full pt-28" id="cbnfts">
                         <h1 className="font-poppins text-white text-3xl mb-10 w-full border-b border-gray0 pb-6 font-semibold">Contractually Bound Non-Fungible Tokens</h1>
-                        <div className="flex h-[300px] w-full">
-                            <div className="min-w-[370px] pr-10 flex flex-col font-poppins font-[500]">
+                        <div className="flex  w-full">
+                            <div className="min-w-[370px] pr-10 flex flex-col font-poppins font-[500] h-[300px]">
                                 <div className="pb-3 h-1/3 w-full">
                                     <button onClick={()=>setSelectedCBNFTSection(0)} className={cbnftSectionButtonStyle[0]}>
                                         <h1 className="text-lg">Overview: CBNFTs</h1>
@@ -1211,7 +1211,7 @@ export default function About (props) {
                                 {selectedCBNFTSection === 0 && (
                                 <div className="w-full h-full font-poppins pt-2 flex flex-col">
                                     <h1 className="text-white text-2xl font-[500]">Overview: CBNFTs</h1>
-                                    <div className="flex">
+                                    <div className="flex items-center">
                                         <div className="flex flex-col flex-grow">
                                             <p className=" text-gray-400 w-full mt-8 mb-[43px]" >Contractually Bound Non-Fungible Tokens, or CBNFTs, are NFTs developed by Phynite which can legally obligate contracted parties to take certain actions depending on the state of the NFT. Before a user buys a CBNFT, they are to sign a legally binding contract which is initialized if the user buys the CBNFT, and gives them ownership rights of the contractually bound physical item.</p>
                                             <a href="https://docs.phynite.io/contractually-bound-non-fungible-tokens" target="_blank" className="flex items-center hover:border-gray0 hover:brightness-125 duration-150 bg-mainGray rounded-2xl border-gray1 border p-2 w-40 justify-center">
@@ -1219,14 +1219,14 @@ export default function About (props) {
                                                 <img src={Arrow} className="w-5 h-5 ml-2"></img>
                                             </a>
                                         </div>
-                                        <img src={CrystalContract} className="w-[300px] h-[300px] -translate-y-4"></img>
+                                        <img src={CrystalContract} className="w-[200px] h-[200px] -translate-y-6"></img>
                                     </div>    
                                 </div>
                                 )}
                                 {selectedCBNFTSection === 1 && (
                                 <div className="w-full h-full font-poppins pt-2 flex flex-col">
                                     <h1 className="text-white text-2xl font-[500]">Phase 1: Off-Chain Storage</h1>
-                                    <p className=" text-gray-400 w-full mt-8" >When using CBNFTs, users can sign the correlated legal contracts using their crypto wallets to create digital signatures. This signature is a receipt that can be cryptographically validated using the trapdoor algorithm <a href="https://docs.phynite.io/digital-signatures" className="underline" target="_blank">ECDSA</a>, which keeps personal information secured, while being reliable in verification. Phynite will initially store such signatures off-chain on IPFS, which is an immutable, distributed file system.</p>
+                                    <p className=" text-gray-400 w-full mt-8 mb-[43px]" >When using CBNFTs, users can sign the correlated legal contracts using their crypto wallets to create digital signatures. This signature is a receipt that can be cryptographically validated using the trapdoor algorithm <a href="https://docs.phynite.io/digital-signatures" className="underline" target="_blank">ECDSA</a>, which keeps personal information secured, while being reliable in verification. Phynite will initially store such signatures off-chain on IPFS, which is an immutable, distributed file system.</p>
                                     <div className="flex flex-grow items-end">
                                         <a href="https://docs.phynite.io/off-chain-and-on-chain-storage-of-digital-signatures" target="_blank" className="flex items-center hover:border-gray0 hover:brightness-125 duration-150 bg-mainGray rounded-2xl border-gray1 border p-2 w-40 justify-center">
                                             <div className="text-white">Read More</div>
@@ -1238,7 +1238,7 @@ export default function About (props) {
                                 {selectedCBNFTSection === 2 && (
                                 <div className="w-full h-full font-poppins pt-2 flex flex-col">
                                     <h1 className="text-white text-2xl font-[500]">Phase 2: On-Chain Storage</h1>
-                                    <p className=" text-gray-400 w-full mt-8" >The Phynite CBNFT smart contracts are ERC-721 standard with the ability to store digital signatures of legally binding contracts onto the blockchain. Gas fees using ethereum depend on the amount of data that is being written on the blockchain, therefore we can use IPFS’s Unique Resource Identifier (URI) to tie the legal system with the blockchain. The Phynite smart contract is upgradable to use this feature, and the trading protocol to allow such a system is currently in development.</p>
+                                    <p className=" text-gray-400 w-full mt-8 mb-[43px]" >The Phynite CBNFT smart contracts are ERC-721 standard with the ability to store digital signatures of legally binding contracts onto the blockchain. Gas fees using ethereum depend on the amount of data that is being written on the blockchain, therefore we can use IPFS’s Unique Resource Identifier (URI) to tie the legal system with the blockchain. The Phynite smart contract is upgradable to use this feature, and the trading protocol to allow such a system is currently in development.</p>
                                     <div className="flex flex-grow items-end">
                                         <a href="https://docs.phynite.io/off-chain-and-on-chain-storage-of-digital-signatures#storing-digital-signatures-on-chain" target="_blank" className="flex items-center hover:border-gray0 hover:brightness-125 duration-150 bg-mainGray rounded-2xl border-gray1 border p-2 w-40 justify-center">
                                             <div className="text-white">Read More</div>
