@@ -1,6 +1,7 @@
 import { Switch, Route, Redirect, useLocation } from "react-router-dom";
 import Home from "./pages/Home.js"
 import About from "./pages/About.js"
+import Blogs from "./pages/Blogs.js"
 import Blog from "./pages/Blog.js"
 import FAQ from "./pages/FAQ.js"
 import GetStarted from "./pages/GetStarted.js"
@@ -44,8 +45,8 @@ function App() {
               displayType={displayType}
             />
           </Route>
-          <Route path="/blog">
-            <Blog
+          <Route path="/blogs">
+            <Blogs
               displayType={displayType}
             />
           </Route>
@@ -56,6 +57,11 @@ function App() {
           </Route>
           <Route path="/getStarted">
             <GetStarted
+              displayType={displayType}
+            />
+          </Route>
+          <Route path="/blog/:blogName">
+            <Blog
               displayType={displayType}
             />
           </Route>

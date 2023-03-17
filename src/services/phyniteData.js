@@ -7,6 +7,10 @@ class PhyniteDataService {
     return http.post("/addEmail", {email: email});
   }
 
+  getBlogs(blogName) {
+    return http.get(`/getBlogs?blogName=${blogName}`)
+  }
+
 }
 
 export default new PhyniteDataService();

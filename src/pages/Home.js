@@ -185,7 +185,7 @@ export default function Home(props) {
                                     <img className="h-full scale-110" src={PhyniteCarFront}></img>
                                 </div>
                             </HashLink>
-                            <Link to="/blog" className="rounded-xl flex justify-center items-center p-6 h-56 border border-gray-600 w-full bg-gradient-to-b from-gray3 to-gray2">
+                            <Link to="/blogs" className="rounded-xl flex justify-center items-center p-6 h-56 border border-gray-600 w-full bg-gradient-to-b from-gray3 to-gray2">
                                     
                                 <div className="w-full flex flex-col">
                                     <h1 className="text-white text-[40px] font-semibold mb-7 leading-6 text-center"><span className="text-phyniteBlue">Phynite </span>Blog</h1>
@@ -359,7 +359,7 @@ export default function Home(props) {
                                     <img className="h-full scale-110" src={PhyniteCarFront}></img>
                                 </div>
                             </HashLink>
-                            <Link to="/blog"  className="rounded-xl flex items-center h-56 bg-gradient-to-b from-gray3 to-gray2 border border-gray-600 w-1/2 p-4">
+                            <Link to="/blogs"  className="rounded-xl flex items-center h-56 bg-gradient-to-b from-gray3 to-gray2 border border-gray-600 w-1/2 p-4">
                                 <div className="w-full flex flex-col">
                                     <h1 className="text-white text-[40px] font-semibold mb-7 leading-6 text-center"><span className="text-phyniteBlue">Phynite </span>Blog</h1>
                                     <h2 className="text-gray-300 text-[15px] font-light text-center">Ideas, Updates, Guides, and more.</h2>
@@ -631,7 +631,7 @@ export default function Home(props) {
                                         <img className="h-full scale-110" src={PhyniteCarFront}></img>
                                     </div>
                                 </HashLink>
-                                <Link to="/blog"  className="rounded-xl flex items-center h-64 bg-gray3 border border-gray1 hover:border-gray0 duration-300 hover:bg-gradient-to-b hover:from-gray3 hover:to-gray2 hover:brightness-125 w-1/2 p-6">
+                                <Link to="/blogs"  className="rounded-xl flex items-center h-64 bg-gray3 border border-gray1 hover:border-gray0 duration-300 hover:bg-gradient-to-b hover:from-gray3 hover:to-gray2 hover:brightness-125 w-1/2 p-6">
                                     <div className="w-full flex flex-col">
                                         <h1 className="text-white text-5xl font-semibold mb-7 leading-6 text-center"><span className="text-phyniteBlue">Phynite </span>Blog</h1>
                                         <h2 className="text-gray-300 text-[15px] font-light text-center">Ideas, Updates, Guides, and more.</h2>
@@ -814,7 +814,7 @@ export default function Home(props) {
                                     </div>
                                     
                                 </HashLink>
-                                <Link to="/blog" className="w-[25%] flex items-center bg-gray3 p-6 border border-gray1 rounded-xl hover:border-gray0 duration-300 hover:bg-gradient-to-b hover:from-gray3 hover:to-gray2 hover:brightness-125">
+                                <Link to="/blogs" className="w-[25%] flex items-center bg-gray3 p-6 border border-gray1 rounded-xl hover:border-gray0 duration-300 hover:bg-gradient-to-b hover:from-gray3 hover:to-gray2 hover:brightness-125">
                                     
                                     <div className="w-full flex flex-col">
                                         <h1 className="text-white text-[32px] font-semibold mb-4 leading-6 text-center"><span className="text-phyniteBlue">Phynite </span>Blog</h1>
