@@ -199,9 +199,9 @@ export default function Blogs(props) {
                                         <div className="w-full h-[250px] bg-gradient-to-br border-b border-gray1 from-phyniteBlue via-ice to-gray1"></div>
                                         <div className="h-[250px] font-poppins p-5">
                                             
-                                            <h1 className="text-white text-2xl font-[500]">{blog.title}</h1>
-                                            <h2 className="text-gray0 text mb-2">{blog.dateWritten}</h2>
-                                            <p className="border-t border-gray1 text-sm text-gray-400 pt-3">{blog.summary}</p>
+                                            <h1 className="text-white text-2xl font-[500] text-left">{blog.title}</h1>
+                                            <h2 className="text-gray0 text-left mb-2">{blog.dateWritten}</h2>
+                                            <p className="border-t border-gray1 text-sm text-gray-400 pt-3 text-left">{blog.summary}</p>
                                         </div>
                                     </button>
                                 </div>
