@@ -372,11 +372,11 @@ export default function Home(props) {
             {props.displayType === "smallComputer" && (
                 <div className="w-full px-8 font-poppins pt-20">
                     <div className="w-full flex justify-center pt-20 items-center mb-20 h-screen min-h-[500px] max-h-[600px] gap-x-6">
-                        <div className="w-[65%] h-full flex flex-col justify-center pl-1">
+                        <div className="w-[60%] h-full flex flex-col justify-center pl-1">
                             {(windowSize && windowSize.width > 930) && (
                                 <div className="w-full flex flex-col justify-center">
-                                    <h1 className="text-5xl font-semibold text-phyniteBlue leading-tight font-poppins w-[600px]">The Web3 Marketplace for Physical Collectibles</h1>
-                                    <h2 className="text-lg mt-6 mb-8 text-white font-light font-poppins w-[600px]">The fastest, safest, most forward-thinking way to trade physical collectibles. Only on Phynite.</h2>
+                                    <h1 className="text-5xl font-semibold text-phyniteBlue leading-tight font-poppins w-full">The Web3 Marketplace for Physical Collectibles</h1>
+                                    <h2 className="text-lg mt-6 mb-8 text-white font-light font-poppins w-full">The fastest, safest, most forward-thinking way to trade physical collectibles. Only on Phynite.</h2>
                                     <Link to="/getStarted" className="text-3xl font-semibold font-poppins text-gray1 bg-gradient-to-br from-phyniteBlue to-phyniteBlue rounded-xl w-[300px] py-2 text-center hover:brightness-125 hover:from-mango hover:to-salmon duration-300">Get Started</Link>
                                 </div>
                             )}
@@ -389,7 +389,7 @@ export default function Home(props) {
                             )}
                             
                         </div>
-                        <div className="w-[45%]  h-full flex justify-center items-center overflow-hidden">
+                        <div className="w-[40%] h-full flex justify-center items-center overflow-hidden">
                             <div className="w-full translate-x-0">
                                     <InteractiveCar/>
                             </div>

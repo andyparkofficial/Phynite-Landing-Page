@@ -67,7 +67,7 @@ export default function InteractiveCar(props) {
             setClickableButtonStyle({ width: `${buttonWidth}px`, height: `${buttonHeight}px` })
             setComponentStyle({ height: `${componentHeight}px`, width: `${componentHeight}px`})
             setClickMeStyle({ height: `${clickMeHeight}px`, width: `${clickMeWidth}px` })
-            setClickMeComponentStyle({ padding: `${clickMeContainerPadding}px`})
+            setClickMeComponentStyle({ padding: `${clickMeContainerPadding}px` })
         }
         
 
@@ -102,9 +102,9 @@ export default function InteractiveCar(props) {
     
     
     return (
-        <div className="w-full h-full font-poppins" ref={componentRef} style={componentStyle}>
+        <div className="w-full h-full font-poppins" ref={componentRef} >
             {mobileOrTabletSize === true && (
-                <div>
+                <div style={componentStyle}>
                     <div className="w-full h-full absolute flex justify-end items-center" style={clickMeComponentStyle}>
                         <PopUpWrapper popUpOn={clickMeOn}>
                             <button style={clickMeStyle} onClick={()=>handleMobileOrTabletClick()} className=" flex flex-col items-center">
@@ -133,7 +133,7 @@ export default function InteractiveCar(props) {
                 </div>
             )}
             {mobileOrTabletSize === false && (
-                <div>
+                <div style={componentStyle}>
                     <div className="w-full h-full absolute flex justify-end items-center" style={clickMeComponentStyle}>
                         <PopUpWrapper popUpOn={clickMeOn}>
                             <button style={clickMeStyle} onMouseEnter={()=>setHoverOn(true)} onMouseLeave={()=>setHoverOn(false)} onClick={()=>handleClick()} className=" flex flex-col items-center">

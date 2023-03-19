@@ -3,16 +3,26 @@ import useWindowSize from "../hooks/useWindowSize"
 
 export default function ImageBox(props) {
 
-    const [boxStyle, setBoxStyle] = useState({width: "0px"})
+    const [boxStyle, setBoxStyle] = useState({width: "0px", height: "0px"})
 
     const imageRef = useRef(null)
     const windowSize = useWindowSize()
 
     useEffect(() => {
-        if (windowSize && imageRef.current) {
-            setBoxStyle({width: `${Math.round(imageRef.current.offsetWidth)}px`, height: `${Math.round(imageRef.current.offsetHeight)}px`})
+        if (props.imageSource && imageRef.current) {
+            setTimeout(()=>calculateDimensions(),200)
         }
-    },[windowSize])
+    }, [windowSize])
+    
+    useEffect(() => {
+        if (props.imageSource && imageRef.current) {
+            setTimeout(()=>calculateDimensions(),200)
+        }
+    }, [props.imageSource])
+    
+    function calculateDimensions() {
+        setBoxStyle({width: `${Math.round(imageRef.current.offsetWidth)}px`, height: `${Math.round(imageRef.current.offsetHeight)}px`})
+    }
 
     return (
         <div className="w-full">
