@@ -92,7 +92,7 @@ export default function Footer() {
                             <h2 className="text-gray-400 font-[500] text-[8pt] ml-1">2023 Phynite, LLC. All rights reserved.</h2>
                         </div>
                         <div className="flex mb-10 mt-4">
-                            <Link to={"/termsOfUse"} className="text-gray-400 font-[500] text-[8pt] underline mr-4">Terms of Use</Link>
+                            <Link to={"/termsOfService"} className="text-gray-400 font-[500] text-[8pt] underline mr-4">Terms of Service</Link>
                             <Link to={"/privacyPolicy"} className="text-gray-400 font-[500] text-[8pt] underline">Privacy Policy</Link>
                         </div>
 
@@ -157,7 +157,7 @@ export default function Footer() {
                             <h2 className="text-gray-400 font-[500] text-xs ml-1">2023 Phynite, LLC. All rights reserved.</h2>
                         </div>
                         <div className="flex mb-10 mt-4">
-                            <Link to={"/termsOfUse"} className="text-gray-400 font-[500] text-xs underline mr-4">Terms of Use</Link>
+                            <Link to={"/termsOfService"} className="text-gray-400 font-[500] text-xs underline mr-4">Terms of Service</Link>
                             <Link to={"/privacyPolicy"} className="text-gray-400 font-[500] text-xs underline">Privacy Policy</Link>
                         </div>
 
@@ -214,7 +214,7 @@ export default function Footer() {
                         <h2 className="text-gray-400 font-[500] text-[8pt] mr-1">Copyright</h2>
                         <img className="w-[10px] h-[10px] -translate-y-[2px]" src={copyrightIcon}></img>
                         <h2 className="text-gray-400 font-[500] text-[8pt] ml-1">2023 Phynite, LLC. All rights reserved.</h2>
-                        <Link to={"/termsOfUse"} className="text-gray-400 font-[500] text-[8pt] underline mx-4">Terms of Use</Link>
+                        <Link to={"/termsOfService"} className="text-gray-400 font-[500] text-[8pt] underline mx-4">Terms of Service</Link>
                         <Link to={"/privacyPolicy"} className="text-gray-400 font-[500] text-[8pt] underline">Privacy Policy</Link>
                     </div>
                 </div>
@@ -269,7 +269,7 @@ export default function Footer() {
                         <h2 className="text-gray-400 font-[500] text-[8pt] mr-1">Copyright</h2>
                         <img className="w-[10px] h-[10px] -translate-y-[2px]" src={copyrightIcon}></img>
                         <h2 className="text-gray-400 font-[500] text-[8pt] ml-1">2023 Phynite, LLC. All rights reserved.</h2>
-                        <Link to={"/termsOfUse"} className="text-gray-400 font-[500] text-[8pt] underline mx-4">Terms of Use</Link>
+                        <Link to={"/termsOfService"} className="text-gray-400 font-[500] text-[8pt] underline mx-4">Terms of Service</Link>
                         <Link to={"/privacyPolicy"} className="text-gray-400 font-[500] text-[8pt] underline">Privacy Policy</Link>
                     </div>
                 </div>

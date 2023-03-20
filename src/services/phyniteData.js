@@ -7,8 +7,12 @@ class PhyniteDataService {
     return http.post("/addSignUp", signUpData);
   }
 
-  getBlogs(blogName) {
+  getBlog(blogName) {
     return http.get(`/getBlogs?blogName=${blogName}`)
+  }
+
+  getBlogs() {
+    return http.get('/getBlogs')
   }
 
 }

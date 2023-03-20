@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import Navbar from "../components/Navbar.js"
 import Footer from "../components/Footer.js"
 import PhyniteDataService from "../services/phyniteData.js"
@@ -30,7 +30,7 @@ export default function Blogs(props) {
         <div>
             <Navbar isClicked={"2"} />
             {props.displayType === "mobile" && (
-                <div className="pt-20 px-[14px] w-full font-poppins">
+                <div className="pt-20 px-[14px] w-full font-poppins min-h-screen">
                     <div className="w-full pt-12 mb-12">
                         <h1 className="text-white text-5xl font-semibold text-center mb-16">
                             <span className="text-phyniteBlue">Phynite </span>Blog
@@ -80,7 +80,7 @@ export default function Blogs(props) {
                 </div>
             )}
             {props.displayType === "tablet" && (
-                <div className="w-full font-poppins">
+                <div className="w-full font-poppins min-h-screen">
                     <div className="h-[350px] w-full flex justify-center">
                         <h1 className="font-semibold text-[66px] font-poppins pt-48 text-white"><span className="text-phyniteBlue">Phynite</span> Blog</h1>
                     </div>
@@ -133,7 +133,7 @@ export default function Blogs(props) {
                 </div>
             )}
             {props.displayType === "smallComputer" && (
-                <div className="flex flex-col items-center w-full px-5">
+                <div className="flex flex-col items-center w-full px-5 min-h-screen">
                     <div className="h-[350px] w-full flex justify-center">
                         <h1 className="font-semibold text-6xl font-poppins pt-48 text-white"><span className="text-phyniteBlue">Phynite</span> Blog</h1>
                     </div>
@@ -184,7 +184,7 @@ export default function Blogs(props) {
                 </div>
             )}
             {props.displayType === "computer" && (
-                <div className="flex flex-col items-center w-full">
+                <div className="flex flex-col items-center w-full min-h-screen">
                     <div className="h-[350px] w-[1300px] flex justify-center">
                         <h1 className="font-semibold text-7xl font-poppins pt-48 text-white"><span className="text-phyniteBlue">Phynite</span> Blog</h1>
                     </div>
@@ -194,8 +194,8 @@ export default function Blogs(props) {
                                 Recent
                             </h2>
                             {blogs === null ? (<div></div>) : (
-                                <button onClick={()=>redirectToPage(`blog/${blogs[0].slug}`)} className="rounded-3xl hover:border-gray0 border border-gray1 hover:brightness-110 duration-300 overflow-hidden">
-                                    <ImageBox imageSource={blogs[0].imageURL} className="">
+                                <button  onClick={()=>redirectToPage(`blog/${blogs[0].slug}`)} className="rounded-3xl hover:border-gray0 border border-gray1 hover:brightness-110 duration-300 overflow-hidden">
+                                    <ImageBox dimensions={9/16} imageSource={blogs[0].imageURL} className="">
                                         <div className=" w-1/2  flex justify-end flex-col items-start pb-16 p-12 h-full">
                                             <h1 className="text-gray1 text-5xl font-bold leading-[1.2] mb-4 text-left">
                                                 {blogs[0].title}

@@ -6,7 +6,7 @@ export default function FAQ (props) {
     return (
         <div>
             <Navbar/>
-            <div className="h-screen"></div>
+            <div className="min-h-screen"></div>
             <Footer />
         </div>
     )

@@ -11,6 +11,7 @@ import caretDown from "../assets/caret-down.png"
 import checkedCheckboxIcon from "../assets/checked-checkbox-icon.png"
 import uncheckedCheckboxIcon from "../assets/unchecked-checkbox-icon.png"
 import useWindowSize from "../hooks/useWindowSize.js"
+import {Link} from "react-router-dom"
 
 export default function GetStarted(props) {
     
@@ -351,7 +352,7 @@ export default function GetStarted(props) {
                                     {favoriteCollectiblesError !== null &&(
                                         <h1 className="text-xs font-poppins text-salmon w-full text-left">*{favoriteCollectiblesError}</h1>
                                     )}
-                                    <div className="w-full flex flex-col mb-6">
+                                    <div className="w-full flex flex-col mb-4">
                                         <h1 className=" text-white font-[500] mb-4">What do you enjoy collecting?</h1>
                                         <div className="w-full">
                                             <button onClick={()=>toggleFavoriteCollectible("pokemonCards")} type="button" className="w-full mb-2 px-2 flex items-center py-1">
@@ -422,6 +423,9 @@ export default function GetStarted(props) {
                                             </button>
                                             
                                         </div>
+                                    </div>
+                                    <div className="w-full flex items-center justify-center">
+                                        <h1 className="text-[11px] font-light text-gray-300 mb-4 text-center">By signing up, you are agreeing to our <Link target="_blank" to="/termsOfService" className="underline">Terms of Service</Link> and <Link target="_blank" to="/privacyPolicy" className="underline">Privacy Policy</Link></h1> 
                                     </div>
                                     {error !== null &&(
                                         <h1 className="text-xs pb-3 font-poppins text-salmon w-full text-center">*{error}</h1>
@@ -552,7 +556,7 @@ export default function GetStarted(props) {
                                     {favoriteCollectiblesError !== null &&(
                                         <h1 className="text-md font-poppins text-salmon w-full text-left">*{favoriteCollectiblesError}</h1>
                                     )}
-                                    <div className="w-full flex flex-col mb-6">
+                                    <div className="w-full flex flex-col mb-4">
                                         <h1 className="text-lg text-white font-[500] mb-4">What do you enjoy collecting?</h1>
                                         <div className="w-full">
                                             <button onClick={()=>toggleFavoriteCollectible("pokemonCards")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg duration-200 py-1">
@@ -624,6 +628,9 @@ export default function GetStarted(props) {
                                             
                                         </div>
                                     </div>
+                                    <div className="w-full flex items-center justify-center">
+                                        <h1 className="text-xs font-light text-gray-300 mb-4">By signing up, you are agreeing to our <Link target="_blank" to="/termsOfService" className="underline">Terms of Service</Link> and <Link target="_blank" to="/privacyPolicy" className="underline">Privacy Policy</Link></h1> 
+                                    </div>
                                     {error !== null &&(
                                         <h1 className="text-md pb-3 font-poppins text-salmon w-[500px] text-center">*{error}</h1>
                                     )}
@@ -655,7 +662,7 @@ export default function GetStarted(props) {
                         ) : (
                             <div className="flex flex-col items-center ">
                                 <h1 className="gradient-text-blue font-semibold text-5xl text-center leading-tight mb-6">The Phynite Marketplace<br />is Coming Soon</h1>
-                                <h2 className="font-light text-xl text-white text-center mb-10 px-6">Be one of the first 10,000 to join our waitlist and become eligible for exclusive promotions.</h2>
+                                <h2 className="font-light text-lg text-white text-center mb-10 px-6">Be one of the first 10,000 to join our waitlist and become eligible for exclusive promotions.</h2>
                                 <form onSubmit={onSubmit} className="w-[800px] flex flex-col items-center border border-gray1 rounded-xl bg-gray3 p-6 mb-20">
                                     {emailError !== null &&(
                                         <h1 className="text-md font-poppins text-salmon w-full text-left">*{emailError}</h1>
@@ -824,6 +831,9 @@ export default function GetStarted(props) {
                                             
                                         </div>
                                     </div>
+                                    <div className="w-full flex items-center justify-center">
+                                        <h1 className="text-sm font-light text-gray-300 mb-4">By signing up, you are agreeing to our <Link target="_blank" to="/termsOfService" className="underline">Terms of Service</Link> and <Link target="_blank" to="/privacyPolicy" className="underline">Privacy Policy</Link></h1> 
+                                    </div>
                                     {error !== null &&(
                                         <h1 className="text-md pb-3 font-poppins text-salmon w-[500px] text-center">*{error}</h1>
                                     )}
@@ -856,7 +866,7 @@ export default function GetStarted(props) {
                         ) : (
                             <div className="flex flex-col items-center ">
                                 <h1 className="gradient-text-blue font-semibold text-5xl text-center leading-tight mb-6">The Phynite Marketplace<br />is Coming Soon</h1>
-                                <h2 className="font-light text-xl text-white text-center mb-12">Be one of the first 10,000 to join our waitlist and become eligible for exclusive promotions.</h2>
+                                <h2 className="font-light text-lg text-white text-center mb-12">Be one of the first 10,000 to join our waitlist and become eligible for exclusive promotions.</h2>
                                 <form onSubmit={onSubmit} className="w-[850px] flex flex-col items-center border border-gray1 rounded-xl bg-gray3 p-6 mb-20">
                                     {emailError !== null &&(
                                         <h1 className="text-md font-poppins text-salmon w-full text-left">*{emailError}</h1>
@@ -1024,6 +1034,9 @@ export default function GetStarted(props) {
                                             </button>
                                             
                                         </div>
+                                    </div>
+                                    <div className="w-full flex items-center justify-center">
+                                        <h1 className="text-sm font-light text-gray-300 mb-4">By signing up, you are agreeing to our <Link target="_blank" to="/termsOfService" className="underline">Terms of Service</Link> and <Link target="_blank" to="/privacyPolicy" className="underline">Privacy Policy</Link></h1> 
                                     </div>
                                     {error !== null &&(
                                         <h1 className="text-md pb-3 font-poppins text-salmon w-[500px] text-center">*{error}</h1>

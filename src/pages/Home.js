@@ -36,10 +36,10 @@ export default function Home(props) {
     const windowSize = useWindowSize()
 
     return (
-        <div className="">
+        <div>
             <Navbar isClicked={"0"} />
             {props.displayType === "mobile" && (
-                <div className="w-full pt-20 px-[14px] font-poppins overflow-clip">
+                <div className="w-full pt-20 px-[14px] font-poppins overflow-clip min-h-screen">
                     <div className="w-full mb-16">
                         <h1 className="font-semibold text-[26px] text-phyniteBlue leading-tight pt-8 px-1 mb-2">
                             The Web3 Marketplace for Physical Collectibles
@@ -200,7 +200,7 @@ export default function Home(props) {
                 </div>
             )}
             {props.displayType === "tablet" && (
-                <div className="w-full pt-20 px-[18px] font-poppins">
+                <div className="w-full pt-20 px-[18px] font-poppins min-h-screen">
                     <div className="w-full flex justify-center pt-20 items-center mb-24">
                         <div className="w-[60%] h-full flex flex-col justify-center pl-1">
                             {(windowSize && windowSize.width > 810) && (
@@ -370,7 +370,7 @@ export default function Home(props) {
                 </div>
             )}
             {props.displayType === "smallComputer" && (
-                <div className="w-full px-8 font-poppins pt-20">
+                <div className="w-full px-8 font-poppins pt-20 min-h-screen">
                     <div className="w-full flex justify-center pt-20 items-center mb-20 h-screen min-h-[500px] max-h-[600px] gap-x-6">
                         <div className="w-[60%] h-full flex flex-col justify-center pl-1">
                             {(windowSize && windowSize.width > 930) && (
@@ -643,7 +643,7 @@ export default function Home(props) {
                 </div>
             )}
             {props.displayType === "computer" && (
-                <div className="w-full overflow-clip">
+                <div className="w-full overflow-clip min-h-screen">
                     <div className="w-full bg-mainGray max-h-[900px] h-screen min-h-[700px] flex justify-center">
                         <div className="w-[1350px]  h-full flex justify-center">
                             <div className="w-[55%] h-full flex flex-col justify-center ml-[28px]">
