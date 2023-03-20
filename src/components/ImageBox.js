@@ -1,37 +1,39 @@
 import { useState, useRef, useEffect } from "react"
 import useWindowSize from "../hooks/useWindowSize"
 
-export default function ImageBox(props) {
+export default function ImageBox({imageSource, children, dimensions = null}) {
 
     const [boxStyle, setBoxStyle] = useState({width: "0px", height: "0px"})
 
-    const imageRef = useRef(null)
+    const boxRef = useRef(null)
+
     const windowSize = useWindowSize()
 
+
+    // dimensions is a ratio of height/width
     useEffect(() => {
-        if (props.imageSource && imageRef.current) {
-            setTimeout(()=>calculateDimensions(),200)
+        if (dimensions !== null && boxRef.current && boxStyle.width === "0px") {
+            calculateDimensions()
+        }
+    }, [boxStyle])
+    
+    useEffect(() => {
+        if (dimensions !== null && boxRef.current && boxStyle.width === "0px") {
+            calculateDimensions()
         }
     }, [windowSize])
-    
-    useEffect(() => {
-        if (props.imageSource && imageRef.current) {
-            setTimeout(() => calculateDimensions(), 200)
-            setTimeout(() => calculateDimensions(), 500)
-            setTimeout(()=>calculateDimensions(),1000)
-        }
-    }, [props.imageSource])
-    
+
     function calculateDimensions() {
-        setBoxStyle({width: `${Math.round(imageRef.current.offsetWidth)}px`, height: `${Math.round(imageRef.current.offsetHeight)}px`})
+        setBoxStyle({width: `${Math.round(boxRef.current.offsetWidth)}px`, height: `${Math.round(boxRef.current.offsetWidth*dimensions)}px`})
     }
 
+
     return (
-        <div className="w-full">
+        <div className="w-full" ref={boxRef}>
             <div style={boxStyle} className=" absolute">
-                {props.children}
+                {children}
             </div>
-            <img src={props.imageSource} className="w-full" ref={imageRef}></img>
+            <img src={imageSource} className="w-full"></img>
 
         </div>
     )
