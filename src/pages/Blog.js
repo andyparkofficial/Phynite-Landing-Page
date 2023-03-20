@@ -18,7 +18,7 @@ export default function Blog(props) {
     }, [blogName])
     
     async function getBlog() {
-        const response = await PhyniteDataService.getBlogs(blogName)
+        const response = await PhyniteDataService.getBlog(blogName)
         const blogs = response.data.blogs
         setBlog(blogs[0])
         console.log(blogs[0])
@@ -28,7 +28,7 @@ export default function Blog(props) {
    
 
     return (
-        <div>
+        <div className="min-h-screen">
             <Navbar />
             {props.displayType === "mobile" && (
                 <div className="min-h-screen flex flex-col items-center mt-12 font-poppins px-[14px]">

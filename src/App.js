@@ -8,6 +8,8 @@ import GetStarted from "./pages/GetStarted.js"
 import ScrollToTop from "./hooks/ScrollToTop.js";
 import useWindowSize from "./hooks/useWindowSize.js";
 import { useEffect, useState } from "react"
+import TermsOfService from "./pages/TermsOfService.js";
+import PrivacyPolicy from "./pages/PrivacyPolicy.js";
 
 function App() {
 
@@ -62,6 +64,16 @@ function App() {
           </Route>
           <Route path="/blog/:blogName">
             <Blog
+              displayType={displayType}
+            />
+          </Route>
+          <Route path="/termsOfService">
+            <TermsOfService
+              displayType={displayType}
+            />
+          </Route>
+          <Route path="/privacyPolicy">
+            <PrivacyPolicy
               displayType={displayType}
             />
           </Route>

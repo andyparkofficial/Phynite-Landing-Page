@@ -14,7 +14,7 @@ import { Link, useLocation } from "react-router-dom"
 import LinkedInIcon from "../assets/linkedin-icon.png"
 import TwitterIcon from "../assets/twitter-icon.png"
 import CrystalContract from "../assets/crystal-contract.png"
-import InstagramIcon from "../assets/gray-instagram-icon.png"
+import InstagramIcon from "../assets/instagram-icon.png"
 import AndyPicture from "../assets/andy-profile-picture.jpg"
 import EsaPicture from "../assets/esa-profile-picture.jpg"
 import WilliamProfilePic from "../assets/bill-profile-picture.jpg"
@@ -147,10 +147,10 @@ export default function About (props) {
     
 
     return (
-        <div className="">
+        <div  className="min-h-screen">
             <Navbar isClicked={"1"} />
             {props.displayType === "mobile" && (
-                <div className="pt-20 px-[14px] font-poppins w-full">
+                <div className="pt-20 px-[14px] font-poppins w-full min-h-screen">
                     <div className="w-full mb-16">
                         <h1 className="font-semibold text-3xl text-phyniteBlue leading-tight pt-8 px-1 mb-2">
                             Who We Are, Our Vision, and More.
@@ -528,9 +528,13 @@ export default function About (props) {
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-3 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-lg font-semibold">Andy Park</h1>
                                             <h2 className="w-full font-poppins text-gray-200 text-sm font-[500] mb-1">CEO/CTO</h2>
-                                            <div className="flex gap-x-2 w-full justify-start">
-                                                <img src={TwitterIcon} className="h-5 w-5"></img>
-                                                <img src={LinkedInIcon} className="h-5 w-5"></img>
+                                            <div className="flex gap-x-2 w-full justify-start items-center">
+                                                <a target="_blank" href="https://twitter.com/andyparkphynite">
+                                                    <img src={TwitterIcon} className="h-6 w-6"></img>
+                                                </a>
+                                                <a target="_blank" href="https://www.linkedin.com/in/andy-park-b5a76a236/">
+                                                    <img src={LinkedInIcon} className="h-6 w-6"></img>
+                                                </a>
                                             </div>
                                         </div>
                                     </ImageBox>
@@ -542,9 +546,10 @@ export default function About (props) {
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-3 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-lg font-semibold">Esa Sait</h1>
                                             <h2 className="w-full font-poppins text-gray-200 text-sm font-[500] mb-1">COO</h2>
-                                            <div className="flex gap-x-2 w-full justify-start">
-                                                <img src={TwitterIcon} className="h-5 w-5"></img>
-                                                <img src={LinkedInIcon} className="h-5 w-5"></img>
+                                            <div className="flex gap-x-2 w-full justify-start items-center">
+                                                <a target="_blank" href="https://www.instagram.com/unofficial.esa/">
+                                                    <img src={InstagramIcon} className="h-5 w-5"></img>
+                                                </a>
                                             </div>
                                         </div>
                                     </ImageBox>
@@ -558,9 +563,13 @@ export default function About (props) {
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-3 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-lg font-semibold">William Yeo</h1>
                                             <h2 className="w-full font-poppins text-gray-200 text-sm font-[500] mb-1">CFO</h2>
-                                            <div className="flex gap-x-2 w-full justify-start">
-                                                <img src={TwitterIcon} className="h-5 w-5"></img>
-                                                <img src={LinkedInIcon} className="h-5 w-5"></img>
+                                            <div className="flex gap-x-2 w-full justify-start items-center">
+                                                <a target="_blank" href="https://www.instagram.com/will.yeo/">
+                                                    <img src={InstagramIcon} className="h-5 w-5"></img>
+                                                </a>
+                                                <a target="_blank" href="https://www.linkedin.com/in/williamcharlesyeo2003/">
+                                                    <img src={LinkedInIcon} className="h-6 w-6"></img>
+                                                </a>
                                             </div>
                                         </div>
                                     </ImageBox>
@@ -575,7 +584,7 @@ export default function About (props) {
                 </div>
             )}
             {props.displayType === "tablet" && (
-                <div className="w-full px-[18px] pt-20 font-poppins">
+                <div className="w-full px-[18px] pt-20 font-poppins min-h-screen">
                     <div className="w-full flex pt-20 items-center gap-x-4 mb-32">
     
                         <div className="w-[40%]  h-full flex justify-start items-center overflow-hidden">
@@ -958,9 +967,13 @@ export default function About (props) {
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-5 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-2xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-2xl font-semibold mb-1">Andy Park</h1>
                                             <h2 className="w-full font-poppins text-gray-200 text-lg font-[500] mb-1">CEO/CTO</h2>
-                                            <div className="flex gap-x-2 w-full justify-start">
-                                                <img src={TwitterIcon} className="h-6 w-6"></img>
-                                                <img src={LinkedInIcon} className="h-6 w-6"></img>
+                                            <div className="flex gap-x-2 w-full justify-start items-center">
+                                                <a target="_blank" href="https://twitter.com/andyparkphynite">
+                                                    <img src={TwitterIcon} className="h-6 w-6"></img>
+                                                </a>
+                                                <a target="_blank" href="https://www.linkedin.com/in/andy-park-b5a76a236/">
+                                                    <img src={LinkedInIcon} className="h-6 w-6"></img>
+                                                </a>
                                             </div>
                                         </div>
                                     </ImageBox>
@@ -972,9 +985,10 @@ export default function About (props) {
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-5 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-2xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-2xl font-semibold mb-1">Esa Sait</h1>
                                             <h2 className="w-full font-poppins text-gray-200 text-lg font-[500] mb-1">COO</h2>
-                                            <div className="flex gap-x-2 w-full justify-start">
-                                                <img src={TwitterIcon} className="h-6 w-6"></img>
-                                                <img src={LinkedInIcon} className="h-6 w-6"></img>
+                                            <div className="flex gap-x-2 w-full justify-start items-center">
+                                                <a target="_blank" href="https://www.instagram.com/unofficial.esa/">
+                                                    <img src={InstagramIcon} className="h-5 w-5"></img>
+                                                </a>
                                             </div>
                                         </div>
                                     </ImageBox>
@@ -988,9 +1002,14 @@ export default function About (props) {
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-5 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-2xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-2xl font-semibold mb-1">William Yeo</h1>
                                             <h2 className="w-full font-poppins text-gray-200 text-lg font-[500] mb-1">CFO</h2>
-                                            <div className="flex gap-x-2 w-full justify-start">
-                                                <img src={TwitterIcon} className="h-6 w-6"></img>
-                                                <img src={LinkedInIcon} className="h-6 w-6"></img>
+                                            <div className="flex gap-x-2 w-full justify-start items-center">
+                                                <a target="_blank" href="https://www.instagram.com/will.yeo/">
+                                                    <img src={InstagramIcon} className="h-5 w-5"></img>
+                                                </a>
+                                                <a target="_blank" href="https://www.linkedin.com/in/williamcharlesyeo2003/">
+                                                    <img src={LinkedInIcon} className="h-6 w-6"></img>
+                                                </a>
+                                               
                                             </div>
                                         </div>
                                     </ImageBox>
@@ -1004,7 +1023,7 @@ export default function About (props) {
                 </div>
             )}
             {props.displayType === "smallComputer" && (
-                <div className="w-full px-8 pt-20 font-poppins">
+                <div className="w-full px-8 pt-20 font-poppins min-h-screen">
                     <div className="w-full flex pt-20 items-center gap-x-8 mb-20 h-screen min-h-[500px] max-h-[600px]">
                         <div className="w-[40%]  h-full flex justify-start items-center overflow-hidden">
                             <img className="w-full" src={CrystalPhyniteLogo}></img>
@@ -1407,9 +1426,13 @@ export default function About (props) {
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-6 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-3xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-xl font-semibold mb-1">Andy Park</h1>
                                             <h2 className="w-full font-poppins text-gray-200  font-[500] mb-1">CEO/CTO</h2>
-                                            <div className="flex gap-x-2 w-full justify-start">
-                                                <img src={TwitterIcon} className="h-6 w-6"></img>
-                                                <img src={LinkedInIcon} className="h-6 w-6"></img>
+                                            <div className="flex gap-x-2 w-full justify-start items-center">
+                                                <a target="_blank" href="https://twitter.com/andyparkphynite">
+                                                    <img src={TwitterIcon} className="h-6 w-6"></img>
+                                                </a>
+                                                <a target="_blank" href="https://www.linkedin.com/in/andy-park-b5a76a236/">
+                                                    <img src={LinkedInIcon} className="h-6 w-6"></img>
+                                                </a>
                                             </div>
                                         </div>
                                     </ImageBox>
@@ -1421,9 +1444,10 @@ export default function About (props) {
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-6 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-3xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-xl font-semibold mb-1">Esa Sait</h1>
                                             <h2 className="w-full font-poppins text-gray-200 font-[500] mb-1">COO</h2>
-                                            <div className="flex gap-x-2 w-full justify-start">
-                                                <img src={TwitterIcon} className="h-6 w-6"></img>
-                                                <img src={LinkedInIcon} className="h-6 w-6"></img>
+                                            <div className="flex gap-x-2 w-full justify-start items-center">
+                                                <a target="_blank" href="https://www.instagram.com/unofficial.esa/">
+                                                    <img src={InstagramIcon} className="h-5 w-5"></img>
+                                                </a>
                                             </div>
                                         </div>
                                     </ImageBox>
@@ -1435,9 +1459,13 @@ export default function About (props) {
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-6 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-3xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-xl font-semibold mb-1">William Yeo</h1>
                                             <h2 className="w-full font-poppins text-gray-200 font-[500] mb-1">CFO</h2>
-                                            <div className="flex gap-x-2 w-full justify-start">
-                                                <img src={TwitterIcon} className="h-6 w-6"></img>
-                                                <img src={LinkedInIcon} className="h-6 w-6"></img>
+                                            <div className="flex gap-x-2 w-full justify-start items-center">
+                                                <a target="_blank" href="https://www.instagram.com/will.yeo/">
+                                                    <img src={InstagramIcon} className="h-5 w-5"></img>
+                                                </a>
+                                                <a target="_blank" href="https://www.linkedin.com/in/williamcharlesyeo2003/">
+                                                    <img src={LinkedInIcon} className="h-6 w-6"></img>
+                                                </a>
                                             </div>
                                         </div>
                                     </ImageBox>
@@ -1450,7 +1478,7 @@ export default function About (props) {
             )}
 
             {props.displayType === "computer" && (
-                <div className="w-full bg-mainGray flex flex-col items-center pt-12 px-[28px] overflow-clip">
+                <div className="w-full bg-mainGray flex flex-col items-center pt-12 px-[28px] overflow-clip min-h-screen">
                     <div className="max-w-[1300px] max-h-[900px] h-screen min-h-[700px] flex justify-center">
     
                         <div className="w-[40%]  h-full flex justify-start items-center">
@@ -1855,9 +1883,13 @@ export default function About (props) {
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-7 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-3xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-2xl font-semibold mb-1">Andy Park</h1>
                                             <h2 className="w-full font-poppins text-gray-200 text-lg font-[500] mb-1">CEO/CTO</h2>
-                                            <div className="flex gap-x-2 w-full justify-start">
-                                                <img src={TwitterIcon} className="h-6 w-6"></img>
-                                                <img src={LinkedInIcon} className="h-6 w-6"></img>
+                                            <div className="flex gap-x-2 w-full justify-start items-center">
+                                                <a target="_blank" href="https://twitter.com/andyparkphynite">
+                                                    <img src={TwitterIcon} className="h-6 w-6"></img>
+                                                </a>
+                                                <a target="_blank" href="https://www.linkedin.com/in/andy-park-b5a76a236/">
+                                                    <img src={LinkedInIcon} className="h-6 w-6"></img>
+                                                </a>
                                             </div>
                                         </div>
                                     </ImageBox>
@@ -1869,9 +1901,10 @@ export default function About (props) {
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-7 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-3xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-2xl font-semibold mb-1">Esa Sait</h1>
                                             <h2 className="w-full font-poppins text-gray-200 text-lg font-[500] mb-1">COO</h2>
-                                            <div className="flex gap-x-2 w-full justify-start">
-                                                <img src={TwitterIcon} className="h-6 w-6"></img>
-                                                <img src={LinkedInIcon} className="h-6 w-6"></img>
+                                            <div className="flex gap-x-2 w-full justify-start items-center">
+                                                <a target="_blank" href="https://www.instagram.com/unofficial.esa/">
+                                                    <img src={InstagramIcon} className="h-5 w-5"></img>
+                                                </a>
                                             </div>
                                         </div>
                                     </ImageBox>
@@ -1883,9 +1916,13 @@ export default function About (props) {
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-7 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-3xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-2xl font-semibold mb-1">William Yeo</h1>
                                             <h2 className="w-full font-poppins text-gray-200 text-lg font-[500] mb-1">CFO</h2>
-                                            <div className="flex gap-x-2 w-full justify-start">
-                                                <img src={TwitterIcon} className="h-6 w-6"></img>
-                                                <img src={LinkedInIcon} className="h-6 w-6"></img>
+                                            <div className="flex gap-x-2 w-full justify-start items-center">
+                                                <a target="_blank" href="https://www.instagram.com/will.yeo/">
+                                                    <img src={InstagramIcon} className="h-5 w-5"></img>
+                                                </a>
+                                                <a target="_blank" href="https://www.linkedin.com/in/williamcharlesyeo2003/">
+                                                    <img src={LinkedInIcon} className="h-6 w-6"></img>
+                                                </a>
                                             </div>
                                         </div>
                                     </ImageBox>
