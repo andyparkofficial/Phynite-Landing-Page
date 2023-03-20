@@ -2,7 +2,9 @@ import { useEffect, useState } from "react"
 import Navbar from "../components/Navbar.js"
 import Footer from "../components/Footer.js"
 import PhyniteDataService from "../services/phyniteData.js"
-import {useHistory} from "react-router-dom"
+import { useHistory } from "react-router-dom"
+import { formatDateObject } from "../utils/utils.js"
+import ImageBox from "../components/ImageBox.js"
 
 export default function Blogs(props) {
 
@@ -24,18 +26,6 @@ export default function Blogs(props) {
         history.push(`/${pageURL}`);
       }
 
-
-    const fakeBlogs =
-        [
-            {
-                title: "The Pros and Cons of Physically Backed NFTs",
-                bgImage: "",
-                dateWritten: "Coming Soon",
-                summary: "Physically Backed NFTs bring clear economic values, and create opportunities for higher demand in such assets, making them ideal investments."
-
-            }
-        ]
-
     return (
         <div>
             <Navbar isClicked={"2"} />
@@ -46,34 +36,46 @@ export default function Blogs(props) {
                             <span className="text-phyniteBlue">Phynite </span>Blog
                         </h1>
                         <h2 className="text-white text-2xl font-[500] mb-4 pl-1">Recent</h2>
-                        <div className="rounded-2xl h-[250px] border border-gray0 bg-gradient-to-r from-gray-600 via-gray-300 to-ice flex flex-col justify-end p-4">
-                            <h1 className="text-gray1 text-xl font-bold leading-[1.2] mb-2 w-3/4">
-                                The Pros and Cons of Physically Backed NFTs
-                            </h1>
-                            <h2 className="text-gray3 font-semibold justify-end">
-                                Coming Soon
-                            </h2>
-                        </div>
+                        {blogs === null ? (<div></div>) : (
+                            <button onClick={()=>redirectToPage(`blog/${blogs[0].slug}`)} className="rounded-2xl  border border-gray1 overflow-hidden">
+                                
+                                <ImageBox imageSource={blogs[0].imageURL} className="">
+                                    <div className="w-full flex justify-end flex-col items-start pb-8 p-6 h-full">
+                                        <h1 className="text-gray1 text-xl font-bold leading-[1.2] mb-4 text-left">
+                                            {blogs[0].title}
+                                        </h1>
+                                        <h2 className="text-gray3 font-semibold text-lg justify-end text-left">
+                                            {formatDateObject(blogs[0].datePublished)}
+                                        </h2>
+                                    </div>
+                                    
+                                </ImageBox>
+                            </button>
+                        )}
+                        
                     </div>
                     <div className="w-full mb-20">
                         <h1 className="text-2xl font-[500] text-white pl-1 mb-1">Recommended</h1>
-                        <div className="w-full">
-                            {fakeBlogs.map((blog, id) => {
-                                return (
-                                    <div className="py-3">
-                                        <div className="rounded-2xl h-[450px] bg-gray4 border border-gray1 flex flex-col overflow-clip">
-                                            <div className="w-full h-[250px] bg-gradient-to-br border-b border-gray1 from-phyniteBlue via-ice to-gray1"></div>
-                                            <div className="h-[250px] font-poppins p-5">
-                                                
-                                                <h1 className="text-white text-xl font-[500]">{blog.title}</h1>
-                                                <h2 className="text-gray0 text-sm mb-2">{blog.dateWritten}</h2>
-                                                <p className="border-t border-gray1 text-sm text-gray-400 pt-3">{blog.summary}</p>
-                                            </div>
+                        {blogs === null ? (<div></div>) : (
+                            <div className="w-full">
+                                {blogs.map((blog, id) => {
+                                    return (
+                                        <div className="py-3">
+                                            <button onClick={()=>redirectToPage(`blog/${blog.slug}`)} className="rounded-2xl h-[450px] bg-gray4 border border-gray1 flex flex-col overflow-clip">
+                                            <img src={blog.imageURL} className="w-full border-b border-gray1"></img>
+                                                <div className="h-[250px] font-poppins p-5 text-left">
+                                                    
+                                                    <h1 className="text-white text-xl font-[500] mb-2">{blog.title}</h1>
+                                                    <h2 className=" text-gray-300 font-light mb-2">{formatDateObject(blog.datePublished)}</h2>
+                                                    <p className="border-t border-gray1 text-sm text-gray-400 pt-3">{blog.summary}</p>
+                                                </div>
+                                            </button>
                                         </div>
-                                    </div>
-                                )
-                            })}
-                        </div>
+                                    )
+                                })}
+                            </div>
+                        )}
+
                     </div>
                 </div>
             )}
@@ -87,38 +89,46 @@ export default function Blogs(props) {
                             <h2 className="text-3xl text-white font-poppins font-[500] mb-8">
                                 Recent
                             </h2>
-                            <div className="rounded-3xl border border-gray0 h-[500px] bg-gradient-to-r from-gray-600 via-gray-300 to-ice flex justify-start items-end pb-16 p-12">
-                                <div className=" w-1/2">
-                                    <h1 className="text-gray1 text-4xl font-bold leading-[1.2] mb-4">
-                                        The Pros and Cons of Physically Backed NFTs
-                                    </h1>
-                                    <h2 className="text-gray3 font-semibold text-2xl justify-end">
-                                        Coming Soon
-                                    </h2>
-                                </div>
-                                
-                            </div>
+                            {blogs === null ? (<div></div>) : (
+                                <button onClick={()=>redirectToPage(`blog/${blogs[0].slug}`)} className="rounded-2xl  border border-gray1 overflow-hidden">
+                                    <ImageBox imageSource={blogs[0].imageURL} className="">
+                                        <div className=" w-full  flex justify-end flex-col items-start pb-10 p-8 h-full">
+                                            <h1 className="text-gray1 text-2xl font-bold leading-[1.2] mb-4 text-left">
+                                                {blogs[0].title}
+                                            </h1>
+                                            <h2 className="text-gray3 font-semibold text-xl justify-end text-left">
+                                                {formatDateObject(blogs[0].datePublished)}
+                                            </h2>
+                                        </div>
+                                        
+                                    </ImageBox>
+                                </button>
+                            )}
+
                         </div>
                     </div>
                     <div className="w-full mb-24 px-[10px]">
                         <h1 className="text-3xl font-[500] text-white pl-3 mb-1">Recommended</h1>
+                        {blogs === null ? (<div></div>) : (
                         <div className="w-full flex flex-wrap">
-                            {fakeBlogs.map((blog, id) => {
-                                return (
-                                    <div className="py-3 w-1/2 px-2">
-                                        <div className="rounded-2xl h-[500px] bg-gray4 border border-gray1 flex flex-col overflow-clip">
-                                            <div className="w-full h-[250px] bg-gradient-to-br border-b border-gray1 from-phyniteBlue via-ice to-gray1"></div>
-                                            <div className="h-[250px] font-poppins p-5">
-                                                
-                                                <h1 className="text-white text-xl font-[500]">{blog.title}</h1>
-                                                <h2 className="text-gray0 text-sm mb-2">{blog.dateWritten}</h2>
-                                                <p className="border-t border-gray1 text-sm text-gray-400 pt-3">{blog.summary}</p>
-                                            </div>
+                                {blogs.map((blog, id) => {
+                                    return (
+                                        <div className="py-3 w-1/2 px-2">
+                                            <button onClick={()=>redirectToPage(`blog/${blog.slug}`)} className="rounded-2xl h-[42s0px] bg-gray4 border border-gray1 flex flex-col overflow-clip">
+                                            <img src={blog.imageURL} className="w-full border-b border-gray1"></img>
+                                                <div className="h-[250px] font-poppins p-5 text-left">
+                                                    
+                                                    <h1 className="text-white text-xl font-[500] mb-2">{blog.title}</h1>
+                                                    <h2 className=" text-gray-300 font-light mb-2">{formatDateObject(blog.datePublished)}</h2>
+                                                    <p className="border-t border-gray1 text-sm text-gray-400 pt-3">{blog.summary}</p>
+                                                </div>
+                                            </button>
                                         </div>
-                                    </div>
-                                )
-                            })}
-                        </div>
+                                    )
+                                })}
+                            </div>
+                        )}
+
                     </div>
                 </div>
             )}
@@ -132,38 +142,45 @@ export default function Blogs(props) {
                             <h2 className="text-3xl text-white font-poppins font-[500] mb-8">
                                 Recent
                             </h2>
-                            <div className="rounded-3xl border border-gray0 h-[500px] bg-gradient-to-r from-gray-600 via-gray-300 to-ice flex justify-start items-end pb-16 p-12">
-                                <div className=" w-1/2">
-                                    <h1 className="text-gray1 text-4xl font-bold leading-[1.2] mb-4">
-                                        The Pros and Cons of Physically Backed NFTs
-                                    </h1>
-                                    <h2 className="text-gray3 font-semibold text-2xl justify-end">
-                                        Coming Soon
-                                    </h2>
-                                </div>
-                                
-                            </div>
+                            {blogs === null ? (<div></div>) : (
+                                <button onClick={()=>redirectToPage(`blog/${blogs[0].slug}`)} className="rounded-3xl hover:border-gray0 border border-gray1 hover:brightness-110 duration-300 overflow-hidden">
+                                    <ImageBox imageSource={blogs[0].imageURL} className="">
+                                        <div className=" w-1/2  flex justify-end flex-col items-start pb-12 p-10 h-full">
+                                            <h1 className="text-gray1 text-4xl font-bold leading-[1.2] mb-4 text-left">
+                                                {blogs[0].title}
+                                            </h1>
+                                            <h2 className="text-gray3 font-semibold text-2xl justify-end text-left">
+                                                {formatDateObject(blogs[0].datePublished)}
+                                            </h2>
+                                        </div>
+                                        
+                                    </ImageBox>
+                                </button>
+                            )}
                         </div>
                     </div>
                     <div className="text-3xl text-white font-[500] w-full mb-6 font-poppins pl-3">Recommended</div>
-                    <div className="w-full flex-wrap flex mb-24">
-                        
-                        {fakeBlogs.map((blog, id) => {
-                            return (
-                                <div className="w-1/3 p-3">
-                                    <div className="rounded-2xl min-h-[450px] bg-gray4 border border-gray1 flex flex-col">
-                                        <div className="w-full h-[250px] bg-gradient-to-br border-b border-gray1 rounded-t-2xl from-phyniteBlue via-ice to-gray1"></div>
-                                        <div className="font-poppins p-5">
-                                            
-                                            <h1 className="text-white text-xl font-[500]">{blog.title}</h1>
-                                            <h2 className="text-gray0 text mb-2 text-sm">{blog.dateWritten}</h2>
-                                            <p className="border-t border-gray1 text-xs text-gray-400 pt-3">{blog.summary}</p>
-                                        </div>
+                    {blogs === null ? (<div></div>) : (
+                        <div className="w-full flex-wrap flex mb-24">
+                            
+                            {blogs.map((blog, id) => {
+                                return (
+                                    <div className="w-1/3 p-3">
+                                        <button onClick={()=>redirectToPage(`blog/${blog.slug}`)} className="rounded-2xl h-[420px] bg-gray4 border border-gray1 flex flex-col overflow-clip hover:bg-gradient-to-br hover:brightness-125 hover:border-gray0 hover:from-gray2 hover:to-gray4 duration-300">
+                                            <img src={blog.imageURL} className="w-full border-b border-gray1"></img>
+                                            <div className="font-poppins p-5 text-left">
+                                                
+                                                <h1 className="text-white text-xl font-[500] mb-2">{blog.title}</h1>
+                                                <h2 className=" text-gray-300 font-light mb-2">{formatDateObject(blog.datePublished)}</h2>
+                                                <p className="border-t border-gray1 text-xs text-gray-400 pt-3">{blog.summary}</p>
+                                            </div>
+                                        </button>
                                     </div>
-                                </div>
-                            )
-                        })}
-                    </div>
+                                )
+                            })}
+                        </div>
+                    )}
+
                 </div>
             )}
             {props.displayType === "computer" && (
@@ -176,38 +193,47 @@ export default function Blogs(props) {
                             <h2 className="text-4xl text-white font-poppins font-[500] mb-8">
                                 Recent
                             </h2>
-                            <div className="rounded-3xl border border-gray0 h-[600px] bg-gradient-to-r from-gray-600 via-gray-300 to-ice flex justify-start items-end pb-16 p-12">
-                                <div className=" w-1/2">
-                                    <h1 className="text-gray1 text-5xl font-bold leading-[1.2] mb-4">
-                                        The Pros and Cons of Physically Backed NFTs
-                                    </h1>
-                                    <h2 className="text-gray3 font-semibold text-3xl justify-end">
-                                    Coming Soon
-                                    </h2>
-                                </div>
-                                
-                            </div>
+                            {blogs === null ? (<div></div>) : (
+                                <button onClick={()=>redirectToPage(`blog/${blogs[0].slug}`)} className="rounded-3xl hover:border-gray0 border border-gray1 hover:brightness-110 duration-300 overflow-hidden">
+                                    <ImageBox imageSource={blogs[0].imageURL} className="">
+                                        <div className=" w-1/2  flex justify-end flex-col items-start pb-16 p-12 h-full">
+                                            <h1 className="text-gray1 text-5xl font-bold leading-[1.2] mb-4 text-left">
+                                                {blogs[0].title}
+                                            </h1>
+                                            <h2 className="text-gray3 font-semibold text-3xl justify-end text-left">
+                                                {formatDateObject(blogs[0].datePublished)}
+                                            </h2>
+                                        </div>
+                                        
+                                    </ImageBox>
+                                </button>
+                            )}
+                            
+
                         </div>
                     </div>
                     <div className="text-4xl text-white font-[500] w-[1300px] mb-6 font-poppins">Recommended</div>
-                    <div className="w-[1324px] flex-wrap flex mb-28">
-                        
-                        {fakeBlogs.map((blog, id) => {
-                            return (
-                                <div className="w-1/3 p-3">
-                                    <button onClick={()=>redirectToPage('blog/the_importance_of_physically_backed_nfts')} className="rounded-2xl h-[500px] bg-gray4 border border-gray1 flex flex-col overflow-clip hover:bg-gradient-to-br hover:brightness-125 hover:border-gray0 hover:from-gray2 hover:to-gray4 duration-300">
-                                        <div className="w-full h-[250px] bg-gradient-to-br border-b border-gray1 from-phyniteBlue via-ice to-gray1"></div>
-                                        <div className="h-[250px] font-poppins p-5">
-                                            
-                                            <h1 className="text-white text-2xl font-[500] text-left">{blog.title}</h1>
-                                            <h2 className="text-gray0 text-left mb-2">{blog.dateWritten}</h2>
-                                            <p className="border-t border-gray1 text-sm text-gray-400 pt-3 text-left">{blog.summary}</p>
-                                        </div>
-                                    </button>
-                                </div>
-                            )
-                        })}
-                    </div>
+                    {blogs === null ? (<div></div>) : (
+                        <div className="w-[1324px] flex-wrap flex mb-28">
+        
+                            {blogs.map((blog, id) => {
+                                return (
+                                    <div className="w-1/3 p-3">
+                                        <button onClick={()=>redirectToPage(`blog/${blog.slug}`)} className="rounded-2xl h-[500px] bg-gray4 border border-gray1 flex flex-col overflow-clip hover:bg-gradient-to-br hover:brightness-125 hover:border-gray0 hover:from-gray2 hover:to-gray4 duration-300">
+                                            <img src={blog.imageURL} className="w-full border-b border-gray1"></img>
+                                            <div className="h-[250px] font-poppins p-5 text-left">
+                                                
+                                                <h1 className="text-white text-2xl font-[500] mb-2">{blog.title}</h1>
+                                                <h2 className=" text-gray-300 font-light mb-2">{formatDateObject(blog.datePublished)}</h2>
+                                                <p className="border-t border-gray1 text-sm text-gray-400 pt-3 text-left">{blog.summary}</p>
+                                            </div>
+                                        </button>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    )}
+
                 </div>
             )}
 

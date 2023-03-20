@@ -16,7 +16,9 @@ export default function ImageBox(props) {
     
     useEffect(() => {
         if (props.imageSource && imageRef.current) {
-            setTimeout(()=>calculateDimensions(),200)
+            setTimeout(() => calculateDimensions(), 200)
+            setTimeout(() => calculateDimensions(), 500)
+            setTimeout(()=>calculateDimensions(),1000)
         }
     }, [props.imageSource])
     

@@ -56,7 +56,7 @@ export default function Footer() {
                                 <Link to="/about">
                                     <h2 className="text-sm text-white font-semibold">About</h2>
                                 </Link>
-                                <Link to="/blog">
+                                <Link to="/blogs">
                                     <h2 className="text-sm text-white font-semibold">Blog</h2>
                                 </Link>
                             </div>
@@ -123,7 +123,7 @@ export default function Footer() {
                                 <Link to="/about">
                                     <h2 className=" text-white font-semibold">About</h2>
                                 </Link>
-                                <Link to="/blog">
+                                <Link to="/blogs">
                                     <h2 className=" text-white font-semibold">Blog</h2>
                                 </Link>
                             </div>
@@ -188,7 +188,7 @@ export default function Footer() {
                             <Link to="/about">
                                 <h2 className="text-sm text-white font-semibold">About</h2>
                             </Link>
-                            <Link to="/blog">
+                            <Link to="/blogs">
                                 <h2 className="text-sm text-white font-semibold">Blog</h2>
                             </Link>
                         </div>
@@ -243,7 +243,7 @@ export default function Footer() {
                             <Link to="/about">
                                 <h2 className="text-sm text-white font-semibold">About</h2>
                             </Link>
-                            <Link to="/blog">
+                            <Link to="/blogs">
                                 <h2 className="text-sm text-white font-semibold">Blog</h2>
                             </Link>
                         </div>

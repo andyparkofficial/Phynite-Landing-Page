@@ -3,8 +3,8 @@ import http from "../http-common";
 class PhyniteDataService {
  
 
-  addEmail(email) {
-    return http.post("/addEmail", {email: email});
+  addSignUp(signUpData) {
+    return http.post("/addSignUp", signUpData);
   }
 
   getBlogs(blogName) {
