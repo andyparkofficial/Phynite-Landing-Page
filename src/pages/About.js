@@ -524,7 +524,7 @@ export default function About (props) {
                         <div className="flex gap-x-3 w-full mb-4">
                             <div className="w-1/2">
                                 <div className="w-full rounded-xl h-full bg-gradient-to-b from-gray2 to-gray4 overflow-clip">
-                                    <ImageBox imageSource={AndyPicture} >
+                                    <ImageBox dimensions={(7/5)} imageSource={AndyPicture} >
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-3 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-lg font-semibold">Andy Park</h1>
                                             <h2 className="w-full font-poppins text-gray-200 text-sm font-[500] mb-1">CEO/CTO</h2>
@@ -542,7 +542,7 @@ export default function About (props) {
                             </div>
                             <div className="w-1/2">
                                 <div className="w-full rounded-xl h-full bg-gradient-to-b from-gray2 to-gray4 overflow-clip">
-                                    <ImageBox imageSource={EsaPicture} >
+                                    <ImageBox dimensions={(7/5)} imageSource={EsaPicture} >
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-3 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-lg font-semibold">Esa Sait</h1>
                                             <h2 className="w-full font-poppins text-gray-200 text-sm font-[500] mb-1">COO</h2>
@@ -559,7 +559,7 @@ export default function About (props) {
                         <div className="flex gap-x-3 w-full">
                             <div className="w-1/2">
                                 <div className="w-full rounded-xl h-full bg-gradient-to-b from-gray2 to-gray4 overflow-clip">
-                                    <ImageBox imageSource={WilliamProfilePic} >
+                                    <ImageBox dimensions={(7/5)} imageSource={WilliamProfilePic} >
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-3 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-lg font-semibold">William Yeo</h1>
                                             <h2 className="w-full font-poppins text-gray-200 text-sm font-[500] mb-1">CFO</h2>
@@ -963,7 +963,7 @@ export default function About (props) {
                         <div className="flex gap-x-5 w-full mb-6">
                             <div className="w-1/2">
                                 <div className="w-full rounded-2xl h-full bg-gradient-to-b from-gray2 to-gray4 overflow-clip">
-                                    <ImageBox imageSource={AndyPicture} >
+                                    <ImageBox dimensions={(7/5)} imageSource={AndyPicture} >
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-5 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-2xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-2xl font-semibold mb-1">Andy Park</h1>
                                             <h2 className="w-full font-poppins text-gray-200 text-lg font-[500] mb-1">CEO/CTO</h2>
@@ -981,7 +981,7 @@ export default function About (props) {
                             </div>
                             <div className="w-1/2">
                                 <div className="w-full rounded-2xl h-full bg-gradient-to-b from-gray2 to-gray4 overflow-clip">
-                                    <ImageBox imageSource={EsaPicture} >
+                                    <ImageBox dimensions={(7/5)} imageSource={EsaPicture} >
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-5 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-2xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-2xl font-semibold mb-1">Esa Sait</h1>
                                             <h2 className="w-full font-poppins text-gray-200 text-lg font-[500] mb-1">COO</h2>
@@ -998,7 +998,7 @@ export default function About (props) {
                         <div className="flex gap-x-5 w-full">
                             <div className="w-1/2">
                                 <div className="w-full rounded-2xl h-full bg-gradient-to-b from-gray2 to-gray4 overflow-clip">
-                                    <ImageBox imageSource={WilliamProfilePic} >
+                                    <ImageBox dimensions={(7/5)} imageSource={WilliamProfilePic} >
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-5 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-2xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-2xl font-semibold mb-1">William Yeo</h1>
                                             <h2 className="w-full font-poppins text-gray-200 text-lg font-[500] mb-1">CFO</h2>
@@ -1422,7 +1422,7 @@ export default function About (props) {
                         <div className="w-full flex gap-x-6">
                             <div className="w-1/3 h-full">
                                 <div className="w-full rounded-3xl h-full bg-gradient-to-b from-gray2 to-gray4 overflow-clip">
-                                    <ImageBox imageSource={AndyPicture} >
+                                    <ImageBox dimensions={(7/5)} imageSource={AndyPicture} >
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-6 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-3xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-xl font-semibold mb-1">Andy Park</h1>
                                             <h2 className="w-full font-poppins text-gray-200  font-[500] mb-1">CEO/CTO</h2>
@@ -1440,7 +1440,7 @@ export default function About (props) {
                             </div>
                             <div className="w-1/3 h-full">
                                 <div className="w-full rounded-3xl h-full bg-gradient-to-b from-gray2 to-gray4 overflow-clip">
-                                    <ImageBox imageSource={EsaPicture} >
+                                    <ImageBox dimensions={(7/5)} imageSource={EsaPicture} >
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-6 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-3xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-xl font-semibold mb-1">Esa Sait</h1>
                                             <h2 className="w-full font-poppins text-gray-200 font-[500] mb-1">COO</h2>
@@ -1455,7 +1455,7 @@ export default function About (props) {
                             </div>
                             <div className="w-1/3 h-full">
                                 <div className="w-full rounded-3xl h-full bg-gradient-to-b from-gray2 to-gray4 overflow-clip">
-                                    <ImageBox imageSource={WilliamProfilePic} >
+                                    <ImageBox dimensions={(7/5)} imageSource={WilliamProfilePic} >
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-6 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-3xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-xl font-semibold mb-1">William Yeo</h1>
                                             <h2 className="w-full font-poppins text-gray-200 font-[500] mb-1">CFO</h2>
@@ -1879,7 +1879,7 @@ export default function About (props) {
                         <div className="w-full flex gap-x-8">
                             <div className="w-1/3 h-full">
                                 <div className="w-full rounded-3xl h-full bg-gradient-to-b from-gray2 to-gray4 overflow-clip">
-                                    <ImageBox imageSource={AndyPicture} >
+                                    <ImageBox dimensions={(7/5)} imageSource={AndyPicture} >
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-7 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-3xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-2xl font-semibold mb-1">Andy Park</h1>
                                             <h2 className="w-full font-poppins text-gray-200 text-lg font-[500] mb-1">CEO/CTO</h2>
@@ -1897,7 +1897,7 @@ export default function About (props) {
                             </div>
                             <div className="w-1/3 h-full">
                                 <div className="w-full rounded-3xl h-full bg-gradient-to-b from-gray2 to-gray4 overflow-clip">
-                                    <ImageBox imageSource={EsaPicture} >
+                                    <ImageBox dimensions={(7/5)} imageSource={EsaPicture} >
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-7 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-3xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-2xl font-semibold mb-1">Esa Sait</h1>
                                             <h2 className="w-full font-poppins text-gray-200 text-lg font-[500] mb-1">COO</h2>
@@ -1912,7 +1912,7 @@ export default function About (props) {
                             </div>
                             <div className="w-1/3 h-full">
                                 <div className="w-full rounded-3xl h-full bg-gradient-to-b from-gray2 to-gray4 overflow-clip">
-                                    <ImageBox imageSource={WilliamProfilePic} >
+                                    <ImageBox dimensions={(7/5)} imageSource={WilliamProfilePic} >
                                         <div className="w-full h-full bg-gradient-to-b border border-ice from-[rgba(0,0,0,0)] p-7 via-[rgba(0,0,0,0)] to-[rgba(91,234,243,1)] rounded-3xl flex flex-col items-start justify-end">
                                             <h1 className="w-full font-poppins text-white text-2xl font-semibold mb-1">William Yeo</h1>
                                             <h2 className="w-full font-poppins text-gray-200 text-lg font-[500] mb-1">CFO</h2>
