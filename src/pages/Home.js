@@ -185,7 +185,7 @@ export default function Home(props) {
                                     <img className="h-full scale-110" src={PhyniteCarFront}></img>
                                 </div>
                             </HashLink>
-                            <Link to="/blog" className="rounded-xl flex justify-center items-center p-6 h-56 border border-gray-600 w-full bg-gradient-to-b from-gray3 to-gray2">
+                            <Link to="/blogs" className="rounded-xl flex justify-center items-center p-6 h-56 border border-gray-600 w-full bg-gradient-to-b from-gray3 to-gray2">
                                     
                                 <div className="w-full flex flex-col">
                                     <h1 className="text-white text-[40px] font-semibold mb-7 leading-6 text-center"><span className="text-phyniteBlue">Phynite </span>Blog</h1>
@@ -359,7 +359,7 @@ export default function Home(props) {
                                     <img className="h-full scale-110" src={PhyniteCarFront}></img>
                                 </div>
                             </HashLink>
-                            <Link to="/blog"  className="rounded-xl flex items-center h-56 bg-gradient-to-b from-gray3 to-gray2 border border-gray-600 w-1/2 p-4">
+                            <Link to="/blogs"  className="rounded-xl flex items-center h-56 bg-gradient-to-b from-gray3 to-gray2 border border-gray-600 w-1/2 p-4">
                                 <div className="w-full flex flex-col">
                                     <h1 className="text-white text-[40px] font-semibold mb-7 leading-6 text-center"><span className="text-phyniteBlue">Phynite </span>Blog</h1>
                                     <h2 className="text-gray-300 text-[15px] font-light text-center">Ideas, Updates, Guides, and more.</h2>
@@ -372,11 +372,11 @@ export default function Home(props) {
             {props.displayType === "smallComputer" && (
                 <div className="w-full px-8 font-poppins pt-20">
                     <div className="w-full flex justify-center pt-20 items-center mb-20 h-screen min-h-[500px] max-h-[600px] gap-x-6">
-                        <div className="w-[65%] h-full flex flex-col justify-center pl-1">
+                        <div className="w-[60%] h-full flex flex-col justify-center pl-1">
                             {(windowSize && windowSize.width > 930) && (
                                 <div className="w-full flex flex-col justify-center">
-                                    <h1 className="text-5xl font-semibold text-phyniteBlue leading-tight font-poppins w-[600px]">The Web3 Marketplace for Physical Collectibles</h1>
-                                    <h2 className="text-lg mt-6 mb-8 text-white font-light font-poppins w-[600px]">The fastest, safest, most forward-thinking way to trade physical collectibles. Only on Phynite.</h2>
+                                    <h1 className="text-5xl font-semibold text-phyniteBlue leading-tight font-poppins w-full">The Web3 Marketplace for Physical Collectibles</h1>
+                                    <h2 className="text-lg mt-6 mb-8 text-white font-light font-poppins w-full">The fastest, safest, most forward-thinking way to trade physical collectibles. Only on Phynite.</h2>
                                     <Link to="/getStarted" className="text-3xl font-semibold font-poppins text-gray1 bg-gradient-to-br from-phyniteBlue to-phyniteBlue rounded-xl w-[300px] py-2 text-center hover:brightness-125 hover:from-mango hover:to-salmon duration-300">Get Started</Link>
                                 </div>
                             )}
@@ -389,7 +389,7 @@ export default function Home(props) {
                             )}
                             
                         </div>
-                        <div className="w-[45%]  h-full flex justify-center items-center overflow-hidden">
+                        <div className="w-[40%] h-full flex justify-center items-center overflow-hidden">
                             <div className="w-full translate-x-0">
                                     <InteractiveCar/>
                             </div>
@@ -631,7 +631,7 @@ export default function Home(props) {
                                         <img className="h-full scale-110" src={PhyniteCarFront}></img>
                                     </div>
                                 </HashLink>
-                                <Link to="/blog"  className="rounded-xl flex items-center h-64 bg-gray3 border border-gray1 hover:border-gray0 duration-300 hover:bg-gradient-to-b hover:from-gray3 hover:to-gray2 hover:brightness-125 w-1/2 p-6">
+                                <Link to="/blogs"  className="rounded-xl flex items-center h-64 bg-gray3 border border-gray1 hover:border-gray0 duration-300 hover:bg-gradient-to-b hover:from-gray3 hover:to-gray2 hover:brightness-125 w-1/2 p-6">
                                     <div className="w-full flex flex-col">
                                         <h1 className="text-white text-5xl font-semibold mb-7 leading-6 text-center"><span className="text-phyniteBlue">Phynite </span>Blog</h1>
                                         <h2 className="text-gray-300 text-[15px] font-light text-center">Ideas, Updates, Guides, and more.</h2>
@@ -814,7 +814,7 @@ export default function Home(props) {
                                     </div>
                                     
                                 </HashLink>
-                                <Link to="/blog" className="w-[25%] flex items-center bg-gray3 p-6 border border-gray1 rounded-xl hover:border-gray0 duration-300 hover:bg-gradient-to-b hover:from-gray3 hover:to-gray2 hover:brightness-125">
+                                <Link to="/blogs" className="w-[25%] flex items-center bg-gray3 p-6 border border-gray1 rounded-xl hover:border-gray0 duration-300 hover:bg-gradient-to-b hover:from-gray3 hover:to-gray2 hover:brightness-125">
                                     
                                     <div className="w-full flex flex-col">
                                         <h1 className="text-white text-[32px] font-semibold mb-4 leading-6 text-center"><span className="text-phyniteBlue">Phynite </span>Blog</h1>

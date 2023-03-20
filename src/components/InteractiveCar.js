@@ -7,6 +7,7 @@ import ReactPlayer from "react-player"
 import useWindowSize from "../hooks/useWindowSize"
 import PopUpWrapper from "../components/PopUpWrapper"
 import carLightsOnDoorsOpen from "../assets/car-lights-on-doors-open.mp4"
+import clickIcon from "../assets/click-icon.png"
 import "../styles.css"
 
 export default function InteractiveCar(props) { 
@@ -60,14 +61,14 @@ export default function InteractiveCar(props) {
             const buttonHeight = Math.round(.65*(componentRef.current.offsetHeight))
             const buttonWidth = Math.round(.7 * buttonHeight)
             const componentHeight = Math.round(componentRef.current.offsetWidth)
-            const clickMeWidth = Math.round(0.3 * componentRef.current.offsetHeight)
-            const clickMeHeight = Math.round(0.4 * clickMeWidth)
+            const clickMeWidth = Math.round(0.12 * componentRef.current.offsetHeight)
+            const clickMeHeight = Math.round(1.3 * clickMeWidth)
             const clickMeContainerPadding = Math.round(0.17 * componentRef.current.offsetWidth)
 
             setClickableButtonStyle({ width: `${buttonWidth}px`, height: `${buttonHeight}px` })
             setComponentStyle({ height: `${componentHeight}px`, width: `${componentHeight}px`})
             setClickMeStyle({ height: `${clickMeHeight}px`, width: `${clickMeWidth}px` })
-            setClickMeComponentStyle({ padding: `${clickMeContainerPadding}px`})
+            setClickMeComponentStyle({ padding: `${clickMeContainerPadding}px` })
         }
         
 
@@ -102,15 +103,14 @@ export default function InteractiveCar(props) {
     
     
     return (
-        <div className="w-full h-full font-poppins" ref={componentRef} style={componentStyle}>
+        <div className="w-full h-full font-poppins" ref={componentRef} >
             {mobileOrTabletSize === true && (
-                <div>
+                <div style={componentStyle}>
                     <div className="w-full h-full absolute flex justify-end items-center" style={clickMeComponentStyle}>
                         <PopUpWrapper popUpOn={clickMeOn}>
                             <button style={clickMeStyle} onClick={()=>handleMobileOrTabletClick()} className=" flex flex-col items-center">
                                 <div className="w-full h-[80%] blur-background-light z-20 bg-gray1 bg-opacity-50 flex justify-center items-center rounded-lg border border-gray0">
-                                    {parseInt(clickMeStyle.width.slice(0,-2)) < 120 && (<h1 className="text-xs font-[500] text-white">Click Me!</h1>)}
-                                    {parseInt(clickMeStyle.width.slice(0,-2)) >= 120 && (<h1 className="text-[16px] font-[500] text-white">Click Me!</h1>)}
+                                    <img src={clickIcon} className="w-[75%]"></img>
                                 </div>
                                 <div className="overflow-clip h-[25%] z-20 w-10 flex justify-center">
                                     <div className="w-6 h-6 rotate-45 bg-gray1 bg-opacity-50 blur-background-light z-20 -translate-y-[80%] border border-gray0"></div>
@@ -133,15 +133,14 @@ export default function InteractiveCar(props) {
                 </div>
             )}
             {mobileOrTabletSize === false && (
-                <div>
+                <div style={componentStyle}>
                     <div className="w-full h-full absolute flex justify-end items-center" style={clickMeComponentStyle}>
                         <PopUpWrapper popUpOn={clickMeOn}>
                             <button style={clickMeStyle} onMouseEnter={()=>setHoverOn(true)} onMouseLeave={()=>setHoverOn(false)} onClick={()=>handleClick()} className=" flex flex-col items-center">
-                                <div className="w-full h-[80%] blur-background-light z-20 bg-gray1 bg-opacity-50 flex justify-center items-center rounded-xl border border-gray0 hover:border-gray-300 duration-300 hover:brightness-110">
-                                    {parseInt(clickMeStyle.width.slice(0,-2)) < 140 && (<h1 className="text-[16px] font-[500] text-white">Click Me!</h1>)}
-                                    {parseInt(clickMeStyle.width.slice(0,-2)) >= 140 && (<h1 className="text-2xl font-[500] text-white">Click Me!</h1>)}
+                                <div className="w-full h-[80%] blur-background-light z-20 bg-gray1 bg-opacity-50 flex justify-center items-center rounded-xl border border-gray0 duration-300 hover:brightness-125">
+                                    <img src={clickIcon} className="w-[75%]"></img>
                                 </div>
-                                <div className="overflow-clip h-[25%] z-20 w-10 flex justify-center">
+                                <div className="overflow-hidden h-[25%] z-20 w-10 flex justify-center">
                                     <div className="w-6 h-6 rotate-45 bg-gray1 bg-opacity-50 blur-background-light z-20 -translate-y-[80%] border border-gray0"></div>
                                 </div>
                                 
