@@ -39,7 +39,7 @@ export default function Blogs(props) {
                         {blogs === null ? (<div></div>) : (
                             <button onClick={()=>redirectToPage(`blog/${blogs[0].slug}`)} className="rounded-2xl  border border-gray1 overflow-hidden">
                                 
-                                <ImageBox imageSource={blogs[0].imageURL} className="">
+                                <ImageBox dimensions={9/16}  imageSource={blogs[0].imageURL} className="">
                                     <div className="w-full flex justify-end flex-col items-start pb-8 p-6 h-full">
                                         <h1 className="text-gray1 text-xl font-bold leading-[1.2] mb-4 text-left">
                                             {blogs[0].title}
@@ -91,7 +91,7 @@ export default function Blogs(props) {
                             </h2>
                             {blogs === null ? (<div></div>) : (
                                 <button onClick={()=>redirectToPage(`blog/${blogs[0].slug}`)} className="rounded-2xl  border border-gray1 overflow-hidden">
-                                    <ImageBox imageSource={blogs[0].imageURL} className="">
+                                    <ImageBox dimensions={9/16}  imageSource={blogs[0].imageURL} className="">
                                         <div className=" w-full  flex justify-end flex-col items-start pb-10 p-8 h-full">
                                             <h1 className="text-gray1 text-2xl font-bold leading-[1.2] mb-4 text-left">
                                                 {blogs[0].title}
@@ -144,7 +144,7 @@ export default function Blogs(props) {
                             </h2>
                             {blogs === null ? (<div></div>) : (
                                 <button onClick={()=>redirectToPage(`blog/${blogs[0].slug}`)} className="rounded-3xl hover:border-gray0 border border-gray1 hover:brightness-110 duration-300 overflow-hidden">
-                                    <ImageBox imageSource={blogs[0].imageURL} className="">
+                                    <ImageBox dimensions={9/16}  imageSource={blogs[0].imageURL} className="">
                                         <div className=" w-1/2  flex justify-end flex-col items-start pb-12 p-10 h-full">
                                             <h1 className="text-gray1 text-4xl font-bold leading-[1.2] mb-4 text-left">
                                                 {blogs[0].title}
