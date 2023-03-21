@@ -18,7 +18,7 @@ export default function ImageBox({imageSource, children, dimensions = null}) {
     }, [boxStyle])
     
     useEffect(() => {
-        if (dimensions !== null && boxRef.current && boxStyle.width === "0px") {
+        if (dimensions !== null && boxRef.current) {
             calculateDimensions()
         }
     }, [windowSize])
