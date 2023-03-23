@@ -15,7 +15,6 @@ export default function Blogs(props) {
         const response = await PhyniteDataService.getBlogs()
         const blogs = response.data.blogs
         setBlogs(blogs)
-        console.log(blogs)
     }
 
     useEffect(() => {
@@ -37,11 +36,11 @@ export default function Blogs(props) {
                         </h1>
                         <h2 className="text-white text-2xl font-[500] mb-4 pl-1">Recent</h2>
                         {blogs === null ? (<div></div>) : (
-                            <button onClick={()=>redirectToPage(`blog/${blogs[0].slug}`)} className="rounded-2xl  border border-gray1 overflow-hidden">
+                            <button onClick={()=>redirectToPage(`blog/${blogs[0].slug}`)} className="rounded-2xl  border border-gray1 overflow-hidden w-full">
                                 
                                 <ImageBox dimensions={9/16}  imageSource={blogs[0].imageURL} className="">
-                                    <div className="w-full flex justify-end flex-col items-start pb-8 p-6 h-full">
-                                        <h1 className="text-gray1 text-xl font-bold leading-[1.2] mb-4 text-left">
+                                    <div className="w-full flex justify-end flex-col items-start p-5 h-full">
+                                        <h1 className="text-gray1 text-xl font-bold leading-[1.2] mb-2 text-left">
                                             {blogs[0].title}
                                         </h1>
                                         <h2 className="text-gray3 font-semibold text-lg justify-end text-left">
@@ -90,7 +89,7 @@ export default function Blogs(props) {
                                 Recent
                             </h2>
                             {blogs === null ? (<div></div>) : (
-                                <button onClick={()=>redirectToPage(`blog/${blogs[0].slug}`)} className="rounded-2xl  border border-gray1 overflow-hidden">
+                                <button onClick={()=>redirectToPage(`blog/${blogs[0].slug}`)} className="rounded-2xl  border border-gray1 overflow-hidden  w-full">
                                     <ImageBox dimensions={9/16}  imageSource={blogs[0].imageURL} className="">
                                         <div className=" w-full  flex justify-end flex-col items-start pb-10 p-8 h-full">
                                             <h1 className="text-gray1 text-2xl font-bold leading-[1.2] mb-4 text-left">
@@ -143,7 +142,7 @@ export default function Blogs(props) {
                                 Recent
                             </h2>
                             {blogs === null ? (<div></div>) : (
-                                <button onClick={()=>redirectToPage(`blog/${blogs[0].slug}`)} className="rounded-3xl hover:border-gray0 border border-gray1 hover:brightness-110 duration-300 overflow-hidden">
+                                <button onClick={()=>redirectToPage(`blog/${blogs[0].slug}`)} className="rounded-3xl hover:border-gray0 w-full border border-gray1 hover:brightness-110 duration-300 overflow-hidden">
                                     <ImageBox dimensions={9/16}  imageSource={blogs[0].imageURL} className="">
                                         <div className=" w-1/2  flex justify-end flex-col items-start pb-12 p-10 h-full">
                                             <h1 className="text-gray1 text-4xl font-bold leading-[1.2] mb-4 text-left">
@@ -193,8 +192,12 @@ export default function Blogs(props) {
                             <h2 className="text-4xl text-white font-poppins font-[500] mb-8">
                                 Recent
                             </h2>
-                            {blogs === null ? (<div></div>) : (
-                                <button  onClick={()=>redirectToPage(`blog/${blogs[0].slug}`)} className="rounded-3xl hover:border-gray0 border border-gray1 hover:brightness-110 duration-300 overflow-hidden">
+                            {blogs === null ? (
+                                <div className="h-96">
+
+                                </div>
+                            ) : (
+                                <button  onClick={()=>redirectToPage(`blog/${blogs[0].slug}`)} className="rounded-3xl hover:border-gray0 border border-gray1 hover:brightness-110 duration-300 overflow-hidden w-full">
                                     <ImageBox dimensions={9/16} imageSource={blogs[0].imageURL} className="">
                                         <div className=" w-1/2  flex justify-end flex-col items-start pb-16 p-12 h-full">
                                             <h1 className="text-gray1 text-5xl font-bold leading-[1.2] mb-4 text-left">

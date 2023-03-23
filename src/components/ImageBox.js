@@ -3,7 +3,8 @@ import useWindowSize from "../hooks/useWindowSize"
 
 export default function ImageBox({imageSource, children, dimensions = null}) {
 
-    const [boxStyle, setBoxStyle] = useState({width: "0px", height: "0px"})
+    const [boxStyle, setBoxStyle] = useState({ width: "0px", height: "0px" })
+    const [loading, setLoading] = useState(true)
 
     const boxRef = useRef(null)
 
@@ -24,16 +25,38 @@ export default function ImageBox({imageSource, children, dimensions = null}) {
     }, [windowSize])
 
     function calculateDimensions() {
-        setBoxStyle({width: `${Math.round(boxRef.current.offsetWidth)}px`, height: `${Math.round(boxRef.current.offsetWidth*dimensions)}px`})
+        setBoxStyle({ width: `${Math.round(boxRef.current.offsetWidth)}px`, height: `${Math.round(boxRef.current.offsetWidth * dimensions)}px` })
+        console.log(boxStyle)
     }
+
+    useEffect(() => {
+        setTimeout(()=>turnLoadingOff(), 500)
+    }, [])
+    
+    function turnLoadingOff() {
+        setLoading(false)
+    }
+
+
 
 
     return (
         <div className="w-full" ref={boxRef}>
-            <div style={boxStyle} className=" absolute">
-                {children}
-            </div>
-            <img src={imageSource} className="w-full"></img>
+            {loading === true ? (
+                <div>
+                    <div className="skeleton" style={boxStyle}>
+                        
+                    </div>
+                </div>
+            ): (
+                <div>
+                    <div style={boxStyle} className=" absolute">
+                        {children}
+                    </div>
+                    <img src={imageSource} className="w-full"></img> 
+                </div>
+            )}
+            
 
         </div>
     )
