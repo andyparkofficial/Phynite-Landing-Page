@@ -102,9 +102,12 @@ export default function MobileMenu({toggleScrollLock, exitMenuPopUp, isClicked})
                         </div>
                       )}
                       <div className="w-full border-t-[1px] border-gray1 h-20 flex justify-center items-center gap-x-6">
-                          <img className="w-7 h-7" src={twitterIcon}></img>
-                          <img className="w-9 h-9" src={discordIcon}></img>
-                          <img className="w-[26px] h-[26px]" src={instagramIcon}></img>
+                          <a href="https://twitter.com/phynite_io" target="_blank">
+                            <img className="w-7 h-7" src={twitterIcon}></img>
+                          </a>
+                          <a href="https://www.instagram.com/phynite.io/" target="_blank">
+                            <img className="w-[26px] h-[26px]" src={instagramIcon}></img>
+                          </a>
                       </div>    
                     </div>   
                         
