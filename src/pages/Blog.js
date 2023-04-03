@@ -57,7 +57,7 @@ export default function Blog(props) {
                                         <div className="w-full mb-6">
                                             {("header" in section) && (<div className="text-2xl text-white font-semibold mb-6">{section.header}</div>)}
                                             {("imageURL" in section) && (<div className="text-2xl text-white font-semibold mb-4">{section.imageURL}</div>)}
-                                            {("paragraph" in section) && (<div className=" text-gray-300 mb-4 font-light leading-loose">{section.paragraph}</div>)}
+                                            {("paragraph" in section) && (<div className=" text-gray-300 mb-4 font-light leading-loose"><ReactMarkdown>{section.paragraph}</ReactMarkdown></div>)}
                                         </div>
                                     )
                                 })}
@@ -96,7 +96,7 @@ export default function Blog(props) {
                                         <div className="w-full mb-6">
                                             {("header" in section) && (<div className="text-2xl text-white font-semibold mb-6">{section.header}</div>)}
                                             {("imageURL" in section) && (<div className="text-2xl text-white font-semibold mb-4">{section.imageURL}</div>)}
-                                            {("paragraph" in section) && (<div className="text-lg text-gray-300 mb-4 font-light leading-loose">{section.paragraph}</div>)}
+                                            {("paragraph" in section) && (<div className="text-lg text-gray-300 mb-4 font-light leading-loose"><ReactMarkdown>{section.paragraph}</ReactMarkdown></div>)}
                                         </div>
                                     )
                                 })}
@@ -135,7 +135,7 @@ export default function Blog(props) {
                                         <div className="w-full mb-6">
                                             {("header" in section) && (<div className="text-2xl text-white font-semibold mb-6">{section.header}</div>)}
                                             {("imageURL" in section) && (<div className="text-2xl text-white font-semibold mb-4">{section.imageURL}</div>)}
-                                            {("paragraph" in section) && (<div className="text-xl text-gray-300 mb-4 font-light leading-loose">{section.paragraph}</div>)}
+                                            {("paragraph" in section) && (<div className="text-xl text-gray-300 mb-4 leading-loose"><ReactMarkdown>{section.paragraph}</ReactMarkdown></div>)}
                                         </div>
                                     )
                                 })}
