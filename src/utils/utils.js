@@ -19,7 +19,7 @@ export function formatDateObject(dateObject) {
     const date = new Date(dateObject)
     const month = date.getMonth()
     let formattedDate = ""
-    formattedDate += shortMonths[month - 1]
+    formattedDate += shortMonths[month]
     formattedDate += " "
     formattedDate += date.getDate()
     formattedDate += ", "

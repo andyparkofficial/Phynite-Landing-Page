@@ -4,6 +4,7 @@ import Footer from "../components/Footer.js"
 import {useParams} from "react-router-dom"
 import PhyniteDataService from "../services/phyniteData.js"
 import { formatDateObject } from "../utils/utils.js"
+import ReactMarkdown from "react-markdown"
 
 
 export default function Blog(props) {
@@ -171,9 +172,14 @@ export default function Blog(props) {
                                 {blog.sections.map((section, id) => {
                                     return(
                                         <div className="w-full mb-6">
-                                            {("header" in section) && (<div className="text-2xl text-white font-semibold mb-6">{section.header}</div>)}
+                                            {("header" in section) && (<div className="text-2xl text-white font-semibold mb-6 mt-16">{section.header}</div>)}
                                             {("imageURL" in section) && (<div className="text-2xl text-white font-semibold mb-4">{section.imageURL}</div>)}
-                                            {("paragraph" in section) && (<div className="text-xl text-gray-300 mb-4 font-light leading-loose">{section.paragraph}</div>)}
+                                            {("paragraph" in section) && 
+                                            (
+                                                <div className="text-xl text-gray-300 mb-4 leading-loose">
+                                                    <ReactMarkdown>{section.paragraph}</ReactMarkdown>
+                                                </div>
+                                            )}
                                         </div>
                                     )
                                 })}
