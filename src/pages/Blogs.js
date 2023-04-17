@@ -132,7 +132,7 @@ export default function Blogs(props) {
                                 {blogs.map((blog, id) => {
                                     return (
                                         <div className="py-3 w-1/2 px-2">
-                                            <button onClick={()=>redirectToPage(`blog/${blog.slug}`)} className="rounded-2xl h-[42s0px] bg-gray4 border border-gray1 flex flex-col overflow-clip">
+                                            <button onClick={()=>redirectToPage(`blog/${blog.slug}`)} className="rounded-2xl h-[450px] bg-gray4 border border-gray1 flex flex-col overflow-clip">
                                             <img src={blog.imageURL} className="w-full border-b border-gray1"></img>
                                                 <div className="h-[250px] font-poppins p-5 text-left">
                                                     
@@ -188,7 +188,7 @@ export default function Blogs(props) {
                             {blogs.map((blog, id) => {
                                 return (
                                     <div className="w-1/3 p-3">
-                                        <button onClick={()=>redirectToPage(`blog/${blog.slug}`)} className="rounded-2xl h-[420px] bg-gray4 border border-gray1 flex flex-col overflow-clip hover:bg-gradient-to-br hover:brightness-110 hover:border-gray0 hover:from-gray2 hover:to-gray4 duration-300">
+                                        <button onClick={()=>redirectToPage(`blog/${blog.slug}`)} className="rounded-2xl h-[460px] bg-gray4 border border-gray1 flex flex-col overflow-clip hover:bg-gradient-to-br hover:brightness-110 hover:border-gray0 hover:from-gray2 hover:to-gray4 duration-300">
                                             <img src={blog.imageURL} className="w-full border-b border-gray1"></img>
                                             <div className="font-poppins p-5 text-left">
                                                 
