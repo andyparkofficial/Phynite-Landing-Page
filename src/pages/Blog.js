@@ -22,7 +22,6 @@ export default function Blog(props) {
         const response = await PhyniteDataService.getBlog(blogName)
         const blogs = response.data.blogs
         setBlog(blogs[0])
-        console.log(blogs[0])
     }
 
 
@@ -53,11 +52,15 @@ export default function Blog(props) {
                             <img src={blog.imageURL} className="w-full mb-12 rounded-xl"></img>
                             <div className="mb-16">
                                 {blog.sections.map((section, id) => {
+                                    const renderLink = (props) => {
+                                        return <a {...props} target="_blank" rel="noopener noreferrer" />;
+                                    };
+                                    
                                     return(
                                         <div className="w-full mb-6">
                                             {("header" in section) && (<div className="text-2xl text-white font-semibold mb-6 mt-12">{section.header}</div>)}
-                                            {("imageURL" in section) && (<div className="text-2xl text-white font-semibold mb-4">{section.imageURL}</div>)}
-                                            {("paragraph" in section) && (<div className=" text-gray-300 mb-4 leading-loose"><ReactMarkdown>{section.paragraph}</ReactMarkdown></div>)}
+                                            {("imageURL" in section) && (<div className="mb-6"><img className="w-full rounded-md" src={section.imageURL}></img></div>)}
+                                            {("paragraph" in section) && (<div className=" text-gray-300 mb-4 leading-loose"><ReactMarkdown  components={{a: renderLink}}>{section.paragraph}</ReactMarkdown></div>)}
                                         </div>
                                     )
                                 })}
@@ -92,11 +95,15 @@ export default function Blog(props) {
                             <img src={blog.imageURL} className="w-full mb-12 rounded-xl"></img>
                             <div className="mb-16">
                                 {blog.sections.map((section, id) => {
+                                    const renderLink = (props) => {
+                                        return <a {...props} target="_blank" rel="noopener noreferrer" />;
+                                    };
+
                                     return(
                                         <div className="w-full mb-6">
                                             {("header" in section) && (<div className="text-2xl text-white font-semibold mb-6 mt-16">{section.header}</div>)}
-                                            {("imageURL" in section) && (<div className="text-2xl text-white font-semibold mb-4">{section.imageURL}</div>)}
-                                            {("paragraph" in section) && (<div className="text-lg text-gray-300 mb-4 leading-loose"><ReactMarkdown>{section.paragraph}</ReactMarkdown></div>)}
+                                            {("imageURL" in section) && (<div className="mb-6"><img className="w-full rounded-md" src={section.imageURL}></img></div>)}
+                                            {("paragraph" in section) && (<div className="text-lg text-gray-300 mb-4 leading-loose"><ReactMarkdown  components={{a: renderLink}}>{section.paragraph}</ReactMarkdown></div>)}
                                         </div>
                                     )
                                 })}
@@ -115,7 +122,7 @@ export default function Blog(props) {
                         <div></div>
                     ):(
                         <div className="w-[800px] h-full pt-20">
-                            <h1 className="text-5xl font-semibold text-white mb-4 leading-tight">{blog.title}</h1>
+                            <h1 className="text-[40px] font-semibold text-white mb-4 leading-tight">{blog.title}</h1>
                             <h2 className="text-xl font-light text-gray-300 mb-6">{blog.summary}</h2>   
                             <div className="flex items-center mb-8">
                                 <img className=" w-14 h-14 mr-4 rounded-full" src={blog.authorImageURL}></img>
@@ -131,11 +138,15 @@ export default function Blog(props) {
                             <img src={blog.imageURL} className="w-full mb-12 rounded-xl"></img>
                             <div className="mb-16">
                                 {blog.sections.map((section, id) => {
+                                    const renderLink = (props) => {
+                                        return <a {...props} target="_blank" rel="noopener noreferrer" />;
+                                    };
+
                                     return(
                                         <div className="w-full mb-6">
                                             {("header" in section) && (<div className="text-2xl text-white font-semibold mb-6 mt-16">{section.header}</div>)}
-                                            {("imageURL" in section) && (<div className="text-2xl text-white font-semibold mb-4">{section.imageURL}</div>)}
-                                            {("paragraph" in section) && (<div className="text-xl text-gray-300 mb-4 leading-loose"><ReactMarkdown>{section.paragraph}</ReactMarkdown></div>)}
+                                            {("imageURL" in section) && (<div className="mb-6"><img className="w-full rounded-md" src={section.imageURL}></img></div>)}
+                                            {("paragraph" in section) && (<div className="text-xl text-gray-300 mb-4 leading-loose"><ReactMarkdown  components={{a: renderLink}}>{section.paragraph}</ReactMarkdown></div>)}
                                         </div>
                                     )
                                 })}
@@ -154,7 +165,7 @@ export default function Blog(props) {
                         <div></div>
                     ):(
                         <div className="w-[800px] h-full pt-20">
-                            <h1 className="text-5xl font-semibold text-white mb-4 leading-tight">{blog.title}</h1>
+                            <h1 className="text-[40px] font-semibold text-white mb-4 leading-tight">{blog.title}</h1>
                             <h2 className="text-xl font-light text-gray-300 mb-6">{blog.summary}</h2>   
                             <div className="flex items-center mb-8">
                                 <img className=" w-14 h-14 mr-4 rounded-full" src={blog.authorImageURL}></img>
@@ -170,14 +181,18 @@ export default function Blog(props) {
                             <img src={blog.imageURL} className="w-full mb-12 rounded-xl"></img>
                             <div className="mb-16">
                                 {blog.sections.map((section, id) => {
+                                    const renderLink = (props) => {
+                                        return <a {...props} target="_blank" rel="noopener noreferrer" />;
+                                    };
+
                                     return(
                                         <div className="w-full mb-6">
                                             {("header" in section) && (<div className="text-2xl text-white font-semibold mb-6 mt-16">{section.header}</div>)}
-                                            {("imageURL" in section) && (<div className="text-2xl text-white font-semibold mb-4">{section.imageURL}</div>)}
+                                            {("imageURL" in section) && (<div className="mb-6"><img className="w-full rounded-md" src={section.imageURL}></img></div>)}
                                             {("paragraph" in section) && 
                                             (
                                                 <div className="text-xl text-gray-300 mb-4 leading-loose">
-                                                    <ReactMarkdown>{section.paragraph}</ReactMarkdown>
+                                                    <ReactMarkdown components={{a: renderLink}}>{section.paragraph}</ReactMarkdown>
                                                 </div>
                                             )}
                                         </div>
