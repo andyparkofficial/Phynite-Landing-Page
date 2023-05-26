@@ -1,4 +1,5 @@
-import useReactGA from "../hooks/useReactGA"
+import React from "react";
+import ReactGA from "react-ga";
 
 const shortMonths = [
     "Jan",
@@ -38,6 +39,15 @@ export function getShortenedString(string, length) {
 }
 
 export function recordPageView(pageName) {
-    const eventTracker = useAnalyticsEventTracker(pageName)
+    const eventTracker = recordEventGA(pageName)
     eventTracker()
+}
+
+
+
+export const recordEventGA = (category) => {
+  const eventTracker = (action = "page view", label = "landing page") => {
+    ReactGA.event({category, action, label});
+  }
+  return eventTracker;
 }
