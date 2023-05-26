@@ -19,6 +19,7 @@ import AndyPicture from "../assets/andy-profile-picture.jpg"
 import EsaPicture from "../assets/esa-profile-picture.jpg"
 import WilliamProfilePic from "../assets/bill-profile-picture.jpg"
 import ImageBox from "../components/ImageBox.js"
+import { recordPageView } from "../utils/utils.js"
 
 
 export default function About (props) {
@@ -29,6 +30,10 @@ export default function About (props) {
     const [timelineStyle, setTimelineStyle] = useState([{backgroundColor: "#E1FFFF"}, {backgroundColor: "#2D3038"}, {backgroundColor: "#2D3038"},{backgroundColor: "#2D3038"}])
     const [timelineHLStyle, setTimelineHLStyle] = useState([{backgroundColor: "#E1FFFF"}, {backgroundColor: "#6B7280"}, {backgroundColor: "#6B7280"},{backgroundColor: "#6B7280"}])
     const [queryChecked, setQueryChecked] = useState(false)
+
+    useEffect(()=>{
+        recordPageView("About")
+    },[])
 
     function useQuery() {
         const { search } = useLocation();

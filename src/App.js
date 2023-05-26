@@ -19,11 +19,8 @@ function App() {
 
   const windowSize = useWindowSize();
 
-  useEffect(() => {
     const TRACKING_ID = "G-BNEVFQ2R79"
     ReactGA.initialize(TRACKING_ID)
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  },[])
   
   useEffect(() => {
     if (windowSize.width <= 600) {

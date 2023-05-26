@@ -20,10 +20,15 @@ import PhyniteUi from "../assets/phynite-ui.png"
 import LowFeesIcon from "../assets/low-fees-icon.png"
 import PhoneIcon from "../assets/phone-icon.png"
 import SecurityIcon from "../assets/security-icon.png"
+import { recordPageView } from "../utils/utils.js"
+
 
 export default function Home(props) {
 
-    
+    useEffect(()=>{
+        recordPageView("Home")
+    },[])
+
     const history = useHistory()
 
     function redirectToPage(pageURL){
