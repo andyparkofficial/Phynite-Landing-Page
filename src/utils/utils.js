@@ -1,4 +1,4 @@
-
+import useAnalyticsEventTracker from "../hooks/useAnalyticsEventTracker"
 
 const shortMonths = [
     "Jan",
@@ -35,4 +35,9 @@ export function getShortenedString(string, length) {
     } else {
         return string.slice(0,length) + "..."
     }
+}
+
+export function recordPageView(pageName) {
+    const eventTracker = useAnalyticsEventTracker(pageName)
+    eventTracker()
 }

@@ -5,6 +5,7 @@ import PhyniteDataService from "../services/phyniteData.js"
 import { useHistory } from "react-router-dom"
 import { formatDateObject } from "../utils/utils.js"
 import ImageBox from "../components/ImageBox.js"
+import { recordPageView } from "../utils/utils.js"
 
 export default function Blogs(props) {
 
@@ -12,6 +13,10 @@ export default function Blogs(props) {
     const [recommendedBlog, setRecommendedBlog] = useState(null)
 
     const history = useHistory()
+
+    useEffect(()=>{
+        recordPageView("Blogs")
+    },[])
     
     async function getBlogs() {
         const response = await PhyniteDataService.getBlogs()

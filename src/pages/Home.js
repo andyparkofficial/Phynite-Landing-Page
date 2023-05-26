@@ -20,13 +20,14 @@ import PhyniteUi from "../assets/phynite-ui.png"
 import LowFeesIcon from "../assets/low-fees-icon.png"
 import PhoneIcon from "../assets/phone-icon.png"
 import SecurityIcon from "../assets/security-icon.png"
-import ReactGA from "react-ga4"
+import { recordPageView } from "../utils/utils.js"
+
 
 export default function Home(props) {
 
-    const TRACKING_ID = "G-BNEVFQ2R79"
-    ReactGA.initialize(TRACKING_ID)
-    ReactGA.send({ hitType: "pageView", page: "/" })
+    useEffect(()=>{
+        recordPageView("Home")
+    },[])
 
     const history = useHistory()
 

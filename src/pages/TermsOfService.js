@@ -1,8 +1,14 @@
 import { useState, useRef } from "react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import { recordPageView } from "../utils/utils.js"
 
 export default function TermsOfService(props) {
+
+    useEffect(()=>{
+        recordPageView("Terms Of Service")
+    },[])
+
     return (
         <div>
             <Navbar />
