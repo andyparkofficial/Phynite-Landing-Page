@@ -355,7 +355,7 @@ export default function GetStarted(props) {
                                     <div className="w-full flex flex-col mb-4">
                                         <h1 className=" text-white font-[500] mb-4">What do you enjoy collecting?</h1>
                                         <div className="w-full">
-                                            <button onClick={()=>toggleFavoriteCollectible("pokemonCards")} type="button" className="w-full mb-2 px-2 flex items-center py-1">
+                                            <button onClick={()=>toggleFavoriteCollectible("pokemonCards")} type="button" className="w-full px-2 flex items-center py-2">
                                                 <h1 className=" text-gray-300 font-light text-sm">Pokemon Cards</h1>
                                                 <div className="flex flex-grow justify-end">
                                                     {userInfo.favoriteCollectibles["pokemonCards"] ? (
@@ -366,7 +366,7 @@ export default function GetStarted(props) {
                                                     
                                                 </div>
                                             </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("sportsTradingCards")} type="button" className="w-full mb-2 px-2 flex items-center py-1">
+                                            <button onClick={()=>toggleFavoriteCollectible("sportsTradingCards")} type="button" className="w-full px-2 flex items-center py-2">
                                                 <h1 className=" text-gray-300 font-light text-sm">Sports Trading Cards</h1>
                                                 <div className="flex flex-grow justify-end">
                                                     {userInfo.favoriteCollectibles["sportsTradingCards"] ? (
@@ -377,7 +377,7 @@ export default function GetStarted(props) {
                                                     
                                                 </div>
                                             </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("comics")} type="button" className="w-full mb-2 px-2 flex items-center py-1">
+                                            <button onClick={()=>toggleFavoriteCollectible("comics")} type="button" className="w-full px-2 flex items-center py-2">
                                                 <h1 className=" text-gray-300 font-light text-sm">Comics</h1>
                                                 <div className="flex flex-grow justify-end">
                                                     {userInfo.favoriteCollectibles["comics"] ? (
@@ -388,7 +388,7 @@ export default function GetStarted(props) {
                                                     
                                                 </div>
                                             </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("coins")} type="button" className="w-full mb-2 px-2 flex items-center py-1">
+                                            <button onClick={()=>toggleFavoriteCollectible("coins")} type="button" className="w-full px-2 flex items-center py-2">
                                                 <h1 className=" text-gray-300 font-light text-sm">Coins</h1>
                                                 <div className="flex flex-grow justify-end">
                                                     {userInfo.favoriteCollectibles["coins"] ? (
@@ -399,7 +399,7 @@ export default function GetStarted(props) {
                                                     
                                                 </div>
                                             </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("sneakers")} type="button" className="w-full mb-2 px-2 flex items-center py-1">
+                                            <button onClick={()=>toggleFavoriteCollectible("sneakers")} type="button" className="w-full px-2 flex items-center py-2">
                                                 <h1 className=" text-gray-300 font-light text-sm">Sneakers</h1>
                                                 <div className="flex flex-grow justify-end">
                                                     {userInfo.favoriteCollectibles["sneakers"] ? (
@@ -410,7 +410,7 @@ export default function GetStarted(props) {
                                                     
                                                 </div>
                                             </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("other")} type="button" className="w-full mb-2 px-2 flex items-center  py-1">
+                                            <button onClick={()=>toggleFavoriteCollectible("other")} type="button" className="w-full px-2 flex items-center  py-2">
                                                 <h1 className=" text-gray-300 font-light text-sm">Other</h1>
                                                 <div className="flex flex-grow justify-end">
                                                     {userInfo.favoriteCollectibles["other"] ? (
@@ -762,7 +762,7 @@ export default function GetStarted(props) {
                                     <div className="w-full flex flex-col mb-6">
                                         <h1 className="text-lg text-white font-[500] mb-4">What do you enjoy collecting?</h1>
                                         <div className="w-full">
-                                            <button onClick={()=>toggleFavoriteCollectible("pokemonCards")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-1">
+                                        <button onClick={()=>toggleFavoriteCollectible("pokemonCards")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
                                                 <h1 className=" text-gray-300 font-light">Pokemon Cards</h1>
                                                 <div className="flex flex-grow justify-end">
                                                     {userInfo.favoriteCollectibles["pokemonCards"] ? (
@@ -773,7 +773,7 @@ export default function GetStarted(props) {
                                                     
                                                 </div>
                                             </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("sportsTradingCards")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-1">
+                                            <button onClick={()=>toggleFavoriteCollectible("sportsTradingCards")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
                                                 <h1 className=" text-gray-300 font-light">Sports Trading Cards</h1>
                                                 <div className="flex flex-grow justify-end">
                                                     {userInfo.favoriteCollectibles["sportsTradingCards"] ? (
@@ -784,7 +784,7 @@ export default function GetStarted(props) {
                                                     
                                                 </div>
                                             </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("comics")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-1">
+                                            <button onClick={()=>toggleFavoriteCollectible("comics")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
                                                 <h1 className=" text-gray-300 font-light">Comics</h1>
                                                 <div className="flex flex-grow justify-end">
                                                     {userInfo.favoriteCollectibles["comics"] ? (
@@ -795,7 +795,7 @@ export default function GetStarted(props) {
                                                     
                                                 </div>
                                             </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("coins")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-1">
+                                            <button onClick={()=>toggleFavoriteCollectible("coins")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
                                                 <h1 className=" text-gray-300 font-light">Coins</h1>
                                                 <div className="flex flex-grow justify-end">
                                                     {userInfo.favoriteCollectibles["coins"] ? (
@@ -806,7 +806,7 @@ export default function GetStarted(props) {
                                                     
                                                 </div>
                                             </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("sneakers")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-1">
+                                            <button onClick={()=>toggleFavoriteCollectible("sneakers")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
                                                 <h1 className=" text-gray-300 font-light">Sneakers</h1>
                                                 <div className="flex flex-grow justify-end">
                                                     {userInfo.favoriteCollectibles["sneakers"] ? (
@@ -817,7 +817,7 @@ export default function GetStarted(props) {
                                                     
                                                 </div>
                                             </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("other")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-1">
+                                            <button onClick={()=>toggleFavoriteCollectible("other")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
                                                 <h1 className=" text-gray-300 font-light">Other</h1>
                                                 <div className="flex flex-grow justify-end">
                                                     {userInfo.favoriteCollectibles["other"] ? (
@@ -966,7 +966,7 @@ export default function GetStarted(props) {
                                     <div className="w-full flex flex-col mb-6">
                                         <h1 className="text-lg text-white font-[500] mb-4">What do you enjoy collecting?</h1>
                                         <div className="w-full">
-                                            <button onClick={()=>toggleFavoriteCollectible("pokemonCards")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-1">
+                                            <button onClick={()=>toggleFavoriteCollectible("pokemonCards")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
                                                 <h1 className=" text-gray-300 font-light">Pokemon Cards</h1>
                                                 <div className="flex flex-grow justify-end">
                                                     {userInfo.favoriteCollectibles["pokemonCards"] ? (
@@ -977,7 +977,7 @@ export default function GetStarted(props) {
                                                     
                                                 </div>
                                             </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("sportsTradingCards")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-1">
+                                            <button onClick={()=>toggleFavoriteCollectible("sportsTradingCards")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
                                                 <h1 className=" text-gray-300 font-light">Sports Trading Cards</h1>
                                                 <div className="flex flex-grow justify-end">
                                                     {userInfo.favoriteCollectibles["sportsTradingCards"] ? (
@@ -988,7 +988,7 @@ export default function GetStarted(props) {
                                                     
                                                 </div>
                                             </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("comics")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-1">
+                                            <button onClick={()=>toggleFavoriteCollectible("comics")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
                                                 <h1 className=" text-gray-300 font-light">Comics</h1>
                                                 <div className="flex flex-grow justify-end">
                                                     {userInfo.favoriteCollectibles["comics"] ? (
@@ -999,7 +999,7 @@ export default function GetStarted(props) {
                                                     
                                                 </div>
                                             </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("coins")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-1">
+                                            <button onClick={()=>toggleFavoriteCollectible("coins")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
                                                 <h1 className=" text-gray-300 font-light">Coins</h1>
                                                 <div className="flex flex-grow justify-end">
                                                     {userInfo.favoriteCollectibles["coins"] ? (
@@ -1010,7 +1010,7 @@ export default function GetStarted(props) {
                                                     
                                                 </div>
                                             </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("sneakers")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-1">
+                                            <button onClick={()=>toggleFavoriteCollectible("sneakers")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
                                                 <h1 className=" text-gray-300 font-light">Sneakers</h1>
                                                 <div className="flex flex-grow justify-end">
                                                     {userInfo.favoriteCollectibles["sneakers"] ? (
@@ -1021,7 +1021,7 @@ export default function GetStarted(props) {
                                                     
                                                 </div>
                                             </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("other")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-1">
+                                            <button onClick={()=>toggleFavoriteCollectible("other")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
                                                 <h1 className=" text-gray-300 font-light">Other</h1>
                                                 <div className="flex flex-grow justify-end">
                                                     {userInfo.favoriteCollectibles["other"] ? (
@@ -1032,7 +1032,6 @@ export default function GetStarted(props) {
                                                     
                                                 </div>
                                             </button>
-                                            
                                         </div>
                                     </div>
                                     <div className="w-full flex items-center justify-center">

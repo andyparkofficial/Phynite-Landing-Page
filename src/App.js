@@ -10,6 +10,7 @@ import useWindowSize from "./hooks/useWindowSize.js";
 import { useEffect, useState } from "react"
 import TermsOfService from "./pages/TermsOfService.js";
 import PrivacyPolicy from "./pages/PrivacyPolicy.js";
+import ReactGA from "react-ga4"
 
 function App() {
 
@@ -18,7 +19,6 @@ function App() {
 
   const windowSize = useWindowSize();
 
-  
   useEffect(() => {
     if (windowSize.width <= 600) {
       setDisplayType('mobile')
