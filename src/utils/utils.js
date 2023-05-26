@@ -1,4 +1,4 @@
-import useAnalyticsEventTracker from "../hooks/useAnalyticsEventTracker"
+import useReactGA from "../hooks/useReactGA"
 
 const shortMonths = [
     "Jan",
