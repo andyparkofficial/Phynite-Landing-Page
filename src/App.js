@@ -10,7 +10,7 @@ import useWindowSize from "./hooks/useWindowSize.js";
 import { useEffect, useState } from "react"
 import TermsOfService from "./pages/TermsOfService.js";
 import PrivacyPolicy from "./pages/PrivacyPolicy.js";
-import ReactGA from "react-ga4"
+import ReactGA from "react-ga"
 
 function App() {
 
@@ -19,6 +19,12 @@ function App() {
 
   const windowSize = useWindowSize();
 
+  useEffect(() => {
+    const TRACKING_ID = "G-BNEVFQ2R79"
+    ReactGA.initialize(TRACKING_ID)
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  },[])
+  
   useEffect(() => {
     if (windowSize.width <= 600) {
       setDisplayType('mobile')
