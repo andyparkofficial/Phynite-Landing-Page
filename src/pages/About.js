@@ -1029,7 +1029,7 @@ export default function About (props) {
             )}
             {props.displayType === "smallComputer" && (
                 <div className="w-full px-8 pt-20 font-poppins min-h-screen">
-                    <div className="w-full flex pt-20 items-center gap-x-8 mb-20 h-screen min-h-[500px] max-h-[600px]">
+                    <div className="w-full flex pt-20 items-center gap-x-8 mb-20 h-screen min-h-[500px] max-h-[550px]">
                         <div className="w-[40%]  h-full flex justify-start items-center overflow-hidden">
                             <img className="w-full" src={CrystalPhyniteLogo}></img>
                         </div>
@@ -1483,11 +1483,11 @@ export default function About (props) {
             )}
 
             {props.displayType === "computer" && (
-                <div className="w-full bg-mainGray flex flex-col items-center pt-12 px-[28px] overflow-clip min-h-screen">
+                <div className="w-full bg-mainGray flex flex-col items-center pt-4 px-[28px] overflow-clip min-h-screen">
                     <div className="max-w-[1300px] max-h-[900px] h-screen min-h-[700px] flex justify-center">
     
                         <div className="w-[40%]  h-full flex justify-start items-center">
-                            <img className="w-[500px] h-[500px]" src={CrystalPhyniteLogo}></img>
+                            <img className="w-[500px]" src={CrystalPhyniteLogo}></img>
                         </div>
                         <div className="w-[60%] h-full flex flex-col justify-center items-end pr-10">
                             <div className="w-[600px]">

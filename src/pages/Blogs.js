@@ -29,6 +29,8 @@ export default function Blogs(props) {
         getBlogs()
     }, [])
 
+    const recommendedBlogRef = useRef(null)
+
     const recommendedBlogSlug = "the_importance_of_physically_backed_nfts"
 
     useEffect(()=>{
@@ -55,10 +57,14 @@ export default function Blogs(props) {
                             <span className="text-phyniteBlue">Phynite </span>Blog
                         </h1>
                         <h2 className="text-white text-2xl font-[500] mb-4 pl-1">Recommended</h2>
-                        {recommendedBlog === null ? (<div></div>) : (
+                        {recommendedBlog === null ? (
+                            <div className="w-full skeleton rounded-2xl" style={{height: recommendedBlogRef.current ? 9/16 * recommendedBlogRef.current.clientWidth : 250}}>
+
+                            </div>
+                        ) : (
                             <button onClick={()=>redirectToPage(`blog/${recommendedBlog.slug}`)} className="rounded-2xl  border border-gray1 overflow-hidden w-full">
                                 
-                                <ImageBox dimensions={9/16}  imageSource={recommendedBlog.imageURL} className="">
+                                <ImageBox dimensions={9/16} startingHeight={recommendedBlogRef.current ? 9/16 * recommendedBlogRef.current.clientWidth : 250} imageSource={recommendedBlog.imageURL} className="">
                                     <div className="w-full flex justify-end flex-col items-start p-5 h-full">
                                         <h1 className="text-gray-300 text-xl font-bold leading-[1.2] mb-2 text-left">
                                             {recommendedBlog.title}
@@ -104,7 +110,7 @@ export default function Blogs(props) {
             )}
             {props.displayType === "tablet" && (
                 <div className="w-full font-poppins min-h-screen">
-                    <div className="h-[350px] w-full flex justify-center">
+                    <div className="h-[350px] w-full flex justify-center" ref={recommendedBlogRef}>
                         <h1 className="font-semibold text-[66px] font-poppins pt-48 text-white"><span className="text-phyniteBlue">Phynite</span> Blog</h1>
                     </div>
                     <div className="w-full flex flex-col mb-16 px-[18px]">
@@ -112,9 +118,13 @@ export default function Blogs(props) {
                             <h2 className="text-3xl text-white font-poppins font-[500] mb-8">
                                 Recommended
                             </h2>
-                            {recommendedBlog === null ? (<div></div>) : (
+                            {recommendedBlog === null ? (
+                                <div className="rounded-3xl skeleton w-full" style={{height: recommendedBlogRef.current ? 9/16 * recommendedBlogRef.current.clientWidth : 400}}>
+
+                                </div>
+                            ) : (
                                 <button onClick={()=>redirectToPage(`blog/${recommendedBlog.slug}`)} className="rounded-2xl  border border-gray1 overflow-hidden  w-full">
-                                    <ImageBox dimensions={9/16}  imageSource={recommendedBlog.imageURL} className="">
+                                    <ImageBox dimensions={9/16} startingHeight={recommendedBlogRef.current ? 9/16 * recommendedBlogRef.current.clientWidth : 400} imageSource={recommendedBlog.imageURL} className="">
                                         <div className=" w-full  flex justify-end flex-col items-start pb-10 p-8 h-full">
                                             <h1 className="text-gray-300 text-2xl font-bold leading-[1.2] mb-4 text-left">
                                                 {recommendedBlog.title}
@@ -164,14 +174,18 @@ export default function Blogs(props) {
                     <div className="h-[350px] w-full flex justify-center">
                         <h1 className="font-semibold text-6xl font-poppins pt-48 text-white"><span className="text-phyniteBlue">Phynite</span> Blog</h1>
                     </div>
-                    <div className="w-full flex flex-col mb-16 px-3">
+                    <div className="w-full flex flex-col mb-16 px-3" ref={recommendedBlogRef}>
                         <div className="w-full ">
                             <h2 className="text-3xl text-white font-poppins font-[500] mb-8">
                                 Recommended
                             </h2>
-                            {recommendedBlog === null ? (<div></div>) : (
+                            {recommendedBlog === null ? (
+                                <div className="rounded-3xl skeleton w-full" style={{height: recommendedBlogRef.current ? 9/16 * recommendedBlogRef.current.clientWidth : 600}}>
+
+                                </div>
+                            ) : (
                                 <button onClick={()=>redirectToPage(`blog/${recommendedBlog.slug}`)} className="rounded-3xl hover:border-gray0 w-full border border-gray1 hover:brightness-110 duration-300 overflow-hidden">
-                                    <ImageBox dimensions={9/16}  imageSource={recommendedBlog.imageURL} className="">
+                                    <ImageBox dimensions={9/16} startingHeight={recommendedBlogRef.current ? 9/16 * recommendedBlogRef.current.clientWidth : 600} imageSource={recommendedBlog.imageURL} className="">
                                         <div className=" w-1/2  flex justify-end flex-col items-start pb-12 p-10 h-full">
                                             <h1 className="text-gray-300 text-4xl font-bold leading-[1.2] mb-4 text-left">
                                                 {recommendedBlog.title}
@@ -225,12 +239,12 @@ export default function Blogs(props) {
                                 Recommended
                             </h2>
                             {recommendedBlog === null ? (
-                                <div className="h-96">
+                                <div className="h-[730px] rounded-3xl skeleton w-full">
 
                                 </div>
                             ) : (
                                 <button  onClick={()=>redirectToPage(`blog/${recommendedBlog.slug}`)} className="rounded-3xl hover:border-gray0 border border-gray1 hover:brightness-110 duration-300 overflow-hidden w-full">
-                                    <ImageBox dimensions={9/16} imageSource={recommendedBlog.imageURL} className="">
+                                    <ImageBox startingHeight={730} dimensions={9/16} imageSource={recommendedBlog.imageURL} className="">
                                         <div className=" w-1/2  flex justify-end flex-col items-start pb-16 p-12 h-full">
                                             <h1 className="text-gray-300 text-5xl font-bold leading-[1.2] mb-4 text-left">
                                                 {recommendedBlog.title}
