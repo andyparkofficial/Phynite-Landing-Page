@@ -5,21 +5,13 @@ import {useParams} from "react-router-dom"
 import PhyniteDataService from "../services/phyniteData.js"
 import { formatDateObject } from "../utils/utils.js"
 import ReactMarkdown from "react-markdown"
-import { recordPageView } from "../utils/utils.js"
 
 export default function Blog(props) {
 
     const blogName = useParams().blogName;
     const [blog, setBlog] = useState(null)
     
-    
 
-    useEffect(() => {
-        if (blogName) {
-            getBlog()
-            recordPageView("Blog: " + blogName)
-        }
-    }, [blogName])
     
     async function getBlog() {
         const response = await PhyniteDataService.getBlog(blogName)
