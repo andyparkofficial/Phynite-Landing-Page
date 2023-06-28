@@ -9,7 +9,7 @@ import CrystalVault from "../assets/crystal-vault.png"
 import PhyniteCar from "../assets/phynite-car.png"
 import { Link, useHistory, useLocation } from "react-router-dom"
 import Arrow from "../assets/right-arrow.png"
-import FloatingCitiesBanner from "../assets/floating-cities.png"
+import VaultBackground from "../assets/vault-background.png"
 import { HashLink } from 'react-router-hash-link';
 import PhyniteCarFront from "../assets/phynite-car-front.png"
 import InteractiveCar from "../components/InteractiveCar"
@@ -20,14 +20,10 @@ import PhyniteUi from "../assets/phynite-ui.png"
 import LowFeesIcon from "../assets/low-fees-icon.png"
 import PhoneIcon from "../assets/phone-icon.png"
 import SecurityIcon from "../assets/security-icon.png"
-import { recordPageView } from "../utils/utils.js"
 
 
 export default function Home(props) {
 
-    useEffect(()=>{
-        recordPageView("Home")
-    },[])
 
     const history = useHistory()
 
@@ -150,7 +146,7 @@ export default function Home(props) {
                     <div className="w-full mb-16">
                         <h1 className="text-white font-semibold text-3xl mb-3 pl-1">Learn More</h1>
                         <div className="w-full mb-4 overflow-clip rounded-xl border border-gray-600">
-                            <ImageBoxWithLink imageSource={FloatingCitiesBanner} link={"https://docs.phynite.io/"}>
+                            <ImageBoxWithLink imageSource={VaultBackground} link={"https://docs.phynite.io/"}>
                                 <div className="flex flex-col items-end justify-end mr-1 w-full h-full p-4">
                                     <h1 className="text-white font-semibold text-lg leading-tight mb-1 text-right">Powered by the Phynite Protocol</h1>
                                     <div className="flex items-center">
@@ -324,7 +320,7 @@ export default function Home(props) {
                     <div className="w-full mb-24">
                         <h1 className="text-white font-semibold text-3xl mb-5 pl-1">Learn More</h1>
                         <div className="w-full mb-4 overflow-clip rounded-xl border border-gray-600">
-                            <ImageBoxWithLink imageSource={FloatingCitiesBanner} link={"https://docs.phynite.io/"}>
+                            <ImageBoxWithLink imageSource={VaultBackground} link={"https://docs.phynite.io/"}>
                                 <div className="flex flex-col items-end justify-end mr-1 w-full h-full p-4">
                                     <h1 className="text-white font-semibold text-4xl leading-tight mb-1 text-justify">Powered by the<br/> Phynite Protocol</h1>
                                     <div className="flex items-center">
@@ -596,7 +592,7 @@ export default function Home(props) {
                         <div className="w-full flex flex-col">
                             <h1 className="text-white text-semibold text-3xl font-semibold mb-5">Learn More</h1>
                             <div className="w-full mb-7 overflow-clip rounded-xl border border-gray1 hover:border-gray0 duration-300">
-                                <ImageBoxWithLink imageSource={FloatingCitiesBanner} link={"https://docs.phynite.io/"}>
+                                <ImageBoxWithLink imageSource={VaultBackground} link={"https://docs.phynite.io/"}>
                                     <div className="flex flex-col items-end justify-end mr-1 w-full h-full p-4">
                                         <h1 className="text-white font-semibold text-5xl leading-tight mb-1 text-justify pr-3">Powered by the<br/> Phynite Protocol</h1>
                                         <div className="flex items-center">
@@ -774,7 +770,7 @@ export default function Home(props) {
                         <div className="w-[1300px] font-poppins flex flex-col">
                             <h1 className="text-white text-semibold text-4xl font-semibold mb-6">Learn More</h1>
                             <div className="w-full mb-8">
-                                <a href="https://docs.phynite.io/" target="_blank" className="w-[1300px] absolute h-[610px] flex justify-end items-end flex-col pb-6 pr-6 hover:border-gray0 duration-200 border border-gray1 rounded-xl hover:shadow-xl">
+                                <a href="https://docs.phynite.io/" target="_blank" className="w-[1300px] absolute h-[434px] flex justify-end items-end flex-col pb-6 pr-6 hover:border-gray0 duration-200 border border-gray1 rounded-xl hover:shadow-xl">
                                     <h1 className="text-white font-semibold text-5xl text-justify leading-tight mb-2 mr-[14px]">Powered by the<br/> Phynite Protocol</h1>
                                     <div className="flex items-center mr-1">
                                         <h2 className="text-gray-300 font-light text-xl">Read the Phynite Protocol White Paper</h2>
@@ -782,7 +778,7 @@ export default function Home(props) {
                                     </div>
                                     
                                 </a>
-                                <img src={FloatingCitiesBanner} className=" rounded-xl h-full w-full"></img>
+                                <img src={VaultBackground} className=" rounded-xl h-full w-full"></img>
                                 
                             </div>
                             <div className="h-[200px] w-full flex gap-x-6">

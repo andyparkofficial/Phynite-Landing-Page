@@ -6,7 +6,6 @@ import discordIcon from "../assets/discord-icon.png"
 import instagramIcon from "../assets/instagram-icon.png"
 import copyrightIcon from "../assets/copyright-icon-gray.png"
 import useWindowSize from "../hooks/useWindowSize"
-import linkedInIcon from "../assets/linkedin-icon.png"
 
 
 export default function Footer() {
@@ -70,8 +69,8 @@ export default function Footer() {
                                     <img className="w-7 h-7 translate-y-1" src={twitterIcon}></img>
                                 </a>
                                 
-                                <a target="_blank" href="https://www.linkedin.com/company/phynite">
-                                    <img className="w-9 h-9" src={linkedInIcon}></img>
+                                <a target="_blank" href="https://discord.gg/AF2anxfj5F">
+                                    <img className="w-9 h-9" src={discordIcon}></img>
                                 </a>
 
                                 <a target="_blank" href="https://www.instagram.com/phynite.io/">
@@ -136,8 +135,8 @@ export default function Footer() {
                                 <a target="_blank" href="https://twitter.com/Phynite_io">
                                     <img className="w-7 h-7 translate-y-1" src={twitterIcon}></img>
                                 </a>
-                                <a target="_blank" href="https://www.linkedin.com/company/phynite">
-                                    <img className="w-9 h-9" src={linkedInIcon}></img>
+                                <a target="_blank" href="https://discord.gg/AF2anxfj5F">
+                                    <img className="w-9 h-9" src={discordIcon}></img>
                                 </a>
                                 <a target="_blank" href="https://www.instagram.com/phynite.io/">
                                     <img className="w-[26px] h-[26px] translate-y-1" src={instagramIcon}></img>
@@ -198,8 +197,8 @@ export default function Footer() {
                                 <a target="_blank" href="https://twitter.com/Phynite_io">
                                     <img className="w-7 h-7 translate-y-1" src={twitterIcon}></img>
                                 </a>    
-                                <a target="_blank" href="https://www.linkedin.com/company/phynite">
-                                    <img className="w-9 h-9" src={linkedInIcon}></img>
+                                <a target="_blank" href="https://discord.gg/AF2anxfj5F">
+                                    <img className="w-9 h-9" src={discordIcon}></img>
                                 </a>
                                 <a target="_blank" href="https://www.instagram.com/phynite.io/">
                                     <img className="w-[26px] h-[26px] translate-y-1" src={instagramIcon}></img>
@@ -253,8 +252,8 @@ export default function Footer() {
                                 <a target="_blank" href="https://twitter.com/Phynite_io">
                                     <img className="w-7 h-7 translate-y-1" src={twitterIcon}></img>
                                 </a>
-                                <a target="_blank" href="https://www.linkedin.com/company/phynite">
-                                    <img className="w-9 h-9" src={linkedInIcon}></img>
+                                <a target="_blank" href="https://discord.gg/AF2anxfj5F">
+                                    <img className="w-9 h-9" src={discordIcon}></img>
                                 </a>
                                 <a target="_blank" href="https://www.instagram.com/phynite.io/">
                                     <img className="w-[26px] h-[26px] translate-y-1" src={instagramIcon}></img>

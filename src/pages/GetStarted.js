@@ -12,7 +12,6 @@ import checkedCheckboxIcon from "../assets/checked-checkbox-icon.png"
 import uncheckedCheckboxIcon from "../assets/unchecked-checkbox-icon.png"
 import useWindowSize from "../hooks/useWindowSize.js"
 import {Link} from "react-router-dom"
-import { recordPageView } from "../utils/utils.js"
 
 export default function GetStarted(props) {
     
@@ -41,9 +40,6 @@ export default function GetStarted(props) {
     const [locationPopUpOn, setLocationPopUpOn] = useState(false)
     const [howTheyFoundUsPopUpOn, setHowTheyFoundUsPopUpOn] = useState(false)
 
-    useEffect(()=>{
-        recordPageView("Get Started")
-    },[])
 
     const locationRef = useRef(null)
     const howTheyFoundUsRef = useRef(null)
