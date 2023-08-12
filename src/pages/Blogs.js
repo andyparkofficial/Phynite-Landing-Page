@@ -7,7 +7,7 @@ import { formatDateObject } from "../utils/utils.js"
 import ImageBox from "../components/ImageBox.js"
 
 export default function Blogs(props) {
-
+    const nullArray = [null,null,null,null,null,null]
     const [blogs, setBlogs] = useState(null)
     const [recommendedBlog, setRecommendedBlog] = useState(null)
 
@@ -76,7 +76,18 @@ export default function Blogs(props) {
                     </div>
                     <div className="w-full mb-20">
                         <h1 className="text-2xl font-[500] text-white pl-1 mb-1">Recent</h1>
-                        {blogs === null ? (<div></div>) : (
+                        {blogs === null ? (
+                            <div className="w-full flex-wrap flex">
+                                {nullArray.map((nullItem, id) => {
+                                    return (
+                                        <div className="w-full py-3">
+                                            <div className="rounded-2xl h-[450px] bg-gray4 border border-gray1 flex flex-col overflow-clip skeleton"></div>
+
+                                        </div>)
+                                
+                                })}
+                            </div>
+                            ) : (
                             <div className="w-full">
                                 {blogs.map((blog, id) => {
                                     return (
@@ -137,11 +148,22 @@ export default function Blogs(props) {
                     </div>
                     <div className="w-full mb-24 px-[10px]">
                         <h1 className="text-3xl font-[500] text-white pl-3 mb-1">Recent</h1>
-                        {blogs === null ? (<div></div>) : (
-                        <div className="w-full flex flex-wrap">
+                        {blogs === null ? (
+                            <div className="w-full flex-wrap flex">
+                                {nullArray.map((nullItem, id) => {
+                                    return (
+                                        <div className="w-1/2 py-2.5 px-2">
+                                            <div className="rounded-2xl h-[450px] bg-gray4 border border-gray1 flex flex-col overflow-clip skeleton"></div>
+
+                                        </div>)
+                                
+                                })}
+                            </div>
+                        ) : (
+                            <div className="w-full flex flex-wrap">
                                 {blogs.map((blog, id) => {
                                     return (
-                                        <div className="py-3 w-1/2 px-2">
+                                        <div className="py-2.5 w-1/2 px-2">
                                             <button onClick={()=>redirectToPage(`blog/${blog.slug}`)} className="rounded-2xl h-[450px] bg-gray4 border border-gray1 flex flex-col overflow-clip">
                                             <img src={blog.imageURL} className="w-full border-b border-gray1"></img>
                                                 <div className="h-[250px] font-poppins p-5 text-left">
@@ -196,12 +218,23 @@ export default function Blogs(props) {
                         </div>
                     </div>
                     <div className="text-3xl text-white font-[500] w-full mb-6 font-poppins pl-3">Recent</div>
-                    {blogs === null ? (<div></div>) : (
+                    {blogs === null ? (
+                        <div className="w-full flex-wrap flex mb-24">
+                            {nullArray.map((nullItem, id) => {
+                                return (
+                                    <div className="w-1/3 py-3 px-2.5">
+                                        <div className="rounded-2xl h-[460px] bg-gray4 border border-gray1 flex flex-col overflow-clip skeleton"></div>
+
+                                    </div>)
+                            
+                            })}
+                        </div>
+                    ) : (
                         <div className="w-full flex-wrap flex mb-24">
                             
                             {blogs.map((blog, id) => {
                                 return (
-                                    <div className="w-1/3 p-3">
+                                    <div className="w-1/3 px-2.5 py-3">
                                         <button onClick={()=>redirectToPage(`blog/${blog.slug}`)} className="rounded-2xl h-[460px] bg-gray4 border border-gray1 flex flex-col overflow-clip hover:bg-gradient-to-br hover:brightness-110 hover:border-gray0 hover:from-gray2 hover:to-gray4 duration-300">
                                             <img src={blog.imageURL} className="w-full border-b border-gray1"></img>
                                             <div className="font-poppins p-5 text-left">
@@ -257,12 +290,23 @@ export default function Blogs(props) {
                         </div>
                     </div>
                     <div className="text-4xl text-white font-[500] w-[1300px] mb-6 font-poppins">Recent</div>
-                    {blogs === null ? (<div></div>) : (
+                    {blogs === null ? (
+                        <div className="w-[1324px] flex-wrap flex mb-28">
+                            {nullArray.map((nullItem, id) => {
+                                return (
+                                    <div className="w-1/3 py-3 px-2.5">
+                                        <div className="rounded-2xl h-[500px] bg-gray4 border border-gray1 flex flex-col overflow-clip skeleton"></div>
+
+                                    </div>)
+                            
+                            })}
+                        </div>
+                    ) : (
                         <div className="w-[1324px] flex-wrap flex mb-28">
         
                             {blogs.map((blog, id) => {
                                 return (
-                                    <div className="w-1/3 p-3">
+                                    <div className="w-1/3 py-3 px-2.5">
                                         <button onClick={()=>redirectToPage(`blog/${blog.slug}`)} className="rounded-2xl h-[500px] bg-gray4 border border-gray1 flex flex-col overflow-clip hover:bg-gradient-to-br hover:brightness-110 hover:border-gray0 hover:from-gray2 hover:to-gray4 duration-300">
                                             <img src={blog.imageURL} className="w-full border-b border-gray1"></img>
                                             <div className="h-[250px] font-poppins p-5 text-left">
