@@ -19,6 +19,12 @@ export default function Blog(props) {
         setBlog(blogs[0])
     }
 
+    useEffect(() => {
+        if (blog === null) {
+            getBlog()
+      }  
+    },[blog])
+
 
    
 
