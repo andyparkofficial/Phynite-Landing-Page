@@ -388,15 +388,16 @@
                                          )}
                                          
                                      </div>
+                                     <div className="flex flex-grow">
+                                        <h1 className="text-white font-semibold text-xl">2024</h1>
+                                    </div>
                                      <div className="w-1/5 h-full justify-end items-center flex flex-col">
                                          {selectedQuarter === 2 ? (
                                              <button onClick={() => setSelectedQuarter(2)} className="text-white font-semibold text-2xl p-2">Q1</button>
                                          ):(
                                              <button onClick={() => setSelectedQuarter(2)} className="text-gray-300 font-[500] text-xl p-2">Q1</button>    
                                          )}
-                                         <div className="flex flex-grow">
-                                             <h1 className="text-white font-semibold text-xl">2024</h1>
-                                         </div>
+                                         
                                      </div>
                                      <div className="w-1/5 h-full justify-center items-end flex">
                                          
