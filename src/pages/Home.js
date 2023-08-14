@@ -148,7 +148,7 @@ export default function Home(props) {
                         <div className="w-full mb-4 overflow-clip rounded-xl border border-gray-600">
                             <ImageBoxWithLink imageSource={VaultBackground} link={"https://docs.phynite.io/"}>
                                 <div className="flex flex-col items-end justify-end mr-1 w-full h-full p-4">
-                                    <h1 className="text-white font-semibold text-lg leading-tight mb-1 text-right">Powered by the Phynite Protocol</h1>
+                                    <h1 className="text-ice font-semibold text-lg leading-tight mb-1 text-right">Powered by the Phynite Protocol</h1>
                                     <div className="flex items-center">
                                         <h2 className="text-gray-300 font-light text-sm text-right">Read the Phynite Protocol White Paper</h2>
                                         <img className="w-4 h-4 ml-1 brightness-75" src={Arrow}></img>
@@ -322,7 +322,7 @@ export default function Home(props) {
                         <div className="w-full mb-4 overflow-clip rounded-xl border border-gray-600">
                             <ImageBoxWithLink imageSource={VaultBackground} link={"https://docs.phynite.io/"}>
                                 <div className="flex flex-col items-end justify-end mr-1 w-full h-full p-4">
-                                    <h1 className="text-white font-semibold text-4xl leading-tight mb-1 text-justify">Powered by the<br/> Phynite Protocol</h1>
+                                    <h1 className="text-ice font-semibold text-4xl leading-tight mb-1 text-justify">Powered by the<br/> Phynite Protocol</h1>
                                     <div className="flex items-center">
                                         <h2 className="text-gray-300 font-light text-[14.5px] text-right">Read the Phynite Protocol White Paper</h2>
                                         <img className="w-4 h-4 ml-1 brightness-75" src={Arrow}></img>
@@ -594,7 +594,7 @@ export default function Home(props) {
                             <div className="w-full mb-7 overflow-clip rounded-xl border border-gray1 hover:border-gray0 duration-300">
                                 <ImageBoxWithLink imageSource={VaultBackground} link={"https://docs.phynite.io/"}>
                                     <div className="flex flex-col items-end justify-end mr-1 w-full h-full p-4">
-                                        <h1 className="text-white font-semibold text-5xl leading-tight mb-1 text-justify pr-3">Powered by the<br/> Phynite Protocol</h1>
+                                        <h1 className="text-ice font-semibold text-5xl leading-tight mb-1 text-justify pr-3">Powered by the<br/> Phynite Protocol</h1>
                                         <div className="flex items-center">
                                             <h2 className="text-gray-300 font-light text-[20px] text-right pr-[6px]">Read the Phynite Protocol White Paper</h2>
                                             <img className="w-5 h-5 ml-1 brightness-75" src={Arrow}></img>
@@ -771,7 +771,7 @@ export default function Home(props) {
                             <h1 className="text-white text-semibold text-4xl font-semibold mb-6">Learn More</h1>
                             <div className="w-full mb-8">
                                 <a href="https://docs.phynite.io/" target="_blank" className="w-[1300px] absolute h-[434px] flex justify-end items-end flex-col pb-6 pr-6 hover:border-gray0 duration-200 border border-gray1 rounded-xl hover:shadow-xl">
-                                    <h1 className="text-white font-semibold text-5xl text-justify leading-tight mb-2 mr-[14px]">Powered by the<br/> Phynite Protocol</h1>
+                                    <h1 className="text-ice font-semibold text-5xl text-justify leading-tight mb-2 mr-[14px]">Powered by the<br/> Phynite Protocol</h1>
                                     <div className="flex items-center mr-1">
                                         <h2 className="text-gray-300 font-light text-xl">Read the Phynite Protocol White Paper</h2>
                                         <img className="w-5 h-5 ml-2 brightness-75" src={Arrow}></img>
