@@ -133,7 +133,7 @@ export default function GetStarted(props) {
         return regex.test(email);
     };
     
-    async function saveUserInfo(captchaToken)
+    async function saveUserInfo(recaptchaToken)
     {
         const signUpInfo = {
             email: userInfo.email,
@@ -141,12 +141,14 @@ export default function GetStarted(props) {
                 location: userInfo.location,
                 favoriteCollectibles: userInfo.favoriteCollectibles,
                 howTheyFoundUs: userInfo.howTheyFoundUs
-            }
+            },
+            recaptchaToken: recaptchaToken
             
         }
 
         const response = await PhyniteDataService.addSignUp(signUpInfo)
         if (response.status === 201) {
+            setError(null)
             setSubmitted(true)
             setUserInfo({
                 email: "",
@@ -163,7 +165,9 @@ export default function GetStarted(props) {
             })
             increaseNumberOfEmailsSubmitted()
         } else if (response.status === 202) {
-           setError("You're already signed up you silly goose!") 
+            setError("You're already signed up you silly goose!") 
+        } else {
+            setError("Hmm you may be a bot!")
         }
         setLoading(false)
     }
@@ -247,10 +251,18 @@ export default function GetStarted(props) {
 
     function handleRecaptchaSuccess(token) {
         // This function will be called when reCAPTCHA validation succeeds
-        console.log('reCAPTCHA Token:', token);
-        saveUserInfo(token)
-        // You can send this token to your backend for verification
+        console.log(token);
+        if (token !== null) {
+            saveUserInfo(token)
+            // You can send this token to your backend for verification
+        }
+        
       };
+
+      function addAnotherEmail(){
+        setSubmitted(false)
+        setDisplayCaptchaRequest(false)
+      }
     
     return (
         <div>
@@ -264,190 +276,205 @@ export default function GetStarted(props) {
                                 <h2 className="font-[500] text-lg text-white text-center mb-5">Thank you for being one of our earliest supporters!</h2>
                                 <h2 className=" text-gray-400 text-center mb-6">Phynite will be built before you know it.</h2>
                                 <div className="flex justify-center">
-                                    <button onClick={()=>setSubmitted(false)} className=" underline text-gray0 text-center">Add another email</button>
+                                    <button onClick={()=>addAnotherEmail()} className=" underline text-gray0 text-center">Add another email</button>
                                 </div>
                             </div>   
                         ) : (
                             <div className="flex flex-col items-center w-full">
                                 <h1 className="gradient-text-blue font-semibold text-2xl text-center leading-tight mb-6">The Phynite Marketplace<br />is Coming Soon</h1>
                                 <h2 className="font-light text-sm text-white text-center mb-10 px-6">Be one of the first 10,000 to join our waitlist and become eligible for exclusive promotions.</h2>
-                                <form onSubmit={onSubmit} className="w-full flex flex-col items-center border border-gray1 rounded-xl bg-gray3 p-6 mb-20">
-                                    {emailError !== null &&(
-                                        <h1 className="text-xs font-poppins text-salmon w-full text-left">*{emailError}</h1>
-                                    )}
-                                    <div className="w-full mb-4">
-                                        <h1 className=" font-[500] text-white mb-2">What's your email?</h1>
-                                        <input value={userInfo.email} onChange={handleChange} name="email" type="text" className="w-full h-12 border-gray1 border duration-300 rounded-lg text-lg bg-gray2 pl-4 focus:ring-1 text-white focus:ring-gray0 focus:outline-none placeholder:text-gray-400" placeholder="Email address"></input>
-                                        
+                                {displayCaptchaRequest ? (
+                                    <div className=" w-full flex flex-col items-center justify-center border border-gray1 rounded-xl bg-gray3 p-10 mb-20">
+                                        <h1 className="text-xl font-semibold text-white mb-8">Please verify that you're human!</h1>
+                                        <ReCAPTCHA
+                                        sitekey={RECAPTCHA_SITE_KEY}
+                                        onChange={handleRecaptchaSuccess}
+                                        />
+                                        {error !== null &&(
+                                            <div className="flex flex-col items-center">
+                                                <h1 className="text-md py-4 font-poppins text-salmon w-[500px] text-center">*{error}</h1>
+                                                <button onClick={()=>setDisplayCaptchaRequest(false)} className="underline text-gray-300">Go Back</button>
+                                            </div>
+                                        )}
                                     </div>
-                                    
-                                    {locationError !== null &&(
-                                        <h1 className="text-xs font-poppins text-salmon w-full text-left">*{locationError}</h1>
-                                    )}
-                                    <div className="w-full mb-4">
-                                        <h1 className="text-white font-[500] mb-2">Where are you from?</h1>   
-                                    
-                                        <div className="w-full">
-                                            <button type="button" onClick={() => toggleLocationPopUp()} ref={locationRef} className="w-full bg-gray2 h-10 rounded-lg text-lg flex items-center text-white text-left pl-2 pr-1 border border-gray1  duration-300">
-                                                {getShortenedString(userInfo.location, 15)}
-                                                <div className="flex flex-grow justify-end items-center">
-                                                    {locationPopUpOn ? (
-                                                        <img src={caretDown} className="w-3 h-3 rotate-180 duration-100 mr-2"></img>
-                                                        ) : (
-                                                        <img src={caretDown} className="w-3 h-3 rotate-0 duration-100 mr-2"></img>
-                                                    )}
-                                                </div>
-                                                
-                                            </button>
-                                            <PopUpWrapper popUpOn={locationPopUpOn}>
-                                                <OutsideAlerter handleClick={()=>toggleLocationPopUp()}>
-                                                    <div className="max-h-[200px] overflow-scroll overflow-x-clip px-1 z-20 bg-gray1 blur-background-medium bg-opacity-25 absolute mt-2 rounded-lg border border-gray1 duration-300 py-2" style={{width: `${windowSize.width-76}px`}}>
-                                                        {countryList.map((country, id) => {
-                                                            const notLastItem = id + 1 !== countryList.length
-                                                            return (
-                                                                <button type="button" onClick={()=>selectLocation(country)} className="w-full ">
-                                                                    <h1 className="text-sm text-white px-1 py-1 text-left rounded-lg duration-300 w-full">{country}</h1>
-                                                                    {notLastItem === true && (
-                                                                        <hr className="h-[1.5px] bg-gray1 border-0 dark:bg-gray1 mt-1.5"/>
-                                                                    )}
-                                                                </button>
-                                                            )
-                                                        })}
-                                                    </div>
-                                                </OutsideAlerter>
-                                            </PopUpWrapper>
-                                        </div>
-                                            
-
-                                    </div>
-                                    
-                                    {howTheyFoundUsError !== null &&(
-                                        <h1 className="text-xs font-poppins text-salmon w-full text-left">*{howTheyFoundUsError}</h1>
-                                    )}
-                                    <div className="w-full mb-4">
-                                        <h1 className="text-white font-[500] mb-2">How did you find us?</h1>   
-                                        
-                                        <div className="w-full">
-                                            <button type="button" onClick={() => toggleHowTheyFoundUsPopUp()} ref={howTheyFoundUsRef} className="w-full bg-gray2 h-10 rounded-lg text-lg flex items-center text-white text-left pl-2 pr-1 border border-gray1 duration-300">
-                                                {getShortenedString(userInfo.howTheyFoundUs, 15)}
-                                                <div className="flex flex-grow justify-end items-center">
-                                                    {howTheyFoundUsPopUpOn ? (
-                                                        <img src={caretDown} className="w-3 h-3 rotate-180 duration-100 mr-2"></img>
-                                                        ) : (
-                                                        <img src={caretDown} className="w-3 h-3 rotate-0 duration-100 mr-2"></img>
-                                                    )}
-                                                </div>
-                                                
-                                            </button>
-                                            <PopUpWrapper popUpOn={howTheyFoundUsPopUpOn}>
-                                                <OutsideAlerter handleClick={()=>toggleHowTheyFoundUsPopUp()}>
-                                                    <div style={{width: `${windowSize.width-76}px`}} className="w-full max-h-[200px] overflow-scroll overflow-x-clip px-1 bg-gray1 blur-background-medium bg-opacity-25 absolute mt-2 rounded-lg border border-gray1 duration-300 py-2">
-                                                        {howDidYouFindUsList.map((selection, id) => {
-                                                            const notLastItem = id + 1 !== howDidYouFindUsList.length
-                                                            return (
-                                                                <button type="button" onClick={()=>selectHowTheyFoundUs(selection)} className="w-full ">
-                                                                    <h1 className="text-sm text-white px-1 py-1 text-left rounded-lg duration-300 w-full">{selection}</h1>
-                                                                    {notLastItem === true && (
-                                                                        <hr className="h-[1.5px] bg-gray1 border-0 dark:bg-gray1 mt-1.5"/>
-                                                                    )}
-                                                                </button>
-                                                            )
-                                                        })}
-                                                    </div>
-                                                </OutsideAlerter>
-                                            </PopUpWrapper>
-                                        </div>
-
-                                    </div>
-                                        
-                                    {favoriteCollectiblesError !== null &&(
-                                        <h1 className="text-xs font-poppins text-salmon w-full text-left">*{favoriteCollectiblesError}</h1>
-                                    )}
-                                    <div className="w-full flex flex-col mb-4">
-                                        <h1 className=" text-white font-[500] mb-4">What do you enjoy collecting?</h1>
-                                        <div className="w-full">
-                                            <button onClick={()=>toggleFavoriteCollectible("pokemonCards")} type="button" className="w-full px-2 flex items-center py-2">
-                                                <h1 className=" text-gray-300 font-light text-sm">Pokemon Cards</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["pokemonCards"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
-                                                </div>
-                                            </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("sportsTradingCards")} type="button" className="w-full px-2 flex items-center py-2">
-                                                <h1 className=" text-gray-300 font-light text-sm">Sports Trading Cards</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["sportsTradingCards"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
-                                                </div>
-                                            </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("comics")} type="button" className="w-full px-2 flex items-center py-2">
-                                                <h1 className=" text-gray-300 font-light text-sm">Comics</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["comics"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
-                                                </div>
-                                            </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("coins")} type="button" className="w-full px-2 flex items-center py-2">
-                                                <h1 className=" text-gray-300 font-light text-sm">Coins</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["coins"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
-                                                </div>
-                                            </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("sneakers")} type="button" className="w-full px-2 flex items-center py-2">
-                                                <h1 className=" text-gray-300 font-light text-sm">Sneakers</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["sneakers"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
-                                                </div>
-                                            </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("other")} type="button" className="w-full px-2 flex items-center  py-2">
-                                                <h1 className=" text-gray-300 font-light text-sm">Other</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["other"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
-                                                </div>
-                                            </button>
+                                ):( 
+                                    <form onSubmit={onSubmit} className="w-full flex flex-col items-center border border-gray1 rounded-xl bg-gray3 p-6 mb-20">
+                                        {emailError !== null &&(
+                                            <h1 className="text-xs font-poppins text-salmon w-full text-left">*{emailError}</h1>
+                                        )}
+                                        <div className="w-full mb-4">
+                                            <h1 className=" font-[500] text-white mb-2">What's your email?</h1>
+                                            <input value={userInfo.email} onChange={handleChange} name="email" type="text" className="w-full h-12 border-gray1 border duration-300 rounded-lg text-lg bg-gray2 pl-4 focus:ring-1 text-white focus:ring-gray0 focus:outline-none placeholder:text-gray-400" placeholder="Email address"></input>
                                             
                                         </div>
-                                    </div>
-                                    <div className="w-full flex items-center justify-center">
-                                        <h1 className="text-[11px] font-light text-gray-300 mb-4 text-center">By signing up, you are agreeing to our <Link target="_blank" to="/termsOfService" className="underline">Terms of Service</Link> and <Link target="_blank" to="/privacyPolicy" className="underline">Privacy Policy</Link></h1> 
-                                    </div>
-                                    {error !== null &&(
-                                        <h1 className="text-xs pb-3 font-poppins text-salmon w-full text-center">*{error}</h1>
-                                    )}
-                                    {loading === true ? (
-                                        <button type="submit" className="w-full h-12 bg-gradient-to-br from-salmon to-mango brightness-125 rounded-lg flex items-center justify-center"><ClipLoader size={20} color={"#ffffff"} /></button>
-                                    ) : (
-                                        <button type="submit" className="w-full h-12 bg-gradient-to-br from-phyniteBlue to-phyniteBlue rounded-lg font-poppins text-gray1 text-lg font-semibold ">Sign Up</button>
-                                    )}
-                                </form>
-                                
+                                        
+                                        {locationError !== null &&(
+                                            <h1 className="text-xs font-poppins text-salmon w-full text-left">*{locationError}</h1>
+                                        )}
+                                        <div className="w-full mb-4">
+                                            <h1 className="text-white font-[500] mb-2">Where are you from?</h1>   
+                                        
+                                            <div className="w-full">
+                                                <button type="button" onClick={() => toggleLocationPopUp()} ref={locationRef} className="w-full bg-gray2 h-10 rounded-lg text-lg flex items-center text-white text-left pl-2 pr-1 border border-gray1  duration-300">
+                                                    {getShortenedString(userInfo.location, 15)}
+                                                    <div className="flex flex-grow justify-end items-center">
+                                                        {locationPopUpOn ? (
+                                                            <img src={caretDown} className="w-3 h-3 rotate-180 duration-100 mr-2"></img>
+                                                            ) : (
+                                                            <img src={caretDown} className="w-3 h-3 rotate-0 duration-100 mr-2"></img>
+                                                        )}
+                                                    </div>
+                                                    
+                                                </button>
+                                                <PopUpWrapper popUpOn={locationPopUpOn}>
+                                                    <OutsideAlerter handleClick={()=>toggleLocationPopUp()}>
+                                                        <div className="max-h-[200px] overflow-scroll overflow-x-clip px-1 z-20 bg-gray1 blur-background-medium bg-opacity-25 absolute mt-2 rounded-lg border border-gray1 duration-300 py-2" style={{width: `${windowSize.width-76}px`}}>
+                                                            {countryList.map((country, id) => {
+                                                                const notLastItem = id + 1 !== countryList.length
+                                                                return (
+                                                                    <button type="button" onClick={()=>selectLocation(country)} className="w-full ">
+                                                                        <h1 className="text-sm text-white px-1 py-1 text-left rounded-lg duration-300 w-full">{country}</h1>
+                                                                        {notLastItem === true && (
+                                                                            <hr className="h-[1.5px] bg-gray1 border-0 dark:bg-gray1 mt-1.5"/>
+                                                                        )}
+                                                                    </button>
+                                                                )
+                                                            })}
+                                                        </div>
+                                                    </OutsideAlerter>
+                                                </PopUpWrapper>
+                                            </div>
+                                                
+
+                                        </div>
+                                        
+                                        {howTheyFoundUsError !== null &&(
+                                            <h1 className="text-xs font-poppins text-salmon w-full text-left">*{howTheyFoundUsError}</h1>
+                                        )}
+                                        <div className="w-full mb-4">
+                                            <h1 className="text-white font-[500] mb-2">How did you find us?</h1>   
+                                            
+                                            <div className="w-full">
+                                                <button type="button" onClick={() => toggleHowTheyFoundUsPopUp()} ref={howTheyFoundUsRef} className="w-full bg-gray2 h-10 rounded-lg text-lg flex items-center text-white text-left pl-2 pr-1 border border-gray1 duration-300">
+                                                    {getShortenedString(userInfo.howTheyFoundUs, 15)}
+                                                    <div className="flex flex-grow justify-end items-center">
+                                                        {howTheyFoundUsPopUpOn ? (
+                                                            <img src={caretDown} className="w-3 h-3 rotate-180 duration-100 mr-2"></img>
+                                                            ) : (
+                                                            <img src={caretDown} className="w-3 h-3 rotate-0 duration-100 mr-2"></img>
+                                                        )}
+                                                    </div>
+                                                    
+                                                </button>
+                                                <PopUpWrapper popUpOn={howTheyFoundUsPopUpOn}>
+                                                    <OutsideAlerter handleClick={()=>toggleHowTheyFoundUsPopUp()}>
+                                                        <div style={{width: `${windowSize.width-76}px`}} className="w-full max-h-[200px] overflow-scroll overflow-x-clip px-1 bg-gray1 blur-background-medium bg-opacity-25 absolute mt-2 rounded-lg border border-gray1 duration-300 py-2">
+                                                            {howDidYouFindUsList.map((selection, id) => {
+                                                                const notLastItem = id + 1 !== howDidYouFindUsList.length
+                                                                return (
+                                                                    <button type="button" onClick={()=>selectHowTheyFoundUs(selection)} className="w-full ">
+                                                                        <h1 className="text-sm text-white px-1 py-1 text-left rounded-lg duration-300 w-full">{selection}</h1>
+                                                                        {notLastItem === true && (
+                                                                            <hr className="h-[1.5px] bg-gray1 border-0 dark:bg-gray1 mt-1.5"/>
+                                                                        )}
+                                                                    </button>
+                                                                )
+                                                            })}
+                                                        </div>
+                                                    </OutsideAlerter>
+                                                </PopUpWrapper>
+                                            </div>
+
+                                        </div>
+                                            
+                                        {favoriteCollectiblesError !== null &&(
+                                            <h1 className="text-xs font-poppins text-salmon w-full text-left">*{favoriteCollectiblesError}</h1>
+                                        )}
+                                        <div className="w-full flex flex-col mb-4">
+                                            <h1 className=" text-white font-[500] mb-4">What do you enjoy collecting?</h1>
+                                            <div className="w-full">
+                                                <button onClick={()=>toggleFavoriteCollectible("pokemonCards")} type="button" className="w-full px-2 flex items-center py-2">
+                                                    <h1 className=" text-gray-300 font-light text-sm">Pokemon Cards</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["pokemonCards"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                                <button onClick={()=>toggleFavoriteCollectible("sportsTradingCards")} type="button" className="w-full px-2 flex items-center py-2">
+                                                    <h1 className=" text-gray-300 font-light text-sm">Sports Trading Cards</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["sportsTradingCards"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                                <button onClick={()=>toggleFavoriteCollectible("comics")} type="button" className="w-full px-2 flex items-center py-2">
+                                                    <h1 className=" text-gray-300 font-light text-sm">Comics</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["comics"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                                <button onClick={()=>toggleFavoriteCollectible("coins")} type="button" className="w-full px-2 flex items-center py-2">
+                                                    <h1 className=" text-gray-300 font-light text-sm">Coins</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["coins"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                                <button onClick={()=>toggleFavoriteCollectible("sneakers")} type="button" className="w-full px-2 flex items-center py-2">
+                                                    <h1 className=" text-gray-300 font-light text-sm">Sneakers</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["sneakers"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                                <button onClick={()=>toggleFavoriteCollectible("other")} type="button" className="w-full px-2 flex items-center  py-2">
+                                                    <h1 className=" text-gray-300 font-light text-sm">Other</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["other"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                                
+                                            </div>
+                                        </div>
+                                        <div className="w-full flex items-center justify-center">
+                                            <h1 className="text-[11px] font-light text-gray-300 mb-4 text-center">By signing up, you are agreeing to our <Link target="_blank" to="/termsOfService" className="underline">Terms of Service</Link> and <Link target="_blank" to="/privacyPolicy" className="underline">Privacy Policy</Link></h1> 
+                                        </div>
+                                        {error !== null &&(
+                                            <h1 className="text-xs pb-3 font-poppins text-salmon w-full text-center">*{error}</h1>
+                                        )}
+                                        {loading === true ? (
+                                            <button type="submit" className="w-full h-12 bg-gradient-to-br from-salmon to-mango brightness-125 rounded-lg flex items-center justify-center"><ClipLoader size={20} color={"#ffffff"} /></button>
+                                        ) : (
+                                            <button type="submit" className="w-full h-12 bg-gradient-to-br from-phyniteBlue to-phyniteBlue rounded-lg font-poppins text-gray1 text-lg font-semibold ">Sign Up</button>
+                                        )}
+                                    </form>
+                                )}
                             </div>
                         )}
                         
@@ -464,193 +491,209 @@ export default function GetStarted(props) {
                                 <h2 className="font-[500] text-xl text-white text-center mb-5">Thank you for being one of our earliest supporters!</h2>
                                 <h2 className="text-xl text-gray-400 text-center mb-6">Phynite will be built before you know it.</h2>
                                 <div className="flex justify-center">
-                                    <button onClick={()=>setSubmitted(false)} className=" underline text-gray0 text-center">Add another email</button>
+                                    <button onClick={()=>addAnotherEmail()} className=" underline text-gray0 text-center">Add another email</button>
                                 </div>
                             </div>   
                         ) : (
                             <div className="flex flex-col items-center ">
                                 <h1 className="gradient-text-blue font-semibold text-4xl text-center leading-tight mb-6">The Phynite Marketplace<br />is Coming Soon</h1>
                                 <h2 className="font-light text-lg text-white text-center mb-10 px-6">Be one of the first 10,000 to join our waitlist and become eligible for exclusive promotions.</h2>
-                                <form onSubmit={onSubmit} className="w-full flex flex-col items-center border border-gray1 rounded-xl bg-gray3 p-6 mb-20">
-                                    {emailError !== null &&(
-                                        <h1 className="text-md font-poppins text-salmon w-full text-left">*{emailError}</h1>
-                                    )}
-                                    <div className="flex items-center w-full mb-6">
-                                        <h1 className="text-lg font-[500] text-white">What's your email?</h1>
-                                        <div className="flex flex-grow justify-end">
-                                            <input value={userInfo.email} onChange={handleChange} name="email" type="text" className="w-[300px] h-12 border-gray1 border duration-300 rounded-lg text-lg bg-gray2 pl-4 focus:ring-1 text-white focus:ring-gray0 focus:outline-none placeholder:text-gray-400" placeholder="Email address"></input>
-                                        </div>
-                                    </div>
-                                    
-                                    {locationError !== null &&(
-                                        <h1 className="text-md font-poppins text-salmon w-full text-left">*{locationError}</h1>
-                                    )}
-                                    <div className="w-full flex items-center mb-6">
-                                        <h1 className="text-white font-[500] text-lg">Where are you from?</h1>   
-                                        <div className="flex flex-grow justify-end">
-                                            <div className="w-[200px]">
-                                                <button type="button" onClick={() => toggleLocationPopUp()} ref={locationRef} className="w-[200px] bg-gray2 h-10 rounded-lg text-lg flex items-center text-white text-left pl-2 pr-1 border border-gray1  duration-300">
-                                                    {getShortenedString(userInfo.location, 15)}
-                                                    <div className="flex flex-grow justify-end items-center">
-                                                        {locationPopUpOn ? (
-                                                            <img src={caretDown} className="w-3 h-3 rotate-180 duration-100 mr-2"></img>
-                                                            ) : (
-                                                            <img src={caretDown} className="w-3 h-3 rotate-0 duration-100 mr-2"></img>
-                                                        )}
-                                                    </div>
-                                                    
-                                                </button>
-                                                <PopUpWrapper popUpOn={locationPopUpOn}>
-                                                    <OutsideAlerter handleClick={()=>toggleLocationPopUp()}>
-                                                        <div className="w-[200px] max-h-[200px] overflow-scroll overflow-x-clip px-1 z-20 bg-gray1 blur-background-medium bg-opacity-25 absolute mt-2 rounded-lg border border-gray1 duration-300 py-2">
-                                                            {countryList.map((country, id) => {
-                                                                const notLastItem = id + 1 !== countryList.length
-                                                                return (
-                                                                    <button type="button" onClick={()=>selectLocation(country)} className="w-full ">
-                                                                        <h1 className="text-sm text-white px-1 py-1 text-left rounded-lg duration-300 w-full">{country}</h1>
-                                                                        {notLastItem === true && (
-                                                                            <hr className="h-[1.5px] bg-gray1 border-0 dark:bg-gray1 mt-1.5"/>
-                                                                        )}
-                                                                    </button>
-                                                                )
-                                                            })}
-                                                        </div>
-                                                    </OutsideAlerter>
-                                                </PopUpWrapper>
+                                {displayCaptchaRequest ? (
+                                    <div className=" w-[560px] flex flex-col items-center justify-center border border-gray1 rounded-xl bg-gray3 p-10 mb-20">
+                                        <h1 className="text-2xl font-semibold text-white mb-8">Please verify that you're human!</h1>
+                                        <ReCAPTCHA
+                                        sitekey={RECAPTCHA_SITE_KEY}
+                                        onChange={handleRecaptchaSuccess}
+                                        />
+                                        {error !== null &&(
+                                            <div className="flex flex-col items-center">
+                                                <h1 className="text-md py-4 font-poppins text-salmon w-[500px] text-center">*{error}</h1>
+                                                <button onClick={()=>setDisplayCaptchaRequest(false)} className="underline text-gray-300">Go Back</button>
                                             </div>
-                                            
-                                        </div>
-
+                                        )}
                                     </div>
-                                    
-                                    {howTheyFoundUsError !== null &&(
-                                        <h1 className="text-md font-poppins text-salmon w-full text-left">*{howTheyFoundUsError}</h1>
-                                    )}
-                                    <div className="w-full flex items-center mb-6">
-                                        <h1 className="text-white font-[500] text-lg">How did you find us?</h1>   
-                                        <div className="flex flex-grow justify-end">
-                                            <div className="w-[200px]">
-                                                <button type="button" onClick={() => toggleHowTheyFoundUsPopUp()} ref={howTheyFoundUsRef} className="w-[200px] bg-gray2 h-10 rounded-lg text-lg flex items-center text-white text-left pl-2 pr-1 border border-gray1 duration-300">
-                                                    {getShortenedString(userInfo.howTheyFoundUs, 15)}
-                                                    <div className="flex flex-grow justify-end items-center">
-                                                        {howTheyFoundUsPopUpOn ? (
-                                                            <img src={caretDown} className="w-3 h-3 rotate-180 duration-100 mr-2"></img>
-                                                            ) : (
-                                                            <img src={caretDown} className="w-3 h-3 rotate-0 duration-100 mr-2"></img>
-                                                        )}
-                                                    </div>
-                                                    
-                                                </button>
-                                                <PopUpWrapper popUpOn={howTheyFoundUsPopUpOn}>
-                                                    <OutsideAlerter handleClick={()=>toggleHowTheyFoundUsPopUp()}>
-                                                        <div className="w-[200px] max-h-[200px] overflow-scroll overflow-x-clip px-1 bg-gray1 blur-background-medium bg-opacity-25 absolute mt-2 rounded-lg border border-gray1 duration-300 py-2">
-                                                            {howDidYouFindUsList.map((selection, id) => {
-                                                                const notLastItem = id + 1 !== howDidYouFindUsList.length
-                                                                return (
-                                                                    <button type="button" onClick={()=>selectHowTheyFoundUs(selection)} className="w-full ">
-                                                                        <h1 className="text-sm text-white px-1 py-1 text-left rounded-lg duration-300 w-full">{selection}</h1>
-                                                                        {notLastItem === true && (
-                                                                            <hr className="h-[1.5px] bg-gray1 border-0 dark:bg-gray1 mt-1.5"/>
-                                                                        )}
-                                                                    </button>
-                                                                )
-                                                            })}
-                                                        </div>
-                                                    </OutsideAlerter>
-                                                </PopUpWrapper>
+                                ):(
+                                    <form onSubmit={onSubmit} className="w-full flex flex-col items-center border border-gray1 rounded-xl bg-gray3 p-6 mb-20">
+                                        {emailError !== null &&(
+                                            <h1 className="text-md font-poppins text-salmon w-full text-left">*{emailError}</h1>
+                                        )}
+                                        <div className="flex items-center w-full mb-6">
+                                            <h1 className="text-lg font-[500] text-white">What's your email?</h1>
+                                            <div className="flex flex-grow justify-end">
+                                                <input value={userInfo.email} onChange={handleChange} name="email" type="text" className="w-[300px] h-12 border-gray1 border duration-300 rounded-lg text-lg bg-gray2 pl-4 focus:ring-1 text-white focus:ring-gray0 focus:outline-none placeholder:text-gray-400" placeholder="Email address"></input>
                                             </div>
-                                            
                                         </div>
-
-                                    </div>
                                         
-                                    {favoriteCollectiblesError !== null &&(
-                                        <h1 className="text-md font-poppins text-salmon w-full text-left">*{favoriteCollectiblesError}</h1>
-                                    )}
-                                    <div className="w-full flex flex-col mb-4">
-                                        <h1 className="text-lg text-white font-[500] mb-4">What do you enjoy collecting?</h1>
-                                        <div className="w-full">
-                                            <button onClick={()=>toggleFavoriteCollectible("pokemonCards")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg duration-200 py-1">
-                                                <h1 className=" text-gray-300 font-light">Pokemon Cards</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["pokemonCards"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
+                                        {locationError !== null &&(
+                                            <h1 className="text-md font-poppins text-salmon w-full text-left">*{locationError}</h1>
+                                        )}
+                                        <div className="w-full flex items-center mb-6">
+                                            <h1 className="text-white font-[500] text-lg">Where are you from?</h1>   
+                                            <div className="flex flex-grow justify-end">
+                                                <div className="w-[200px]">
+                                                    <button type="button" onClick={() => toggleLocationPopUp()} ref={locationRef} className="w-[200px] bg-gray2 h-10 rounded-lg text-lg flex items-center text-white text-left pl-2 pr-1 border border-gray1  duration-300">
+                                                        {getShortenedString(userInfo.location, 15)}
+                                                        <div className="flex flex-grow justify-end items-center">
+                                                            {locationPopUpOn ? (
+                                                                <img src={caretDown} className="w-3 h-3 rotate-180 duration-100 mr-2"></img>
+                                                                ) : (
+                                                                <img src={caretDown} className="w-3 h-3 rotate-0 duration-100 mr-2"></img>
+                                                            )}
+                                                        </div>
+                                                        
+                                                    </button>
+                                                    <PopUpWrapper popUpOn={locationPopUpOn}>
+                                                        <OutsideAlerter handleClick={()=>toggleLocationPopUp()}>
+                                                            <div className="w-[200px] max-h-[200px] overflow-scroll overflow-x-clip px-1 z-20 bg-gray1 blur-background-medium bg-opacity-25 absolute mt-2 rounded-lg border border-gray1 duration-300 py-2">
+                                                                {countryList.map((country, id) => {
+                                                                    const notLastItem = id + 1 !== countryList.length
+                                                                    return (
+                                                                        <button type="button" onClick={()=>selectLocation(country)} className="w-full ">
+                                                                            <h1 className="text-sm text-white px-1 py-1 text-left rounded-lg duration-300 w-full">{country}</h1>
+                                                                            {notLastItem === true && (
+                                                                                <hr className="h-[1.5px] bg-gray1 border-0 dark:bg-gray1 mt-1.5"/>
+                                                                            )}
+                                                                        </button>
+                                                                    )
+                                                                })}
+                                                            </div>
+                                                        </OutsideAlerter>
+                                                    </PopUpWrapper>
                                                 </div>
-                                            </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("sportsTradingCards")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg duration-200 py-1">
-                                                <h1 className=" text-gray-300 font-light">Sports Trading Cards</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["sportsTradingCards"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
-                                                </div>
-                                            </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("comics")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg duration-200 py-1">
-                                                <h1 className=" text-gray-300 font-light">Comics</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["comics"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
-                                                </div>
-                                            </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("coins")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg duration-200 py-1">
-                                                <h1 className=" text-gray-300 font-light">Coins</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["coins"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
-                                                </div>
-                                            </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("sneakers")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg duration-200 py-1">
-                                                <h1 className=" text-gray-300 font-light">Sneakers</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["sneakers"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
-                                                </div>
-                                            </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("other")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg duration-200 py-1">
-                                                <h1 className=" text-gray-300 font-light">Other</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["other"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
-                                                </div>
-                                            </button>
-                                            
+                                                
+                                            </div>
+
                                         </div>
-                                    </div>
-                                    <div className="w-full flex items-center justify-center">
-                                        <h1 className="text-xs font-light text-gray-300 mb-4">By signing up, you are agreeing to our <Link target="_blank" to="/termsOfService" className="underline">Terms of Service</Link> and <Link target="_blank" to="/privacyPolicy" className="underline">Privacy Policy</Link></h1> 
-                                    </div>
-                                    {error !== null &&(
-                                        <h1 className="text-md pb-3 font-poppins text-salmon w-[500px] text-center">*{error}</h1>
-                                    )}
-                                    {loading === true ? (
-                                        <button type="submit" className="w-[300px] h-12 bg-gradient-to-br from-salmon to-mango brightness-125 rounded-lg flex items-center justify-center"><ClipLoader size={20} color={"#ffffff"} /></button>
-                                    ) : (
-                                        <button type="submit" className="w-[300px] h-12 bg-gradient-to-br from-phyniteBlue to-phyniteBlue duration-300 rounded-lg font-poppins text-gray1 text-lg font-semibold ">Sign Up</button>
-                                    )}
-                                </form>
+                                        
+                                        {howTheyFoundUsError !== null &&(
+                                            <h1 className="text-md font-poppins text-salmon w-full text-left">*{howTheyFoundUsError}</h1>
+                                        )}
+                                        <div className="w-full flex items-center mb-6">
+                                            <h1 className="text-white font-[500] text-lg">How did you find us?</h1>   
+                                            <div className="flex flex-grow justify-end">
+                                                <div className="w-[200px]">
+                                                    <button type="button" onClick={() => toggleHowTheyFoundUsPopUp()} ref={howTheyFoundUsRef} className="w-[200px] bg-gray2 h-10 rounded-lg text-lg flex items-center text-white text-left pl-2 pr-1 border border-gray1 duration-300">
+                                                        {getShortenedString(userInfo.howTheyFoundUs, 15)}
+                                                        <div className="flex flex-grow justify-end items-center">
+                                                            {howTheyFoundUsPopUpOn ? (
+                                                                <img src={caretDown} className="w-3 h-3 rotate-180 duration-100 mr-2"></img>
+                                                                ) : (
+                                                                <img src={caretDown} className="w-3 h-3 rotate-0 duration-100 mr-2"></img>
+                                                            )}
+                                                        </div>
+                                                        
+                                                    </button>
+                                                    <PopUpWrapper popUpOn={howTheyFoundUsPopUpOn}>
+                                                        <OutsideAlerter handleClick={()=>toggleHowTheyFoundUsPopUp()}>
+                                                            <div className="w-[200px] max-h-[200px] overflow-scroll overflow-x-clip px-1 bg-gray1 blur-background-medium bg-opacity-25 absolute mt-2 rounded-lg border border-gray1 duration-300 py-2">
+                                                                {howDidYouFindUsList.map((selection, id) => {
+                                                                    const notLastItem = id + 1 !== howDidYouFindUsList.length
+                                                                    return (
+                                                                        <button type="button" onClick={()=>selectHowTheyFoundUs(selection)} className="w-full ">
+                                                                            <h1 className="text-sm text-white px-1 py-1 text-left rounded-lg duration-300 w-full">{selection}</h1>
+                                                                            {notLastItem === true && (
+                                                                                <hr className="h-[1.5px] bg-gray1 border-0 dark:bg-gray1 mt-1.5"/>
+                                                                            )}
+                                                                        </button>
+                                                                    )
+                                                                })}
+                                                            </div>
+                                                        </OutsideAlerter>
+                                                    </PopUpWrapper>
+                                                </div>
+                                                
+                                            </div>
+
+                                        </div>
+                                            
+                                        {favoriteCollectiblesError !== null &&(
+                                            <h1 className="text-md font-poppins text-salmon w-full text-left">*{favoriteCollectiblesError}</h1>
+                                        )}
+                                        <div className="w-full flex flex-col mb-4">
+                                            <h1 className="text-lg text-white font-[500] mb-4">What do you enjoy collecting?</h1>
+                                            <div className="w-full">
+                                                <button onClick={()=>toggleFavoriteCollectible("pokemonCards")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg duration-200 py-1">
+                                                    <h1 className=" text-gray-300 font-light">Pokemon Cards</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["pokemonCards"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                                <button onClick={()=>toggleFavoriteCollectible("sportsTradingCards")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg duration-200 py-1">
+                                                    <h1 className=" text-gray-300 font-light">Sports Trading Cards</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["sportsTradingCards"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                                <button onClick={()=>toggleFavoriteCollectible("comics")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg duration-200 py-1">
+                                                    <h1 className=" text-gray-300 font-light">Comics</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["comics"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                                <button onClick={()=>toggleFavoriteCollectible("coins")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg duration-200 py-1">
+                                                    <h1 className=" text-gray-300 font-light">Coins</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["coins"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                                <button onClick={()=>toggleFavoriteCollectible("sneakers")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg duration-200 py-1">
+                                                    <h1 className=" text-gray-300 font-light">Sneakers</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["sneakers"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                                <button onClick={()=>toggleFavoriteCollectible("other")} type="button" className="w-full mb-2 px-2 flex items-center rounded-lg duration-200 py-1">
+                                                    <h1 className=" text-gray-300 font-light">Other</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["other"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                                
+                                            </div>
+                                        </div>
+                                        <div className="w-full flex items-center justify-center">
+                                            <h1 className="text-xs font-light text-gray-300 mb-4">By signing up, you are agreeing to our <Link target="_blank" to="/termsOfService" className="underline">Terms of Service</Link> and <Link target="_blank" to="/privacyPolicy" className="underline">Privacy Policy</Link></h1> 
+                                        </div>
+                                        {error !== null &&(
+                                            <h1 className="text-md pb-3 font-poppins text-salmon w-[500px] text-center">*{error}</h1>
+                                        )}
+                                        {loading === true ? (
+                                            <button type="submit" className="w-[300px] h-12 bg-gradient-to-br from-salmon to-mango brightness-125 rounded-lg flex items-center justify-center"><ClipLoader size={20} color={"#ffffff"} /></button>
+                                        ) : (
+                                            <button type="submit" className="w-[300px] h-12 bg-gradient-to-br from-phyniteBlue to-phyniteBlue duration-300 rounded-lg font-poppins text-gray1 text-lg font-semibold ">Sign Up</button>
+                                        )}
+                                    </form>
+                                )}
                                 
                             </div>
                         )}
@@ -667,194 +710,209 @@ export default function GetStarted(props) {
                                 <h2 className="font-[500] text-2xl text-white text-center mb-5">Thank you for being one of our earliest supporters!</h2>
                                 <h2 className="text-xl text-gray-400 text-center mb-6">Phynite will be built before you know it.</h2>
                                 <div className="flex justify-center">
-                                    <button onClick={()=>setSubmitted(false)} className=" underline text-gray0 text-center">Add another email</button>
+                                    <button onClick={()=>addAnotherEmail()} className=" underline text-gray0 text-center">Add another email</button>
                                 </div>
                             </div>   
                         ) : (
                             <div className="flex flex-col items-center ">
                                 <h1 className="gradient-text-blue font-semibold text-5xl text-center leading-tight mb-6">The Phynite Marketplace<br />is Coming Soon</h1>
                                 <h2 className="font-light text-lg text-white text-center mb-10 px-6">Be one of the first 10,000 to join our waitlist and become eligible for exclusive promotions.</h2>
-                                <form onSubmit={onSubmit} className="w-[800px] flex flex-col items-center border border-gray1 rounded-xl bg-gray3 p-6 mb-20">
-                                    {emailError !== null &&(
-                                        <h1 className="text-md font-poppins text-salmon w-full text-left">*{emailError}</h1>
-                                    )}
-                                    <div className="flex items-center w-full mb-6">
-                                        <h1 className="text-lg font-[500] text-white">What's your email?</h1>
-                                        <div className="flex flex-grow justify-end">
-                                            <input value={userInfo.email} onChange={handleChange} name="email" type="text" className="w-[300px] h-12 border-gray1 border hover:border-gray0 duration-300 rounded-lg text-lg bg-gray2 pl-4 focus:ring-1 text-white focus:ring-gray0 focus:outline-none placeholder:text-gray-400" placeholder="Email address"></input>
-                                        </div>
-                                    </div>
-                                    
-                                    {locationError !== null &&(
-                                        <h1 className="text-md font-poppins text-salmon w-full text-left">*{locationError}</h1>
-                                    )}
-                                    <div className="w-full flex items-center mb-6">
-                                        <h1 className="text-white font-[500] text-lg">Where are you from?</h1>   
-                                        <div className="flex flex-grow justify-end">
-                                            <div className="w-[200px]">
-                                                <button type="button" onClick={() => toggleLocationPopUp()} ref={locationRef} className="w-[200px] bg-gray2 h-10 rounded-lg text-lg flex items-center text-white text-left pl-2 pr-1 border border-gray1 hover:border-gray0 duration-300">
-                                                    {getShortenedString(userInfo.location, 15)}
-                                                    <div className="flex flex-grow justify-end items-center">
-                                                        {locationPopUpOn ? (
-                                                            <img src={caretDown} className="w-3 h-3 rotate-180 duration-100 mr-2"></img>
-                                                            ) : (
-                                                            <img src={caretDown} className="w-3 h-3 rotate-0 duration-100 mr-2"></img>
-                                                        )}
-                                                    </div>
-                                                    
-                                                </button>
-                                                <PopUpWrapper popUpOn={locationPopUpOn}>
-                                                    <OutsideAlerter handleClick={()=>toggleLocationPopUp()}>
-                                                        <div className="w-[200px] max-h-[200px] overflow-scroll overflow-x-clip px-1 z-20 bg-gray1 blur-background-medium bg-opacity-25 absolute mt-2 rounded-lg border border-gray1 hover:border-gray0 duration-300 py-2">
-                                                            {countryList.map((country, id) => {
-                                                                const notLastItem = id + 1 !== countryList.length
-                                                                return (
-                                                                    <button type="button" onClick={()=>selectLocation(country)} className="w-full ">
-                                                                        <h1 className="text-sm text-white px-1 py-1 text-left hover:bg-gray2 rounded-lg hover:brightness-125 duration-300 w-full">{country}</h1>
-                                                                        {notLastItem === true && (
-                                                                            <hr className="h-[1.5px] bg-gray1 border-0 dark:bg-gray1 mt-1.5"/>
-                                                                        )}
-                                                                    </button>
-                                                                )
-                                                            })}
-                                                        </div>
-                                                    </OutsideAlerter>
-                                                </PopUpWrapper>
+                                {displayCaptchaRequest ? (
+                                    <div className=" w-[600px] flex flex-col items-center justify-center border border-gray1 rounded-xl bg-gray3 p-10 mb-20">
+                                        <h1 className="text-2xl font-semibold text-white mb-8">Please verify that you're human!</h1>
+                                        <ReCAPTCHA
+                                        sitekey={RECAPTCHA_SITE_KEY}
+                                        onChange={handleRecaptchaSuccess}
+                                        />
+                                        {error !== null &&(
+                                            <div className="flex flex-col items-center">
+                                                <h1 className="text-md py-4 font-poppins text-salmon w-[500px] text-center">*{error}</h1>
+                                                <button onClick={()=>setDisplayCaptchaRequest(false)} className="underline text-gray-300">Go Back</button>
                                             </div>
-                                            
-                                        </div>
-
+                                        )}
                                     </div>
-                                    
-                                    {howTheyFoundUsError !== null &&(
-                                        <h1 className="text-md font-poppins text-salmon w-full text-left">*{howTheyFoundUsError}</h1>
-                                    )}
-                                    <div className="w-full flex items-center mb-6">
-                                        <h1 className="text-white font-[500] text-lg">How did you find us?</h1>   
-                                        <div className="flex flex-grow justify-end">
-                                            <div className="w-[200px]">
-                                                <button type="button" onClick={() => toggleHowTheyFoundUsPopUp()} ref={howTheyFoundUsRef} className="w-[200px] bg-gray2 h-10 rounded-lg text-lg flex items-center text-white text-left pl-2 pr-1 border border-gray1 hover:border-gray0 duration-300">
-                                                    {getShortenedString(userInfo.howTheyFoundUs, 15)}
-                                                    <div className="flex flex-grow justify-end items-center">
-                                                        {howTheyFoundUsPopUpOn ? (
-                                                            <img src={caretDown} className="w-3 h-3 rotate-180 duration-100 mr-2"></img>
-                                                            ) : (
-                                                            <img src={caretDown} className="w-3 h-3 rotate-0 duration-100 mr-2"></img>
-                                                        )}
-                                                    </div>
-                                                    
-                                                </button>
-                                                <PopUpWrapper popUpOn={howTheyFoundUsPopUpOn}>
-                                                    <OutsideAlerter handleClick={()=>toggleHowTheyFoundUsPopUp()}>
-                                                        <div className="w-[200px] max-h-[200px] overflow-scroll overflow-x-clip px-1 bg-gray1 blur-background-medium bg-opacity-25 absolute mt-2 rounded-lg border border-gray1 hover:border-gray0 duration-300 py-2">
-                                                            {howDidYouFindUsList.map((selection, id) => {
-                                                                const notLastItem = id + 1 !== howDidYouFindUsList.length
-                                                                return (
-                                                                    <button type="button" onClick={()=>selectHowTheyFoundUs(selection)} className="w-full ">
-                                                                        <h1 className="text-sm text-white px-1 py-1 text-left hover:bg-gray2 rounded-lg hover:brightness-125 duration-300 w-full">{selection}</h1>
-                                                                        {notLastItem === true && (
-                                                                            <hr className="h-[1.5px] bg-gray1 border-0 dark:bg-gray1 mt-1.5"/>
-                                                                        )}
-                                                                    </button>
-                                                                )
-                                                            })}
-                                                        </div>
-                                                    </OutsideAlerter>
-                                                </PopUpWrapper>
+                                ):(
+                                    <form onSubmit={onSubmit} className="w-[800px] flex flex-col items-center border border-gray1 rounded-xl bg-gray3 p-6 mb-20">
+                                        {emailError !== null &&(
+                                            <h1 className="text-md font-poppins text-salmon w-full text-left">*{emailError}</h1>
+                                        )}
+                                        <div className="flex items-center w-full mb-6">
+                                            <h1 className="text-lg font-[500] text-white">What's your email?</h1>
+                                            <div className="flex flex-grow justify-end">
+                                                <input value={userInfo.email} onChange={handleChange} name="email" type="text" className="w-[300px] h-12 border-gray1 border hover:border-gray0 duration-300 rounded-lg text-lg bg-gray2 pl-4 focus:ring-1 text-white focus:ring-gray0 focus:outline-none placeholder:text-gray-400" placeholder="Email address"></input>
                                             </div>
-                                            
                                         </div>
-
-                                    </div>
                                         
-                                    {favoriteCollectiblesError !== null &&(
-                                        <h1 className="text-md font-poppins text-salmon w-full text-left">*{favoriteCollectiblesError}</h1>
-                                    )}
-                                    <div className="w-full flex flex-col mb-6">
-                                        <h1 className="text-lg text-white font-[500] mb-4">What do you enjoy collecting?</h1>
-                                        <div className="w-full">
-                                        <button onClick={()=>toggleFavoriteCollectible("pokemonCards")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
-                                                <h1 className=" text-gray-300 font-light">Pokemon Cards</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["pokemonCards"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
+                                        {locationError !== null &&(
+                                            <h1 className="text-md font-poppins text-salmon w-full text-left">*{locationError}</h1>
+                                        )}
+                                        <div className="w-full flex items-center mb-6">
+                                            <h1 className="text-white font-[500] text-lg">Where are you from?</h1>   
+                                            <div className="flex flex-grow justify-end">
+                                                <div className="w-[200px]">
+                                                    <button type="button" onClick={() => toggleLocationPopUp()} ref={locationRef} className="w-[200px] bg-gray2 h-10 rounded-lg text-lg flex items-center text-white text-left pl-2 pr-1 border border-gray1 hover:border-gray0 duration-300">
+                                                        {getShortenedString(userInfo.location, 15)}
+                                                        <div className="flex flex-grow justify-end items-center">
+                                                            {locationPopUpOn ? (
+                                                                <img src={caretDown} className="w-3 h-3 rotate-180 duration-100 mr-2"></img>
+                                                                ) : (
+                                                                <img src={caretDown} className="w-3 h-3 rotate-0 duration-100 mr-2"></img>
+                                                            )}
+                                                        </div>
+                                                        
+                                                    </button>
+                                                    <PopUpWrapper popUpOn={locationPopUpOn}>
+                                                        <OutsideAlerter handleClick={()=>toggleLocationPopUp()}>
+                                                            <div className="w-[200px] max-h-[200px] overflow-scroll overflow-x-clip px-1 z-20 bg-gray1 blur-background-medium bg-opacity-25 absolute mt-2 rounded-lg border border-gray1 hover:border-gray0 duration-300 py-2">
+                                                                {countryList.map((country, id) => {
+                                                                    const notLastItem = id + 1 !== countryList.length
+                                                                    return (
+                                                                        <button type="button" onClick={()=>selectLocation(country)} className="w-full ">
+                                                                            <h1 className="text-sm text-white px-1 py-1 text-left hover:bg-gray2 rounded-lg hover:brightness-125 duration-300 w-full">{country}</h1>
+                                                                            {notLastItem === true && (
+                                                                                <hr className="h-[1.5px] bg-gray1 border-0 dark:bg-gray1 mt-1.5"/>
+                                                                            )}
+                                                                        </button>
+                                                                    )
+                                                                })}
+                                                            </div>
+                                                        </OutsideAlerter>
+                                                    </PopUpWrapper>
                                                 </div>
-                                            </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("sportsTradingCards")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
-                                                <h1 className=" text-gray-300 font-light">Sports Trading Cards</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["sportsTradingCards"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
-                                                </div>
-                                            </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("comics")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
-                                                <h1 className=" text-gray-300 font-light">Comics</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["comics"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
-                                                </div>
-                                            </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("coins")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
-                                                <h1 className=" text-gray-300 font-light">Coins</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["coins"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
-                                                </div>
-                                            </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("sneakers")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
-                                                <h1 className=" text-gray-300 font-light">Sneakers</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["sneakers"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
-                                                </div>
-                                            </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("other")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
-                                                <h1 className=" text-gray-300 font-light">Other</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["other"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
-                                                </div>
-                                            </button>
-                                            
+                                                
+                                            </div>
+
                                         </div>
-                                    </div>
-                                    <div className="w-full flex items-center justify-center">
-                                        <h1 className="text-sm font-light text-gray-300 mb-4">By signing up, you are agreeing to our <Link target="_blank" to="/termsOfService" className="underline">Terms of Service</Link> and <Link target="_blank" to="/privacyPolicy" className="underline">Privacy Policy</Link></h1> 
-                                    </div>
-                                    {error !== null &&(
-                                        <h1 className="text-md pb-3 font-poppins text-salmon w-[500px] text-center">*{error}</h1>
-                                    )}
-                                    {loading === true ? (
-                                        <button type="submit" className="w-[300px] h-12 bg-gradient-to-br from-salmon to-mango brightness-125 rounded-lg flex items-center justify-center"><ClipLoader size={20} color={"#ffffff"} /></button>
-                                    ) : (
-                                        <button type="submit" className="w-[300px] h-12 bg-gradient-to-br from-phyniteBlue to-phyniteBlue hover:brightness-125  duration-300 rounded-lg font-poppins text-gray1 text-lg font-semibold hover:from-salmon hover:to-mango">Sign Up</button>
-                                    )}
-                                </form>
-                                
+                                        
+                                        {howTheyFoundUsError !== null &&(
+                                            <h1 className="text-md font-poppins text-salmon w-full text-left">*{howTheyFoundUsError}</h1>
+                                        )}
+                                        <div className="w-full flex items-center mb-6">
+                                            <h1 className="text-white font-[500] text-lg">How did you find us?</h1>   
+                                            <div className="flex flex-grow justify-end">
+                                                <div className="w-[200px]">
+                                                    <button type="button" onClick={() => toggleHowTheyFoundUsPopUp()} ref={howTheyFoundUsRef} className="w-[200px] bg-gray2 h-10 rounded-lg text-lg flex items-center text-white text-left pl-2 pr-1 border border-gray1 hover:border-gray0 duration-300">
+                                                        {getShortenedString(userInfo.howTheyFoundUs, 15)}
+                                                        <div className="flex flex-grow justify-end items-center">
+                                                            {howTheyFoundUsPopUpOn ? (
+                                                                <img src={caretDown} className="w-3 h-3 rotate-180 duration-100 mr-2"></img>
+                                                                ) : (
+                                                                <img src={caretDown} className="w-3 h-3 rotate-0 duration-100 mr-2"></img>
+                                                            )}
+                                                        </div>
+                                                        
+                                                    </button>
+                                                    <PopUpWrapper popUpOn={howTheyFoundUsPopUpOn}>
+                                                        <OutsideAlerter handleClick={()=>toggleHowTheyFoundUsPopUp()}>
+                                                            <div className="w-[200px] max-h-[200px] overflow-scroll overflow-x-clip px-1 bg-gray1 blur-background-medium bg-opacity-25 absolute mt-2 rounded-lg border border-gray1 hover:border-gray0 duration-300 py-2">
+                                                                {howDidYouFindUsList.map((selection, id) => {
+                                                                    const notLastItem = id + 1 !== howDidYouFindUsList.length
+                                                                    return (
+                                                                        <button type="button" onClick={()=>selectHowTheyFoundUs(selection)} className="w-full ">
+                                                                            <h1 className="text-sm text-white px-1 py-1 text-left hover:bg-gray2 rounded-lg hover:brightness-125 duration-300 w-full">{selection}</h1>
+                                                                            {notLastItem === true && (
+                                                                                <hr className="h-[1.5px] bg-gray1 border-0 dark:bg-gray1 mt-1.5"/>
+                                                                            )}
+                                                                        </button>
+                                                                    )
+                                                                })}
+                                                            </div>
+                                                        </OutsideAlerter>
+                                                    </PopUpWrapper>
+                                                </div>
+                                                
+                                            </div>
+
+                                        </div>
+                                            
+                                        {favoriteCollectiblesError !== null &&(
+                                            <h1 className="text-md font-poppins text-salmon w-full text-left">*{favoriteCollectiblesError}</h1>
+                                        )}
+                                        <div className="w-full flex flex-col mb-6">
+                                            <h1 className="text-lg text-white font-[500] mb-4">What do you enjoy collecting?</h1>
+                                            <div className="w-full">
+                                            <button onClick={()=>toggleFavoriteCollectible("pokemonCards")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
+                                                    <h1 className=" text-gray-300 font-light">Pokemon Cards</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["pokemonCards"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                                <button onClick={()=>toggleFavoriteCollectible("sportsTradingCards")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
+                                                    <h1 className=" text-gray-300 font-light">Sports Trading Cards</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["sportsTradingCards"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                                <button onClick={()=>toggleFavoriteCollectible("comics")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
+                                                    <h1 className=" text-gray-300 font-light">Comics</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["comics"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                                <button onClick={()=>toggleFavoriteCollectible("coins")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
+                                                    <h1 className=" text-gray-300 font-light">Coins</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["coins"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                                <button onClick={()=>toggleFavoriteCollectible("sneakers")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
+                                                    <h1 className=" text-gray-300 font-light">Sneakers</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["sneakers"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                                <button onClick={()=>toggleFavoriteCollectible("other")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
+                                                    <h1 className=" text-gray-300 font-light">Other</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["other"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                                
+                                            </div>
+                                        </div>
+                                        <div className="w-full flex items-center justify-center">
+                                            <h1 className="text-sm font-light text-gray-300 mb-4">By signing up, you are agreeing to our <Link target="_blank" to="/termsOfService" className="underline">Terms of Service</Link> and <Link target="_blank" to="/privacyPolicy" className="underline">Privacy Policy</Link></h1> 
+                                        </div>
+                                        {error !== null &&(
+                                            <h1 className="text-md pb-3 font-poppins text-salmon w-[500px] text-center">*{error}</h1>
+                                        )}
+                                        {loading === true ? (
+                                            <button type="submit" className="w-[300px] h-12 bg-gradient-to-br from-salmon to-mango brightness-125 rounded-lg flex items-center justify-center"><ClipLoader size={20} color={"#ffffff"} /></button>
+                                        ) : (
+                                            <button type="submit" className="w-[300px] h-12 bg-gradient-to-br from-phyniteBlue to-phyniteBlue hover:brightness-125  duration-300 rounded-lg font-poppins text-gray1 text-lg font-semibold hover:from-salmon hover:to-mango">Sign Up</button>
+                                        )}
+                                    </form>
+                                )}
                             </div>
                         )}
                     </div>
@@ -871,7 +929,7 @@ export default function GetStarted(props) {
                                 <h2 className="font-[500] text-2xl text-white text-center mb-5">Thank you for being one of our earliest supporters!</h2>
                                 <h2 className="text-xl text-gray-400 text-center mb-6">Phynite will be built before you know it.</h2>
                                 <div className="flex justify-center">
-                                    <button onClick={()=>setSubmitted(false)} className=" underline text-gray0 text-center">Add another email</button>
+                                    <button onClick={()=>addAnotherEmail()} className=" underline text-gray0 text-center">Add another email</button>
                                 </div>
                             </div>   
                         ) : (
@@ -886,6 +944,12 @@ export default function GetStarted(props) {
                                         sitekey={RECAPTCHA_SITE_KEY}
                                         onChange={handleRecaptchaSuccess}
                                         />
+                                        {error !== null &&(
+                                            <div className="flex flex-col items-center">
+                                                <h1 className="text-md py-4 font-poppins text-salmon w-[500px] text-center">*{error}</h1>
+                                                <button onClick={()=>setDisplayCaptchaRequest(false)} className="underline text-gray-300">Go Back</button>
+                                            </div>
+                                        )}
                                     </div>
                                 ):(
                                     <form onSubmit={onSubmit} className="w-[850px] flex flex-col items-center border border-gray1 rounded-xl bg-gray3 p-6 mb-20">
@@ -1062,7 +1126,7 @@ export default function GetStarted(props) {
                                             <h1 className="text-md pb-3 font-poppins text-salmon w-[500px] text-center">*{error}</h1>
                                         )}
                                         {loading === true ? (
-                                            <button type="submit" className="w-[300px] h-12 bg-gradient-to-br from-salmon to-mango brightness-125 rounded-lg flex items-center justify-center"><ClipLoader size={20} color={"#ffffff"} /></button>
+                                            <button type="button" className="w-[300px] h-12 bg-gradient-to-br from-salmon to-mango brightness-125 rounded-lg flex items-center justify-center"><ClipLoader size={20} color={"#ffffff"} /></button>
                                         ) : (
                                             <button type="submit" className="w-[300px] h-12 bg-gradient-to-br from-phyniteBlue to-phyniteBlue hover:brightness-125  duration-300 rounded-lg font-poppins text-gray1 text-lg font-semibold hover:from-salmon hover:to-mango">Sign Up</button>
                                         )}
