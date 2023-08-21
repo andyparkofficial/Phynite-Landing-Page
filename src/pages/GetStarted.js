@@ -12,6 +12,8 @@ import checkedCheckboxIcon from "../assets/checked-checkbox-icon.png"
 import uncheckedCheckboxIcon from "../assets/unchecked-checkbox-icon.png"
 import useWindowSize from "../hooks/useWindowSize.js"
 import {Link} from "react-router-dom"
+import { RECAPTCHA_SITE_KEY } from "../constants.js"
+import ReCAPTCHA from "react-google-recaptcha"
 
 export default function GetStarted(props) {
     
@@ -39,6 +41,7 @@ export default function GetStarted(props) {
     const [numberOfEmailsSubmitted, setNumberOfEmailsSubmitted] = useState({ emailCount: 0, emailSubmissionTime: null })
     const [locationPopUpOn, setLocationPopUpOn] = useState(false)
     const [howTheyFoundUsPopUpOn, setHowTheyFoundUsPopUpOn] = useState(false)
+    const [displayCaptchaRequest, setDisplayCaptchaRequest] = useState(false)
 
 
     const locationRef = useRef(null)
@@ -130,7 +133,7 @@ export default function GetStarted(props) {
         return regex.test(email);
     };
     
-    async function saveUserInfo()
+    async function saveUserInfo(captchaToken)
     {
         const signUpInfo = {
             email: userInfo.email,
@@ -166,7 +169,7 @@ export default function GetStarted(props) {
     }
 
   // The following function runs when the submit button is pressed
-    async function onSubmit(event) {
+    function onSubmit(event) {
         event.preventDefault();
         try {
             let errorExists = false
@@ -200,7 +203,7 @@ export default function GetStarted(props) {
             
             if (errorExists === false) {
                 setLoading(true)
-                setTimeout(() => saveUserInfo(), 300)
+                setDisplayCaptchaRequest(true)
                 setError(null)
             } else if (numberOfEmailsSubmitted.emailCount >= 3) {
                 setError("You have already submitted 3 emails, come back tomorrow!")
@@ -241,6 +244,13 @@ export default function GetStarted(props) {
     function enableHowTheyFoundUsButton() {
         howTheyFoundUsRef.current.disabled = false;
     }
+
+    function handleRecaptchaSuccess(token) {
+        // This function will be called when reCAPTCHA validation succeeds
+        console.log('reCAPTCHA Token:', token);
+        saveUserInfo(token)
+        // You can send this token to your backend for verification
+      };
     
     return (
         <div>
@@ -868,185 +878,197 @@ export default function GetStarted(props) {
                             <div className="flex flex-col items-center ">
                                 <h1 className="gradient-text-blue font-semibold text-5xl text-center leading-tight mb-6">The Phynite Marketplace<br />is Coming Soon</h1>
                                 <h2 className="font-light text-lg text-white text-center mb-12">Be one of the first 10,000 to join our waitlist and become eligible for exclusive promotions.</h2>
-                                <form onSubmit={onSubmit} className="w-[850px] flex flex-col items-center border border-gray1 rounded-xl bg-gray3 p-6 mb-20">
-                                    {emailError !== null &&(
-                                        <h1 className="text-md font-poppins text-salmon w-full text-left">*{emailError}</h1>
-                                    )}
-                                    <div className="flex items-center w-full mb-6">
-                                        <h1 className="text-lg font-[500] text-white">What's your email?</h1>
-                                        <div className="flex flex-grow justify-end">
-                                            <input value={userInfo.email} onChange={handleChange} name="email" type="text" className="w-[300px] h-12 border-gray1 border hover:border-gray0 duration-300 rounded-lg text-lg bg-gray2 pl-4 focus:ring-1 text-white focus:ring-gray0 focus:outline-none placeholder:text-gray-400" placeholder="Email address"></input>
-                                        </div>
+                                
+                                {displayCaptchaRequest ? (
+                                    <div className=" w-[600px] flex flex-col items-center justify-center border border-gray1 rounded-xl bg-gray3 p-10 mb-20">
+                                        <h1 className="text-2xl font-semibold text-white mb-8">Please verify that you're human!</h1>
+                                        <ReCAPTCHA
+                                        sitekey={RECAPTCHA_SITE_KEY}
+                                        onChange={handleRecaptchaSuccess}
+                                        />
                                     </div>
-                                    
-                                    {locationError !== null &&(
-                                        <h1 className="text-md font-poppins text-salmon w-full text-left">*{locationError}</h1>
-                                    )}
-                                    <div className="w-full flex items-center mb-6">
-                                        <h1 className="text-white font-[500] text-lg">Where are you from?</h1>   
-                                        <div className="flex flex-grow justify-end">
-                                            <div className="w-[200px]">
-                                                <button type="button" onClick={() => toggleLocationPopUp()} ref={locationRef} className="w-[200px] bg-gray2 h-10 rounded-lg text-lg flex items-center text-white text-left pl-2 pr-1 border border-gray1 hover:border-gray0 duration-300">
-                                                    {getShortenedString(userInfo.location, 15)}
-                                                    <div className="flex flex-grow justify-end items-center">
-                                                        {locationPopUpOn ? (
-                                                            <img src={caretDown} className="w-3 h-3 rotate-180 duration-100 mr-2"></img>
-                                                            ) : (
-                                                            <img src={caretDown} className="w-3 h-3 rotate-0 duration-100 mr-2"></img>
-                                                        )}
-                                                    </div>
-                                                    
-                                                </button>
-                                                <PopUpWrapper popUpOn={locationPopUpOn}>
-                                                    <OutsideAlerter handleClick={()=>toggleLocationPopUp()}>
-                                                        <div className="w-[200px] max-h-[200px] overflow-scroll overflow-x-clip px-1 z-20 bg-gray1 blur-background-medium bg-opacity-25 absolute mt-2 rounded-lg border border-gray1 hover:border-gray0 duration-300 py-2">
-                                                            {countryList.map((country, id) => {
-                                                                const notLastItem = id + 1 !== countryList.length
-                                                                return (
-                                                                    <button type="button" onClick={()=>selectLocation(country)} className="w-full ">
-                                                                        <h1 className="text-sm text-white px-1 py-1 text-left hover:bg-gray2 rounded-lg hover:brightness-125 duration-300 w-full">{country}</h1>
-                                                                        {notLastItem === true && (
-                                                                            <hr className="h-[1.5px] bg-gray1 border-0 dark:bg-gray1 mt-1.5"/>
-                                                                        )}
-                                                                    </button>
-                                                                )
-                                                            })}
-                                                        </div>
-                                                    </OutsideAlerter>
-                                                </PopUpWrapper>
+                                ):(
+                                    <form onSubmit={onSubmit} className="w-[850px] flex flex-col items-center border border-gray1 rounded-xl bg-gray3 p-6 mb-20">
+                                        {emailError !== null &&(
+                                            <h1 className="text-md font-poppins text-salmon w-full text-left">*{emailError}</h1>
+                                        )}
+                                        <div className="flex items-center w-full mb-6">
+                                            <h1 className="text-lg font-[500] text-white">What's your email?</h1>
+                                            <div className="flex flex-grow justify-end">
+                                                <input value={userInfo.email} onChange={handleChange} name="email" type="text" className="w-[300px] h-12 border-gray1 border hover:border-gray0 duration-300 rounded-lg text-lg bg-gray2 pl-4 focus:ring-1 text-white focus:ring-gray0 focus:outline-none placeholder:text-gray-400" placeholder="Email address"></input>
                                             </div>
-                                            
                                         </div>
-
-                                    </div>
-                                    
-                                    {howTheyFoundUsError !== null &&(
-                                        <h1 className="text-md font-poppins text-salmon w-full text-left">*{howTheyFoundUsError}</h1>
-                                    )}
-                                    <div className="w-full flex items-center mb-6">
-                                        <h1 className="text-white font-[500] text-lg">How did you find us?</h1>   
-                                        <div className="flex flex-grow justify-end">
-                                            <div className="w-[200px]">
-                                                <button type="button" onClick={() => toggleHowTheyFoundUsPopUp()} ref={howTheyFoundUsRef} className="w-[200px] bg-gray2 h-10 rounded-lg text-lg flex items-center text-white text-left pl-2 pr-1 border border-gray1 hover:border-gray0 duration-300">
-                                                    {getShortenedString(userInfo.howTheyFoundUs, 15)}
-                                                    <div className="flex flex-grow justify-end items-center">
-                                                        {howTheyFoundUsPopUpOn ? (
-                                                            <img src={caretDown} className="w-3 h-3 rotate-180 duration-100 mr-2"></img>
-                                                            ) : (
-                                                            <img src={caretDown} className="w-3 h-3 rotate-0 duration-100 mr-2"></img>
-                                                        )}
-                                                    </div>
-                                                    
-                                                </button>
-                                                <PopUpWrapper popUpOn={howTheyFoundUsPopUpOn}>
-                                                    <OutsideAlerter handleClick={()=>toggleHowTheyFoundUsPopUp()}>
-                                                        <div className="w-[200px] max-h-[200px] overflow-scroll overflow-x-clip px-1 bg-gray1 blur-background-medium bg-opacity-25 absolute mt-2 rounded-lg border border-gray1 hover:border-gray0 duration-300 py-2">
-                                                            {howDidYouFindUsList.map((selection, id) => {
-                                                                const notLastItem = id + 1 !== howDidYouFindUsList.length
-                                                                return (
-                                                                    <button type="button" onClick={()=>selectHowTheyFoundUs(selection)} className="w-full ">
-                                                                        <h1 className="text-sm text-white px-1 py-1 text-left hover:bg-gray2 rounded-lg hover:brightness-125 duration-300 w-full">{selection}</h1>
-                                                                        {notLastItem === true && (
-                                                                            <hr className="h-[1.5px] bg-gray1 border-0 dark:bg-gray1 mt-1.5"/>
-                                                                        )}
-                                                                    </button>
-                                                                )
-                                                            })}
-                                                        </div>
-                                                    </OutsideAlerter>
-                                                </PopUpWrapper>
-                                            </div>
-                                            
-                                        </div>
-
-                                    </div>
                                         
-                                    {favoriteCollectiblesError !== null &&(
-                                        <h1 className="text-md font-poppins text-salmon w-full text-left">*{favoriteCollectiblesError}</h1>
-                                    )}
-                                    <div className="w-full flex flex-col mb-6">
-                                        <h1 className="text-lg text-white font-[500] mb-4">What do you enjoy collecting?</h1>
-                                        <div className="w-full">
-                                            <button onClick={()=>toggleFavoriteCollectible("pokemonCards")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
-                                                <h1 className=" text-gray-300 font-light">Pokemon Cards</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["pokemonCards"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
+                                        {locationError !== null &&(
+                                            <h1 className="text-md font-poppins text-salmon w-full text-left">*{locationError}</h1>
+                                        )}
+                                        <div className="w-full flex items-center mb-6">
+                                            <h1 className="text-white font-[500] text-lg">Where are you from?</h1>   
+                                            <div className="flex flex-grow justify-end">
+                                                <div className="w-[200px]">
+                                                    <button type="button" onClick={() => toggleLocationPopUp()} ref={locationRef} className="w-[200px] bg-gray2 h-10 rounded-lg text-lg flex items-center text-white text-left pl-2 pr-1 border border-gray1 hover:border-gray0 duration-300">
+                                                        {getShortenedString(userInfo.location, 15)}
+                                                        <div className="flex flex-grow justify-end items-center">
+                                                            {locationPopUpOn ? (
+                                                                <img src={caretDown} className="w-3 h-3 rotate-180 duration-100 mr-2"></img>
+                                                                ) : (
+                                                                <img src={caretDown} className="w-3 h-3 rotate-0 duration-100 mr-2"></img>
+                                                            )}
+                                                        </div>
+                                                        
+                                                    </button>
+                                                    <PopUpWrapper popUpOn={locationPopUpOn}>
+                                                        <OutsideAlerter handleClick={()=>toggleLocationPopUp()}>
+                                                            <div className="w-[200px] max-h-[200px] overflow-scroll overflow-x-clip px-1 z-20 bg-gray1 blur-background-medium bg-opacity-25 absolute mt-2 rounded-lg border border-gray1 hover:border-gray0 duration-300 py-2">
+                                                                {countryList.map((country, id) => {
+                                                                    const notLastItem = id + 1 !== countryList.length
+                                                                    return (
+                                                                        <button type="button" onClick={()=>selectLocation(country)} className="w-full ">
+                                                                            <h1 className="text-sm text-white px-1 py-1 text-left hover:bg-gray2 rounded-lg hover:brightness-125 duration-300 w-full">{country}</h1>
+                                                                            {notLastItem === true && (
+                                                                                <hr className="h-[1.5px] bg-gray1 border-0 dark:bg-gray1 mt-1.5"/>
+                                                                            )}
+                                                                        </button>
+                                                                    )
+                                                                })}
+                                                            </div>
+                                                        </OutsideAlerter>
+                                                    </PopUpWrapper>
                                                 </div>
-                                            </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("sportsTradingCards")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
-                                                <h1 className=" text-gray-300 font-light">Sports Trading Cards</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["sportsTradingCards"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
-                                                </div>
-                                            </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("comics")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
-                                                <h1 className=" text-gray-300 font-light">Comics</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["comics"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
-                                                </div>
-                                            </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("coins")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
-                                                <h1 className=" text-gray-300 font-light">Coins</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["coins"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
-                                                </div>
-                                            </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("sneakers")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
-                                                <h1 className=" text-gray-300 font-light">Sneakers</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["sneakers"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
-                                                </div>
-                                            </button>
-                                            <button onClick={()=>toggleFavoriteCollectible("other")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
-                                                <h1 className=" text-gray-300 font-light">Other</h1>
-                                                <div className="flex flex-grow justify-end">
-                                                    {userInfo.favoriteCollectibles["other"] ? (
-                                                        <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
-                                                    ):(
-                                                        <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
-                                                    )}
-                                                    
-                                                </div>
-                                            </button>
+                                                
+                                            </div>
+
                                         </div>
-                                    </div>
-                                    <div className="w-full flex items-center justify-center">
-                                        <h1 className="text-sm font-light text-gray-300 mb-4">By signing up, you are agreeing to our <Link target="_blank" to="/termsOfService" className="underline">Terms of Service</Link> and <Link target="_blank" to="/privacyPolicy" className="underline">Privacy Policy</Link></h1> 
-                                    </div>
-                                    {error !== null &&(
-                                        <h1 className="text-md pb-3 font-poppins text-salmon w-[500px] text-center">*{error}</h1>
-                                    )}
-                                    {loading === true ? (
-                                        <button type="submit" className="w-[300px] h-12 bg-gradient-to-br from-salmon to-mango brightness-125 rounded-lg flex items-center justify-center"><ClipLoader size={20} color={"#ffffff"} /></button>
-                                    ) : (
-                                        <button type="submit" className="w-[300px] h-12 bg-gradient-to-br from-phyniteBlue to-phyniteBlue hover:brightness-125  duration-300 rounded-lg font-poppins text-gray1 text-lg font-semibold hover:from-salmon hover:to-mango">Sign Up</button>
-                                    )}
-                                </form>
+                                        
+                                        {howTheyFoundUsError !== null &&(
+                                            <h1 className="text-md font-poppins text-salmon w-full text-left">*{howTheyFoundUsError}</h1>
+                                        )}
+                                        <div className="w-full flex items-center mb-6">
+                                            <h1 className="text-white font-[500] text-lg">How did you find us?</h1>   
+                                            <div className="flex flex-grow justify-end">
+                                                <div className="w-[200px]">
+                                                    <button type="button" onClick={() => toggleHowTheyFoundUsPopUp()} ref={howTheyFoundUsRef} className="w-[200px] bg-gray2 h-10 rounded-lg text-lg flex items-center text-white text-left pl-2 pr-1 border border-gray1 hover:border-gray0 duration-300">
+                                                        {getShortenedString(userInfo.howTheyFoundUs, 15)}
+                                                        <div className="flex flex-grow justify-end items-center">
+                                                            {howTheyFoundUsPopUpOn ? (
+                                                                <img src={caretDown} className="w-3 h-3 rotate-180 duration-100 mr-2"></img>
+                                                                ) : (
+                                                                <img src={caretDown} className="w-3 h-3 rotate-0 duration-100 mr-2"></img>
+                                                            )}
+                                                        </div>
+                                                        
+                                                    </button>
+                                                    <PopUpWrapper popUpOn={howTheyFoundUsPopUpOn}>
+                                                        <OutsideAlerter handleClick={()=>toggleHowTheyFoundUsPopUp()}>
+                                                            <div className="w-[200px] max-h-[200px] overflow-scroll overflow-x-clip px-1 bg-gray1 blur-background-medium bg-opacity-25 absolute mt-2 rounded-lg border border-gray1 hover:border-gray0 duration-300 py-2">
+                                                                {howDidYouFindUsList.map((selection, id) => {
+                                                                    const notLastItem = id + 1 !== howDidYouFindUsList.length
+                                                                    return (
+                                                                        <button type="button" onClick={()=>selectHowTheyFoundUs(selection)} className="w-full ">
+                                                                            <h1 className="text-sm text-white px-1 py-1 text-left hover:bg-gray2 rounded-lg hover:brightness-125 duration-300 w-full">{selection}</h1>
+                                                                            {notLastItem === true && (
+                                                                                <hr className="h-[1.5px] bg-gray1 border-0 dark:bg-gray1 mt-1.5"/>
+                                                                            )}
+                                                                        </button>
+                                                                    )
+                                                                })}
+                                                            </div>
+                                                        </OutsideAlerter>
+                                                    </PopUpWrapper>
+                                                </div>
+                                                
+                                            </div>
+
+                                        </div>
+                                            
+                                        {favoriteCollectiblesError !== null &&(
+                                            <h1 className="text-md font-poppins text-salmon w-full text-left">*{favoriteCollectiblesError}</h1>
+                                        )}
+                                        <div className="w-full flex flex-col mb-6">
+                                            <h1 className="text-lg text-white font-[500] mb-4">What do you enjoy collecting?</h1>
+                                            <div className="w-full">
+                                                <button onClick={()=>toggleFavoriteCollectible("pokemonCards")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
+                                                    <h1 className=" text-gray-300 font-light">Pokemon Cards</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["pokemonCards"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                                <button onClick={()=>toggleFavoriteCollectible("sportsTradingCards")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
+                                                    <h1 className=" text-gray-300 font-light">Sports Trading Cards</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["sportsTradingCards"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                                <button onClick={()=>toggleFavoriteCollectible("comics")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
+                                                    <h1 className=" text-gray-300 font-light">Comics</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["comics"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                                <button onClick={()=>toggleFavoriteCollectible("coins")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
+                                                    <h1 className=" text-gray-300 font-light">Coins</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["coins"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                                <button onClick={()=>toggleFavoriteCollectible("sneakers")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
+                                                    <h1 className=" text-gray-300 font-light">Sneakers</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["sneakers"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                                <button onClick={()=>toggleFavoriteCollectible("other")} type="button" className="w-full px-2 flex items-center rounded-lg hover:bg-gray2 duration-200 py-2">
+                                                    <h1 className=" text-gray-300 font-light">Other</h1>
+                                                    <div className="flex flex-grow justify-end">
+                                                        {userInfo.favoriteCollectibles["other"] ? (
+                                                            <img src={checkedCheckboxIcon} className="w-4 h-4"></img>
+                                                        ):(
+                                                            <img src={uncheckedCheckboxIcon} className="w-4 h-4"></img>
+                                                        )}
+                                                        
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div className="w-full flex items-center justify-center">
+                                            <h1 className="text-sm font-light text-gray-300 mb-4">By signing up, you are agreeing to our <Link target="_blank" to="/termsOfService" className="underline">Terms of Service</Link> and <Link target="_blank" to="/privacyPolicy" className="underline">Privacy Policy</Link></h1> 
+                                        </div>
+                                        {error !== null &&(
+                                            <h1 className="text-md pb-3 font-poppins text-salmon w-[500px] text-center">*{error}</h1>
+                                        )}
+                                        {loading === true ? (
+                                            <button type="submit" className="w-[300px] h-12 bg-gradient-to-br from-salmon to-mango brightness-125 rounded-lg flex items-center justify-center"><ClipLoader size={20} color={"#ffffff"} /></button>
+                                        ) : (
+                                            <button type="submit" className="w-[300px] h-12 bg-gradient-to-br from-phyniteBlue to-phyniteBlue hover:brightness-125  duration-300 rounded-lg font-poppins text-gray1 text-lg font-semibold hover:from-salmon hover:to-mango">Sign Up</button>
+                                        )}
+                                    </form>
+                                )}
+                                
                                 
                             </div>
                         )}
@@ -1056,7 +1078,7 @@ export default function GetStarted(props) {
                     
                 </div>
             )}
-
+            
             <Footer />
         </div>
     )
