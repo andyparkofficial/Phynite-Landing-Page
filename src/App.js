@@ -10,6 +10,7 @@ import useWindowSize from "./hooks/useWindowSize.js";
 import { useEffect, useState } from "react"
 import TermsOfService from "./pages/TermsOfService.js";
 import PrivacyPolicy from "./pages/PrivacyPolicy.js";
+import PowerPack from "./pages/PowerPack.js"
 
 function App() {
 
@@ -74,6 +75,11 @@ function App() {
           </Route>
           <Route path="/privacyPolicy">
             <PrivacyPolicy
+              displayType={displayType}
+            />
+          </Route>
+          <Route path="/powerPack">
+            <PowerPack
               displayType={displayType}
             />
           </Route>

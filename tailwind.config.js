@@ -31,7 +31,8 @@ module.exports = {
     extend: {
       fontFamily: {
         poppins: ["Poppins"],
-        montserrat: ["Montserrat"]
+        montserrat: ["Montserrat"],
+        orbitron: ["Orbitron"]
       },
     },
   },

@@ -195,14 +195,12 @@ function Navbar(props) {
                                 Protocol
                                 </li>
                             </a>
-                            <Link to={"/getStarted"}>
-                                <li
-                                className={`pt-2 pb-[6px] mx-1 px-4 border bg-gradient-to-br from-[rgb(10,10,13,0.6)] to-[rgb(107,114,128,0.4)] hover:to-[rgb(10,10,13,0.6)] hover:from-[rgb(107,114,128,0.4)] border-gray1 rounded-xl cursor-pointer transition ease-in-out duration-400 hover:brightness-125 hover:text-phyniteBlue overflow-hidden ${
-                                    isClicked[4] ? "text-phyniteBlue" : "text-white"
-                                }`}
+                            <Link to="/powerPack">
+                                <div
+                                className={`rounded-lg ml-3 flex items-center justify-center h-8 hover:shadow-lg text-[15px] shadow-md duration-200 hover:brightness-125 hover:text-phyniteBlue w-[170px] tracking-wide font-orbitron font-extrabold bg-gradient-to-r to-[#737373] from-gray-400 hover:from-[#737373] hover:to-gray-400 border border-gray-400 ${isClicked[4] ? "text-phyniteBlue" : "text-black"} ${isClicked[4] && "to-[#737373] from-gray-400"}`}
                                 >
-                                Get Started
-                                </li>
+                                POWER PACK
+                                </div>
                             </Link>
         
                             </ul>
